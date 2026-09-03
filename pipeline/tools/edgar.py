@@ -19,7 +19,10 @@ import urllib.request
 from dataclasses import dataclass, field
 from pathlib import Path
 
-USER_AGENT = os.environ.get("SEC_USER_AGENT", "ai-ecosystem-explorer research asinugobi@gmail.com")
+# SEC fair-access requires a real contact address in the User-Agent. Set
+# SEC_USER_AGENT rather than hardcoding one — a personal address committed to
+# a public repo gets scraped. Requests without a contact may be throttled.
+USER_AGENT = os.environ.get("SEC_USER_AGENT", "ai-ecosystem-explorer research (set SEC_USER_AGENT)")
 CACHE = Path(__file__).resolve().parents[1] / ".cache" / "edgar"
 _LAST_CALL = [0.0]
 MIN_INTERVAL = 0.12  # ~8 req/s, under SEC's 10/s ceiling

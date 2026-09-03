@@ -33,6 +33,12 @@ node scripts/verify_layout.mjs      # headless geometry check
 node scripts/check_components.mjs   # undefined JSX component references
 ```
 
+Set your SEC contact address first — EDGAR's fair-access policy requires one, and requests without it may be throttled:
+
+```bash
+cp .env.example .env && export SEC_USER_AGENT="ai-ecosystem-explorer you@example.com"
+```
+
 The Python pipeline needs 3.10+ (the Agent SDK requires it):
 
 ```bash
