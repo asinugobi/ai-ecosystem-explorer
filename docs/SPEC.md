@@ -73,3 +73,20 @@ Reversible: it is one ordered array in `taxonomy.json`.
 ## Open risk
 
 Assistant knowledge cutoff is May 2026; today is 2026-09-03. Figures for quarters reported Jun–Aug 2026 require live lookup. Any figure that cannot be verified against a real source ships with `confidence: "low"` and a visible flag rather than a confident-looking guess.
+
+## Analyst lens (added 2026-09-03)
+
+The user's goal is to become an expert AI-industry equity research analyst. The map is a research instrument, not an infographic. Three consequences:
+
+**Segments are comp sets.** The 24 segments are the peer groups you would actually screen within. Containers therefore surface aggregates — median EV/S, revenue-weighted margin, segment revenue growth — so the heatmap reads as a comp table rather than decoration.
+
+**Valuation is a required lens.** Revenue and margin alone cannot separate an expensive good business from a cheap one. Nodes carry `valuation` (market cap, EV, EV/S, EV/EBITDA, forward P/E, last private round) and `revenue_growth_yoy_pct`. Market data is point-in-time and stales within a day, so `valuation.as_of` is separate from the fundamentals `period` and refreshes on its own cadence.
+
+**Read-across is the killer feature.** The analyst question a Sankey cannot answer is *"TSMC guided capex up 20% — who else moves?"* Traversing typed edges answers it. `analyst.read_across` names the tickers that move on a given print and why; links carry `pct_of_source_revenue` and `pct_of_target_cogs` so exposure has magnitude, not just existence.
+
+The intelligence panel is written as a research note — P&L drivers, the key debate, bull/bear, what to watch next quarter — because that is the format you learn a name from.
+
+### Schema notes
+
+- `links.source` / `links.target` are D3 edge endpoints and cannot be renamed. Relationship provenance therefore lives on `links.citation`. An earlier draft defined `source` twice; `json.load` silently kept the last, destroying the endpoint. `scripts/check_schema.py` fails the build on duplicate keys.
+- D3's force simulation **mutates** `link.source` from a string id into a node object reference. Never serialize a settled graph back to disk without re-normalizing.

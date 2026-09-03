@@ -6,24 +6,105 @@
   "type": "array",
   "items": {
     "type": "object",
-    "required": ["id", "source", "target", "type", "description"],
+    "required": [
+      "id",
+      "source",
+      "target",
+      "type",
+      "description"
+    ],
     "additionalProperties": false,
     "properties": {
-      "id":     { "type": "string", "pattern": "^[a-z0-9][a-z0-9_-]*$" },
-      "source": { "type": "string", "description": "Node id. Direction is source -> target, read as 'source provides/commits to target'." },
-      "target": { "type": "string", "description": "Node id." },
+      "id": {
+        "type": "string",
+        "pattern": "^[a-z0-9][a-z0-9_-]*$"
+      },
+      "source": {
+        "type": "string",
+        "description": "Node id. Direction is source -> target, read as 'source provides/commits to target'. D3 mutates this into an object reference at runtime \u2014 never persist a settled graph."
+      },
+      "target": {
+        "type": "string",
+        "description": "Node id."
+      },
       "type": {
         "type": "string",
-        "enum": ["investment", "compute_contract", "supply", "foundry", "power_purchase", "equity_stake", "data_license", "partnership", "customer_concentration"]
+        "enum": [
+          "investment",
+          "compute_contract",
+          "supply",
+          "foundry",
+          "power_purchase",
+          "equity_stake",
+          "data_license",
+          "partnership",
+          "customer_concentration"
+        ]
       },
-      "value_usd_m":  { "type": ["number", "null"], "description": "Disclosed deal value in USD millions. Null when undisclosed — link renders dashed." },
-      "announced":    { "type": ["string", "null"], "format": "date" },
-      "term":         { "type": ["string", "null"], "description": "e.g. '5 years', 'multi-year', 'through 2030'." },
-      "description":  { "type": "string", "minLength": 20 },
-      "is_estimate":  { "type": "boolean", "default": false },
-      "source":       { "$ref": "https://github.com/asinugobi/ai-ecosystem-explorer/data/schema/nodes.schema.json#/$defs/citation" },
-      "updated_at":   { "type": "string", "format": "date" },
-      "updated_by":   { "type": "string", "enum": ["seed", "agent_pipeline", "manual"], "default": "seed" }
+      "value_usd_m": {
+        "type": [
+          "number",
+          "null"
+        ],
+        "description": "Disclosed deal value in USD millions. Null when undisclosed \u2014 link renders dashed."
+      },
+      "announced": {
+        "type": [
+          "string",
+          "null"
+        ],
+        "format": "date"
+      },
+      "term": {
+        "type": [
+          "string",
+          "null"
+        ],
+        "description": "e.g. '5 years', 'multi-year', 'through 2030'."
+      },
+      "description": {
+        "type": "string",
+        "minLength": 20
+      },
+      "is_estimate": {
+        "type": "boolean",
+        "default": false
+      },
+      "updated_at": {
+        "type": "string",
+        "format": "date"
+      },
+      "updated_by": {
+        "type": "string",
+        "enum": [
+          "seed",
+          "agent_pipeline",
+          "manual"
+        ],
+        "default": "seed"
+      },
+      "pct_of_source_revenue": {
+        "type": [
+          "number",
+          "null"
+        ],
+        "description": "What share of SOURCE's revenue this relationship represents. Customer concentration risk. e.g. Microsoft was ~60%+ of CoreWeave revenue."
+      },
+      "pct_of_target_cogs": {
+        "type": [
+          "number",
+          "null"
+        ],
+        "description": "What share of TARGET's cost base this represents. Supplier dependency."
+      },
+      "exposure_note": {
+        "type": "string",
+        "description": "Read-across: what happens to each side if this relationship changes."
+      },
+      "citation": {
+        "$ref": "https://github.com/asinugobi/ai-ecosystem-explorer/data/schema/nodes.schema.json#/$defs/citation",
+        "description": "Provenance for the relationship. Renamed from 'source' because that key is taken by the D3 edge endpoint."
+      }
     }
   }
 }

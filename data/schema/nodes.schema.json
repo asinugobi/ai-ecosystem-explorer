@@ -3,87 +3,356 @@
   "$id": "https://github.com/asinugobi/ai-ecosystem-explorer/data/schema/nodes.schema.json",
   "title": "AI Ecosystem Node (company)",
   "type": "array",
-  "items": { "$ref": "#/$defs/node" },
+  "items": {
+    "$ref": "#/$defs/node"
+  },
   "$defs": {
     "citation": {
       "type": "object",
       "description": "Provenance for a single figure. Required whenever a value is present.",
-      "required": ["publisher", "url", "as_of"],
+      "required": [
+        "publisher",
+        "url",
+        "as_of"
+      ],
       "additionalProperties": false,
       "properties": {
-        "publisher": { "type": "string", "description": "e.g. 'NVIDIA Q2 FY2026 10-Q', 'The Information'" },
-        "title":     { "type": "string" },
-        "url":       { "type": "string", "format": "uri" },
-        "as_of":     { "type": "string", "format": "date", "description": "Date the figure was reported, not the date scraped." },
-        "quote":     { "type": "string", "maxLength": 300, "description": "Short supporting excerpt. Keep under 300 chars." }
+        "publisher": {
+          "type": "string",
+          "description": "e.g. 'NVIDIA Q2 FY2026 10-Q', 'The Information'"
+        },
+        "title": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "as_of": {
+          "type": "string",
+          "format": "date",
+          "description": "Date the figure was reported, not the date scraped."
+        },
+        "quote": {
+          "type": "string",
+          "maxLength": 300,
+          "description": "Short supporting excerpt. Keep under 300 chars."
+        }
       }
     },
     "metric": {
       "type": "object",
-      "description": "A single quantitative figure with full provenance. `basis` must state exactly what the number counts — this is what keeps estimates from laundering into facts.",
-      "required": ["value", "is_estimate", "basis"],
+      "description": "A single quantitative figure with full provenance. `basis` must state exactly what the number counts \u2014 this is what keeps estimates from laundering into facts.",
+      "required": [
+        "value",
+        "is_estimate",
+        "basis"
+      ],
       "additionalProperties": false,
       "properties": {
-        "value":       { "type": ["number", "null"] },
-        "unit":        { "type": "string", "enum": ["usd_millions", "percent"], "default": "usd_millions" },
-        "is_estimate": { "type": "boolean", "description": "TRUE unless the figure is a company-reported line item. Segment revenue that a company reports (e.g. NVDA Data Center) is NOT an estimate; anything analyst-derived IS." },
-        "basis":       { "type": "string", "minLength": 10, "description": "What the number actually counts and how it was derived. e.g. 'Reported Data Center segment revenue, Q2 FY2026, x4'." },
-        "confidence":  { "type": "string", "enum": ["high", "medium", "low"] },
-        "source":      { "$ref": "#/$defs/citation" }
+        "value": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "unit": {
+          "type": "string",
+          "enum": [
+            "usd_millions",
+            "percent"
+          ],
+          "default": "usd_millions"
+        },
+        "is_estimate": {
+          "type": "boolean",
+          "description": "TRUE unless the figure is a company-reported line item. Segment revenue that a company reports (e.g. NVDA Data Center) is NOT an estimate; anything analyst-derived IS."
+        },
+        "basis": {
+          "type": "string",
+          "minLength": 10,
+          "description": "What the number actually counts and how it was derived. e.g. 'Reported Data Center segment revenue, Q2 FY2026, x4'."
+        },
+        "confidence": {
+          "type": "string",
+          "enum": [
+            "high",
+            "medium",
+            "low"
+          ]
+        },
+        "source": {
+          "$ref": "#/$defs/citation"
+        }
       }
     },
     "node": {
       "type": "object",
-      "required": ["id", "name", "is_public", "layer", "segment", "period", "revenue_total", "moat"],
+      "required": [
+        "id",
+        "name",
+        "is_public",
+        "layer",
+        "segment",
+        "period",
+        "revenue_total",
+        "moat"
+      ],
       "additionalProperties": false,
       "properties": {
-        "id":       { "type": "string", "pattern": "^[a-z0-9][a-z0-9_-]*$", "description": "Stable slug. Never reuse or renumber — links reference this." },
-        "name":     { "type": "string" },
-        "ticker":   { "type": ["string", "null"] },
-        "is_public":{ "type": "boolean" },
-        "hq":       { "type": "string", "description": "ISO 3166-1 alpha-2, e.g. 'US', 'TW', 'KR', 'NL'." },
-
-        "layer":    { "type": "integer", "minimum": 1, "maximum": 11 },
-        "segment":  { "type": "string", "description": "Primary segment id from taxonomy.json. Drives container membership." },
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z0-9][a-z0-9_-]*$",
+          "description": "Stable slug. Never reuse or renumber \u2014 links reference this."
+        },
+        "name": {
+          "type": "string"
+        },
+        "ticker": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "is_public": {
+          "type": "boolean"
+        },
+        "hq": {
+          "type": "string",
+          "description": "ISO 3166-1 alpha-2, e.g. 'US', 'TW', 'KR', 'NL'."
+        },
+        "layer": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 11
+        },
+        "segment": {
+          "type": "string",
+          "description": "Primary segment id from taxonomy.json. Drives container membership."
+        },
         "also_operates": {
-          "type": "array", "items": { "type": "string" }, "default": [],
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": [],
           "description": "Secondary segment ids. Microsoft is hyperscale AND enterprise_ai AND gpu_cloud. Renders as a visual cue, does not move the node."
         },
-        "verticals": { "type": "array", "items": { "type": "string" }, "default": [], "description": "Vertical ids from taxonomy.json. Drives the sidebar 'Isolate Healthcare AI' filter." },
-
-        "period":   { "type": "string", "description": "Exactly what window every metric on this node covers. e.g. 'Q2 FY2026 annualized (run-rate)'." },
-
-        "revenue_total":        { "$ref": "#/$defs/metric" },
-        "revenue_ai":           { "$ref": "#/$defs/metric", "description": "AI-attributable revenue. Almost always an estimate — very few companies report an AI line item." },
-        "gross_margin_pct":     { "$ref": "#/$defs/metric" },
-        "operating_margin_pct": { "$ref": "#/$defs/metric", "description": "May be negative. Color scale for this metric MUST be diverging around zero." },
-        "capex":                { "$ref": "#/$defs/metric" },
-
+        "verticals": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": [],
+          "description": "Vertical ids from taxonomy.json. Drives the sidebar 'Isolate Healthcare AI' filter."
+        },
+        "period": {
+          "type": "string",
+          "description": "Exactly what window every metric on this node covers. e.g. 'Q2 FY2026 annualized (run-rate)'."
+        },
+        "revenue_total": {
+          "$ref": "#/$defs/metric"
+        },
+        "revenue_ai": {
+          "$ref": "#/$defs/metric",
+          "description": "AI-attributable revenue. Almost always an estimate \u2014 very few companies report an AI line item."
+        },
+        "gross_margin_pct": {
+          "$ref": "#/$defs/metric"
+        },
+        "operating_margin_pct": {
+          "$ref": "#/$defs/metric",
+          "description": "May be negative. Color scale for this metric MUST be diverging around zero."
+        },
+        "capex": {
+          "$ref": "#/$defs/metric"
+        },
         "moat": {
           "type": "object",
-          "required": ["summary", "strength"],
+          "required": [
+            "summary",
+            "strength"
+          ],
           "additionalProperties": false,
           "properties": {
-            "summary":  { "type": "string", "minLength": 40, "description": "Qualitative analysis shown in the intelligence panel. Write for a reader who already knows the company." },
-            "type":     { "type": "array", "items": { "type": "string", "enum": ["scale", "switching_costs", "network_effects", "process_tech", "ip", "regulatory", "data", "capital", "ecosystem", "none"] } },
-            "strength": { "type": "integer", "minimum": 1, "maximum": 5 },
-            "risks":    { "type": "array", "items": { "type": "string" } }
+            "summary": {
+              "type": "string",
+              "minLength": 40,
+              "description": "Qualitative analysis shown in the intelligence panel. Write for a reader who already knows the company."
+            },
+            "type": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "scale",
+                  "switching_costs",
+                  "network_effects",
+                  "process_tech",
+                  "ip",
+                  "regulatory",
+                  "data",
+                  "capital",
+                  "ecosystem",
+                  "none"
+                ]
+              }
+            },
+            "strength": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 5
+            },
+            "risks": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
           }
         },
-
         "bottleneck": {
           "type": "object",
           "description": "Hudson Labs tracks 14 bottlenecks; this is the chokepoint thesis made explicit.",
           "additionalProperties": false,
           "properties": {
-            "is_bottleneck": { "type": "boolean" },
-            "criticality":   { "type": "integer", "minimum": 1, "maximum": 5, "description": "5 = no viable substitute at scale today (ASML EUV, TSMC N3/N2)." },
-            "rationale":     { "type": "string" }
+            "is_bottleneck": {
+              "type": "boolean"
+            },
+            "criticality": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 5,
+              "description": "5 = no viable substitute at scale today (ASML EUV, TSMC N3/N2)."
+            },
+            "rationale": {
+              "type": "string"
+            }
           }
         },
-
-        "updated_at":    { "type": "string", "format": "date" },
-        "updated_by":    { "type": "string", "enum": ["seed", "agent_pipeline", "manual"], "default": "seed" }
+        "updated_at": {
+          "type": "string",
+          "format": "date"
+        },
+        "updated_by": {
+          "type": "string",
+          "enum": [
+            "seed",
+            "agent_pipeline",
+            "manual"
+          ],
+          "default": "seed"
+        },
+        "valuation": {
+          "$ref": "#/$defs/valuation"
+        },
+        "revenue_growth_yoy_pct": {
+          "$ref": "#/$defs/metric",
+          "description": "YoY growth on the AI-attributable line where available, else total. Arguably matters more than absolute revenue in this sector."
+        },
+        "ebitda_margin_pct": {
+          "$ref": "#/$defs/metric"
+        },
+        "analyst": {
+          "type": "object",
+          "description": "Populates the right-hand intelligence panel. Written as a research note, not a company description. This is the progressive-disclosure payload.",
+          "additionalProperties": false,
+          "properties": {
+            "p_and_l_drivers": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "What actually moves the P&L. e.g. 'HBM attach rate', 'utilization on contracted GPU fleet'."
+            },
+            "key_debate": {
+              "type": "string",
+              "description": "The one thing bulls and bears actually disagree about. Not a summary."
+            },
+            "bull_case": {
+              "type": "string"
+            },
+            "bear_case": {
+              "type": "string"
+            },
+            "what_to_watch": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "Specific, checkable next-quarter items."
+            },
+            "read_across": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "Names that move on this company's print, and why."
+            }
+          }
+        }
+      }
+    },
+    "valuation": {
+      "type": "object",
+      "description": "Point-in-time market data. Goes stale within a DAY, unlike fundamentals which are quarterly. Refreshed on its own cadence by the pipeline; always render with as_of visible.",
+      "required": [
+        "as_of"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "as_of": {
+          "type": "string",
+          "format": "date"
+        },
+        "market_cap_usd_m": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "enterprise_value_usd_m": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "ev_revenue": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "description": "EV / NTM revenue. The primary comp-set metric for this sector."
+        },
+        "ev_ebitda": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "pe_forward": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "last_round_valuation_usd_m": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "description": "Private companies only. Note the date \u2014 a 2024 mark is not a 2026 mark."
+        },
+        "last_round_date": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date"
+        },
+        "source": {
+          "$ref": "#/$defs/citation"
+        }
       }
     }
   }
