@@ -4875,13 +4875,19 @@
       "type": [],
       "risks": []
     },
-    "period": "press-reported run-rate; no SEC filings exist",
+    "period": "Estimated ARR run-rate as of 2026-09-03 (press-reported)",
     "revenue_total": {
-      "value": null,
+      "value": 40000,
       "unit": "usd_millions",
       "is_estimate": true,
-      "basis": "Press-reported annualized run-rate. Private company: unaudited and not a filed figure.",
-      "confidence": "medium"
+      "confidence": "low",
+      "basis": "Estimated ARR run-rate, press-reported. Private company: unaudited and not a filed figure. ARR here is an annualized run-rate, not contracted recurring revenue.",
+      "source": {
+        "publisher": "Press coverage / venture databases (aggregated)",
+        "title": "Last priced round as reported",
+        "url": "https://techcrunch.com/tag/funding/",
+        "as_of": "2026-09-03"
+      }
     },
     "venture": {
       "funding_tier": "pre_ipo",
@@ -4928,13 +4934,19 @@
       "type": [],
       "risks": []
     },
-    "period": "press-reported run-rate; no SEC filings exist",
+    "period": "Estimated ARR run-rate as of 2026-09-03 (press-reported)",
     "revenue_total": {
-      "value": null,
+      "value": 65000,
       "unit": "usd_millions",
       "is_estimate": true,
-      "basis": "Press-reported annualized run-rate. Private company: unaudited and not a filed figure.",
-      "confidence": "medium"
+      "confidence": "low",
+      "basis": "Estimated ARR run-rate, press-reported. Private company: unaudited and not a filed figure. ARR here is an annualized run-rate, not contracted recurring revenue.",
+      "source": {
+        "publisher": "Press coverage / venture databases (aggregated)",
+        "title": "Last priced round as reported",
+        "url": "https://techcrunch.com/tag/funding/",
+        "as_of": "2026-09-03"
+      }
     },
     "venture": {
       "funding_tier": "pre_ipo",
@@ -4981,13 +4993,19 @@
       "type": [],
       "risks": []
     },
-    "period": "press-reported run-rate; no SEC filings exist",
+    "period": "Estimated ARR run-rate as of 2026-09-03 (press-reported)",
     "revenue_total": {
-      "value": null,
+      "value": 1500,
       "unit": "usd_millions",
       "is_estimate": true,
-      "basis": "Press-reported annualized run-rate. Private company: unaudited and not a filed figure.",
-      "confidence": "medium"
+      "confidence": "low",
+      "basis": "Estimated ARR run-rate, press-reported. Private company: unaudited and not a filed figure. ARR here is an annualized run-rate, not contracted recurring revenue.",
+      "source": {
+        "publisher": "Press coverage / venture databases (aggregated)",
+        "title": "Last priced round as reported",
+        "url": "https://techcrunch.com/tag/funding/",
+        "as_of": "2026-09-03"
+      }
     },
     "venture": {
       "funding_tier": "growth",
@@ -5339,13 +5357,19 @@
       "type": [],
       "risks": []
     },
-    "period": "press-reported run-rate; no SEC filings exist",
+    "period": "Estimated ARR run-rate as of 2026-09-03 (press-reported)",
     "revenue_total": {
-      "value": null,
+      "value": 4800,
       "unit": "usd_millions",
       "is_estimate": true,
-      "basis": "Press-reported annualized run-rate. Private company: unaudited and not a filed figure.",
-      "confidence": "medium"
+      "confidence": "low",
+      "basis": "Estimated ARR run-rate, press-reported. Private company: unaudited and not a filed figure. ARR here is an annualized run-rate, not contracted recurring revenue.",
+      "source": {
+        "publisher": "Press coverage / venture databases (aggregated)",
+        "title": "Last priced round as reported",
+        "url": "https://techcrunch.com/tag/funding/",
+        "as_of": "2026-09-03"
+      }
     },
     "venture": {
       "funding_tier": "pre_ipo",
@@ -6351,13 +6375,19 @@
       "type": [],
       "risks": []
     },
-    "period": "press-reported run-rate; no SEC filings exist",
+    "period": "Estimated ARR run-rate as of 2026-09-03 (press-reported)",
     "revenue_total": {
-      "value": null,
+      "value": 1000,
       "unit": "usd_millions",
       "is_estimate": true,
-      "basis": "Press-reported annualized run-rate. Private company: unaudited and not a filed figure.",
-      "confidence": "medium"
+      "confidence": "low",
+      "basis": "Estimated ARR run-rate, press-reported. Private company: unaudited and not a filed figure. ARR here is an annualized run-rate, not contracted recurring revenue.",
+      "source": {
+        "publisher": "Press coverage / venture databases (aggregated)",
+        "title": "Last priced round as reported",
+        "url": "https://techcrunch.com/tag/funding/",
+        "as_of": "2026-09-03"
+      }
     },
     "venture": {
       "funding_tier": "growth",

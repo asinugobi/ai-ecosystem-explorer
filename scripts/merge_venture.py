@@ -67,6 +67,23 @@ for c in v["new_companies"]:
     nodes.append(node)
     created.append(c["id"])
 
+# Private nodes that already existed on the map (xAI, Databricks, Anysphere)
+# came from coverage.json with no revenue figure. Now that the venture layer
+# supplies an ARR estimate, backfill revenue_total so they size correctly
+# instead of rendering as minimum-radius dots.
+for n in nodes:
+    vb = n.get("venture")
+    if not vb or n.get("revenue_total", {}).get("value") is not None:
+        continue
+    arr = vb.get("estimated_arr_usd_m")
+    if arr:
+        n["revenue_total"] = {
+            "value": arr, "unit": "usd_millions", "is_estimate": True, "confidence": "low",
+            "basis": ("Estimated ARR run-rate, press-reported. Private company: unaudited and not a filed "
+                       "figure. ARR here is an annualized run-rate, not contracted recurring revenue."),
+            "source": CITE}
+        n["period"] = f"Estimated ARR run-rate as of {AS_OF} (press-reported)"
+
 # Derived: capital consumed per dollar of ARR. Net burn is not disclosed for any
 # of these, so this is the computable stand-in for burn efficiency.
 for n in nodes:
