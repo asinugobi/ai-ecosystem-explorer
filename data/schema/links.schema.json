@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/asinugobi/ai-ecosystem-explorer/data/schema/links.schema.json",
+  "title": "AI Ecosystem Link (relationship)",
+  "description": "Directed company-to-company relationships. This is the layer Hudson Labs' Sankey structurally cannot render, and the reason this project exists.",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": ["id", "source", "target", "type", "description"],
+    "additionalProperties": false,
+    "properties": {
+      "id":     { "type": "string", "pattern": "^[a-z0-9][a-z0-9_-]*$" },
+      "source": { "type": "string", "description": "Node id. Direction is source -> target, read as 'source provides/commits to target'." },
+      "target": { "type": "string", "description": "Node id." },
+      "type": {
+        "type": "string",
+        "enum": ["investment", "compute_contract", "supply", "foundry", "power_purchase", "equity_stake", "data_license", "partnership", "customer_concentration"]
+      },
+      "value_usd_m":  { "type": ["number", "null"], "description": "Disclosed deal value in USD millions. Null when undisclosed — link renders dashed." },
+      "announced":    { "type": ["string", "null"], "format": "date" },
+      "term":         { "type": ["string", "null"], "description": "e.g. '5 years', 'multi-year', 'through 2030'." },
+      "description":  { "type": "string", "minLength": 20 },
+      "is_estimate":  { "type": "boolean", "default": false },
+      "source":       { "$ref": "https://github.com/asinugobi/ai-ecosystem-explorer/data/schema/nodes.schema.json#/$defs/citation" },
+      "updated_at":   { "type": "string", "format": "date" },
+      "updated_by":   { "type": "string", "enum": ["seed", "agent_pipeline", "manual"], "default": "seed" }
+    }
+  }
+}
