@@ -105,7 +105,24 @@ claude mcp add -s user ai-ecosystem -- /Users/asinugobi/ai-ecosystem-explorer/.v
 | `screen` | Metric-threshold screening — the growth-equity filter |
 | `read_across` | If this moves, what else moves (the Sankey can't do this) |
 | `financing_cycles` | Capital loops, traversing money direction not goods |
+| `valuation_comps` | Market cap, EV, EV/S, EV/gross profit, EV/EBITDA by segment |
 | `edgar_lookup` | Live XBRL for **any** US filer, on the map or not |
 | `edgar_filings` | Recent filings — what the Monitor polls |
 
 Worth trying: `screen("revenue_per_capex", maximum=1)` returns the three neoclouds currently buying revenue with capital. `comp_set("gpu_cloud")` shows that peer group at −15% weighted operating margin.
+
+## Valuation feed
+
+`scripts/build_valuations.py` populates `node.valuation` for 65 of 73 public companies. Only the **price** comes from a quote feed — shares outstanding, cash, debt and D&A all come from EDGAR XBRL, so enterprise value is computed from balance-sheet items rather than approximated by market cap.
+
+Re-run it whenever you want fresh multiples; it stamps its own `as_of` and touches nothing else on the node:
+
+```bash
+.venv/bin/python scripts/build_valuations.py
+```
+
+**Eight companies are deliberately unpriced.** Foreign private issuers (TSMC, ASML, RELX, Thomson Reuters) report *ordinary* shares while the quote is for an ADR representing several of them, and the ratio is not in EDGAR — guessing it produced a $10.8T TSMC on the first run. The rest have no usable share count. A stated gap beats a confident wrong number.
+
+**Forward P/E is always null.** It needs consensus estimates, which are licensed.
+
+`EV / gross profit` is the better cross-stack comparator: Super Micro trades at 0.6× revenue but 5.6× gross profit, because its gross margin is under 10%. Comparing a 10%-margin integrator to a 98%-margin IP licensor on EV/S is comparing nothing.
