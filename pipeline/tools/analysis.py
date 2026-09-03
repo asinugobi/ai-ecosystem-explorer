@@ -24,6 +24,24 @@ MONEY_FORWARD = {
     "supply": False, "foundry": False, "power_purchase": False,
     "data_license": False, "operational_integration": False,
 }
+# GOODS/DEPENDENCY direction — NOT derivable from MONEY_FORWARD, because the
+# authoring convention differs by type and the two axes are independent:
+#   supply/foundry     source is the SUPPLIER  (asml -> tsmc)      goods fwd
+#   compute_contract   source is the CUSTOMER  (openai -> oracle)  goods REVERSED
+#   investment         source is the INVESTOR  (nvidia -> openai)  goods fwd
+#                      (capital IS the good, so money and goods agree here)
+# Assuming source always supplies made compute_contract and
+# customer_concentration classify backwards, which put Microsoft in "lateral"
+# when it is plainly downstream of Nvidia via CoreWeave.
+GOODS_FORWARD = {
+    "supply": True, "foundry": True, "power_purchase": True, "data_license": True,
+    "operational_integration": True,
+    "investment": True, "equity_stake": True, "corporate_venture": True,
+    "compute_for_equity": True, "compute_credits": True,
+    "compute_contract": False, "customer_concentration": False,
+    "partnership": True,   # symmetric in practice; treated as forward
+}
+
 TIER = {
     "investment": "capital", "equity_stake": "capital", "corporate_venture": "capital",
     "compute_contract": "compute", "compute_for_equity": "compute", "compute_credits": "compute",
@@ -125,14 +143,22 @@ class Graph:
         TSMC via Nvidia, but Micron does not depend on TSMC; they share a
         customer. Correlated, not dependent, and it trades differently.
 
-          upstream   — they supply us; our spend is their revenue
-          downstream — we supply them; our output is their constraint
-          lateral    — reached by mixing directions; shares a counterparty
+          upstream    — they supply us; our spend is their revenue
+          downstream  — we supply them; our output is their constraint
+          co_supplier — we both supply the same customer: rivals for that demand
+          co_customer — we both buy from the same supplier: rivals for allocation
+          lateral     — longer mixed path; related but not cleanly either
+
+        The two co- classes were one bucket at first, which hid a real
+        distinction: AMD is a rival for OpenAI's demand, while Broadcom is a
+        rival for TSMC's capacity. Those move on different news.
         """
         adj: dict[str, list[tuple[str, str, dict]]] = defaultdict(list)
         for l in self.links:
-            adj[l["source"]].append((l["target"], "down", l))   # source supplies target
-            adj[l["target"]].append((l["source"], "up", l))
+            fwd = GOODS_FORWARD.get(l["type"], True)
+            supplier, customer = (l["source"], l["target"]) if fwd else (l["target"], l["source"])
+            adj[supplier].append((customer, "down", l))   # supplier -> customer
+            adj[customer].append((supplier, "up", l))
 
         out: dict[str, dict] = {node_id: {"hop": 0, "relation": "self", "via": [], "moves": []}}
         frontier = [(node_id, [], [])]
@@ -144,8 +170,18 @@ class Graph:
                         continue
                     m = moves + [move]
                     kinds = set(m)
-                    relation = ("downstream" if kinds == {"down"}
-                                else "upstream" if kinds == {"up"} else "lateral")
+                    if kinds == {"down"}:
+                        relation = "downstream"
+                    elif kinds == {"up"}:
+                        relation = "upstream"
+                    elif m == ["down", "up"]:
+                        # we supply X, they also supply X -> rivals for a CUSTOMER
+                        relation = "co_supplier"
+                    elif m == ["up", "down"]:
+                        # X supplies us, X also supplies them -> rivals for SUPPLY
+                        relation = "co_customer"
+                    else:
+                        relation = "lateral"
                     out[nb] = {"hop": d, "relation": relation,
                                 "via": via + [cur] if via or cur != node_id else [],
                                 "moves": m, "first_link": link if d == 1 else None,

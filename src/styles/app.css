@@ -183,3 +183,5 @@ main { display: flex; flex: 1; min-height: 0; }
 .reach-head i { font-style: normal; color: var(--ink-3); font-family: var(--mono); margin-left: 4px; }
 .reach-group .reach { margin-bottom: 4px; }
 .reach-group p { margin: 0; font-size: 10px; line-height: 1.4; }
+.reach-group.rel-co_supplier { border-left-color: var(--commercial); }
+.reach-group.rel-co_customer { border-left-color: var(--neg); }

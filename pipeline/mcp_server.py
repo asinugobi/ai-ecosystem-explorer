@@ -241,9 +241,9 @@ def screen(metric: str, minimum: float | None = None, maximum: float | None = No
 
 @mcp.tool(description=(
     "Read-across WITH direction: if this company moves, what else moves, and which way? "
-    "Classifies each counterparty as upstream (they supply us — our spend is their revenue), "
-    "downstream (we supply them — our output is their constraint), or lateral (a co-supplier into "
-    "a shared customer: correlated, not dependent). The sign flips the trade, so a plain "
+    "Classifies each counterparty as upstream (they supply us), downstream (we supply them), "
+    "co_supplier (we sell into the same customers — rivals for demand), co_customer (we buy from "
+    "the same suppliers — rivals for allocation), or lateral. The sign flips the trade, so a plain "
     "neighbourhood list is not enough. This is the question a Sankey market map cannot answer."))
 def read_across(company: str, depth: int = 2) -> str:
     n = G.by_id.get(company.lower()) or next(
@@ -260,12 +260,17 @@ def read_across(company: str, depth: int = 2) -> str:
                      "order book intact for several quarters."),
         "downstream": ("DOWNSTREAM — {me} supplies them; {me}'s output is their constraint",
                        "A {me} capacity constraint caps these names regardless of their own demand."),
-        "lateral": ("LATERAL — co-suppliers into a shared customer",
-                    "These do NOT depend on {me}. They share a counterparty, so they are correlated "
-                    "through end demand rather than through {me} itself."),
+        "co_supplier": ("CO-SUPPLIERS — they sell into the same customers as {me}",
+                        "Rivals for the SAME DEMAND. They gain when {me} loses share, and both suffer "
+                        "if that end customer cuts spend."),
+        "co_customer": ("CO-CUSTOMERS — they buy from the same suppliers as {me}",
+                        "Rivals for the SAME ALLOCATION. A supply constraint sets them against each "
+                        "other; neither benefits from the other's shortage of end demand."),
+        "lateral": ("LATERAL — related through a longer mixed path",
+                    "Neither a clean dependency nor a clean rivalry. Treat as weakly correlated."),
     }
     out = [f"READ-ACROSS from {n['name']} (depth {depth})", ""]
-    for rel in ("upstream", "downstream", "lateral"):
+    for rel in ("upstream", "downstream", "co_supplier", "co_customer", "lateral"):
         rows = [(i, v) for i, v in reach.items() if v["relation"] == rel]
         if not rows:
             continue

@@ -136,9 +136,11 @@ export default function IntelligencePanel({ node, nodes, links, taxonomy, onSele
           <p className="muted small">
             The sign flips the trade, so these are grouped by direction rather than listed flat.
           </p>
-          {[['upstream', 'They supply ' + (node.ticker ?? node.name) + '. Its spend is their revenue, so a capex raise is bullish and a revenue miss leaves their order book intact for several quarters.'],
+          {[['upstream', 'They supply this company. Its spend is their revenue, so a capex raise is bullish and a revenue miss leaves their order book intact for several quarters.'],
             ['downstream', 'It supplies them. Its output is their constraint — a capacity limit caps these names regardless of their own demand.'],
-            ['lateral', 'Co-suppliers into a shared customer. These do NOT depend on it; they are correlated through end demand.']]
+            ['co_supplier', 'They sell into the same customers. Rivals for the same demand: they gain when this company loses share.'],
+            ['co_customer', 'They buy from the same suppliers. Rivals for the same allocation — a supply constraint sets them against each other.'],
+            ['lateral', 'Related through a longer mixed path. Weakly correlated; neither a clean dependency nor a clean rivalry.']]
             .map(([rel, note]) => {
               const rows = reach.filter(([, v]) => v.relation === rel)
               if (!rows.length) return null

@@ -70,6 +70,19 @@ export function financingCycles(links, { maxLen = 5 } = {}) {
  * but does not depend on TSMC; they share a customer. Correlated, not
  * dependent, and it trades differently.
  */
+/* Goods direction is NOT the same as money direction, and it is not uniform
+   across link types: for supply/foundry the source is the supplier, but for
+   compute_contract/customer_concentration the source is the CUSTOMER. Mirror of
+   GOODS_FORWARD in pipeline/tools/analysis.py — the two must agree. */
+export const GOODS_FORWARD = {
+  supply: true, foundry: true, power_purchase: true, data_license: true,
+  operational_integration: true,
+  investment: true, equity_stake: true, corporate_venture: true,
+  compute_for_equity: true, compute_credits: true,
+  compute_contract: false, customer_concentration: false,
+  partnership: true,
+}
+
 export function exposureDirected(nodeId, links, depth = 2) {
   const adj = new Map()
   const add = (from, to, move, link) => {
@@ -77,8 +90,10 @@ export function exposureDirected(nodeId, links, depth = 2) {
     adj.get(from).push({ to, move, link })
   }
   for (const l of links) {
-    add(l.source, l.target, 'down', l)   // source supplies target
-    add(l.target, l.source, 'up', l)
+    const fwd = GOODS_FORWARD[l.type] ?? true
+    const [supplier, customer] = fwd ? [l.source, l.target] : [l.target, l.source]
+    add(supplier, customer, 'down', l)
+    add(customer, supplier, 'up', l)
   }
   const out = new Map([[nodeId, { hop: 0, relation: 'self' }]])
   let frontier = [{ id: nodeId, moves: [] }]
@@ -89,7 +104,11 @@ export function exposureDirected(nodeId, links, depth = 2) {
         if (out.has(to)) continue
         const m = [...moves, move]
         const kinds = new Set(m)
-        const relation = kinds.size > 1 ? 'lateral' : (kinds.has('down') ? 'downstream' : 'upstream')
+        const relation =
+          kinds.size === 1 ? (kinds.has('down') ? 'downstream' : 'upstream')
+          : m.join(',') === 'down,up' ? 'co_supplier'   // rivals for a customer
+          : m.join(',') === 'up,down' ? 'co_customer'   // rivals for allocation
+          : 'lateral' 
         out.set(to, { hop: d, relation, through: d > 1 ? cur : null, link: d === 1 ? link : null })
         next.push({ id: to, moves: m })
       }
