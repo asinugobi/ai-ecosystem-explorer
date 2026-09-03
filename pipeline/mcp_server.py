@@ -240,29 +240,47 @@ def screen(metric: str, minimum: float | None = None, maximum: float | None = No
 
 
 @mcp.tool(description=(
-    "Read-across: if this company moves, what else moves? Traverses typed relationships outward. "
-    "This is the question a Sankey market map structurally cannot answer."))
+    "Read-across WITH direction: if this company moves, what else moves, and which way? "
+    "Classifies each counterparty as upstream (they supply us — our spend is their revenue), "
+    "downstream (we supply them — our output is their constraint), or lateral (a co-supplier into "
+    "a shared customer: correlated, not dependent). The sign flips the trade, so a plain "
+    "neighbourhood list is not enough. This is the question a Sankey market map cannot answer."))
 def read_across(company: str, depth: int = 2) -> str:
     n = G.by_id.get(company.lower()) or next(
         (x for x in G.nodes if (x.get("ticker") or "").upper() == company.upper()), None)
     if not n:
         return f"'{company}' is not on the map."
-    reach = G.exposure(n["id"], depth)
+    reach = G.exposure_directed(n["id"], depth)
     if len(reach) == 1:
         return f"{n['name']} has no mapped relationships yet."
+
+    MEANING = {
+        "upstream": ("UPSTREAM — they supply {me}; {me}'s spend is their revenue",
+                     "A {me} capex raise is bullish these names. A {me} revenue miss leaves their "
+                     "order book intact for several quarters."),
+        "downstream": ("DOWNSTREAM — {me} supplies them; {me}'s output is their constraint",
+                       "A {me} capacity constraint caps these names regardless of their own demand."),
+        "lateral": ("LATERAL — co-suppliers into a shared customer",
+                    "These do NOT depend on {me}. They share a counterparty, so they are correlated "
+                    "through end demand rather than through {me} itself."),
+    }
     out = [f"READ-ACROSS from {n['name']} (depth {depth})", ""]
-    for d in range(1, depth + 1):
-        ids = [i for i, dist in reach.items() if dist == d]
-        if not ids:
+    for rel in ("upstream", "downstream", "lateral"):
+        rows = [(i, v) for i, v in reach.items() if v["relation"] == rel]
+        if not rows:
             continue
-        out.append(f"HOP {d} — {len(ids)} companies")
-        for i in sorted(ids, key=lambda x: -(G.val(G.by_id[x], "revenue_total") or 0)):
+        head, note = MEANING[rel]
+        me = n.get("ticker") or n["name"]
+        out.append(head.format(me=me) + f"  ({len(rows)})")
+        for i, v in sorted(rows, key=lambda x: (x[1]["hop"], -(G.val(G.by_id[x[0]], "revenue_total") or 0))):
             o = G.by_id[i]
-            direct = [l for l in G.links
-                       if {l["source"], l["target"]} == {n["id"], i}] if d == 1 else []
-            why = f"  ({direct[0]['type']})" if direct else ""
-            out.append(f"    {o['name']:<26}{(o.get('ticker') or 'priv'):<7}"
-                        f"{fmt_usd(G.val(o,'revenue_total')):>10}{why}")
+            if v["hop"] == 1 and v.get("first_link"):
+                why = f"({v['first_link']['type']})"
+            else:
+                why = f"via {G.by_id[v['through']]['name']}" if v.get("through") else ""
+            out.append(f"    hop{v['hop']}  {o['name'][:24]:<25}{(o.get('ticker') or 'priv'):<7}"
+                        f"{fmt_usd(G.val(o,'revenue_total')):>10}  {why}")
+        out.append(f"    -> {note.format(me=me)}")
         out.append("")
     if n.get("analyst", {}).get("read_across"):
         out += ["ANALYST NOTES:"] + [f"  - {x}" for x in n["analyst"]["read_across"]]

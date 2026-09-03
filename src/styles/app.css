@@ -172,3 +172,14 @@ main { display: flex; flex: 1; min-height: 0; }
 .investors span { font-size: 10px; background: var(--surface-3); border: 1px solid var(--grid);
                   border-radius: 3px; padding: 1px 5px; color: var(--ink-2); }
 .eff-note { font-size: 10.5px; color: var(--ink-3); line-height: 1.45; margin-top: 4px; }
+
+/* read-across, grouped by direction — the sign flips the trade */
+.reach-group { margin-bottom: 12px; padding-left: 9px; border-left: 2px solid var(--grid); }
+.reach-group.rel-upstream { border-left-color: var(--physical, #199e70); }
+.reach-group.rel-downstream { border-left-color: var(--capital); }
+.reach-group.rel-lateral { border-left-color: var(--ink-3); }
+.reach-head { font-size: 10px; text-transform: uppercase; letter-spacing: 0.07em;
+              color: var(--ink-2); font-weight: 600; margin-bottom: 5px; }
+.reach-head i { font-style: normal; color: var(--ink-3); font-family: var(--mono); margin-left: 4px; }
+.reach-group .reach { margin-bottom: 4px; }
+.reach-group p { margin: 0; font-size: 10px; line-height: 1.4; }

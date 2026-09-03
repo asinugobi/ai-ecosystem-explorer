@@ -107,19 +107,50 @@ class Graph:
         return sorted(found.values(), key=lambda c: len(c["nodes"]))
 
     def exposure(self, node_id: str, depth: int = 2) -> dict[str, int]:
-        nbr = defaultdict(list)
+        """Hop distance only, direction-agnostic. Kept for callers that just
+        want the neighbourhood; prefer exposure_directed for analysis."""
+        return {k: v["hop"] for k, v in self.exposure_directed(node_id, depth).items()}
+
+    def exposure_directed(self, node_id: str, depth: int = 2) -> dict[str, dict]:
+        """Read-across WITH the sign, which is what makes it actionable.
+
+        Goods direction is dependency direction: on a link, `source` supplies
+        `target`. Walking from the origin, an edge where the origin is the
+        source goes DOWNSTREAM (they depend on our output); an edge where the
+        origin is the target goes UPSTREAM (they receive our spend).
+
+        Over multiple hops the composition matters, and this is the part a plain
+        neighbourhood list hides. Down-then-up does not reach a dependent — it
+        reaches a CO-SUPPLIER into a shared customer. Micron sits two hops from
+        TSMC via Nvidia, but Micron does not depend on TSMC; they share a
+        customer. Correlated, not dependent, and it trades differently.
+
+          upstream   — they supply us; our spend is their revenue
+          downstream — we supply them; our output is their constraint
+          lateral    — reached by mixing directions; shares a counterparty
+        """
+        adj: dict[str, list[tuple[str, str, dict]]] = defaultdict(list)
         for l in self.links:
-            nbr[l["source"]].append(l["target"])
-            nbr[l["target"]].append(l["source"])
-        out = {node_id: 0}
-        frontier = [node_id]
+            adj[l["source"]].append((l["target"], "down", l))   # source supplies target
+            adj[l["target"]].append((l["source"], "up", l))
+
+        out: dict[str, dict] = {node_id: {"hop": 0, "relation": "self", "via": [], "moves": []}}
+        frontier = [(node_id, [], [])]
         for d in range(1, depth + 1):
             nxt = []
-            for i in frontier:
-                for j in nbr.get(i, []):
-                    if j not in out:
-                        out[j] = d
-                        nxt.append(j)
+            for cur, via, moves in frontier:
+                for nb, move, link in adj.get(cur, []):
+                    if nb in out:
+                        continue
+                    m = moves + [move]
+                    kinds = set(m)
+                    relation = ("downstream" if kinds == {"down"}
+                                else "upstream" if kinds == {"up"} else "lateral")
+                    out[nb] = {"hop": d, "relation": relation,
+                                "via": via + [cur] if via or cur != node_id else [],
+                                "moves": m, "first_link": link if d == 1 else None,
+                                "through": cur if d > 1 else None}
+                    nxt.append((nb, via + [cur], m))
             frontier = nxt
         return out
 

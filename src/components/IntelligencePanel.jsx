@@ -1,6 +1,6 @@
 import { useMemo, useState, useEffect } from 'react'
 import { val, fmtUSD, fmtPct, capitalEfficiency } from '../lib/scales.js'
-import { exposure, moneyEdge } from '../lib/flow.js'
+import { exposureDirected, moneyEdge } from '../lib/flow.js'
 
 /** Progressive disclosure: nothing qualitative renders until a node is chosen. */
 export default function IntelligencePanel({ node, nodes, links, taxonomy, onSelect }) {
@@ -18,8 +18,8 @@ export default function IntelligencePanel({ node, nodes, links, taxonomy, onSele
 
   const reach = useMemo(() => {
     if (!node) return []
-    const m = exposure(node.id, links, 2)
-    return [...m.entries()].filter(([id, d]) => d > 0).sort((a, b) => a[1] - b[1])
+    const m = exposureDirected(node.id, links, 2)
+    return [...m.entries()].filter(([, v]) => v.hop > 0).sort((a, b) => a[1].hop - b[1].hop)
   }, [node, links])
 
   if (!node) {
@@ -133,14 +133,30 @@ export default function IntelligencePanel({ node, nodes, links, taxonomy, onSele
       {reach.length > 0 && (
         <section>
           <h3>Read-across <span className="count">{reach.length} within 2 hops</span></h3>
-          <p className="muted small">If {node.ticker ?? node.name} moves, look here next.</p>
-          <div className="reach">
-            {reach.map(([id, d]) => (
-              <button key={id} className={`chip hop-${d}`} onClick={() => onSelect(id)}>
-                {byId.get(id)?.ticker ?? byId.get(id)?.name ?? id}<i>{d}</i>
-              </button>
-            ))}
-          </div>
+          <p className="muted small">
+            The sign flips the trade, so these are grouped by direction rather than listed flat.
+          </p>
+          {[['upstream', 'They supply ' + (node.ticker ?? node.name) + '. Its spend is their revenue, so a capex raise is bullish and a revenue miss leaves their order book intact for several quarters.'],
+            ['downstream', 'It supplies them. Its output is their constraint — a capacity limit caps these names regardless of their own demand.'],
+            ['lateral', 'Co-suppliers into a shared customer. These do NOT depend on it; they are correlated through end demand.']]
+            .map(([rel, note]) => {
+              const rows = reach.filter(([, v]) => v.relation === rel)
+              if (!rows.length) return null
+              return (
+                <div key={rel} className={`reach-group rel-${rel}`}>
+                  <div className="reach-head">{rel}<i>{rows.length}</i></div>
+                  <div className="reach">
+                    {rows.map(([id, v]) => (
+                      <button key={id} className={`chip hop-${v.hop}`} onClick={() => onSelect(id)}
+                              title={v.through ? `via ${byId.get(v.through)?.name ?? v.through}` : (v.link?.type ?? '')}>
+                        {byId.get(id)?.ticker ?? byId.get(id)?.name ?? id}<i>{v.hop}</i>
+                      </button>
+                    ))}
+                  </div>
+                  <p className="muted small">{note}</p>
+                </div>
+              )
+            })}
         </section>
       )}
     </aside>

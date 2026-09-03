@@ -59,19 +59,48 @@ export function financingCycles(links, { maxLen = 5 } = {}) {
   return [...found.values()].sort((a, b) => a.nodes.length - b.nodes.length)
 }
 
-/** Read-across: everything reachable from a node within N hops, either way. */
-export function exposure(nodeId, links, depth = 2) {
-  const nbr = new Map()
-  const add = (a, b, l) => { if (!nbr.has(a)) nbr.set(a, []); nbr.get(a).push({ id: b, link: l }) }
-  for (const l of links) { add(l.source, l.target, l); add(l.target, l.source, l) }
-  const out = new Map([[nodeId, 0]])
-  let frontier = [nodeId]
+/**
+ * Read-across WITH the sign — the Python mirror of this lives in
+ * pipeline/tools/analysis.py and the two must agree.
+ *
+ * Goods direction is dependency direction: on a link, `source` supplies
+ * `target`. Composition over multiple hops is the part a plain neighbourhood
+ * list hides — down-then-up does not reach a dependent, it reaches a
+ * CO-SUPPLIER into a shared customer. Micron is two hops from TSMC via Nvidia
+ * but does not depend on TSMC; they share a customer. Correlated, not
+ * dependent, and it trades differently.
+ */
+export function exposureDirected(nodeId, links, depth = 2) {
+  const adj = new Map()
+  const add = (from, to, move, link) => {
+    if (!adj.has(from)) adj.set(from, [])
+    adj.get(from).push({ to, move, link })
+  }
+  for (const l of links) {
+    add(l.source, l.target, 'down', l)   // source supplies target
+    add(l.target, l.source, 'up', l)
+  }
+  const out = new Map([[nodeId, { hop: 0, relation: 'self' }]])
+  let frontier = [{ id: nodeId, moves: [] }]
   for (let d = 1; d <= depth; d++) {
     const next = []
-    for (const id of frontier) for (const { id: n } of nbr.get(id) || []) {
-      if (!out.has(n)) { out.set(n, d); next.push(n) }
+    for (const { id: cur, moves } of frontier) {
+      for (const { to, move, link } of adj.get(cur) || []) {
+        if (out.has(to)) continue
+        const m = [...moves, move]
+        const kinds = new Set(m)
+        const relation = kinds.size > 1 ? 'lateral' : (kinds.has('down') ? 'downstream' : 'upstream')
+        out.set(to, { hop: d, relation, through: d > 1 ? cur : null, link: d === 1 ? link : null })
+        next.push({ id: to, moves: m })
+      }
     }
     frontier = next
   }
-  return out  // Map<nodeId, hopDistance>
+  return out
+}
+
+/** Hop distance only. Prefer exposureDirected — the sign flips the trade. */
+export function exposure(nodeId, links, depth = 2) {
+  const m = exposureDirected(nodeId, links, depth)
+  return new Map([...m].map(([k, v]) => [k, v.hop]))
 }
