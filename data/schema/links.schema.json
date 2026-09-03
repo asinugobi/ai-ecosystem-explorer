@@ -102,8 +102,43 @@
         "description": "Read-across: what happens to each side if this relationship changes."
       },
       "citation": {
-        "$ref": "https://github.com/asinugobi/ai-ecosystem-explorer/data/schema/nodes.schema.json#/$defs/citation",
-        "description": "Provenance for the relationship. Renamed from 'source' because that key is taken by the D3 edge endpoint."
+        "$ref": "#/$defs/citation",
+        "description": "Provenance for the relationship. Named `citation` because `source` is the D3 edge endpoint."
+      }
+    }
+  },
+  "$defs": {
+    "citation": {
+      "type": "object",
+      "description": "Provenance for a single figure. Required whenever a value is present.",
+      "required": [
+        "publisher",
+        "url",
+        "as_of"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "publisher": {
+          "type": "string",
+          "description": "e.g. 'NVIDIA Q2 FY2026 10-Q', 'The Information'"
+        },
+        "title": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "as_of": {
+          "type": "string",
+          "format": "date",
+          "description": "Date the figure was reported, not the date scraped."
+        },
+        "quote": {
+          "type": "string",
+          "maxLength": 300,
+          "description": "Short supporting excerpt. Keep under 300 chars."
+        }
       }
     }
   }
