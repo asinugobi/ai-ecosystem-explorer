@@ -85,5 +85,5 @@ scripts/         seed build, enrichment, and the verification suite
 
 - `revenue_ai` is unpopulated. Almost no filer reports an AI-attributable line, so it needs a segment-level or analyst-estimate pass.
 - `valuation` (market cap, EV/S) is unpopulated — market data goes stale within a day and needs its own refresh cadence.
-- 7 nodes have null revenue: 20-F foreign filers without XBRL tagging (Cameco, GlobalFoundries, Thomson Reuters, RELX) and private companies without press figures. These are the pipeline's demo targets.
+- 4 nodes have null revenue — all 20-F foreign filers without XBRL revenue tagging (Cameco, GlobalFoundries, Thomson Reuters, RELX). These are the pipeline's demo targets.
 - Capital-intensity buckets are point-in-time. Micron reads `ip_light` because the memory supercycle tripled its revenue; structurally it is one of the most capital-heavy businesses here. Raw `capex_pct_revenue` is exposed so you can see through the label.
