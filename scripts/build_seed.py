@@ -17,9 +17,14 @@ from tools.edgar import latest_facts, yoy_growth  # noqa: E402
 TODAY = dt.date.today().isoformat()
 
 
-def metric(value, *, is_estimate, basis, fig=None, unit="usd_millions", confidence="high"):
+def metric(value, *, is_estimate, basis, fig=None, unit="usd_millions", confidence="high",
+           reported=None, period=None, factor=None):
     m = {"value": value, "unit": unit, "is_estimate": is_estimate,
          "basis": basis, "confidence": confidence}
+    if reported is not None:
+        m["reported_value"] = reported
+        m["reported_period"] = period
+        m["annualization_factor"] = factor
     if fig is not None:
         m["source"] = {
             "publisher": f"SEC EDGAR — {fig.form} (CIK filing)",
@@ -46,7 +51,8 @@ def build(company):
     if not node["is_public"]:
         node["period"] = "press-reported run-rate; no SEC filings exist"
         node["revenue_total"] = metric(
-            company.get("revenue_est_usd_m"), is_estimate=True, confidence="medium",
+            company.get("revenue_est_usd_m"), is_estimate=True, confidence="medium", factor=1,
+            reported=company.get("revenue_est_usd_m"), period="already annualized",
             basis=company.get("revenue_basis", "Press-reported annualized run-rate. Private company: unaudited and not a filed figure."))
         return node, "private"
 
@@ -59,9 +65,12 @@ def build(company):
 
     rev = fin.get("revenue")
     node["period"] = fin.period_label
+    factor = 4 if rev.is_quarterly else 1
     node["revenue_total"] = metric(
         round(rev.annualized / 1e6, 1), is_estimate=False, fig=rev,
-        basis=f"Reported {rev.concept} for {rev.start}..{rev.end} ({rev.period_days}d), annualized x4 per run-rate convention.")
+        reported=round(rev.value / 1e6, 1), period=f"{rev.start}..{rev.end}", factor=factor,
+        basis=(f"Reported {rev.concept} of {rev.value/1e6:,.0f}M for {rev.start}..{rev.end} "
+                f"({rev.period_days}d), annualized x{factor} per run-rate convention."))
     node["revenue_ai"] = metric(
         None, is_estimate=True, confidence="low",
         basis="Not yet apportioned. Only a handful of filers report an AI-attributable line; requires a segment-level or analyst-estimate pass.")
@@ -75,8 +84,12 @@ def build(company):
 
     cx = fin.get("capex")
     if cx:
+        cxf = 4 if cx.is_quarterly else 1
         node["capex"] = metric(round(cx.annualized / 1e6, 1), is_estimate=False, fig=cx,
-            basis=f"Reported {cx.concept} for {cx.start}..{cx.end}, annualized x4. Cash PP&E only — EXCLUDES finance leases, so it will read below headline capex for filers that lease heavily.")
+            reported=round(cx.value / 1e6, 1), period=f"{cx.start}..{cx.end}", factor=cxf,
+            basis=(f"Reported {cx.concept} of {cx.value/1e6:,.0f}M for {cx.start}..{cx.end}, "
+                    f"annualized x{cxf}. Cash PP&E only — EXCLUDES finance leases, so it reads below "
+                    f"headline capex for filers that lease heavily."))
 
     g = yoy_growth(fin)
     if g is not None:

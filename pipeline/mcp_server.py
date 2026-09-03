@@ -39,6 +39,18 @@ def _pct(v, d=1):
     return "—" if v is None else f"{v:.{d}f}%"
 
 
+def _derivation(m):
+    """A run-rate shown alone reads as a reported figure. Show what it came from."""
+    f, rep = m.get("annualization_factor"), m.get("reported_value")
+    if f is None or rep is None:
+        return None
+    if f == 1:
+        return "already an annualized run-rate — not multiplied"
+    p = m.get("reported_period") or ""
+    period = f"the quarter ended {p.split('..')[1]}" if ".." in p else (p or "the reported period")
+    return f"{fmt_usd(rep)} reported for {period}, x{f}"
+
+
 def _est(node, key):
     m = node.get(key)
     return " [est]" if isinstance(m, dict) and m.get("is_estimate") and m.get("value") is not None else ""
@@ -131,6 +143,9 @@ def company_detail(company: str) -> str:
         unit = "%" if m.get("unit") == "percent" else ""
         v = f"{m['value']:,.1f}{unit}" if unit else fmt_usd(m["value"])
         out.append(f"  {label:<22} {v}{_est(n,key)}")
+        d = _derivation(m)
+        if d:
+            out.append(f"      {d}")
         out.append(f"      basis: {m.get('basis','')}")
         if m.get("source", {}).get("url"):
             out.append(f"      source: {m['source']['publisher']} ({m['source']['as_of']}) {m['source']['url']}")

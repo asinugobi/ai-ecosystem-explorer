@@ -83,6 +83,27 @@
         },
         "source": {
           "$ref": "#/$defs/citation"
+        },
+        "reported_value": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "description": "The figure EXACTLY as filed, before any annualization. `value` may be this x4; showing only the derived number invites a reader to mistake it for a reported one."
+        },
+        "reported_period": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "The window reported_value actually covers, e.g. '2026-04-27..2026-07-26'."
+        },
+        "annualization_factor": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "description": "What reported_value was multiplied by to get value. 4 for a quarter, 1 for an already-annual figure (private ARR run-rates are already annual and must NOT show x4)."
         }
       }
     },

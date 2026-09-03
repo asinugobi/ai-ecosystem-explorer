@@ -185,3 +185,8 @@ main { display: flex; flex: 1; min-height: 0; }
 .reach-group p { margin: 0; font-size: 10px; line-height: 1.4; }
 .reach-group.rel-co_supplier { border-left-color: var(--commercial); }
 .reach-group.rel-co_customer { border-left-color: var(--neg); }
+
+/* derivation of an annualized figure — the as-filed number it came from */
+.m-derived { font-family: var(--mono); font-size: 10px; color: var(--ink-2); margin-top: 2px;
+             padding: 2px 6px; background: var(--surface-3); border-radius: 3px; display: inline-block; }
+.tt-derived { font-family: var(--mono); font-size: 9.5px; color: var(--ink-3); margin: -4px 0 7px; }

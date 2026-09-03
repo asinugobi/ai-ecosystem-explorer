@@ -1,6 +1,6 @@
 import { useEffect, useRef, useMemo, useState, useCallback } from 'react'
 import * as d3 from 'd3'
-import { radiusScale, marginColor, layerY, segmentStats, PALETTE, LINK_GROUP, val, fmtUSD, fmtPct } from '../lib/scales.js'
+import { radiusScale, marginColor, layerY, segmentStats, PALETTE, LINK_GROUP, val, fmtUSD, fmtPct, derivation } from '../lib/scales.js'
 import { buildSimulation, settle, segmentBoxes, linkPath } from '../lib/simulation.js'
 import { exposure } from '../lib/flow.js'
 
@@ -209,8 +209,9 @@ function Tooltip({ node: n, seg, layer, theme }) {
     <div className="tooltip" data-theme={theme}>
       <div className="tt-name">{n.name} {n.ticker && <span className="tt-tick">{n.ticker}</span>}</div>
       <div className="tt-seg">{layer.get(n.layer)?.name} · {seg.get(n.segment)?.name}</div>
+      {derivation(n.revenue_total) && <div className="tt-derived">{derivation(n.revenue_total)}</div>}
       <div className="tt-rows">
-        <span>{n.is_public ? 'Revenue' : 'Est. ARR'}</span><b>{fmtUSD(val(n.revenue_total))}</b>
+        <span>{n.is_public ? 'Revenue (RR)' : 'Est. ARR'}</span><b>{fmtUSD(val(n.revenue_total))}</b>
         {n.is_public ? <>
           <span>Gross</span><b>{fmtPct(val(n.gross_margin_pct))}</b>
           <span>Operating</span><b>{fmtPct(val(n.operating_margin_pct))}</b>

@@ -59,6 +59,10 @@ for c in v["new_companies"]:
             "basis": ("Estimated ARR run-rate, press-reported. Private company: unaudited, not a filed "
                        "figure, and ARR for AI-native companies is usually annualized run-rate rather "
                        "than contracted recurring revenue."),
+            # ARR is ALREADY annual. factor 1 stops the UI implying a x4 that
+            # never happened, and distinguishes this from "derivation unknown".
+            "reported_value": arr, "reported_period": "already an annualized run-rate",
+            "annualization_factor": 1,
             "source": CITE},
         "moat": {"summary": c["note"], "strength": c.get("moat_strength", 2), "type": [], "risks": []},
         "venture": venture_block(c),
@@ -81,6 +85,8 @@ for n in nodes:
             "value": arr, "unit": "usd_millions", "is_estimate": True, "confidence": "low",
             "basis": ("Estimated ARR run-rate, press-reported. Private company: unaudited and not a filed "
                        "figure. ARR here is an annualized run-rate, not contracted recurring revenue."),
+            "reported_value": arr, "reported_period": "already an annualized run-rate",
+            "annualization_factor": 1,
             "source": CITE}
         n["period"] = f"Estimated ARR run-rate as of {AS_OF} (press-reported)"
 

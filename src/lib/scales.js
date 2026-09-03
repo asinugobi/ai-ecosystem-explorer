@@ -154,3 +154,22 @@ export const fmtUSD = (m) => {
   return `$${m.toFixed(0)}M`
 }
 export const fmtPct = (v, d = 1) => (v == null ? '—' : `${v.toFixed(d)}%`)
+
+/**
+ * Human-readable derivation for an annualized metric.
+ *
+ * "$384.9B" alone reads as a reported figure. It is not — it is one quarter
+ * multiplied by four. Showing the as-filed number beside it is the difference
+ * between a run-rate a reader can check and a number they have to trust.
+ */
+export function derivation(m) {
+  if (!m || m.value == null) return null
+  const f = m.annualization_factor
+  const rep = m.reported_value
+  if (f == null || rep == null) return null
+  if (f === 1) return 'Already an annualized run-rate — not multiplied'
+  const period = /^\d{4}-\d{2}-\d{2}\.\.\d{4}-\d{2}-\d{2}$/.test(m.reported_period || '')
+    ? `the quarter ended ${m.reported_period.split('..')[1]}`
+    : (m.reported_period || 'the reported period')
+  return `${fmtUSD(rep)} reported for ${period}, ×${f}`
+}

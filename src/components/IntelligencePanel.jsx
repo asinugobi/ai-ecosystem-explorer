@@ -1,5 +1,5 @@
 import { useMemo, useState, useEffect } from 'react'
-import { val, fmtUSD, fmtPct, capitalEfficiency } from '../lib/scales.js'
+import { val, fmtUSD, fmtPct, capitalEfficiency, derivation } from '../lib/scales.js'
 import { exposureDirected, moneyEdge } from '../lib/flow.js'
 
 /** Progressive disclosure: nothing qualitative renders until a node is chosen. */
@@ -40,6 +40,7 @@ export default function IntelligencePanel({ node, nodes, links, taxonomy, onSele
         {pct ? fmtPct(val(m)) : fmtUSD(val(m))}
         {m?.is_estimate && val(m) != null && <span className="est" title={m.basis}>est</span>}
       </div>
+      {derivation(m) && <div className="m-derived">{derivation(m)}</div>}
       {m?.basis && <div className="m-basis">{m.basis}</div>}
       {cite(m) && <a className="m-cite" href={cite(m)} target="_blank" rel="noreferrer">
         {m.source.publisher} · {m.source.as_of} ↗</a>}
