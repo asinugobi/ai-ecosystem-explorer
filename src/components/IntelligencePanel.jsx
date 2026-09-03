@@ -1,5 +1,5 @@
-import { useMemo } from 'react'
-import { val, fmtUSD, fmtPct } from '../lib/scales.js'
+import { useMemo, useState, useEffect } from 'react'
+import { val, fmtUSD, fmtPct, capitalEfficiency } from '../lib/scales.js'
 import { exposure, moneyEdge } from '../lib/flow.js'
 
 /** Progressive disclosure: nothing qualitative renders until a node is chosen. */
@@ -7,6 +7,9 @@ export default function IntelligencePanel({ node, nodes, links, taxonomy, onSele
   const byId = useMemo(() => new Map(nodes.map((n) => [n.id, n])), [nodes])
   const layer = useMemo(() => new Map(taxonomy.layers.map((l) => [l.layer, l])), [taxonomy])
   const seg = useMemo(() => new Map(taxonomy.segments.map((s) => [s.id, s])), [taxonomy])
+
+  const [pane, setPane] = useState('fundamentals')
+  useEffect(() => { setPane('fundamentals') }, [node?.id])
 
   const rel = useMemo(() => {
     if (!node) return []
@@ -64,8 +67,19 @@ export default function IntelligencePanel({ node, nodes, links, taxonomy, onSele
         </section>
       )}
 
+      <div className="pane-tabs">
+        <button className={pane === 'fundamentals' ? 'on' : ''} onClick={() => setPane('fundamentals')}>
+          {node.is_public ? 'Public entity' : 'Private entity'}
+        </button>
+        <button className={pane === 'capital' ? 'on' : ''} onClick={() => setPane('capital')}>Capital &amp; efficiency</button>
+      </div>
+
+      {pane === 'capital' ? (
+        <CapitalView node={node} />
+      ) : (
+      <>
       <section>
-        <h3>Financials</h3>
+        <h3>{node.is_public ? 'Financials' : 'Estimated economics'}</h3>
         <div className="metrics">
           <Metric label="Revenue (run-rate)" m={node.revenue_total} />
           <Metric label="Gross margin" m={node.gross_margin_pct} pct />
@@ -90,6 +104,9 @@ export default function IntelligencePanel({ node, nodes, links, taxonomy, onSele
           </div>
         )}
       </section>
+
+      </>
+      )}
 
       {rel.length > 0 && (
         <section>
@@ -127,5 +144,100 @@ export default function IntelligencePanel({ node, nodes, links, taxonomy, onSele
         </section>
       )}
     </aside>
+  )
+}
+
+/** The growth-equity pane: where cash pools, and whether margin is earned or borrowed. */
+function CapitalView({ node }) {
+  const v = node.venture
+  const ce = node.capital_efficiency
+  const INTENSITY = {
+    capital_heavy: 'Capital-heavy toll-collector — revenue is currently being bought with capital.',
+    pass_through: 'Pass-through integrator — asset-light, but thin margin. Moves the dollars without keeping them.',
+    ip_light: 'IP-light — earns margin without a matching capital base. This is where cash actually pools.',
+    balanced: 'Balanced — a meaningful capital base against a healthy margin.',
+  }
+  return (
+    <>
+      <section>
+        <h3>Capital efficiency</h3>
+        {node.is_public ? (
+          <div className="metrics">
+            <div className="metric">
+              <div className="m-label">Revenue per $1 of capex</div>
+              <div className="m-value">{ce?.revenue_per_capex_dollar?.toFixed(2) ?? '—'}</div>
+              <div className="m-basis">Annualised revenue over annualised cash capex. Below 1.0 means the business
+                is spending more on capacity than it currently earns — gross margin alone cannot show you this.</div>
+            </div>
+            <div className="metric">
+              <div className="m-label">Capex as % of revenue</div>
+              <div className="m-value">{fmtPct(ce?.capex_pct_revenue, 0)}</div>
+              <div className="m-basis">Cash PP&amp;E only — excludes finance leases, so it reads below headline capex
+                for filers that lease heavily. A cyclical peak compresses this: a company whose revenue just tripled
+                looks asset-light even when it structurally is not.</div>
+            </div>
+          </div>
+        ) : (
+          <div className="metrics">
+            <div className="metric">
+              <div className="m-label">Capital consumed per $1 of ARR</div>
+              <div className="m-value">{v?.capital_consumed_per_arr_dollar?.toFixed(2) ?? '—'}</div>
+              <div className="m-basis">Total raised over estimated ARR. Net burn is not disclosed for any private
+                company here, so this stands in for burn multiple. Under ~3x is efficient; above ~20x the mark is
+                pricing an outcome rather than a business.</div>
+            </div>
+            <div className="metric">
+              <div className="m-label">Implied revenue multiple</div>
+              <div className="m-value">{v?.post_money_usd_m && v?.estimated_arr_usd_m
+                ? `${(v.post_money_usd_m / v.estimated_arr_usd_m).toFixed(0)}x` : '—'}</div>
+              <div className="m-basis">Last post-money over estimated ARR. A last-priced-round mark, not a live
+                quote — read it together with the round date.</div>
+            </div>
+          </div>
+        )}
+        {ce?.asset_intensity && <p className="eff-note">{INTENSITY[ce.asset_intensity]}</p>}
+      </section>
+
+      {v && (
+        <section>
+          <h3>Cap table &amp; financing</h3>
+          <div className="metrics">
+            <div className="metric">
+              <div className="m-label">Post-money · {v.funding_tier?.replace(/_/g, ' ') ?? 'private'}</div>
+              <div className="m-value">{fmtUSD(v.post_money_usd_m)}
+                {v.last_round_date && <span className="est">{v.last_round_date}</span>}</div>
+            </div>
+            <div className="metric">
+              <div className="m-label">Total raised</div>
+              <div className="m-value">{fmtUSD(v.total_raised_usd_m)}</div>
+            </div>
+            <div className="metric">
+              <div className="m-label">Estimated ARR · YoY</div>
+              <div className="m-value">{fmtUSD(v.estimated_arr_usd_m)}
+                {v.arr_growth_yoy_pct != null && <span className="est">{fmtPct(v.arr_growth_yoy_pct, 0)}</span>}</div>
+            </div>
+            {v.nrr_pct != null && (
+              <div className="metric">
+                <div className="m-label">Net revenue retention</div>
+                <div className="m-value">{fmtPct(v.nrr_pct, 0)}</div>
+                <div className="m-basis">Self-reported and defined inconsistently between companies.</div>
+              </div>
+            )}
+          </div>
+          {v.lead_investors?.length > 0 && (
+            <>
+              <h3>Lead backers</h3>
+              <div className="investors">{v.lead_investors.map((i) => <span key={i}>{i}</span>)}</div>
+            </>
+          )}
+          {v.compute_subsidy_note && (
+            <div className="subsidy">
+              <div className="s-head">COMPUTE ARBITRAGE CHECK</div>
+              <p>{v.compute_subsidy_note}</p>
+            </div>
+          )}
+        </section>
+      )}
+    </>
   )
 }

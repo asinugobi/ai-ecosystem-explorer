@@ -92,6 +92,13 @@
     },
     "valuation": {
       "as_of": "2026-09-03"
+    },
+    "capital_efficiency": {
+      "revenue_per_capex_dollar": 27.97,
+      "capex_pct_revenue": 3.6,
+      "fcf_conversion_pct": null,
+      "roic_pct": null,
+      "asset_intensity": "pass_through"
     }
   },
   {
@@ -187,6 +194,13 @@
     },
     "valuation": {
       "as_of": "2026-09-03"
+    },
+    "capital_efficiency": {
+      "revenue_per_capex_dollar": 50.04,
+      "capex_pct_revenue": 2.0,
+      "fcf_conversion_pct": null,
+      "roic_pct": null,
+      "asset_intensity": "pass_through"
     }
   },
   {
@@ -282,6 +296,13 @@
     },
     "valuation": {
       "as_of": "2026-09-03"
+    },
+    "capital_efficiency": {
+      "revenue_per_capex_dollar": 28.52,
+      "capex_pct_revenue": 3.5,
+      "fcf_conversion_pct": null,
+      "roic_pct": null,
+      "asset_intensity": "pass_through"
     }
   },
   {
@@ -364,6 +385,13 @@
     },
     "valuation": {
       "as_of": "2026-09-03"
+    },
+    "capital_efficiency": {
+      "revenue_per_capex_dollar": 4.58,
+      "capex_pct_revenue": 21.8,
+      "fcf_conversion_pct": null,
+      "roic_pct": null,
+      "asset_intensity": "capital_heavy"
     }
   },
   {
@@ -446,6 +474,13 @@
     },
     "valuation": {
       "as_of": "2026-09-03"
+    },
+    "capital_efficiency": {
+      "revenue_per_capex_dollar": 4.98,
+      "capex_pct_revenue": 20.1,
+      "fcf_conversion_pct": null,
+      "roic_pct": null,
+      "asset_intensity": "capital_heavy"
     }
   },
   {
@@ -624,6 +659,13 @@
     },
     "valuation": {
       "as_of": "2026-09-03"
+    },
+    "capital_efficiency": {
+      "revenue_per_capex_dollar": 21.29,
+      "capex_pct_revenue": 4.7,
+      "fcf_conversion_pct": null,
+      "roic_pct": null,
+      "asset_intensity": "balanced"
     }
   },
   {
@@ -676,19 +718,6 @@
         "title": "OperatingIncomeLoss for 2026-01-01..2026-03-31",
         "url": "https://www.sec.gov/Archives/edgar/data/715957/000119312526200275/0001193125-26-200275-index.htm",
         "as_of": "2026-05-01"
-      }
-    },
-    "capex": {
-      "value": 5848.0,
-      "unit": "usd_millions",
-      "is_estimate": false,
-      "basis": "Reported PaymentsToAcquirePropertyPlantAndEquipment for 2020-01-01..2020-03-31, annualized x4. Cash PP&E only \u2014 EXCLUDES finance leases, so it will read below headline capex for filers that lease heavily.",
-      "confidence": "high",
-      "source": {
-        "publisher": "SEC EDGAR \u2014 10-Q (CIK filing)",
-        "title": "PaymentsToAcquirePropertyPlantAndEquipment for 2020-01-01..2020-03-31",
-        "url": "https://www.sec.gov/Archives/edgar/data/715957/000156459020021084/0001564590-20-021084-index.htm",
-        "as_of": "2020-05-05"
       }
     },
     "revenue_growth_yoy_pct": {
@@ -801,6 +830,13 @@
     },
     "valuation": {
       "as_of": "2026-09-03"
+    },
+    "capital_efficiency": {
+      "revenue_per_capex_dollar": 29.08,
+      "capex_pct_revenue": 3.4,
+      "fcf_conversion_pct": null,
+      "roic_pct": null,
+      "asset_intensity": "pass_through"
     }
   },
   {
@@ -896,6 +932,13 @@
     },
     "valuation": {
       "as_of": "2026-09-03"
+    },
+    "capital_efficiency": {
+      "revenue_per_capex_dollar": 18.84,
+      "capex_pct_revenue": 5.3,
+      "fcf_conversion_pct": null,
+      "roic_pct": null,
+      "asset_intensity": "pass_through"
     }
   },
   {
@@ -991,6 +1034,13 @@
     },
     "valuation": {
       "as_of": "2026-09-03"
+    },
+    "capital_efficiency": {
+      "revenue_per_capex_dollar": 79.72,
+      "capex_pct_revenue": 1.3,
+      "fcf_conversion_pct": null,
+      "roic_pct": null,
+      "asset_intensity": "pass_through"
     }
   },
   {
@@ -1073,6 +1123,13 @@
     },
     "valuation": {
       "as_of": "2026-09-03"
+    },
+    "capital_efficiency": {
+      "revenue_per_capex_dollar": 44.2,
+      "capex_pct_revenue": 2.3,
+      "fcf_conversion_pct": null,
+      "roic_pct": null,
+      "asset_intensity": "pass_through"
     }
   },
   {
@@ -1168,6 +1225,13 @@
     },
     "valuation": {
       "as_of": "2026-09-03"
+    },
+    "capital_efficiency": {
+      "revenue_per_capex_dollar": 37.36,
+      "capex_pct_revenue": 2.7,
+      "fcf_conversion_pct": null,
+      "roic_pct": null,
+      "asset_intensity": "pass_through"
     }
   },
   {
@@ -1263,6 +1327,13 @@
     },
     "valuation": {
       "as_of": "2026-09-03"
+    },
+    "capital_efficiency": {
+      "revenue_per_capex_dollar": 43.42,
+      "capex_pct_revenue": 2.3,
+      "fcf_conversion_pct": null,
+      "roic_pct": null,
+      "asset_intensity": "pass_through"
     }
   },
   {
@@ -1358,6 +1429,13 @@
     },
     "valuation": {
       "as_of": "2026-09-03"
+    },
+    "capital_efficiency": {
+      "revenue_per_capex_dollar": 179.61,
+      "capex_pct_revenue": 0.6,
+      "fcf_conversion_pct": null,
+      "roic_pct": null,
+      "asset_intensity": "pass_through"
     }
   },
   {
@@ -1456,6 +1534,13 @@
     },
     "valuation": {
       "as_of": "2026-09-03"
+    },
+    "capital_efficiency": {
+      "revenue_per_capex_dollar": 54.76,
+      "capex_pct_revenue": 1.8,
+      "fcf_conversion_pct": null,
+      "roic_pct": null,
+      "asset_intensity": "ip_light"
     }
   },
   {
@@ -1551,6 +1636,13 @@
     },
     "valuation": {
       "as_of": "2026-09-03"
+    },
+    "capital_efficiency": {
+      "revenue_per_capex_dollar": 29.66,
+      "capex_pct_revenue": 3.4,
+      "fcf_conversion_pct": null,
+      "roic_pct": null,
+      "asset_intensity": "pass_through"
     }
   },
   {
@@ -1648,6 +1740,13 @@
     },
     "valuation": {
       "as_of": "2026-09-03"
+    },
+    "capital_efficiency": {
+      "revenue_per_capex_dollar": 88.75,
+      "capex_pct_revenue": 1.1,
+      "fcf_conversion_pct": null,
+      "roic_pct": null,
+      "asset_intensity": "ip_light"
     }
   },
   {
@@ -1745,6 +1844,13 @@
     },
     "valuation": {
       "as_of": "2026-09-03"
+    },
+    "capital_efficiency": {
+      "revenue_per_capex_dollar": 17.59,
+      "capex_pct_revenue": 5.7,
+      "fcf_conversion_pct": null,
+      "roic_pct": null,
+      "asset_intensity": "pass_through"
     }
   },
   {
@@ -1827,6 +1933,13 @@
     },
     "valuation": {
       "as_of": "2026-09-03"
+    },
+    "capital_efficiency": {
+      "revenue_per_capex_dollar": 9.03,
+      "capex_pct_revenue": 11.1,
+      "fcf_conversion_pct": null,
+      "roic_pct": null,
+      "asset_intensity": "ip_light"
     }
   },
   {
@@ -1922,6 +2035,13 @@
     },
     "valuation": {
       "as_of": "2026-09-03"
+    },
+    "capital_efficiency": {
+      "revenue_per_capex_dollar": 7.69,
+      "capex_pct_revenue": 13.0,
+      "fcf_conversion_pct": null,
+      "roic_pct": null,
+      "asset_intensity": "ip_light"
     }
   },
   {
@@ -2017,6 +2137,13 @@
     },
     "valuation": {
       "as_of": "2026-09-03"
+    },
+    "capital_efficiency": {
+      "revenue_per_capex_dollar": 119.0,
+      "capex_pct_revenue": 0.8,
+      "fcf_conversion_pct": null,
+      "roic_pct": null,
+      "asset_intensity": "ip_light"
     }
   },
   {
@@ -2112,6 +2239,13 @@
     },
     "valuation": {
       "as_of": "2026-09-03"
+    },
+    "capital_efficiency": {
+      "revenue_per_capex_dollar": 29.64,
+      "capex_pct_revenue": 3.4,
+      "fcf_conversion_pct": null,
+      "roic_pct": null,
+      "asset_intensity": "pass_through"
     }
   },
   {
@@ -2234,6 +2368,13 @@
     },
     "valuation": {
       "as_of": "2026-09-03"
+    },
+    "capital_efficiency": {
+      "revenue_per_capex_dollar": 14.11,
+      "capex_pct_revenue": 7.1,
+      "fcf_conversion_pct": null,
+      "roic_pct": null,
+      "asset_intensity": "pass_through"
     }
   },
   {
@@ -2329,6 +2470,13 @@
     },
     "valuation": {
       "as_of": "2026-09-03"
+    },
+    "capital_efficiency": {
+      "revenue_per_capex_dollar": 31.55,
+      "capex_pct_revenue": 3.2,
+      "fcf_conversion_pct": null,
+      "roic_pct": null,
+      "asset_intensity": "pass_through"
     }
   },
   {
@@ -2398,6 +2546,13 @@
     },
     "valuation": {
       "as_of": "2026-09-03"
+    },
+    "capital_efficiency": {
+      "revenue_per_capex_dollar": 35.61,
+      "capex_pct_revenue": 2.8,
+      "fcf_conversion_pct": null,
+      "roic_pct": null,
+      "asset_intensity": "balanced"
     }
   },
   {
@@ -2520,6 +2675,13 @@
     },
     "valuation": {
       "as_of": "2026-09-03"
+    },
+    "capital_efficiency": {
+      "revenue_per_capex_dollar": 4.44,
+      "capex_pct_revenue": 22.5,
+      "fcf_conversion_pct": null,
+      "roic_pct": null,
+      "asset_intensity": "capital_heavy"
     }
   },
   {
@@ -2642,6 +2804,13 @@
     },
     "valuation": {
       "as_of": "2026-09-03"
+    },
+    "capital_efficiency": {
+      "revenue_per_capex_dollar": 21.28,
+      "capex_pct_revenue": 4.7,
+      "fcf_conversion_pct": null,
+      "roic_pct": null,
+      "asset_intensity": "pass_through"
     }
   },
   {
@@ -2737,6 +2906,13 @@
     },
     "valuation": {
       "as_of": "2026-09-03"
+    },
+    "capital_efficiency": {
+      "revenue_per_capex_dollar": 7.5,
+      "capex_pct_revenue": 13.3,
+      "fcf_conversion_pct": null,
+      "roic_pct": null,
+      "asset_intensity": "pass_through"
     }
   },
   {
@@ -2832,6 +3008,13 @@
     },
     "valuation": {
       "as_of": "2026-09-03"
+    },
+    "capital_efficiency": {
+      "revenue_per_capex_dollar": 49.92,
+      "capex_pct_revenue": 2.0,
+      "fcf_conversion_pct": null,
+      "roic_pct": null,
+      "asset_intensity": "pass_through"
     }
   },
   {
@@ -2927,6 +3110,13 @@
     },
     "valuation": {
       "as_of": "2026-09-03"
+    },
+    "capital_efficiency": {
+      "revenue_per_capex_dollar": 55.7,
+      "capex_pct_revenue": 1.8,
+      "fcf_conversion_pct": null,
+      "roic_pct": null,
+      "asset_intensity": "ip_light"
     }
   },
   {
@@ -3009,6 +3199,13 @@
     },
     "valuation": {
       "as_of": "2026-09-03"
+    },
+    "capital_efficiency": {
+      "revenue_per_capex_dollar": 17.37,
+      "capex_pct_revenue": 5.8,
+      "fcf_conversion_pct": null,
+      "roic_pct": null,
+      "asset_intensity": "pass_through"
     }
   },
   {
@@ -3104,6 +3301,13 @@
     },
     "valuation": {
       "as_of": "2026-09-03"
+    },
+    "capital_efficiency": {
+      "revenue_per_capex_dollar": 51.8,
+      "capex_pct_revenue": 1.9,
+      "fcf_conversion_pct": null,
+      "roic_pct": null,
+      "asset_intensity": "ip_light"
     }
   },
   {
@@ -3199,6 +3403,13 @@
     },
     "valuation": {
       "as_of": "2026-09-03"
+    },
+    "capital_efficiency": {
+      "revenue_per_capex_dollar": 65.84,
+      "capex_pct_revenue": 1.5,
+      "fcf_conversion_pct": null,
+      "roic_pct": null,
+      "asset_intensity": "ip_light"
     }
   },
   {
@@ -3294,6 +3505,13 @@
     },
     "valuation": {
       "as_of": "2026-09-03"
+    },
+    "capital_efficiency": {
+      "revenue_per_capex_dollar": 21.26,
+      "capex_pct_revenue": 4.7,
+      "fcf_conversion_pct": null,
+      "roic_pct": null,
+      "asset_intensity": "pass_through"
     }
   },
   {
@@ -3389,6 +3607,13 @@
     },
     "valuation": {
       "as_of": "2026-09-03"
+    },
+    "capital_efficiency": {
+      "revenue_per_capex_dollar": 45.53,
+      "capex_pct_revenue": 2.2,
+      "fcf_conversion_pct": null,
+      "roic_pct": null,
+      "asset_intensity": "pass_through"
     }
   },
   {
@@ -3484,6 +3709,13 @@
     },
     "valuation": {
       "as_of": "2026-09-03"
+    },
+    "capital_efficiency": {
+      "revenue_per_capex_dollar": 317.37,
+      "capex_pct_revenue": 0.3,
+      "fcf_conversion_pct": null,
+      "roic_pct": null,
+      "asset_intensity": "pass_through"
     }
   },
   {
@@ -3579,6 +3811,13 @@
     },
     "valuation": {
       "as_of": "2026-09-03"
+    },
+    "capital_efficiency": {
+      "revenue_per_capex_dollar": 17.81,
+      "capex_pct_revenue": 5.6,
+      "fcf_conversion_pct": null,
+      "roic_pct": null,
+      "asset_intensity": "pass_through"
     }
   },
   {
@@ -3661,6 +3900,13 @@
     },
     "valuation": {
       "as_of": "2026-09-03"
+    },
+    "capital_efficiency": {
+      "revenue_per_capex_dollar": 21.46,
+      "capex_pct_revenue": 4.7,
+      "fcf_conversion_pct": null,
+      "roic_pct": null,
+      "asset_intensity": "balanced"
     }
   },
   {
@@ -3756,6 +4002,13 @@
     },
     "valuation": {
       "as_of": "2026-09-03"
+    },
+    "capital_efficiency": {
+      "revenue_per_capex_dollar": 0.33,
+      "capex_pct_revenue": 298.8,
+      "fcf_conversion_pct": null,
+      "roic_pct": null,
+      "asset_intensity": "capital_heavy"
     }
   },
   {
@@ -3838,6 +4091,13 @@
     },
     "valuation": {
       "as_of": "2026-09-03"
+    },
+    "capital_efficiency": {
+      "revenue_per_capex_dollar": 0.13,
+      "capex_pct_revenue": 767.5,
+      "fcf_conversion_pct": null,
+      "roic_pct": null,
+      "asset_intensity": "capital_heavy"
     }
   },
   {
@@ -3933,6 +4193,13 @@
     },
     "valuation": {
       "as_of": "2026-09-03"
+    },
+    "capital_efficiency": {
+      "revenue_per_capex_dollar": 0.8,
+      "capex_pct_revenue": 124.5,
+      "fcf_conversion_pct": null,
+      "roic_pct": null,
+      "asset_intensity": "capital_heavy"
     }
   },
   {
@@ -4015,6 +4282,13 @@
     },
     "valuation": {
       "as_of": "2026-09-03"
+    },
+    "capital_efficiency": {
+      "revenue_per_capex_dollar": 2.09,
+      "capex_pct_revenue": 47.8,
+      "fcf_conversion_pct": null,
+      "roic_pct": null,
+      "asset_intensity": "capital_heavy"
     }
   },
   {
@@ -4182,6 +4456,13 @@
     },
     "valuation": {
       "as_of": "2026-09-03"
+    },
+    "capital_efficiency": {
+      "revenue_per_capex_dollar": 2.68,
+      "capex_pct_revenue": 37.3,
+      "fcf_conversion_pct": null,
+      "roic_pct": null,
+      "asset_intensity": "capital_heavy"
     }
   },
   {
@@ -4280,6 +4561,13 @@
     },
     "valuation": {
       "as_of": "2026-09-03"
+    },
+    "capital_efficiency": {
+      "revenue_per_capex_dollar": 3.36,
+      "capex_pct_revenue": 29.8,
+      "fcf_conversion_pct": null,
+      "roic_pct": null,
+      "asset_intensity": "capital_heavy"
     }
   },
   {
@@ -4365,6 +4653,13 @@
     },
     "valuation": {
       "as_of": "2026-09-03"
+    },
+    "capital_efficiency": {
+      "revenue_per_capex_dollar": 3.7,
+      "capex_pct_revenue": 27.0,
+      "fcf_conversion_pct": null,
+      "roic_pct": null,
+      "asset_intensity": "capital_heavy"
     }
   },
   {
@@ -4462,6 +4757,13 @@
     },
     "valuation": {
       "as_of": "2026-09-03"
+    },
+    "capital_efficiency": {
+      "revenue_per_capex_dollar": 3.2,
+      "capex_pct_revenue": 31.2,
+      "fcf_conversion_pct": null,
+      "roic_pct": null,
+      "asset_intensity": "capital_heavy"
     }
   },
   {
@@ -4546,6 +4848,13 @@
     },
     "valuation": {
       "as_of": "2026-09-03"
+    },
+    "capital_efficiency": {
+      "revenue_per_capex_dollar": 2.02,
+      "capex_pct_revenue": 49.5,
+      "fcf_conversion_pct": null,
+      "roic_pct": null,
+      "asset_intensity": "capital_heavy"
     }
   },
   {
@@ -4573,6 +4882,32 @@
       "is_estimate": true,
       "basis": "Press-reported annualized run-rate. Private company: unaudited and not a filed figure.",
       "confidence": "medium"
+    },
+    "venture": {
+      "funding_tier": "pre_ipo",
+      "post_money_usd_m": 500000,
+      "last_round_date": "2025-10-01",
+      "total_raised_usd_m": 64000,
+      "estimated_arr_usd_m": 40000,
+      "arr_growth_yoy_pct": 100,
+      "nrr_pct": null,
+      "net_burn_usd_m": null,
+      "burn_multiple": null,
+      "runway_months": null,
+      "next_financing_horizon": null,
+      "lead_investors": [
+        "SoftBank",
+        "Microsoft",
+        "Thrive"
+      ],
+      "compute_subsidy_note": "Azure commitments run both directions \u2014 Microsoft invested, OpenAI committed spend back. Reported margin is not separable from that structure.",
+      "source": {
+        "publisher": "Press coverage / venture databases (aggregated)",
+        "title": "Last priced round as reported",
+        "url": "https://techcrunch.com/tag/funding/",
+        "as_of": "2026-09-03"
+      },
+      "capital_consumed_per_arr_dollar": 1.6
     }
   },
   {
@@ -4600,6 +4935,32 @@
       "is_estimate": true,
       "basis": "Press-reported annualized run-rate. Private company: unaudited and not a filed figure.",
       "confidence": "medium"
+    },
+    "venture": {
+      "funding_tier": "pre_ipo",
+      "post_money_usd_m": 350000,
+      "last_round_date": "2026-02-01",
+      "total_raised_usd_m": 33000,
+      "estimated_arr_usd_m": 65000,
+      "arr_growth_yoy_pct": 622,
+      "nrr_pct": null,
+      "net_burn_usd_m": null,
+      "burn_multiple": null,
+      "runway_months": null,
+      "next_financing_horizon": null,
+      "lead_investors": [
+        "Google",
+        "Amazon",
+        "Lightspeed"
+      ],
+      "compute_subsidy_note": "Amazon and Google are both large investors and primary compute providers. Enterprise/API weighting makes revenue quality higher than consumer-led peers.",
+      "source": {
+        "publisher": "Press coverage / venture databases (aggregated)",
+        "title": "Last priced round as reported",
+        "url": "https://techcrunch.com/tag/funding/",
+        "as_of": "2026-09-03"
+      },
+      "capital_consumed_per_arr_dollar": 0.51
     }
   },
   {
@@ -4627,6 +4988,31 @@
       "is_estimate": true,
       "basis": "Press-reported annualized run-rate. Private company: unaudited and not a filed figure.",
       "confidence": "medium"
+    },
+    "venture": {
+      "funding_tier": "growth",
+      "post_money_usd_m": 200000,
+      "last_round_date": "2025-12-01",
+      "total_raised_usd_m": 25000,
+      "estimated_arr_usd_m": 1500,
+      "arr_growth_yoy_pct": null,
+      "nrr_pct": null,
+      "net_burn_usd_m": null,
+      "burn_multiple": null,
+      "runway_months": null,
+      "next_financing_horizon": null,
+      "lead_investors": [
+        "Valor",
+        "Sequoia"
+      ],
+      "compute_subsidy_note": "Vertically integrated \u2014 owns Colossus and its own generation. Capex is on its own balance sheet rather than rented, which is the opposite trade from its peers.",
+      "source": {
+        "publisher": "Press coverage / venture databases (aggregated)",
+        "title": "Last priced round as reported",
+        "url": "https://techcrunch.com/tag/funding/",
+        "as_of": "2026-09-03"
+      },
+      "capital_consumed_per_arr_dollar": 16.67
     }
   },
   {
@@ -4722,6 +5108,13 @@
     },
     "valuation": {
       "as_of": "2026-09-03"
+    },
+    "capital_efficiency": {
+      "revenue_per_capex_dollar": 133.11,
+      "capex_pct_revenue": 0.8,
+      "fcf_conversion_pct": null,
+      "roic_pct": null,
+      "asset_intensity": "ip_light"
     }
   },
   {
@@ -4817,6 +5210,13 @@
     },
     "valuation": {
       "as_of": "2026-09-03"
+    },
+    "capital_efficiency": {
+      "revenue_per_capex_dollar": 331.95,
+      "capex_pct_revenue": 0.3,
+      "fcf_conversion_pct": null,
+      "roic_pct": null,
+      "asset_intensity": "ip_light"
     }
   },
   {
@@ -4912,6 +5312,13 @@
     },
     "valuation": {
       "as_of": "2026-09-03"
+    },
+    "capital_efficiency": {
+      "revenue_per_capex_dollar": 98.81,
+      "capex_pct_revenue": 1.0,
+      "fcf_conversion_pct": null,
+      "roic_pct": null,
+      "asset_intensity": "ip_light"
     }
   },
   {
@@ -4939,6 +5346,32 @@
       "is_estimate": true,
       "basis": "Press-reported annualized run-rate. Private company: unaudited and not a filed figure.",
       "confidence": "medium"
+    },
+    "venture": {
+      "funding_tier": "pre_ipo",
+      "post_money_usd_m": 130000,
+      "last_round_date": "2025-12-01",
+      "total_raised_usd_m": 19000,
+      "estimated_arr_usd_m": 4800,
+      "arr_growth_yoy_pct": 50,
+      "nrr_pct": 140,
+      "net_burn_usd_m": null,
+      "burn_multiple": null,
+      "runway_months": null,
+      "next_financing_horizon": null,
+      "lead_investors": [
+        "Thrive",
+        "a16z",
+        "Insight"
+      ],
+      "compute_subsidy_note": "Runs on customers' own cloud spend, so gross margin is genuinely earned rather than subsidised.",
+      "source": {
+        "publisher": "Press coverage / venture databases (aggregated)",
+        "title": "Last priced round as reported",
+        "url": "https://techcrunch.com/tag/funding/",
+        "as_of": "2026-09-03"
+      },
+      "capital_consumed_per_arr_dollar": 3.96
     }
   },
   {
@@ -5034,6 +5467,13 @@
     },
     "valuation": {
       "as_of": "2026-09-03"
+    },
+    "capital_efficiency": {
+      "revenue_per_capex_dollar": 715.47,
+      "capex_pct_revenue": 0.1,
+      "fcf_conversion_pct": null,
+      "roic_pct": null,
+      "asset_intensity": "ip_light"
     }
   },
   {
@@ -5157,19 +5597,6 @@
         "as_of": "2026-08-05"
       }
     },
-    "capex": {
-      "value": 0.3,
-      "unit": "usd_millions",
-      "is_estimate": false,
-      "basis": "Reported PaymentsToAcquirePropertyPlantAndEquipment for 2023-01-01..2023-03-31, annualized x4. Cash PP&E only \u2014 EXCLUDES finance leases, so it will read below headline capex for filers that lease heavily.",
-      "confidence": "high",
-      "source": {
-        "publisher": "SEC EDGAR \u2014 10-Q (CIK filing)",
-        "title": "PaymentsToAcquirePropertyPlantAndEquipment for 2023-01-01..2023-03-31",
-        "url": "https://www.sec.gov/Archives/edgar/data/1751008/000175100823000048/0001751008-23-000048-index.htm",
-        "as_of": "2023-05-10"
-      }
-    },
     "revenue_growth_yoy_pct": {
       "value": 52.8,
       "unit": "percent",
@@ -5269,6 +5696,13 @@
     },
     "valuation": {
       "as_of": "2026-09-03"
+    },
+    "capital_efficiency": {
+      "revenue_per_capex_dollar": 57.44,
+      "capex_pct_revenue": 1.7,
+      "fcf_conversion_pct": null,
+      "roic_pct": null,
+      "asset_intensity": "balanced"
     }
   },
   {
@@ -5366,6 +5800,13 @@
     },
     "valuation": {
       "as_of": "2026-09-03"
+    },
+    "capital_efficiency": {
+      "revenue_per_capex_dollar": 15.07,
+      "capex_pct_revenue": 6.6,
+      "fcf_conversion_pct": null,
+      "roic_pct": null,
+      "asset_intensity": "ip_light"
     }
   },
   {
@@ -5463,6 +5904,13 @@
     },
     "valuation": {
       "as_of": "2026-09-03"
+    },
+    "capital_efficiency": {
+      "revenue_per_capex_dollar": 35.74,
+      "capex_pct_revenue": 2.8,
+      "fcf_conversion_pct": null,
+      "roic_pct": null,
+      "asset_intensity": "ip_light"
     }
   },
   {
@@ -5561,6 +6009,13 @@
     },
     "valuation": {
       "as_of": "2026-09-03"
+    },
+    "capital_efficiency": {
+      "revenue_per_capex_dollar": 10.67,
+      "capex_pct_revenue": 9.4,
+      "fcf_conversion_pct": null,
+      "roic_pct": null,
+      "asset_intensity": "ip_light"
     }
   },
   {
@@ -5658,6 +6113,13 @@
     },
     "valuation": {
       "as_of": "2026-09-03"
+    },
+    "capital_efficiency": {
+      "revenue_per_capex_dollar": 28.28,
+      "capex_pct_revenue": 3.5,
+      "fcf_conversion_pct": null,
+      "roic_pct": null,
+      "asset_intensity": "ip_light"
     }
   },
   {
@@ -5755,6 +6217,13 @@
     },
     "valuation": {
       "as_of": "2026-09-03"
+    },
+    "capital_efficiency": {
+      "revenue_per_capex_dollar": 66.35,
+      "capex_pct_revenue": 1.5,
+      "fcf_conversion_pct": null,
+      "roic_pct": null,
+      "asset_intensity": "ip_light"
     }
   },
   {
@@ -5853,6 +6322,13 @@
     },
     "valuation": {
       "as_of": "2026-09-03"
+    },
+    "capital_efficiency": {
+      "revenue_per_capex_dollar": 261.55,
+      "capex_pct_revenue": 0.4,
+      "fcf_conversion_pct": null,
+      "roic_pct": null,
+      "asset_intensity": "ip_light"
     }
   },
   {
@@ -5882,6 +6358,32 @@
       "is_estimate": true,
       "basis": "Press-reported annualized run-rate. Private company: unaudited and not a filed figure.",
       "confidence": "medium"
+    },
+    "venture": {
+      "funding_tier": "growth",
+      "post_money_usd_m": 29300,
+      "last_round_date": "2025-11-01",
+      "total_raised_usd_m": 3000,
+      "estimated_arr_usd_m": 1000,
+      "arr_growth_yoy_pct": 300,
+      "nrr_pct": null,
+      "net_burn_usd_m": null,
+      "burn_multiple": null,
+      "runway_months": null,
+      "next_financing_horizon": null,
+      "lead_investors": [
+        "Thrive",
+        "a16z",
+        "Accel"
+      ],
+      "compute_subsidy_note": "THE compute-arbitrage case. Gross margin is a direct function of model input costs it does not control, set by the same labs it competes with for developer attention.",
+      "source": {
+        "publisher": "Press coverage / venture databases (aggregated)",
+        "title": "Last priced round as reported",
+        "url": "https://techcrunch.com/tag/funding/",
+        "as_of": "2026-09-03"
+      },
+      "capital_consumed_per_arr_dollar": 3.0
     }
   },
   {
@@ -5966,6 +6468,13 @@
     },
     "valuation": {
       "as_of": "2026-09-03"
+    },
+    "capital_efficiency": {
+      "revenue_per_capex_dollar": 46.64,
+      "capex_pct_revenue": 2.1,
+      "fcf_conversion_pct": null,
+      "roic_pct": null,
+      "asset_intensity": "balanced"
     }
   },
   {
@@ -6033,19 +6542,6 @@
         "title": "OperatingIncomeLoss for 2026-05-01..2026-07-31",
         "url": "https://www.sec.gov/Archives/edgar/data/1393052/000139305226000036/0001393052-26-000036-index.htm",
         "as_of": "2026-08-27"
-      }
-    },
-    "capex": {
-      "value": -1.1,
-      "unit": "usd_millions",
-      "is_estimate": false,
-      "basis": "Reported PaymentsToAcquirePropertyPlantAndEquipment for 2020-02-01..2020-04-30, annualized x4. Cash PP&E only \u2014 EXCLUDES finance leases, so it will read below headline capex for filers that lease heavily.",
-      "confidence": "high",
-      "source": {
-        "publisher": "SEC EDGAR \u2014 10-Q (CIK filing)",
-        "title": "PaymentsToAcquirePropertyPlantAndEquipment for 2020-02-01..2020-04-30",
-        "url": "https://www.sec.gov/Archives/edgar/data/1393052/000162828020008982/0001628280-20-008982-index.htm",
-        "as_of": "2020-06-04"
       }
     },
     "revenue_growth_yoy_pct": {
@@ -6160,6 +6656,13 @@
     },
     "valuation": {
       "as_of": "2026-09-03"
+    },
+    "capital_efficiency": {
+      "revenue_per_capex_dollar": 30.7,
+      "capex_pct_revenue": 3.3,
+      "fcf_conversion_pct": null,
+      "roic_pct": null,
+      "asset_intensity": "pass_through"
     }
   },
   {
@@ -6258,6 +6761,13 @@
     },
     "valuation": {
       "as_of": "2026-09-03"
+    },
+    "capital_efficiency": {
+      "revenue_per_capex_dollar": 11.33,
+      "capex_pct_revenue": 8.8,
+      "fcf_conversion_pct": null,
+      "roic_pct": null,
+      "asset_intensity": "pass_through"
     }
   },
   {
@@ -6355,6 +6865,13 @@
     },
     "valuation": {
       "as_of": "2026-09-03"
+    },
+    "capital_efficiency": {
+      "revenue_per_capex_dollar": 16.93,
+      "capex_pct_revenue": 5.9,
+      "fcf_conversion_pct": null,
+      "roic_pct": null,
+      "asset_intensity": "pass_through"
     }
   },
   {
@@ -6424,19 +6941,6 @@
         "as_of": "2026-08-05"
       }
     },
-    "capex": {
-      "value": 29.4,
-      "unit": "usd_millions",
-      "is_estimate": false,
-      "basis": "Reported PaymentsToAcquirePropertyPlantAndEquipment for 2024-09-29..2024-12-28, annualized x4. Cash PP&E only \u2014 EXCLUDES finance leases, so it will read below headline capex for filers that lease heavily.",
-      "confidence": "high",
-      "source": {
-        "publisher": "SEC EDGAR \u2014 10-Q (CIK filing)",
-        "title": "PaymentsToAcquirePropertyPlantAndEquipment for 2024-09-29..2024-12-28",
-        "url": "https://www.sec.gov/Archives/edgar/data/1837240/000183724025000044/0001837240-25-000044-index.htm",
-        "as_of": "2025-02-05"
-      }
-    },
     "revenue_growth_yoy_pct": {
       "value": 21.7,
       "unit": "percent",
@@ -6453,5 +6957,912 @@
     "valuation": {
       "as_of": "2026-09-03"
     }
+  },
+  {
+    "id": "perplexity",
+    "name": "Perplexity",
+    "ticker": null,
+    "is_public": false,
+    "hq": "US",
+    "layer": 10,
+    "segment": "consumer_ai",
+    "also_operates": [],
+    "verticals": [
+      "consumer"
+    ],
+    "period": "Estimated ARR run-rate as of 2026-09-03 (press-reported)",
+    "revenue_total": {
+      "value": 200,
+      "unit": "usd_millions",
+      "is_estimate": true,
+      "confidence": "low",
+      "basis": "Estimated ARR run-rate, press-reported. Private company: unaudited, not a filed figure, and ARR for AI-native companies is usually annualized run-rate rather than contracted recurring revenue.",
+      "source": {
+        "publisher": "Press coverage / venture databases (aggregated)",
+        "title": "Last priced round as reported",
+        "url": "https://techcrunch.com/tag/funding/",
+        "as_of": "2026-09-03"
+      }
+    },
+    "moat": {
+      "summary": "AI search. Distribution deals and browser bundling are the wedge; the bear case is that answer quality is a commodity resold at negative gross margin.",
+      "strength": 2,
+      "type": [],
+      "risks": []
+    },
+    "venture": {
+      "funding_tier": "growth",
+      "post_money_usd_m": 18000,
+      "last_round_date": "2025-09-01",
+      "total_raised_usd_m": 1400,
+      "estimated_arr_usd_m": 200,
+      "arr_growth_yoy_pct": 233,
+      "nrr_pct": null,
+      "net_burn_usd_m": null,
+      "burn_multiple": null,
+      "runway_months": null,
+      "next_financing_horizon": null,
+      "lead_investors": [
+        "IVP",
+        "NEA",
+        "Bezos Expeditions"
+      ],
+      "compute_subsidy_note": "Inference cost per query is the whole unit-economics question, and it is paid to companies that also compete with it.",
+      "source": {
+        "publisher": "Press coverage / venture databases (aggregated)",
+        "title": "Last priced round as reported",
+        "url": "https://techcrunch.com/tag/funding/",
+        "as_of": "2026-09-03"
+      },
+      "capital_consumed_per_arr_dollar": 7.0
+    },
+    "updated_at": "2026-09-03",
+    "updated_by": "seed"
+  },
+  {
+    "id": "mistral",
+    "name": "Mistral AI",
+    "ticker": null,
+    "is_public": false,
+    "hq": "FR",
+    "layer": 7,
+    "segment": "hyperscale",
+    "also_operates": [],
+    "verticals": [],
+    "period": "Estimated ARR run-rate as of 2026-09-03 (press-reported)",
+    "revenue_total": {
+      "value": 150,
+      "unit": "usd_millions",
+      "is_estimate": true,
+      "confidence": "low",
+      "basis": "Estimated ARR run-rate, press-reported. Private company: unaudited, not a filed figure, and ARR for AI-native companies is usually annualized run-rate rather than contracted recurring revenue.",
+      "source": {
+        "publisher": "Press coverage / venture databases (aggregated)",
+        "title": "Last priced round as reported",
+        "url": "https://techcrunch.com/tag/funding/",
+        "as_of": "2026-09-03"
+      }
+    },
+    "moat": {
+      "summary": "European frontier lab. Sovereignty positioning and open-weight distribution are the differentiators against far better-capitalised US labs.",
+      "strength": 2,
+      "type": [],
+      "risks": []
+    },
+    "venture": {
+      "funding_tier": "growth",
+      "post_money_usd_m": 14000,
+      "last_round_date": "2025-09-01",
+      "total_raised_usd_m": 3200,
+      "estimated_arr_usd_m": 150,
+      "arr_growth_yoy_pct": null,
+      "nrr_pct": null,
+      "net_burn_usd_m": null,
+      "burn_multiple": null,
+      "runway_months": null,
+      "next_financing_horizon": null,
+      "lead_investors": [
+        "ASML",
+        "General Catalyst",
+        "Lightspeed"
+      ],
+      "compute_subsidy_note": "ASML's participation is a strategic-supplier investment, an unusually direct silicon-to-model capital link.",
+      "source": {
+        "publisher": "Press coverage / venture databases (aggregated)",
+        "title": "Last priced round as reported",
+        "url": "https://techcrunch.com/tag/funding/",
+        "as_of": "2026-09-03"
+      },
+      "capital_consumed_per_arr_dollar": 21.33
+    },
+    "updated_at": "2026-09-03",
+    "updated_by": "seed"
+  },
+  {
+    "id": "harvey",
+    "name": "Harvey",
+    "ticker": null,
+    "is_public": false,
+    "hq": "US",
+    "layer": 10,
+    "segment": "enterprise_ai",
+    "also_operates": [],
+    "verticals": [
+      "legal"
+    ],
+    "period": "Estimated ARR run-rate as of 2026-09-03 (press-reported)",
+    "revenue_total": {
+      "value": 180,
+      "unit": "usd_millions",
+      "is_estimate": true,
+      "confidence": "low",
+      "basis": "Estimated ARR run-rate, press-reported. Private company: unaudited, not a filed figure, and ARR for AI-native companies is usually annualized run-rate rather than contracted recurring revenue.",
+      "source": {
+        "publisher": "Press coverage / venture databases (aggregated)",
+        "title": "Last priced round as reported",
+        "url": "https://techcrunch.com/tag/funding/",
+        "as_of": "2026-09-03"
+      }
+    },
+    "moat": {
+      "summary": "Legal AI for large firms. Workflow depth and firm-level procurement cycles are the moat; the risk is that incumbent legal-research owners bundle the same capability.",
+      "strength": 2,
+      "type": [],
+      "risks": []
+    },
+    "venture": {
+      "funding_tier": "growth",
+      "post_money_usd_m": 8000,
+      "last_round_date": "2025-12-01",
+      "total_raised_usd_m": 1000,
+      "estimated_arr_usd_m": 180,
+      "arr_growth_yoy_pct": 300,
+      "nrr_pct": 170,
+      "net_burn_usd_m": null,
+      "burn_multiple": null,
+      "runway_months": null,
+      "next_financing_horizon": null,
+      "lead_investors": [
+        "Sequoia",
+        "Kleiner Perkins",
+        "OpenAI Startup Fund"
+      ],
+      "compute_subsidy_note": null,
+      "source": {
+        "publisher": "Press coverage / venture databases (aggregated)",
+        "title": "Last priced round as reported",
+        "url": "https://techcrunch.com/tag/funding/",
+        "as_of": "2026-09-03"
+      },
+      "capital_consumed_per_arr_dollar": 5.56
+    },
+    "updated_at": "2026-09-03",
+    "updated_by": "seed"
+  },
+  {
+    "id": "abridge",
+    "name": "Abridge",
+    "ticker": null,
+    "is_public": false,
+    "hq": "US",
+    "layer": 10,
+    "segment": "healthcare_ai",
+    "also_operates": [],
+    "verticals": [
+      "healthcare"
+    ],
+    "period": "Estimated ARR run-rate as of 2026-09-03 (press-reported)",
+    "revenue_total": {
+      "value": 120,
+      "unit": "usd_millions",
+      "is_estimate": true,
+      "confidence": "low",
+      "basis": "Estimated ARR run-rate, press-reported. Private company: unaudited, not a filed figure, and ARR for AI-native companies is usually annualized run-rate rather than contracted recurring revenue.",
+      "source": {
+        "publisher": "Press coverage / venture databases (aggregated)",
+        "title": "Last priced round as reported",
+        "url": "https://techcrunch.com/tag/funding/",
+        "as_of": "2026-09-03"
+      }
+    },
+    "moat": {
+      "summary": "Ambient clinical documentation. Health-system integration and revenue-cycle proof are the moat \u2014 the hardest distribution in software, and the stickiest once won.",
+      "strength": 2,
+      "type": [],
+      "risks": []
+    },
+    "venture": {
+      "funding_tier": "growth",
+      "post_money_usd_m": 5300,
+      "last_round_date": "2025-06-01",
+      "total_raised_usd_m": 800,
+      "estimated_arr_usd_m": 120,
+      "arr_growth_yoy_pct": 250,
+      "nrr_pct": null,
+      "net_burn_usd_m": null,
+      "burn_multiple": null,
+      "runway_months": null,
+      "next_financing_horizon": null,
+      "lead_investors": [
+        "a16z",
+        "Lightspeed",
+        "IVP"
+      ],
+      "compute_subsidy_note": null,
+      "source": {
+        "publisher": "Press coverage / venture databases (aggregated)",
+        "title": "Last priced round as reported",
+        "url": "https://techcrunch.com/tag/funding/",
+        "as_of": "2026-09-03"
+      },
+      "capital_consumed_per_arr_dollar": 6.67
+    },
+    "updated_at": "2026-09-03",
+    "updated_by": "seed"
+  },
+  {
+    "id": "glean",
+    "name": "Glean",
+    "ticker": null,
+    "is_public": false,
+    "hq": "US",
+    "layer": 8,
+    "segment": "mlops",
+    "also_operates": [],
+    "verticals": [
+      "horizontal"
+    ],
+    "period": "Estimated ARR run-rate as of 2026-09-03 (press-reported)",
+    "revenue_total": {
+      "value": 150,
+      "unit": "usd_millions",
+      "is_estimate": true,
+      "confidence": "low",
+      "basis": "Estimated ARR run-rate, press-reported. Private company: unaudited, not a filed figure, and ARR for AI-native companies is usually annualized run-rate rather than contracted recurring revenue.",
+      "source": {
+        "publisher": "Press coverage / venture databases (aggregated)",
+        "title": "Last priced round as reported",
+        "url": "https://techcrunch.com/tag/funding/",
+        "as_of": "2026-09-03"
+      }
+    },
+    "moat": {
+      "summary": "Enterprise search and agents over internal corpora. Permissions-aware indexing is genuinely hard; the threat is Microsoft bundling the same thing into an existing seat.",
+      "strength": 2,
+      "type": [],
+      "risks": []
+    },
+    "venture": {
+      "funding_tier": "growth",
+      "post_money_usd_m": 7200,
+      "last_round_date": "2025-06-01",
+      "total_raised_usd_m": 900,
+      "estimated_arr_usd_m": 150,
+      "arr_growth_yoy_pct": 200,
+      "nrr_pct": null,
+      "net_burn_usd_m": null,
+      "burn_multiple": null,
+      "runway_months": null,
+      "next_financing_horizon": null,
+      "lead_investors": [
+        "Sequoia",
+        "Kleiner Perkins",
+        "Lightspeed"
+      ],
+      "compute_subsidy_note": null,
+      "source": {
+        "publisher": "Press coverage / venture databases (aggregated)",
+        "title": "Last priced round as reported",
+        "url": "https://techcrunch.com/tag/funding/",
+        "as_of": "2026-09-03"
+      },
+      "capital_consumed_per_arr_dollar": 6.0
+    },
+    "updated_at": "2026-09-03",
+    "updated_by": "seed"
+  },
+  {
+    "id": "scale_ai",
+    "name": "Scale AI",
+    "ticker": null,
+    "is_public": false,
+    "hq": "US",
+    "layer": 9,
+    "segment": "data_rights",
+    "also_operates": [],
+    "verticals": [],
+    "period": "Estimated ARR run-rate as of 2026-09-03 (press-reported)",
+    "revenue_total": {
+      "value": 1400,
+      "unit": "usd_millions",
+      "is_estimate": true,
+      "confidence": "low",
+      "basis": "Estimated ARR run-rate, press-reported. Private company: unaudited, not a filed figure, and ARR for AI-native companies is usually annualized run-rate rather than contracted recurring revenue.",
+      "source": {
+        "publisher": "Press coverage / venture databases (aggregated)",
+        "title": "Last priced round as reported",
+        "url": "https://techcrunch.com/tag/funding/",
+        "as_of": "2026-09-03"
+      }
+    },
+    "moat": {
+      "summary": "Data labelling and evaluation. Meta's 49% purchase reframed it from a neutral supplier into a strategically aligned one, which cost it customers among Meta's rivals.",
+      "strength": 2,
+      "type": [],
+      "risks": []
+    },
+    "venture": {
+      "funding_tier": "growth",
+      "post_money_usd_m": 29000,
+      "last_round_date": "2025-06-01",
+      "total_raised_usd_m": 16000,
+      "estimated_arr_usd_m": 1400,
+      "arr_growth_yoy_pct": null,
+      "nrr_pct": null,
+      "net_burn_usd_m": null,
+      "burn_multiple": null,
+      "runway_months": null,
+      "next_financing_horizon": null,
+      "lead_investors": [
+        "Meta",
+        "Accel",
+        "Founders Fund"
+      ],
+      "compute_subsidy_note": "Not a compute story \u2014 a neutrality story. A supplier half-owned by one lab is not a supplier the others can use.",
+      "source": {
+        "publisher": "Press coverage / venture databases (aggregated)",
+        "title": "Last priced round as reported",
+        "url": "https://techcrunch.com/tag/funding/",
+        "as_of": "2026-09-03"
+      },
+      "capital_consumed_per_arr_dollar": 11.43
+    },
+    "updated_at": "2026-09-03",
+    "updated_by": "seed"
+  },
+  {
+    "id": "together_ai",
+    "name": "Together AI",
+    "ticker": null,
+    "is_public": false,
+    "hq": "US",
+    "layer": 6,
+    "segment": "gpu_cloud",
+    "also_operates": [],
+    "verticals": [
+      "developer"
+    ],
+    "period": "Estimated ARR run-rate as of 2026-09-03 (press-reported)",
+    "revenue_total": {
+      "value": 250,
+      "unit": "usd_millions",
+      "is_estimate": true,
+      "confidence": "low",
+      "basis": "Estimated ARR run-rate, press-reported. Private company: unaudited, not a filed figure, and ARR for AI-native companies is usually annualized run-rate rather than contracted recurring revenue.",
+      "source": {
+        "publisher": "Press coverage / venture databases (aggregated)",
+        "title": "Last priced round as reported",
+        "url": "https://techcrunch.com/tag/funding/",
+        "as_of": "2026-09-03"
+      }
+    },
+    "moat": {
+      "summary": "Open-model inference and training cloud. Competes on price per token against both hyperscalers and neoclouds, which is a difficult place to build a moat.",
+      "strength": 2,
+      "type": [],
+      "risks": []
+    },
+    "venture": {
+      "funding_tier": "series_c",
+      "post_money_usd_m": 3300,
+      "last_round_date": "2025-02-01",
+      "total_raised_usd_m": 830,
+      "estimated_arr_usd_m": 250,
+      "arr_growth_yoy_pct": 150,
+      "nrr_pct": null,
+      "net_burn_usd_m": null,
+      "burn_multiple": null,
+      "runway_months": null,
+      "next_financing_horizon": null,
+      "lead_investors": [
+        "General Catalyst",
+        "Prosperity7"
+      ],
+      "compute_subsidy_note": "Margin is set by GPU rental cost it does not control. Classic compute arbitrage \u2014 real business, structurally capped economics.",
+      "source": {
+        "publisher": "Press coverage / venture databases (aggregated)",
+        "title": "Last priced round as reported",
+        "url": "https://techcrunch.com/tag/funding/",
+        "as_of": "2026-09-03"
+      },
+      "capital_consumed_per_arr_dollar": 3.32
+    },
+    "updated_at": "2026-09-03",
+    "updated_by": "seed"
+  },
+  {
+    "id": "groq",
+    "name": "Groq",
+    "ticker": null,
+    "is_public": false,
+    "hq": "US",
+    "layer": 3,
+    "segment": "accelerators",
+    "also_operates": [],
+    "verticals": [],
+    "period": "Estimated ARR run-rate as of 2026-09-03 (press-reported)",
+    "revenue_total": {
+      "value": 150,
+      "unit": "usd_millions",
+      "is_estimate": true,
+      "confidence": "low",
+      "basis": "Estimated ARR run-rate, press-reported. Private company: unaudited, not a filed figure, and ARR for AI-native companies is usually annualized run-rate rather than contracted recurring revenue.",
+      "source": {
+        "publisher": "Press coverage / venture databases (aggregated)",
+        "title": "Last priced round as reported",
+        "url": "https://techcrunch.com/tag/funding/",
+        "as_of": "2026-09-03"
+      }
+    },
+    "moat": {
+      "summary": "Inference-specific LPU silicon plus its own cloud. The bet is that inference workloads justify non-GPU architecture; needs volume to amortise a full silicon programme.",
+      "strength": 2,
+      "type": [],
+      "risks": []
+    },
+    "venture": {
+      "funding_tier": "growth",
+      "post_money_usd_m": 6900,
+      "last_round_date": "2025-09-01",
+      "total_raised_usd_m": 3000,
+      "estimated_arr_usd_m": 150,
+      "arr_growth_yoy_pct": null,
+      "nrr_pct": null,
+      "net_burn_usd_m": null,
+      "burn_multiple": null,
+      "runway_months": null,
+      "next_financing_horizon": null,
+      "lead_investors": [
+        "BlackRock",
+        "Samsung Catalyst",
+        "Cisco"
+      ],
+      "compute_subsidy_note": null,
+      "source": {
+        "publisher": "Press coverage / venture databases (aggregated)",
+        "title": "Last priced round as reported",
+        "url": "https://techcrunch.com/tag/funding/",
+        "as_of": "2026-09-03"
+      },
+      "capital_consumed_per_arr_dollar": 20.0
+    },
+    "updated_at": "2026-09-03",
+    "updated_by": "seed"
+  },
+  {
+    "id": "cerebras",
+    "name": "Cerebras Systems",
+    "ticker": null,
+    "is_public": false,
+    "hq": "US",
+    "layer": 3,
+    "segment": "accelerators",
+    "also_operates": [],
+    "verticals": [],
+    "period": "Estimated ARR run-rate as of 2026-09-03 (press-reported)",
+    "revenue_total": {
+      "value": 500,
+      "unit": "usd_millions",
+      "is_estimate": true,
+      "confidence": "low",
+      "basis": "Estimated ARR run-rate, press-reported. Private company: unaudited, not a filed figure, and ARR for AI-native companies is usually annualized run-rate rather than contracted recurring revenue.",
+      "source": {
+        "publisher": "Press coverage / venture databases (aggregated)",
+        "title": "Last priced round as reported",
+        "url": "https://techcrunch.com/tag/funding/",
+        "as_of": "2026-09-03"
+      }
+    },
+    "moat": {
+      "summary": "Wafer-scale accelerators. Filed to go public; heavy historical revenue concentration in a single Gulf-based customer is the disclosed risk.",
+      "strength": 2,
+      "type": [],
+      "risks": []
+    },
+    "venture": {
+      "funding_tier": "pre_ipo",
+      "post_money_usd_m": 8100,
+      "last_round_date": "2025-09-01",
+      "total_raised_usd_m": 1900,
+      "estimated_arr_usd_m": 500,
+      "arr_growth_yoy_pct": null,
+      "nrr_pct": null,
+      "net_burn_usd_m": null,
+      "burn_multiple": null,
+      "runway_months": null,
+      "next_financing_horizon": null,
+      "lead_investors": [
+        "G42",
+        "Alpha Wave",
+        "Benchmark"
+      ],
+      "compute_subsidy_note": null,
+      "source": {
+        "publisher": "Press coverage / venture databases (aggregated)",
+        "title": "Last priced round as reported",
+        "url": "https://techcrunch.com/tag/funding/",
+        "as_of": "2026-09-03"
+      },
+      "capital_consumed_per_arr_dollar": 3.8
+    },
+    "updated_at": "2026-09-03",
+    "updated_by": "seed"
+  },
+  {
+    "id": "figure_ai",
+    "name": "Figure AI",
+    "ticker": null,
+    "is_public": false,
+    "hq": "US",
+    "layer": 11,
+    "segment": "robotics",
+    "also_operates": [],
+    "verticals": [
+      "industrial"
+    ],
+    "period": "Estimated ARR run-rate as of 2026-09-03 (press-reported)",
+    "revenue_total": {
+      "value": 10,
+      "unit": "usd_millions",
+      "is_estimate": true,
+      "confidence": "low",
+      "basis": "Estimated ARR run-rate, press-reported. Private company: unaudited, not a filed figure, and ARR for AI-native companies is usually annualized run-rate rather than contracted recurring revenue.",
+      "source": {
+        "publisher": "Press coverage / venture databases (aggregated)",
+        "title": "Last priced round as reported",
+        "url": "https://techcrunch.com/tag/funding/",
+        "as_of": "2026-09-03"
+      }
+    },
+    "moat": {
+      "summary": "General-purpose humanoids. Valuation prices a platform outcome against pre-revenue deployment \u2014 the widest gap between mark and demonstrated economics on this map.",
+      "strength": 2,
+      "type": [],
+      "risks": []
+    },
+    "venture": {
+      "funding_tier": "growth",
+      "post_money_usd_m": 39000,
+      "last_round_date": "2025-09-01",
+      "total_raised_usd_m": 2000,
+      "estimated_arr_usd_m": 10,
+      "arr_growth_yoy_pct": null,
+      "nrr_pct": null,
+      "net_burn_usd_m": null,
+      "burn_multiple": null,
+      "runway_months": null,
+      "next_financing_horizon": null,
+      "lead_investors": [
+        "Parkway",
+        "Nvidia",
+        "Intel Capital",
+        "Brookfield"
+      ],
+      "compute_subsidy_note": "Nvidia is both investor and silicon supplier \u2014 the same vendor-financing pattern as the model labs, applied to robotics.",
+      "source": {
+        "publisher": "Press coverage / venture databases (aggregated)",
+        "title": "Last priced round as reported",
+        "url": "https://techcrunch.com/tag/funding/",
+        "as_of": "2026-09-03"
+      },
+      "capital_consumed_per_arr_dollar": 200.0
+    },
+    "updated_at": "2026-09-03",
+    "updated_by": "seed"
+  },
+  {
+    "id": "physical_intelligence",
+    "name": "Physical Intelligence",
+    "ticker": null,
+    "is_public": false,
+    "hq": "US",
+    "layer": 11,
+    "segment": "robotics",
+    "also_operates": [],
+    "verticals": [
+      "industrial"
+    ],
+    "period": "Estimated ARR run-rate as of 2026-09-03 (press-reported)",
+    "revenue_total": {
+      "value": 5,
+      "unit": "usd_millions",
+      "is_estimate": true,
+      "confidence": "low",
+      "basis": "Estimated ARR run-rate, press-reported. Private company: unaudited, not a filed figure, and ARR for AI-native companies is usually annualized run-rate rather than contracted recurring revenue.",
+      "source": {
+        "publisher": "Press coverage / venture databases (aggregated)",
+        "title": "Last priced round as reported",
+        "url": "https://techcrunch.com/tag/funding/",
+        "as_of": "2026-09-03"
+      }
+    },
+    "moat": {
+      "summary": "Robot foundation models, hardware-agnostic. Sells the layer that makes other people's robots useful \u2014 the picks-and-shovels position in embodied AI.",
+      "strength": 2,
+      "type": [],
+      "risks": []
+    },
+    "venture": {
+      "funding_tier": "series_b",
+      "post_money_usd_m": 5600,
+      "last_round_date": "2025-11-01",
+      "total_raised_usd_m": 900,
+      "estimated_arr_usd_m": 5,
+      "arr_growth_yoy_pct": null,
+      "nrr_pct": null,
+      "net_burn_usd_m": null,
+      "burn_multiple": null,
+      "runway_months": null,
+      "next_financing_horizon": null,
+      "lead_investors": [
+        "Thrive",
+        "Jeff Bezos",
+        "OpenAI",
+        "Lux"
+      ],
+      "compute_subsidy_note": null,
+      "source": {
+        "publisher": "Press coverage / venture databases (aggregated)",
+        "title": "Last priced round as reported",
+        "url": "https://techcrunch.com/tag/funding/",
+        "as_of": "2026-09-03"
+      },
+      "capital_consumed_per_arr_dollar": 180.0
+    },
+    "updated_at": "2026-09-03",
+    "updated_by": "seed"
+  },
+  {
+    "id": "applied_intuition",
+    "name": "Applied Intuition",
+    "ticker": null,
+    "is_public": false,
+    "hq": "US",
+    "layer": 11,
+    "segment": "robotics",
+    "also_operates": [],
+    "verticals": [
+      "industrial",
+      "defense"
+    ],
+    "period": "Estimated ARR run-rate as of 2026-09-03 (press-reported)",
+    "revenue_total": {
+      "value": 400,
+      "unit": "usd_millions",
+      "is_estimate": true,
+      "confidence": "low",
+      "basis": "Estimated ARR run-rate, press-reported. Private company: unaudited, not a filed figure, and ARR for AI-native companies is usually annualized run-rate rather than contracted recurring revenue.",
+      "source": {
+        "publisher": "Press coverage / venture databases (aggregated)",
+        "title": "Last priced round as reported",
+        "url": "https://techcrunch.com/tag/funding/",
+        "as_of": "2026-09-03"
+      }
+    },
+    "moat": {
+      "summary": "Autonomy development tooling for OEMs and defence. Sells to the integrators rather than competing with them, which is why it has real revenue while peers do not.",
+      "strength": 2,
+      "type": [],
+      "risks": []
+    },
+    "venture": {
+      "funding_tier": "growth",
+      "post_money_usd_m": 15000,
+      "last_round_date": "2025-06-01",
+      "total_raised_usd_m": 1800,
+      "estimated_arr_usd_m": 400,
+      "arr_growth_yoy_pct": 100,
+      "nrr_pct": 130,
+      "net_burn_usd_m": null,
+      "burn_multiple": null,
+      "runway_months": null,
+      "next_financing_horizon": null,
+      "lead_investors": [
+        "BlackRock",
+        "Kleiner Perkins",
+        "Lux"
+      ],
+      "compute_subsidy_note": null,
+      "source": {
+        "publisher": "Press coverage / venture databases (aggregated)",
+        "title": "Last priced round as reported",
+        "url": "https://techcrunch.com/tag/funding/",
+        "as_of": "2026-09-03"
+      },
+      "capital_consumed_per_arr_dollar": 4.5
+    },
+    "updated_at": "2026-09-03",
+    "updated_by": "seed"
+  },
+  {
+    "id": "anduril",
+    "name": "Anduril Industries",
+    "ticker": null,
+    "is_public": false,
+    "hq": "US",
+    "layer": 11,
+    "segment": "robotics",
+    "also_operates": [],
+    "verticals": [
+      "defense"
+    ],
+    "period": "Estimated ARR run-rate as of 2026-09-03 (press-reported)",
+    "revenue_total": {
+      "value": 1000,
+      "unit": "usd_millions",
+      "is_estimate": true,
+      "confidence": "low",
+      "basis": "Estimated ARR run-rate, press-reported. Private company: unaudited, not a filed figure, and ARR for AI-native companies is usually annualized run-rate rather than contracted recurring revenue.",
+      "source": {
+        "publisher": "Press coverage / venture databases (aggregated)",
+        "title": "Last priced round as reported",
+        "url": "https://techcrunch.com/tag/funding/",
+        "as_of": "2026-09-03"
+      }
+    },
+    "moat": {
+      "summary": "Autonomous defence systems sold as products rather than cost-plus programmes. Software margin structure applied to a hardware procurement market.",
+      "strength": 2,
+      "type": [],
+      "risks": []
+    },
+    "venture": {
+      "funding_tier": "pre_ipo",
+      "post_money_usd_m": 30500,
+      "last_round_date": "2025-06-01",
+      "total_raised_usd_m": 6000,
+      "estimated_arr_usd_m": 1000,
+      "arr_growth_yoy_pct": 100,
+      "nrr_pct": null,
+      "net_burn_usd_m": null,
+      "burn_multiple": null,
+      "runway_months": null,
+      "next_financing_horizon": null,
+      "lead_investors": [
+        "Founders Fund",
+        "Sands Capital",
+        "Fidelity"
+      ],
+      "compute_subsidy_note": null,
+      "source": {
+        "publisher": "Press coverage / venture databases (aggregated)",
+        "title": "Last priced round as reported",
+        "url": "https://techcrunch.com/tag/funding/",
+        "as_of": "2026-09-03"
+      },
+      "capital_consumed_per_arr_dollar": 6.0
+    },
+    "updated_at": "2026-09-03",
+    "updated_by": "seed"
+  },
+  {
+    "id": "waymo",
+    "name": "Waymo",
+    "ticker": null,
+    "is_public": false,
+    "hq": "US",
+    "layer": 11,
+    "segment": "robotics",
+    "also_operates": [],
+    "verticals": [
+      "consumer"
+    ],
+    "period": "Estimated ARR run-rate as of 2026-09-03 (press-reported)",
+    "revenue_total": {
+      "value": 300,
+      "unit": "usd_millions",
+      "is_estimate": true,
+      "confidence": "low",
+      "basis": "Estimated ARR run-rate, press-reported. Private company: unaudited, not a filed figure, and ARR for AI-native companies is usually annualized run-rate rather than contracted recurring revenue.",
+      "source": {
+        "publisher": "Press coverage / venture databases (aggregated)",
+        "title": "Last priced round as reported",
+        "url": "https://techcrunch.com/tag/funding/",
+        "as_of": "2026-09-03"
+      }
+    },
+    "moat": {
+      "summary": "The only US robotaxi operating driverless at commercial scale in multiple metros. Per-market unit economics and fleet operations cost, not autonomy capability, are now the binding question.",
+      "strength": 2,
+      "type": [],
+      "risks": []
+    },
+    "venture": {
+      "funding_tier": "growth",
+      "post_money_usd_m": 45000,
+      "last_round_date": "2024-10-01",
+      "total_raised_usd_m": 11000,
+      "estimated_arr_usd_m": 300,
+      "arr_growth_yoy_pct": null,
+      "nrr_pct": null,
+      "net_burn_usd_m": null,
+      "burn_multiple": null,
+      "runway_months": null,
+      "next_financing_horizon": null,
+      "lead_investors": [
+        "Alphabet",
+        "Andreessen Horowitz",
+        "Silver Lake"
+      ],
+      "compute_subsidy_note": "Alphabet-subsidised on compute, capital and talent. Standalone economics have never been tested.",
+      "source": {
+        "publisher": "Press coverage / venture databases (aggregated)",
+        "title": "Last priced round as reported",
+        "url": "https://techcrunch.com/tag/funding/",
+        "as_of": "2026-09-03"
+      },
+      "capital_consumed_per_arr_dollar": 36.67
+    },
+    "updated_at": "2026-09-03",
+    "updated_by": "seed"
+  },
+  {
+    "id": "crusoe",
+    "name": "Crusoe Energy",
+    "ticker": null,
+    "is_public": false,
+    "hq": "US",
+    "layer": 6,
+    "segment": "gpu_cloud",
+    "also_operates": [],
+    "verticals": [],
+    "period": "Estimated ARR run-rate as of 2026-09-03 (press-reported)",
+    "revenue_total": {
+      "value": 800,
+      "unit": "usd_millions",
+      "is_estimate": true,
+      "confidence": "low",
+      "basis": "Estimated ARR run-rate, press-reported. Private company: unaudited, not a filed figure, and ARR for AI-native companies is usually annualized run-rate rather than contracted recurring revenue.",
+      "source": {
+        "publisher": "Press coverage / venture databases (aggregated)",
+        "title": "Last priced round as reported",
+        "url": "https://techcrunch.com/tag/funding/",
+        "as_of": "2026-09-03"
+      }
+    },
+    "moat": {
+      "summary": "Energy-first AI infrastructure \u2014 builds generation alongside compute. Owns the scarce input rather than renting it, which is the differentiated position among neoclouds.",
+      "strength": 2,
+      "type": [],
+      "risks": []
+    },
+    "venture": {
+      "funding_tier": "growth",
+      "post_money_usd_m": 13000,
+      "last_round_date": "2025-12-01",
+      "total_raised_usd_m": 3500,
+      "estimated_arr_usd_m": 800,
+      "arr_growth_yoy_pct": 200,
+      "nrr_pct": null,
+      "net_burn_usd_m": null,
+      "burn_multiple": null,
+      "runway_months": null,
+      "next_financing_horizon": null,
+      "lead_investors": [
+        "Founders Fund",
+        "Fidelity",
+        "Mubadala"
+      ],
+      "compute_subsidy_note": null,
+      "source": {
+        "publisher": "Press coverage / venture databases (aggregated)",
+        "title": "Last priced round as reported",
+        "url": "https://techcrunch.com/tag/funding/",
+        "as_of": "2026-09-03"
+      },
+      "capital_consumed_per_arr_dollar": 4.38
+    },
+    "updated_at": "2026-09-03",
+    "updated_by": "seed"
   }
 ]

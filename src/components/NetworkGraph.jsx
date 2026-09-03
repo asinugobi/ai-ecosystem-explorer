@@ -7,6 +7,12 @@ import { exposure } from '../lib/flow.js'
 /** Zoom thresholds for progressive disclosure — layers, then segments, then companies. */
 const Z = { SEGMENT: 1.25, COMPANY: 1.9 }
 
+/** Private companies carry a funding tier instead of a ticker. */
+const TIER_LABEL = {
+  seed: 'SEED', series_a: 'A', series_b: 'B', series_c: 'C',
+  series_d: 'D', growth: 'GROWTH', pre_ipo: 'PRE-IPO',
+}
+
 export default function NetworkGraph({
   nodes: rawNodes, links: rawLinks, taxonomy, theme = 'dark',
   sizeBy, colorBy, verticalFilter, selected, onSelect, highlightCycle,
@@ -127,10 +133,10 @@ export default function NetworkGraph({
             )
           })}
 
-          {/* Relationships — curved, grouped by capital / commercial / physical */}
+          {/* Relationships — curved, grouped by capital flow / subsidised compute / operational */}
           <g fill="none">
             {layout.links.map((l) => {
-              const grp = LINK_GROUP[l.type] ?? 'commercial'
+              const grp = LINK_GROUP[l.type] ?? 'operational'
               const inCycle = cycleLinks?.has(l.id)
               const lit = cycleLinks ? inCycle
                 : connected ? (connected.has(l.source.id) && connected.has(l.target.id)) : true
@@ -155,7 +161,15 @@ export default function NetworkGraph({
                    onMouseEnter={() => setHover(n.id)} onMouseLeave={() => setHover(null)}
                    onClick={() => onSelect(n.id === selected ? null : n.id)}>
                   <circle cx={n.x} cy={n.y} r={r} fill={color(n)}
-                          stroke={isSel ? P.ink : P.surface} strokeWidth={isSel ? 2.5 : 2} />
+                          stroke={isSel ? P.ink : n.is_public ? P.surface : P.compute}
+                          strokeWidth={isSel ? 2.5 : n.is_public ? 2 : 1.6}
+                          strokeDasharray={n.is_public ? null : '3 2'} />
+                  {!n.is_public && r > 9 && (
+                    <text x={n.x} y={n.y - r - 4} textAnchor="middle" className="tier-badge"
+                          fill={P.compute} stroke={P.surface} strokeWidth={2.5} paintOrder="stroke">
+                      {TIER_LABEL[n.venture?.funding_tier] ?? 'PRIVATE'}
+                    </text>
+                  )}
                   {n.bottleneck?.is_bottleneck && n.bottleneck.criticality >= 4 && (
                     <circle cx={n.x} cy={n.y} r={r + 3.5} fill="none"
                             stroke={P.divNeg} strokeWidth={1.4} strokeDasharray="2 2" opacity={0.9} />
@@ -196,10 +210,17 @@ function Tooltip({ node: n, seg, layer, theme }) {
       <div className="tt-name">{n.name} {n.ticker && <span className="tt-tick">{n.ticker}</span>}</div>
       <div className="tt-seg">{layer.get(n.layer)?.name} · {seg.get(n.segment)?.name}</div>
       <div className="tt-rows">
-        <span>Revenue</span><b>{fmtUSD(val(n.revenue_total))}</b>
-        <span>Gross</span><b>{fmtPct(val(n.gross_margin_pct))}</b>
-        <span>Operating</span><b>{fmtPct(val(n.operating_margin_pct))}</b>
-        <span>YoY</span><b>{fmtPct(val(n.revenue_growth_yoy_pct))}</b>
+        <span>{n.is_public ? 'Revenue' : 'Est. ARR'}</span><b>{fmtUSD(val(n.revenue_total))}</b>
+        {n.is_public ? <>
+          <span>Gross</span><b>{fmtPct(val(n.gross_margin_pct))}</b>
+          <span>Operating</span><b>{fmtPct(val(n.operating_margin_pct))}</b>
+          <span>Rev / $capex</span><b>{n.capital_efficiency?.revenue_per_capex_dollar?.toFixed(1) ?? '—'}</b>
+        </> : <>
+          <span>Post-money</span><b>{fmtUSD(n.venture?.post_money_usd_m)}</b>
+          <span>Raised</span><b>{fmtUSD(n.venture?.total_raised_usd_m)}</b>
+          <span>$raised / $ARR</span><b>{n.venture?.capital_consumed_per_arr_dollar?.toFixed(1) ?? '—'}</b>
+        </>}
+        <span>Growth</span><b>{fmtPct(val(n.revenue_growth_yoy_pct) ?? n.venture?.arr_growth_yoy_pct)}</b>
       </div>
       <div className="tt-moat">{n.moat?.summary}</div>
       <div className="tt-hint">Click for the full note</div>

@@ -7,23 +7,28 @@ import * as d3 from 'd3'
    pattern carries the "value undisclosed" distinction as secondary encoding. */
 export const PALETTE = {
   light: { surface: '#fcfcfb', ink: '#0b0b0b', ink2: '#52514e', ink3: '#8a8880',
-           grid: '#e6e5e0', capital: '#2a78d6', commercial: '#eb6834', physical: '#1baf7a',
+           grid: '#e6e5e0', capital: '#2a78d6', compute: '#eb6834', operational: '#1baf7a',
            divMid: '#f0efec', divNeg: '#e34948', divPos: '#2a78d6' },
   dark:  { surface: '#1a1a19', ink: '#ffffff', ink2: '#c3c2b7', ink3: '#8a8880',
-           grid: '#2e2e2b', capital: '#3987e5', commercial: '#d95926', physical: '#199e70',
+           grid: '#2e2e2b', capital: '#3987e5', compute: '#d95926', operational: '#199e70',
            divMid: '#383835', divNeg: '#e66767', divPos: '#3987e5' },
 }
 
+/* Three tiers, mapped onto the three categorical slots that clear the all-pairs
+   CVD gate. Subsidised compute gets its own tier because in-kind and equity-
+   linked compute is the mechanism behind most apparent AI-native gross margin —
+   it deserves to be visually separable from an arm's-length contract. */
 export const LINK_GROUP = {
-  investment: 'capital', equity_stake: 'capital',
-  compute_contract: 'commercial', customer_concentration: 'commercial',
-  partnership: 'commercial', data_license: 'commercial',
-  supply: 'physical', foundry: 'physical', power_purchase: 'physical',
+  investment: 'capital', equity_stake: 'capital', corporate_venture: 'capital',
+  compute_contract: 'compute', compute_for_equity: 'compute', compute_credits: 'compute',
+  supply: 'operational', foundry: 'operational', power_purchase: 'operational',
+  data_license: 'operational', partnership: 'operational',
+  customer_concentration: 'operational', operational_integration: 'operational',
 }
 export const GROUP_LABEL = {
-  capital: 'Capital (investment, equity)',
-  commercial: 'Commercial (contracts, licensing)',
-  physical: 'Physical (supply, foundry, power)',
+  capital: 'Capital flow',
+  compute: 'Subsidised compute',
+  operational: 'Operational integration',
 }
 
 export const val = (m) => (m && m.value != null ? m.value : null)
@@ -32,6 +37,24 @@ export const val = (m) => (m && m.value != null ? m.value : null)
    Amazon ~$802B vs Recursion ~$0.06B is >13,000x. Linear scaling gives one
    planet and 77 invisible dots, and forceCollide on that radius throws nodes
    off-canvas. Area proportional to revenue is also what the eye actually reads. */
+export const ventureVal = (n, k) => (n.venture ? n.venture[k] ?? null : null)
+
+/** Absolute scale: market cap for public, last post-money for private.
+ *  A private mark is a last-round price, not a live quote — the panel says so. */
+export const absoluteScale = (n) =>
+  (n.valuation && n.valuation.market_cap_usd_m) ?? ventureVal(n, 'post_money_usd_m') ?? null
+
+/** Capital efficiency, unified across public and private.
+ *  Public : revenue earned per dollar of capex.
+ *  Private: ARR built per dollar of capital raised (the inverse of capital
+ *           consumed per ARR dollar), so both read "output per dollar in". */
+export function capitalEfficiency(n) {
+  const pub = n.capital_efficiency && n.capital_efficiency.revenue_per_capex_dollar
+  if (pub != null) return pub
+  const perArr = ventureVal(n, 'capital_consumed_per_arr_dollar')
+  return perArr ? 1 / perArr : null
+}
+
 export function radiusScale(nodes, mode = 'revenue') {
   if (mode === 'margin') {
     // Margin goes deeply negative, so radius encodes profitability rank rather
@@ -42,6 +65,17 @@ export function radiusScale(nodes, mode = 'revenue') {
       const m = val(n.operating_margin_pct)
       return m == null ? 4 : s(m)
     }
+  }
+  if (mode === 'valuation') {
+    const vals = nodes.map(absoluteScale).filter((v) => v != null)
+    const s = d3.scaleSqrt().domain([0, d3.max(vals) || 1]).range([3, 44])
+    return (n) => { const v = absoluteScale(n); return v == null ? 4 : s(v) }
+  }
+  if (mode === 'capital_efficiency') {
+    // Spans 0.005 (Figure AI) to 25,649 (AppLovin) — seven orders of magnitude.
+    // Log, or the entire map is one dot and one disc.
+    const s = d3.scaleLog().domain([0.005, 500]).range([5, 40]).clamp(true)
+    return (n) => { const v = capitalEfficiency(n); return v == null ? 4 : s(Math.max(0.005, v)) }
   }
   const vals = nodes.map((n) => val(n.revenue_total) || 0)
   const s = d3.scaleSqrt().domain([0, d3.max(vals) || 1]).range([3, 44])
@@ -58,6 +92,16 @@ export function radiusScale(nodes, mode = 'revenue') {
    Symlog keeps resolution near zero, where almost every company actually sits. */
 export function marginColor(metric, theme = 'dark') {
   const P = PALETTE[theme]
+  if (metric === 'growth') {
+    // Top-line velocity is a magnitude, not a polarity -> sequential, one hue.
+    const seq = d3.scaleSequential().domain([0, 200])
+      .interpolator(d3.interpolateRgbBasis(['#cde2fb', '#86b6ef', '#3987e5', '#256abf', '#0d366b']))
+      .clamp(true)
+    return (n) => {
+      const v = val(n.revenue_growth_yoy_pct) ?? ventureVal(n, 'arr_growth_yoy_pct')
+      return v == null ? P.grid : seq(v)
+    }
+  }
   if (metric === 'gross_margin_pct') {
     const seq = d3.scaleSequential()
       .domain([0, 90])

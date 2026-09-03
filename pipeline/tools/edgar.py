@@ -118,6 +118,7 @@ class CompanyFinancials:
     cik: int
     name: str
     figures: dict[str, Figure] = field(default_factory=dict)
+    stale: list[str] = field(default_factory=list)   # figures dropped as non-contemporaneous
 
     def get(self, key: str) -> Figure | None:
         return self.figures.get(key)
@@ -206,6 +207,28 @@ def latest_facts(ticker: str, prefer_quarterly: bool = True) -> CompanyFinancial
 
     if "revenue" not in out.figures and prefer_quarterly:
         return latest_facts(ticker, prefer_quarterly=False)  # annual-only filers
+
+    # A filer can stop tagging a concept. `best` is then the freshest row FOR
+    # THAT CONCEPT, which may be years old — and pairing a 2020 capex with 2026
+    # revenue silently produces a nonsense ratio. Veeva last tagged
+    # PaymentsToAcquirePropertyPlantAndEquipment in 2020; AppLovin in 2023.
+    # Drop any figure that is not roughly contemporaneous with revenue.
+    rev = out.figures.get("revenue")
+    if rev:
+        rev_end = dt.date.fromisoformat(rev.end)
+        for key in list(out.figures):
+            if key == "revenue":
+                continue
+            f = out.figures[key]
+            if abs((rev_end - dt.date.fromisoformat(f.end)).days) > 400:
+                out.stale.append(f"{key} ({f.concept}, ends {f.end}, revenue ends {rev.end})")
+                del out.figures[key]
+        # Cash-flow sign conventions vary; a negative capex is an artifact, not
+        # a company that sold more PP&E than it bought in the AI build-out.
+        cx = out.figures.get("capex")
+        if cx and cx.value < 0:
+            out.stale.append(f"capex negative ({cx.value}) — sign artifact, dropped")
+            del out.figures["capex"]
     return out
 
 

@@ -290,6 +290,46 @@
               "description": "Names that move on this company's print, and why."
             }
           }
+        },
+        "venture": {
+          "$ref": "#/$defs/venture"
+        },
+        "capital_efficiency": {
+          "$ref": "#/$defs/capital_efficiency"
+        },
+        "customer_concentration": {
+          "type": "object",
+          "additionalProperties": false,
+          "description": "From the 10-K concentration disclosure where available. The risk that one counterparty's capex decision is the whole thesis.",
+          "properties": {
+            "top_customer": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "top_customer_pct": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "top_three_pct": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "note": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "source": {
+              "$ref": "#/$defs/citation"
+            }
+          }
         }
       }
     },
@@ -352,6 +392,173 @@
         },
         "source": {
           "$ref": "#/$defs/citation"
+        },
+        "ev_gross_profit": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "description": "Better than EV/S for comparing businesses with very different gross margins \u2014 which is exactly this stack."
+        },
+        "fwd_revenue_growth_pct": {
+          "type": [
+            "number",
+            "null"
+          ]
+        }
+      }
+    },
+    "venture": {
+      "type": "object",
+      "description": "Private-company economics. Public filings have no analogue for most of this, and none of it is audited \u2014 every field here is an estimate unless the company disclosed it directly.",
+      "additionalProperties": false,
+      "properties": {
+        "funding_tier": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "enum": [
+            "seed",
+            "series_a",
+            "series_b",
+            "series_c",
+            "series_d",
+            "growth",
+            "pre_ipo",
+            null
+          ],
+          "description": "Drives the private node's visual framing."
+        },
+        "post_money_usd_m": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "description": "Implied post-money at the last priced round. A 2024 mark is NOT a 2026 mark \u2014 always read with last_round_date."
+        },
+        "last_round_date": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date"
+        },
+        "total_raised_usd_m": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "estimated_arr_usd_m": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "description": "ARR, which for AI-native companies is usually an annualized run-rate rather than contracted recurring revenue. Not the same quality of number as GAAP revenue."
+        },
+        "arr_growth_yoy_pct": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "nrr_pct": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "description": "Net revenue retention. Rarely disclosed; when it is, it is self-reported and definitionally inconsistent between companies."
+        },
+        "net_burn_usd_m": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "description": "Annualized net cash burn."
+        },
+        "burn_multiple": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "description": "Net burn / net new ARR. The single best growth-equity efficiency read: under 1.0 is excellent, over 3.0 is buying revenue. Derived, so it inherits the error in both inputs."
+        },
+        "runway_months": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "next_financing_horizon": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "When the company likely needs to raise again \u2014 the moment its terms get repriced."
+        },
+        "lead_investors": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": []
+        },
+        "compute_subsidy_note": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "THE compute-arbitrage question: how much of this company's margin is borrowed from a strategic compute deal rather than earned? A lab with credits from its own investor does not have the gross margin it appears to have."
+        },
+        "source": {
+          "$ref": "#/$defs/citation"
+        }
+      }
+    },
+    "capital_efficiency": {
+      "type": "object",
+      "description": "Derived, not reported. Separates capital-intensive toll-collectors from high-margin IP \u2014 the distinction gross margin alone cannot make. CoreWeave shows a 65.9% gross margin on capex 3x revenue; Nvidia shows 75.0% on capex under 2% of revenue. Same margin story, opposite businesses.",
+      "additionalProperties": false,
+      "properties": {
+        "revenue_per_capex_dollar": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "description": "Annualized revenue / annualized capex. Below ~1.0 means the business is currently buying its revenue with capital."
+        },
+        "capex_pct_revenue": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "fcf_conversion_pct": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "description": "FCF / revenue. Where cash actually pools, as opposed to where accounting profit is booked."
+        },
+        "roic_pct": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "asset_intensity": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "enum": [
+            "ip_light",
+            "balanced",
+            "capital_heavy",
+            null
+          ],
+          "description": "Bucketed read of where a company sits on the toll-collector vs. IP spectrum."
         }
       }
     }

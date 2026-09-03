@@ -33,6 +33,7 @@ export default function App() {
     const withRev = nodes.filter((n) => val(n.revenue_total) != null)
     return {
       total: nodes.length,
+      private: nodes.filter((n) => !n.is_public).length,
       sourced: nodes.filter((n) => n.revenue_total?.is_estimate === false).length,
       gaps: nodes.length - withRev.length,
       revenue: withRev.reduce((s, n) => s + val(n.revenue_total), 0),
@@ -54,6 +55,7 @@ export default function App() {
           <Stat k={taxonomy.segments.length} l="segments" />
           <Stat k={linksData.length} l="relationships" />
           <Stat k={coverage.sourced} l="SEC-sourced" />
+          <Stat k={coverage.private} l="private" />
           <Stat k={fmtUSD(coverage.revenue)} l="mapped revenue" />
         </div>
         <button className="theme" onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}>
@@ -65,15 +67,17 @@ export default function App() {
         <div className="ctl">
           <label>Size by</label>
           <div className="seg-ctl">
-            <button className={sizeBy === 'revenue' ? 'on' : ''} onClick={() => setSizeBy('revenue')}>Revenue scale</button>
-            <button className={sizeBy === 'margin' ? 'on' : ''} onClick={() => setSizeBy('margin')}>Operating margin %</button>
+            {[['revenue','Revenue'],['valuation','Absolute scale'],['capital_efficiency','Capital efficiency'],['margin','Operating margin']].map(([k,l]) => (
+              <button key={k} className={sizeBy === k ? 'on' : ''} onClick={() => setSizeBy(k)} title={SIZE_HINT[k]}>{l}</button>
+            ))}
           </div>
         </div>
         <div className="ctl">
           <label>Colour by</label>
           <div className="seg-ctl">
-            <button className={colorBy === 'operating_margin_pct' ? 'on' : ''} onClick={() => setColorBy('operating_margin_pct')}>Operating</button>
-            <button className={colorBy === 'gross_margin_pct' ? 'on' : ''} onClick={() => setColorBy('gross_margin_pct')}>Gross</button>
+            {[['operating_margin_pct','Operating'],['gross_margin_pct','Gross'],['growth','Top-line velocity']].map(([k,l]) => (
+              <button key={k} className={colorBy === k ? 'on' : ''} onClick={() => setColorBy(k)}>{l}</button>
+            ))}
           </div>
         </div>
         <div className="ctl">
@@ -120,20 +124,28 @@ export default function App() {
 
 const Stat = ({ k, l }) => (<div className="stat"><b>{k}</b><span>{l}</span></div>)
 
+const SIZE_HINT = {
+  revenue: 'Reported revenue run-rate (public) or estimated ARR (private)',
+  valuation: 'Market cap for public companies; last post-money mark for private — a priced round, not a live quote',
+  capital_efficiency: 'Revenue per dollar of capex (public) or ARR per dollar raised (private). Separates toll-collectors from IP.',
+  margin: 'Operating margin. Radius encodes profitability rank, since margin goes deeply negative.',
+}
+
 function Legend({ theme, colorBy }) {
   const P = PALETTE[theme]
   return (
     <div className="legend">
       <div className="lg-row">
-        {['capital', 'commercial', 'physical'].map((g) => (
-          <span key={g} className="lg-item"><i style={{ background: P[g] }} />{GROUP_LABEL[g].split(' (')[0]}</span>
+        {['capital', 'compute', 'operational'].map((g) => (
+          <span key={g} className="lg-item"><i style={{ background: P[g] }} />{GROUP_LABEL[g]}</span>
         ))}
         <span className="lg-item"><i className="dashed" style={{ borderColor: P.ink3 }} />value undisclosed</span>
       </div>
       <div className="lg-row">
-        <span className="lg-scale-label">{colorBy === 'gross_margin_pct' ? 'Gross margin' : 'Operating margin'}</span>
+        <span className="lg-scale-label">{colorBy === 'gross_margin_pct' ? 'Gross margin' : colorBy === 'growth' ? 'YoY growth' : 'Operating margin'}</span>
         <span className="lg-ramp" data-metric={colorBy} />
-        <span className="lg-ends">{colorBy === 'gross_margin_pct' ? '0% → 90%' : 'loss → profit'}</span>
+        <span className="lg-ends">{colorBy === 'gross_margin_pct' ? '0% → 90%' : colorBy === 'growth' ? '0% → 200%+' : 'loss → profit'}</span>
+        <span className="lg-item lg-priv"><i className="dashed-ring" />private</span>
       </div>
     </div>
   )

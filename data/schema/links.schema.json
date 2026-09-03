@@ -31,15 +31,20 @@
         "type": "string",
         "enum": [
           "investment",
+          "equity_stake",
+          "corporate_venture",
           "compute_contract",
+          "compute_for_equity",
+          "compute_credits",
           "supply",
           "foundry",
           "power_purchase",
-          "equity_stake",
           "data_license",
           "partnership",
-          "customer_concentration"
-        ]
+          "customer_concentration",
+          "operational_integration"
+        ],
+        "description": "Three tiers. CAPITAL FLOW: investment, equity_stake, corporate_venture. SUBSIDIZED COMPUTE: compute_contract, compute_for_equity, compute_credits \u2014 in-kind or equity-linked compute is the mechanism behind most apparent AI-native gross margin. OPERATIONAL: supply, foundry, power_purchase, data_license, partnership, customer_concentration, operational_integration."
       },
       "value_usd_m": {
         "type": [
@@ -104,6 +109,13 @@
       "citation": {
         "$ref": "#/$defs/citation",
         "description": "Provenance for the relationship. Named `citation` because `source` is the D3 edge endpoint."
+      },
+      "in_kind": {
+        "type": [
+          "boolean",
+          "null"
+        ],
+        "description": "True when consideration is credits or equity rather than cash. Compute-for-equity flatters the recipient's margin and the provider's revenue simultaneously."
       }
     }
   },
