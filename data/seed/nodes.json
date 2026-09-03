@@ -588,24 +588,6 @@
       "is_estimate": true,
       "basis": "Foreign private issuer or filer without XBRL revenue tagging. Needs a press-sourced pass.",
       "confidence": "low"
-    },
-    "valuation": {
-      "as_of": "2026-09-03",
-      "market_cap_usd_m": 43813.6,
-      "enterprise_value_usd_m": 43813.6,
-      "ev_revenue": null,
-      "ev_ebitda": null,
-      "ev_gross_profit": null,
-      "pe_forward": null,
-      "fwd_revenue_growth_pct": null,
-      "last_round_valuation_usd_m": null,
-      "last_round_date": null,
-      "source": {
-        "publisher": "Price: public quote feed (NYSE). Shares, cash and debt: SEC EDGAR XBRL.",
-        "title": "CCJ close 100.61 USD on 2026-09-03; shares outstanding as of 2025-12-31",
-        "url": "https://www.sec.gov/Archives/edgar/data/1009001/000119312526116229/0001193125-26-116229-index.htm",
-        "as_of": "2026-09-03"
-      }
     }
   },
   {
@@ -865,8 +847,8 @@
     },
     "valuation": {
       "as_of": "2026-09-03",
-      "market_cap_usd_m": 58781.9,
-      "enterprise_value_usd_m": 107860.9,
+      "market_cap_usd_m": 58773.1,
+      "enterprise_value_usd_m": 107852.1,
       "ev_revenue": 5.3,
       "ev_ebitda": 15.77,
       "ev_gross_profit": null,
@@ -877,7 +859,7 @@
       "notes": null,
       "source": {
         "publisher": "Price: public quote feed (NYSE). Shares, cash and debt: SEC EDGAR XBRL.",
-        "title": "D close 66.79 USD on 2026-09-03; shares outstanding as of 2026-03-31",
+        "title": "D close 66.78 USD on 2026-09-03; shares outstanding as of 2026-03-31",
         "url": "https://www.sec.gov/Archives/edgar/data/715957/000119312526200275/0001193125-26-200275-index.htm",
         "as_of": "2026-09-03"
       }
@@ -2659,24 +2641,6 @@
       "is_estimate": true,
       "basis": "Foreign private issuer or filer without XBRL revenue tagging. Needs a press-sourced pass.",
       "confidence": "low"
-    },
-    "valuation": {
-      "as_of": "2026-09-03",
-      "market_cap_usd_m": 634470.7,
-      "enterprise_value_usd_m": 634470.7,
-      "ev_revenue": null,
-      "ev_ebitda": null,
-      "ev_gross_profit": null,
-      "pe_forward": null,
-      "fwd_revenue_growth_pct": null,
-      "last_round_valuation_usd_m": null,
-      "last_round_date": null,
-      "source": {
-        "publisher": "Price: public quote feed (NasdaqGS). Shares, cash and debt: SEC EDGAR XBRL.",
-        "title": "ASML close 1646.19 USD on 2026-09-03; shares outstanding as of 2025-12-31",
-        "url": "https://www.sec.gov/Archives/edgar/data/937966/000162828026011378/0001628280-26-011378-index.htm",
-        "as_of": "2026-09-03"
-      }
     }
   },
   {
@@ -3032,24 +2996,6 @@
       "is_estimate": true,
       "basis": "Foreign private issuer or filer without XBRL revenue tagging. Needs a press-sourced pass.",
       "confidence": "low"
-    },
-    "valuation": {
-      "as_of": "2026-09-03",
-      "market_cap_usd_m": 10814511.0,
-      "enterprise_value_usd_m": 10814511.0,
-      "ev_revenue": null,
-      "ev_ebitda": null,
-      "ev_gross_profit": null,
-      "pe_forward": null,
-      "fwd_revenue_growth_pct": null,
-      "last_round_valuation_usd_m": null,
-      "last_round_date": null,
-      "source": {
-        "publisher": "Price: public quote feed (NYSE). Shares, cash and debt: SEC EDGAR XBRL.",
-        "title": "TSM close 417.02 USD on 2026-09-03; shares outstanding as of 2025-12-31",
-        "url": "https://www.sec.gov/Archives/edgar/data/1046179/000162828026025362/0001628280-26-025362-index.htm",
-        "as_of": "2026-09-03"
-      }
     }
   },
   {
@@ -3195,24 +3141,6 @@
       "is_estimate": true,
       "basis": "Foreign private issuer or filer without XBRL revenue tagging. Needs a press-sourced pass.",
       "confidence": "low"
-    },
-    "valuation": {
-      "as_of": "2026-09-03",
-      "market_cap_usd_m": 24753.7,
-      "enterprise_value_usd_m": 24753.7,
-      "ev_revenue": null,
-      "ev_ebitda": null,
-      "ev_gross_profit": null,
-      "pe_forward": null,
-      "fwd_revenue_growth_pct": null,
-      "last_round_valuation_usd_m": null,
-      "last_round_date": null,
-      "source": {
-        "publisher": "Price: public quote feed (NasdaqGS). Shares, cash and debt: SEC EDGAR XBRL.",
-        "title": "GFS close 44.53 USD on 2026-09-03; shares outstanding as of 2025-12-31",
-        "url": "https://www.sec.gov/Archives/edgar/data/1709048/000170904826000022/0001709048-26-000022-index.htm",
-        "as_of": "2026-09-03"
-      }
     }
   },
   {
@@ -4580,8 +4508,8 @@
     },
     "valuation": {
       "as_of": "2026-09-03",
-      "market_cap_usd_m": 78883.6,
-      "enterprise_value_usd_m": 96552.6,
+      "market_cap_usd_m": 78877.8,
+      "enterprise_value_usd_m": 96546.8,
       "ev_revenue": 1.98,
       "ev_ebitda": 10.65,
       "ev_gross_profit": null,
@@ -4800,9 +4728,6 @@
         "url": "https://www.sec.gov/Archives/edgar/data/1513845/000110465926052948/0001104659-26-052948-index.htm",
         "as_of": "2026-04-30"
       }
-    },
-    "valuation": {
-      "as_of": "2026-09-03"
     },
     "capital_efficiency": {
       "revenue_per_capex_dollar": 0.13,
@@ -6456,24 +6381,6 @@
       "is_estimate": true,
       "basis": "Foreign private issuer or filer without XBRL revenue tagging. Needs a press-sourced pass.",
       "confidence": "low"
-    },
-    "valuation": {
-      "as_of": "2026-09-03",
-      "market_cap_usd_m": 66668.6,
-      "enterprise_value_usd_m": 66668.6,
-      "ev_revenue": null,
-      "ev_ebitda": null,
-      "ev_gross_profit": null,
-      "pe_forward": null,
-      "fwd_revenue_growth_pct": null,
-      "last_round_valuation_usd_m": null,
-      "last_round_date": null,
-      "source": {
-        "publisher": "Price: public quote feed (NYSE). Shares, cash and debt: SEC EDGAR XBRL.",
-        "title": "RELX close 36.65 USD on 2026-09-03; shares outstanding as of 2025-12-31",
-        "url": "https://www.sec.gov/Archives/edgar/data/929869/000110465926017277/0001104659-26-017277-index.htm",
-        "as_of": "2026-09-03"
-      }
     }
   },
   {
@@ -7545,9 +7452,6 @@
         "url": "https://www.sec.gov/Archives/edgar/data/1717115/000119312526326090/0001193125-26-326090-index.htm",
         "as_of": "2026-07-30"
       }
-    },
-    "valuation": {
-      "as_of": "2026-09-03"
     },
     "capital_efficiency": {
       "revenue_per_capex_dollar": 46.64,

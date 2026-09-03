@@ -36,6 +36,11 @@ for i, n in enumerate(nodes, 1):
         print(f"  ! {n['ticker']}: {e}", flush=True)
         val = None
     if not val or val.get("market_cap_usd_m") is None:
+        # Clear any prior valuation. The first run mispriced TSMC at $10.8T via
+        # the ADR-ratio bug; only writing on success left that stale figure in
+        # place and it rendered as the largest node on the map. A wrong number
+        # that survives a fix is worse than no number.
+        n.pop("valuation", None)
         skipped += 1
         why = (val or {}).get("_rejected") or ((val or {}).get("notes") or ["no price or share count"])[0]
         print(f"[{i:>2}] {n['ticker']:<6} skipped — {why[:82]}", flush=True)
