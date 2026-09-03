@@ -1,0 +1,58 @@
+{
+  "$comment": "Press-sourced figures for filers EDGAR cannot serve: 20-F foreign private issuers without XBRL revenue tagging, and private companies with no filings at all. Every value here is is_estimate=true with confidence set by source quality. This file is the manual complement to the automated EDGAR pass — and shrinking it is one of the agent pipeline's jobs.",
+  "overrides": {
+    "tsmc": {
+      "period": "Q2 2026 annualized (run-rate)",
+      "revenue_total": {"value": 160800, "is_estimate": true, "confidence": "high",
+        "basis": "Reported Q2 2026 revenue of $40.2B x4. TSMC reports in TWD; USD figure is as presented in company materials and press coverage. 20-F filer without usable XBRL revenue tagging.",
+        "source": {"publisher": "TechTimes / TSMC Q2 2026 results", "title": "TSMC Posts Record Quarter as AI Chip Demand Pushes Full-Year Growth Outlook Past 40%", "url": "https://www.techtimes.com/articles/320696/20260716/tsmc-posts-record-quarter-ai-chip-demand-pushes-full-year-growth-outlook-past-40.htm", "as_of": "2026-07-16"}},
+      "gross_margin_pct": {"value": 67.7, "unit": "percent", "is_estimate": true, "confidence": "high",
+        "basis": "Reported Q2 2026 gross margin, above the high end of company guidance.",
+        "source": {"publisher": "TSMC Q2 2026 results coverage", "url": "https://www.techtimes.com/articles/320696/20260716/tsmc-posts-record-quarter-ai-chip-demand-pushes-full-year-growth-outlook-past-40.htm", "as_of": "2026-07-16"}},
+      "operating_margin_pct": {"value": 60.3, "unit": "percent", "is_estimate": true, "confidence": "high",
+        "basis": "Reported Q2 2026 operating margin.",
+        "source": {"publisher": "TSMC Q2 2026 results coverage", "url": "https://www.techtimes.com/articles/320696/20260716/tsmc-posts-record-quarter-ai-chip-demand-pushes-full-year-growth-outlook-past-40.htm", "as_of": "2026-07-16"}},
+      "revenue_growth_yoy_pct": {"value": 33.7, "unit": "percent", "is_estimate": true, "confidence": "high",
+        "basis": "Reported Q2 2026 revenue growth vs. Q2 2025."},
+      "capex": {"value": 62000, "is_estimate": true, "confidence": "medium",
+        "basis": "Midpoint of raised FY2026 capex guidance of $60-64B, driven by the 2nm ramp and CoWoS packaging demand."},
+      "bottleneck": {"is_bottleneck": true, "criticality": 5,
+        "rationale": "Manufactures essentially every leading-edge AI accelerator. CoWoS advanced packaging is the acknowledged industry bottleneck and N3 is running above 100% utilization. No substitute exists at leading edge, and the geographic concentration is the largest single tail risk in the stack."}
+    },
+    "openai": {
+      "period": "August 2026 annualized run-rate (press-reported)",
+      "revenue_total": {"value": 40000, "is_estimate": true, "confidence": "medium",
+        "basis": "~$40B annualized run-rate as of Aug 2026, roughly $3.3B/month, up from ~$20B at end-2025. Private company: unaudited, press-reported, not a filed figure.",
+        "source": {"publisher": "ValueAdd VC", "title": "OpenAI Revenue 2026: $40B ARR as Anthropic Hits $65B", "url": "https://valueaddvc.com/blog/openai-revenue-2026-20b-arr-4b-month-path-to-profitability", "as_of": "2026-08-17"}},
+      "revenue_growth_yoy_pct": {"value": 100.0, "unit": "percent", "is_estimate": true, "confidence": "low",
+        "basis": "Approximate doubling from ~$20B (end-2025) to ~$40B (Aug 2026). Not a like-for-like quarterly comparison."},
+      "operating_margin_pct": {"value": null, "unit": "percent", "is_estimate": true, "confidence": "low",
+        "basis": "Not disclosed. Widely reported to be deeply negative on training and inference cost; no reliable figure exists."}
+    },
+    "anthropic": {
+      "period": "End-July 2026 annualized run-rate (press-reported)",
+      "revenue_total": {"value": 65000, "is_estimate": true, "confidence": "medium",
+        "basis": "~$65B annualized run-rate at end-July 2026, having passed OpenAI. Trajectory ~$9B (end-2025) -> $47B (May 2026) -> $65B (Jul 2026). Private company: unaudited, press-reported.",
+        "source": {"publisher": "TechCrunch", "title": "Anthropic's annualized revenue surges to $65B", "url": "https://techcrunch.com/2026/08/17/anthropics-annualized-revenue-surges-to-65b/", "as_of": "2026-08-17"}},
+      "operating_margin_pct": {"value": null, "unit": "percent", "is_estimate": true, "confidence": "low",
+        "basis": "Not disclosed."}
+    },
+    "asml": {
+      "period": "GAP — 20-F filer without usable XBRL revenue tagging; needs a press-sourced pass",
+      "bottleneck": {"is_bottleneck": true, "criticality": 5,
+        "rationale": "Sole supplier of EUV lithography. There is no second source at any price, which makes this the single narrowest chokepoint in the entire stack and a live instrument of export control."}
+    },
+    "micron": {
+      "bottleneck": {"is_bottleneck": true, "criticality": 4,
+        "rationale": "HBM output sold out through 2026 alongside SK hynix. Memory bandwidth, not compute, bounds inference economics, and the reported 84.6% gross margin is itself evidence of how binding the shortage is."}
+    },
+    "nvidia": {
+      "bottleneck": {"is_bottleneck": true, "criticality": 4,
+        "rationale": "CUDA plus the installed base make it the default accelerator. Less absolute than ASML or TSMC because AMD and hyperscaler custom silicon are credible second sources, but it still gates the pace of the build-out."}
+    },
+    "coreweave": {
+      "bottleneck": {"is_bottleneck": false, "criticality": 1,
+        "rationale": "Capacity reseller, not a chokepoint. Its own risk runs the other way: heavy customer concentration and capex that ran ~3x revenue in Q2 2026."}
+    }
+  }
+}

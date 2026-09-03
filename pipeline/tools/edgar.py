@@ -209,6 +209,37 @@ def latest_facts(ticker: str, prefer_quarterly: bool = True) -> CompanyFinancial
     return out
 
 
+def yoy_growth(fin: "CompanyFinancials", facts_cache: dict | None = None) -> float | None:
+    """YoY growth for the latest reported quarter, comparing like period to like.
+
+    Compares against the quarter ending closest to 365 days before the current
+    one. Refuses a comparison that is not within 30 days of a true year, which
+    matters for 52/53-week fiscal calendars and for filers that restate.
+    """
+    rev = fin.figures.get("revenue")
+    if not rev:
+        return None
+    try:
+        facts = _get(f"https://data.sec.gov/api/xbrl/companyfacts/CIK{fin.cik:010d}.json", f"facts_{fin.cik}")
+    except Exception:
+        return None
+    gaap = facts.get("facts", {}).get("us-gaap") or facts.get("facts", {}).get("ifrs-full") or {}
+    node = gaap.get(rev.concept.split(" - ")[0])
+    if not node:
+        return None
+    cur_end = dt.date.fromisoformat(rev.end)
+    best, best_gap = None, 10**9
+    for r in node.get("units", {}).get("USD", []):
+        if "start" not in r or not (80 <= _days(r) <= 100):
+            continue
+        gap = abs((cur_end - dt.date.fromisoformat(r["end"])).days - 365)
+        if gap < best_gap and r["end"] < rev.end:
+            best, best_gap = r, gap
+    if not best or best_gap > 30 or not best["val"]:
+        return None
+    return round(100.0 * (rev.value - float(best["val"])) / abs(float(best["val"])), 1)
+
+
 def recent_filings(ticker: str, forms=("8-K", "10-Q", "10-K"), limit: int = 20) -> list[dict]:
     """What Agent 1 (the Monitor) polls to detect that something has changed."""
     hit = ticker_to_cik(ticker)
