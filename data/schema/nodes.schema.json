@@ -405,6 +405,16 @@
             "number",
             "null"
           ]
+        },
+        "notes": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "type": "string"
+          },
+          "description": "Caveats on how the share count was derived \u2014 multi-class resolution, ADR skips. Surfaces silently-wrong market caps instead of burying them."
         }
       }
     },
@@ -513,6 +523,13 @@
         },
         "source": {
           "$ref": "#/$defs/citation"
+        },
+        "capital_consumed_per_arr_dollar": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "description": "Derived: total raised / estimated ARR. Net burn is not disclosed for any private company here, so this is the computable stand-in for burn multiple. Under ~3x is efficient; above ~20x the mark is pricing an outcome rather than a business."
         }
       }
     },
@@ -556,9 +573,10 @@
             "ip_light",
             "balanced",
             "capital_heavy",
+            "pass_through",
             null
           ],
-          "description": "Bucketed read of where a company sits on the toll-collector vs. IP spectrum."
+          "description": "Where a company sits on the toll-collector vs IP spectrum. pass_through is the third case: asset-light but thin-margin (integrators, contractors) \u2014 Super Micro spends almost nothing on capex at a 10% gross margin and is nobody's idea of high-margin IP."
         }
       }
     }

@@ -159,6 +159,44 @@ function CapitalView({ node }) {
   }
   return (
     <>
+      {node.is_public && node.valuation?.market_cap_usd_m != null && (
+        <section>
+          <h3>Valuation <span className="count">{node.valuation.as_of}</span></h3>
+          <div className="metrics">
+            <div className="metric">
+              <div className="m-label">Market cap · enterprise value</div>
+              <div className="m-value">{fmtUSD(node.valuation.market_cap_usd_m)}
+                <span className="est">EV {fmtUSD(node.valuation.enterprise_value_usd_m)}</span></div>
+              <div className="m-basis">EV is market cap plus debt less cash, both taken from the balance sheet
+                rather than approximated. For leveraged names the two numbers diverge materially.</div>
+            </div>
+            <div className="metric">
+              <div className="m-label">EV / revenue</div>
+              <div className="m-value">{node.valuation.ev_revenue != null ? `${node.valuation.ev_revenue.toFixed(1)}x` : '—'}</div>
+            </div>
+            <div className="metric">
+              <div className="m-label">EV / gross profit</div>
+              <div className="m-value">{node.valuation.ev_gross_profit != null ? `${node.valuation.ev_gross_profit.toFixed(1)}x` : '—'}</div>
+              <div className="m-basis">Better than EV/S for comparing businesses with very different gross
+                margins — which is exactly this stack.</div>
+            </div>
+            <div className="metric">
+              <div className="m-label">EV / EBITDA</div>
+              <div className="m-value">{node.valuation.ev_ebitda != null ? `${node.valuation.ev_ebitda.toFixed(1)}x` : '—'}</div>
+            </div>
+            <div className="metric">
+              <div className="m-label">Forward P/E</div>
+              <div className="m-value">—</div>
+              <div className="m-basis">Absent by design. Forward multiples need consensus estimates, which are
+                licensed. A null is more useful than a fabricated number.</div>
+            </div>
+          </div>
+          {node.valuation.source?.publisher && (
+            <p className="eff-note">{node.valuation.source.publisher} · {node.valuation.source.title}</p>
+          )}
+        </section>
+      )}
+
       <section>
         <h3>Capital efficiency</h3>
         {node.is_public ? (

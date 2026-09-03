@@ -295,6 +295,37 @@ def financing_cycles() -> str:
     return "\n".join(out)
 
 
+@mcp.tool(description=(
+    "Valuation comps — market cap, EV, EV/revenue, EV/gross profit, EV/EBITDA. Filter to a segment "
+    "or layer. EV is market cap plus debt less cash, all from the balance sheet. Forward P/E is "
+    "always null: it needs licensed consensus estimates, and a fabricated multiple is worse than none. "
+    "Sort by ev_revenue, ev_gross_profit, ev_ebitda or market_cap."))
+def valuation_comps(segment: str | None = None, layer: int | None = None,
+                    sort_by: str = "ev_revenue", limit: int = 20) -> str:
+    rows = [n for n in G.nodes if (n.get("valuation") or {}).get("market_cap_usd_m") is not None]
+    if segment:
+        rows = [n for n in rows if n["segment"] == segment]
+    if layer is not None:
+        rows = [n for n in rows if n["layer"] == layer]
+    if not rows:
+        return "No priced companies match. 8 filers are unpriced — foreign private issuers whose ADR ratio is not in EDGAR, plus filers with no usable share count."
+    key = lambda n: (n["valuation"].get(sort_by) is None, -(n["valuation"].get(sort_by) or 0))
+    rows.sort(key=key)
+    out = [f"VALUATION COMPS — sorted by {sort_by}  ({len(rows)} priced, as of {rows[0]['valuation']['as_of']})",
+           f"{'company':<24}{'tick':<7}{'mcap':>9}{'EV':>9}{'EV/S':>7}{'EV/GP':>7}{'EV/EBITDA':>11}{'gross':>7}{'YoY':>7}",
+           "-" * 88]
+    for n in rows[:limit]:
+        v = n["valuation"]
+        f = lambda x, d=1: "—" if x is None else f"{x:.{d}f}"
+        out.append(f"{n['name'][:23]:<24}{(n.get('ticker') or 'priv'):<7}"
+                    f"{fmt_usd(v['market_cap_usd_m']):>9}{fmt_usd(v['enterprise_value_usd_m']):>9}"
+                    f"{f(v.get('ev_revenue')):>7}{f(v.get('ev_gross_profit')):>7}{f(v.get('ev_ebitda')):>11}"
+                    f"{_pct(G.val(n,'gross_margin_pct'),0):>7}{_pct(G.metric(n,'growth'),0):>7}")
+    out += ["", "EV/gross profit is the better cross-stack comparator: Super Micro looks cheap at 0.6x "
+                "revenue but trades near 5.6x gross profit, because its gross margin is under 10%."]
+    return "\n".join(out)
+
+
 # ─────────────────────────── live primary source ───────────────────────────
 
 @mcp.tool(description=(
