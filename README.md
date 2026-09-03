@@ -87,3 +87,25 @@ scripts/         seed build, enrichment, and the verification suite
 - `valuation` (market cap, EV/S) is unpopulated — market data goes stale within a day and needs its own refresh cadence.
 - 4 nodes have null revenue — all 20-F foreign filers without XBRL revenue tagging (Cameco, GlobalFoundries, Thomson Reuters, RELX). These are the pipeline's demo targets.
 - Capital-intensity buckets are point-in-time. Micron reads `ip_light` because the memory supercycle tripled its revenue; structurally it is one of the most capital-heavy businesses here. Raw `capex_pct_revenue` is exposed so you can see through the label.
+
+## MCP server — the Co-Analyst half
+
+The map and live EDGAR access are exposed to Claude as tools, so you can research and screen the stack conversationally instead of clicking the graph.
+
+```bash
+claude mcp add -s user ai-ecosystem -- /Users/asinugobi/ai-ecosystem-explorer/.venv/bin/python /Users/asinugobi/ai-ecosystem-explorer/pipeline/mcp_server.py
+```
+
+| Tool | What it answers |
+|---|---|
+| `map_overview` | Coverage, the 11 layers and what constrains each |
+| `find_companies` | Filter by layer / segment / vertical / ownership, sort by any metric |
+| `company_detail` | Full research note with derivation basis and source URLs |
+| `comp_set` | Segment peer table with revenue-weighted aggregates |
+| `screen` | Metric-threshold screening — the growth-equity filter |
+| `read_across` | If this moves, what else moves (the Sankey can't do this) |
+| `financing_cycles` | Capital loops, traversing money direction not goods |
+| `edgar_lookup` | Live XBRL for **any** US filer, on the map or not |
+| `edgar_filings` | Recent filings — what the Monitor polls |
+
+Worth trying: `screen("revenue_per_capex", maximum=1)` returns the three neoclouds currently buying revenue with capital. `comp_set("gpu_cloud")` shows that peer group at −15% weighted operating margin.
