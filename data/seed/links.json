@@ -1,0 +1,121 @@
+[
+  {"id":"nvda_openai_invest","source":"nvidia","target":"openai","type":"investment","value_usd_m":100000,"announced":"2025-09-22","term":"staged with deployment","is_estimate":true,
+   "description":"Nvidia letter of intent to invest up to $100B in OpenAI, staged against gigawatt-scale deployments of Nvidia systems.",
+   "exposure_note":"The canonical circular-financing edge: the supplier funds the customer that buys its chips. Bulls call it demand visibility; bears call it vendor financing that flatters reported demand.","citation":{"publisher":"NVIDIA newsroom","url":"https://nvidianews.nvidia.com/news/openai-and-nvidia-announce-strategic-partnership","as_of":"2025-09-22"}},
+
+  {"id":"openai_oracle_compute","source":"openai","target":"oracle","type":"compute_contract","value_usd_m":300000,"announced":"2025-09-10","term":"5 years from 2027","is_estimate":true,
+   "description":"OpenAI compute commitment to Oracle Cloud Infrastructure, the single largest cloud contract ever disclosed.",
+   "exposure_note":"Drove Oracle's RPO step-change. Concentrates an enormous share of Oracle's backlog in one unprofitable private counterparty — the key bear point on ORCL."},
+
+  {"id":"msft_openai_invest","source":"microsoft","target":"openai","type":"investment","value_usd_m":13000,"announced":"2023-01-23","term":"restructured 2025","is_estimate":true,
+   "description":"Microsoft's cumulative investment in OpenAI, restructured in 2025 into a ~27% stake in the OpenAI Group PBC.",
+   "exposure_note":"Microsoft books its share of OpenAI losses; the Azure commitment flows back as revenue. Money and compute move in a loop between the two."},
+
+  {"id":"openai_msft_compute","source":"openai","target":"microsoft","type":"compute_contract","value_usd_m":250000,"announced":"2025-10-28","term":"incremental Azure commitment","is_estimate":true,
+   "description":"OpenAI incremental Azure purchase commitment agreed alongside the 2025 restructuring.",
+   "exposure_note":"Closes the Microsoft-OpenAI loop: investment out, compute revenue back in. Inflates Azure bookings with capital Microsoft itself supplied."},
+
+  {"id":"msft_crwv_compute","source":"microsoft","target":"coreweave","type":"customer_concentration","value_usd_m":null,"announced":"2023-06-01","term":"multi-year","pct_of_source_revenue":null,"is_estimate":true,
+   "description":"Microsoft was CoreWeave's largest customer at roughly 62% of 2024 revenue and about 67% into mid-2026.",
+   "pct_of_target_cogs":null,"exposure_note":"CoreWeave's defining risk. Any Microsoft capacity pullback hits ~2/3 of revenue, which is why the Meta, OpenAI and Anthropic wins matter more than their headline value.","citation":{"publisher":"CNBC","title":"CoreWeave Q2 earnings report 2026","url":"https://www.cnbc.com/2026/08/11/coreweave-crwv-q2-earnings-report-2026.html","as_of":"2026-08-11"}},
+
+  {"id":"meta_crwv_compute","source":"meta","target":"coreweave","type":"compute_contract","value_usd_m":21000,"announced":"2026-08-11","term":"multi-year","is_estimate":false,
+   "description":"Meta committed an additional $21B of spend with CoreWeave, disclosed alongside CoreWeave's Q2 2026 results.",
+   "exposure_note":"Meaningful de-risking of CoreWeave's Microsoft concentration, and evidence Meta is renting rather than building for marginal capacity.","citation":{"publisher":"CNBC","title":"CoreWeave Q2 earnings report 2026","url":"https://www.cnbc.com/2026/08/11/coreweave-crwv-q2-earnings-report-2026.html","as_of":"2026-08-11"}},
+
+  {"id":"anthropic_crwv_compute","source":"anthropic","target":"coreweave","type":"compute_contract","value_usd_m":null,"announced":"2026-08-11","term":"multi-year","is_estimate":true,
+   "description":"Multi-year CoreWeave capacity agreement with Anthropic announced with Q2 2026 results.",
+   "exposure_note":"Anthropic multi-sourcing compute across AWS, Google and now neoclouds rather than binding to one hyperscaler.","citation":{"publisher":"CNBC","url":"https://www.cnbc.com/2026/08/11/coreweave-crwv-q2-earnings-report-2026.html","as_of":"2026-08-11"}},
+
+  {"id":"amzn_anthropic_invest","source":"amazon","target":"anthropic","type":"investment","value_usd_m":8000,"announced":"2024-11-22","term":"staged","is_estimate":false,
+   "description":"Amazon's cumulative investment in Anthropic, with AWS as primary training partner and Trainium as a training platform.",
+   "exposure_note":"Mirror of the Microsoft-OpenAI structure. Capital out, AWS compute revenue back in, plus a hedge against Nvidia via Trainium."},
+
+  {"id":"googl_anthropic_invest","source":"alphabet","target":"anthropic","type":"investment","value_usd_m":3000,"announced":"2024-01-01","term":"staged","is_estimate":true,
+   "description":"Alphabet investment in Anthropic alongside a large Google Cloud TPU capacity arrangement.",
+   "exposure_note":"Anthropic is simultaneously a Google Cloud customer and a competitor to Gemini — the sharpest coopetition edge on the map."},
+
+  {"id":"tsmc_nvda_foundry","source":"tsmc","target":"nvidia","type":"foundry","value_usd_m":null,"announced":null,"term":"ongoing","is_estimate":true,
+   "description":"TSMC manufactures Nvidia's data-center GPUs on leading-edge nodes with CoWoS advanced packaging.",
+   "exposure_note":"Read-across: TSMC monthly revenue and CoWoS capacity commentary lead Nvidia's shipments. A TSMC packaging constraint caps Nvidia units regardless of demand."},
+
+  {"id":"tsmc_avgo_foundry","source":"tsmc","target":"broadcom","type":"foundry","value_usd_m":null,"term":"ongoing","announced":null,"is_estimate":true,
+   "description":"TSMC fabricates Broadcom's custom accelerators and switching silicon.",
+   "exposure_note":"Broadcom competes with Nvidia for the same TSMC leading-edge and CoWoS allocation — they are rivals for supply, not just for customers."},
+
+  {"id":"tsmc_amd_foundry","source":"tsmc","target":"amd","type":"foundry","value_usd_m":null,"term":"ongoing","announced":null,"is_estimate":true,
+   "description":"TSMC fabricates AMD's Instinct accelerators and EPYC CPUs.",
+   "exposure_note":"AMD's ability to take GPU share is gated by the TSMC allocation it can secure, not only by product competitiveness."},
+
+  {"id":"asml_tsmc_supply","source":"asml","target":"tsmc","type":"supply","value_usd_m":null,"term":"ongoing","announced":null,"is_estimate":true,
+   "description":"ASML is the sole supplier of EUV lithography systems used for TSMC's leading-edge nodes.",
+   "exposure_note":"The deepest dependency in the stack. ASML shipment timing sets the ceiling on leading-edge capacity roughly two years out, and is a direct instrument of export control."},
+
+  {"id":"mu_nvda_hbm","source":"micron","target":"nvidia","type":"supply","value_usd_m":null,"term":"sold out through 2026","announced":null,"is_estimate":true,
+   "description":"Micron supplies HBM into Nvidia accelerator platforms; HBM output is sold out through 2026.",
+   "exposure_note":"HBM attach is the binding input on GPU shipments. Micron's 84.6% gross margin is the clearest evidence of how tight this is — and a direct cost headwind to Nvidia's own margin."},
+
+  {"id":"avgo_googl_asic","source":"broadcom","target":"alphabet","type":"supply","value_usd_m":null,"term":"multi-generation","announced":null,"is_estimate":true,
+   "description":"Broadcom co-designs and supplies Google's TPU accelerators.",
+   "exposure_note":"The main escape route from Nvidia. Every TPU generation that works is share that never reaches the merchant GPU market — bearish NVDA, bullish AVGO."},
+
+  {"id":"ceg_msft_ppa","source":"constellation","target":"microsoft","type":"power_purchase","value_usd_m":null,"announced":"2024-09-20","term":"20 years","is_estimate":false,
+   "description":"20-year PPA to restart Three Mile Island Unit 1 (Crane Clean Energy Center) for Microsoft data centers.",
+   "exposure_note":"Template for nuclear-backed AI power. Establishes that hyperscalers will underwrite generation directly when the grid cannot deliver."},
+
+  {"id":"tln_amzn_ppa","source":"talen","target":"amazon","type":"power_purchase","value_usd_m":null,"announced":"2024-03-04","term":"long-term","is_estimate":false,
+   "description":"Susquehanna nuclear co-location supplying an AWS data center campus behind the meter.",
+   "exposure_note":"Behind-the-meter siting sidesteps the interconnection queue — the single largest scheduling constraint on new AI capacity."},
+
+  {"id":"vrt_crwv_supply","source":"vertiv","target":"coreweave","type":"supply","value_usd_m":null,"term":"ongoing","announced":null,"is_estimate":true,
+   "description":"Vertiv supplies liquid cooling and power distribution into high-density GPU deployments.",
+   "exposure_note":"Vertiv orders lead neocloud and hyperscaler capacity by roughly two to four quarters — one of the better early indicators on the whole build-out."},
+
+  {"id":"nvda_crwv_supply","source":"nvidia","target":"coreweave","type":"supply","value_usd_m":null,"term":"ongoing","announced":null,"is_estimate":true,
+   "description":"Nvidia supplies the GPU fleet CoreWeave rents out, and has also held an equity stake and backstop arrangements.",
+   "exposure_note":"Second circular-financing edge: Nvidia supplies, invests in, and has contracted capacity from the same counterparty."},
+
+  {"id":"nvda_dell_supply","source":"nvidia","target":"dell","type":"supply","value_usd_m":null,"term":"ongoing","announced":null,"is_estimate":true,
+   "description":"Dell integrates Nvidia GPUs into AI server and rack-scale systems.",
+   "exposure_note":"Explains the margin waterfall directly: Dell moves the same AI dollars at 17.8% gross margin because the value sits in the chip it resells."},
+
+  {"id":"nvda_smci_supply","source":"nvidia","target":"supermicro","type":"supply","value_usd_m":null,"term":"ongoing","announced":null,"is_estimate":true,
+   "description":"Supermicro builds Nvidia-based AI systems, typically first to market on new platforms.",
+   "exposure_note":"Allocation-dependent. Supermicro's growth is a function of the GPU supply Nvidia chooses to route through it."},
+
+  {"id":"anet_meta_supply","source":"arista","target":"meta","type":"customer_concentration","value_usd_m":null,"term":"ongoing","announced":null,"is_estimate":true,
+   "description":"Meta is a long-standing large Arista customer for AI back-end Ethernet fabrics.",
+   "exposure_note":"Arista carries real concentration in Meta and Microsoft. Both are also candidates to shift toward white-box switching, which is the structural bear case."},
+
+  {"id":"rddt_googl_data","source":"reddit","target":"alphabet","type":"data_license","value_usd_m":60,"announced":"2024-02-22","term":"annual","is_estimate":true,
+   "description":"Reddit content licensing agreement with Google for model training and search grounding.",
+   "exposure_note":"Prices human-generated conversational data. High-margin and contractual — the cleanest read on what training corpora are actually worth."},
+
+  {"id":"rddt_openai_data","source":"reddit","target":"openai","type":"data_license","value_usd_m":null,"announced":"2024-05-16","term":"multi-year","is_estimate":true,
+   "description":"Reddit content licensing agreement with OpenAI.",
+   "exposure_note":"Second data-licensing datapoint. Establishes a market rate that content owners across the stack now anchor to."},
+
+  {"id":"sym_wmt_conc","source":"symbotic","target":"amazon","type":"partnership","value_usd_m":null,"term":"ongoing","announced":null,"is_estimate":true,
+   "description":"Warehouse automation deployments with large retail and logistics customers.",
+   "exposure_note":"Placeholder edge — Symbotic's true concentration is Walmart, which is outside the current coverage universe. Flagged for the pipeline to correct."},
+
+  {"id":"orcl_nvda_supply","source":"nvidia","target":"oracle","type":"supply","value_usd_m":null,"term":"ongoing","announced":null,"is_estimate":true,
+   "description":"Oracle buys Nvidia systems to build the OCI capacity underlying its AI backlog.",
+   "exposure_note":"Closes the loop Nvidia -> OpenAI -> Oracle -> Nvidia. Capital that starts at Nvidia returns as Nvidia revenue within about two years."},
+
+  {"id":"amd_openai_supply","source":"amd","target":"openai","type":"supply","value_usd_m":null,"announced":"2025-10-06","term":"6 GW multi-year","is_estimate":true,
+   "description":"OpenAI agreement to deploy AMD Instinct accelerators at gigawatt scale, with warrants issued to OpenAI.",
+   "exposure_note":"Third circular-financing structure, and the strongest single validation that a credible second source to Nvidia exists."},
+
+  {"id":"eaton_dlr_supply","source":"eaton","target":"digital_realty","type":"supply","value_usd_m":null,"term":"ongoing","announced":null,"is_estimate":true,
+   "description":"Electrical distribution, switchgear and UPS into wholesale data center capacity.",
+   "exposure_note":"Switchgear and transformer lead times are a hard physical gate — capacity cannot energize ahead of this equipment regardless of capital available."},
+
+  {"id":"gev_ceg_supply","source":"ge_vernova","target":"constellation","type":"supply","value_usd_m":null,"term":"ongoing","announced":null,"is_estimate":true,
+   "description":"Turbines, generators and grid equipment supporting generation and uprate projects.",
+   "exposure_note":"Gas turbine slots are sold out into the 2030s, which means new dispatchable generation is supply-constrained years ahead of demand."},
+
+  {"id":"pwr_nee_supply","source":"quanta","target":"nextera","type":"supply","value_usd_m":null,"term":"ongoing","announced":null,"is_estimate":true,
+   "description":"Transmission, substation and renewable EPC services.",
+   "exposure_note":"Skilled electrical labor is the constraint that converts capex into delivered megawatts. Rate-limits the whole layer above."}
+]
