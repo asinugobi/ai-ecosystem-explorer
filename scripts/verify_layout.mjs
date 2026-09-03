@@ -12,7 +12,7 @@ const W = 1500, H = 950
 
 const order = d3.groups(tax.segments, s => s.layer).map(([l, ss]) => [l, ss.map(s => s.id)])
 const radius = radiusScale(nodes, 'revenue')
-const { sim } = buildSimulation({ nodes, links, width: W, height: H, radius, segmentOrder: order })
+const { sim, xSpan, xTarget } = buildSimulation({ nodes, links, width: W, height: H, radius, segmentOrder: order })
 const t0 = Date.now()
 const ticks = settle(sim)
 const ms = Date.now() - t0
@@ -25,7 +25,7 @@ for (let i = 0; i < nodes.length; i++) for (let j = i + 1; j < nodes.length; j++
 }
 const off = nodes.filter(n => n.x - radius(n) < 0 || n.x + radius(n) > W || n.y - radius(n) < 0 || n.y + radius(n) > H)
 const lanes = d3.rollup(nodes, v => [Math.round(d3.min(v, d => d.y)), Math.round(d3.max(v, d => d.y))], d => d.layer)
-const boxes = segmentBoxes(nodes, radius, H)
+const boxes = segmentBoxes(nodes, radius, H, 12, xSpan, xTarget)
 let boxOverlap = 0
 for (let i = 0; i < boxes.length; i++) for (let j = i + 1; j < boxes.length; j++) {
   const a = boxes[i], b = boxes[j]

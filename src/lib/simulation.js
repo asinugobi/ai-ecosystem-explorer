@@ -33,7 +33,28 @@ export function buildSimulation({ nodes, links, width, height, radius, segmentOr
       cursor += w
     })
   }
-  const tx = (d) => xTarget.get(`${d.layer}:${d.segment}`) ?? width / 2
+  // Spread within the segment's own span rather than stacking every node on the
+  // centre. A single-segment layer (L7 hyperscale, 8 companies) otherwise piles
+  // into one blob and leaves the canvas edges dead.
+  const slot = new Map()
+  for (const [key, ns] of d3.group(nodes, (d) => `${d.layer}:${d.segment}`)) {
+    const span = xSpan.get(key) ?? width
+    const c = xTarget.get(key) ?? width / 2
+    // Order by size so the largest sits centrally and small ones fill outward.
+    const sorted = [...ns].sort((a, b) => radius(b) - radius(a))
+    const inner = Math.max(0, span - 56)
+    sorted.forEach((d, i) => {
+      const t = ns.length === 1 ? 0.5 : i / (ns.length - 1)
+      // interleave outward from centre: 0, +1, -1, +2, -2 ...
+      const rank = i === 0 ? 0 : (i % 2 ? Math.ceil(i / 2) : -Math.ceil(i / 2))
+      const step = inner / Math.max(2, ns.length)
+      // Clamp to the segment's own span, accounting for the node's radius, so a
+      // wide node cannot push its container across a neighbouring segment's.
+      const half = Math.max(0, span / 2 - radius(d) - 10)
+      slot.set(d.id, c + Math.max(-half, Math.min(half, rank * step)))
+    })
+  }
+  const tx = (d) => slot.get(d.id) ?? xTarget.get(`${d.layer}:${d.segment}`) ?? width / 2
 
   // Seed positions near the target so the pre-settle converges fast and the
   // layout is deterministic across reloads.
@@ -68,7 +89,7 @@ export function settle(sim, ticks) {
 }
 
 /** Bounding box per segment, for the container heatmap. */
-export function segmentBoxes(nodes, radius, height, pad = 12) {
+export function segmentBoxes(nodes, radius, height, pad = 12, spans = null, centres = null) {
   const { band } = layerY(height)
   const groups = d3.group(nodes, (d) => `${d.layer}:${d.segment}`)
   const out = []
@@ -82,8 +103,13 @@ export function segmentBoxes(nodes, radius, height, pad = 12) {
     const bot = band(layer) + band.bandwidth() - 3
     out.push({
       key, layer, segment, nodes: ns,
-      x0: d3.min(ns, (d) => d.x - radius(d)) - pad,
-      x1: d3.max(ns, (d) => d.x + radius(d)) + pad,
+      // Horizontal extent is the segment's ALLOCATED span, not a shrink-wrap of
+      // its nodes. Shrink-wrapping let collide push a large node (NVDA r=38)
+      // past the boundary and made neighbouring containers overlap. Allocated
+      // spans tile the layer exactly, so overlap is impossible by construction.
+      ...(spans && spans.has(key)
+        ? { x0: centres.get(key) - spans.get(key) / 2 + 2, x1: centres.get(key) + spans.get(key) / 2 - 2 }
+        : { x0: d3.min(ns, (d) => d.x - radius(d)) - pad, x1: d3.max(ns, (d) => d.x + radius(d)) + pad }),
       y0: Math.max(top, d3.min(ns, (d) => d.y - radius(d)) - pad),
       y1: Math.min(bot, d3.max(ns, (d) => d.y + radius(d)) + pad),
     })
