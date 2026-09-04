@@ -127,8 +127,10 @@ export default function App() {
           nodes={nodes} links={linksData} taxonomy={taxonomy} theme={theme}
           sizeBy={sizeBy} colorBy={colorBy} verticalFilter={vertical}
           selected={selected} onSelect={setSelected} highlightCycle={cycle} />}
-        <IntelligencePanel node={selNode} nodes={nodes} links={linksData}
-                           taxonomy={taxonomy} onSelect={setSelected} />
+        {view !== 'matrix' && (
+          <IntelligencePanel node={selNode} nodes={nodes} links={linksData}
+                             taxonomy={taxonomy} onSelect={setSelected} />
+        )}
       </main>
 
       {cycle && (
