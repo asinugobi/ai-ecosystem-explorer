@@ -93,3 +93,31 @@ export function ranked(nodes, { min = 0 } = {}) {
     .filter((n) => (bn(n).computed_criticality ?? 0) >= min)
     .sort((a, b) => bn(b).computed_criticality - bn(a).computed_criticality)
 }
+
+/* ── The scoring model, mirrored from scripts/score_bottlenecks.py ──
+   Rendering the model's own shape behind the data is what makes the method
+   legible: you see what the formula PERMITS at each coordinate, separately
+   from where companies actually sit. Divergence between the two is the
+   interesting part. */
+const SUPPLIER_BASE = [[1, 5.0], [2, 4.2], [3, 3.5], [5, 2.8], [9, 2.0], [Infinity, 1.3]]
+const LEAD_ADJ = [[48, 0.8], [24, 0.4], [12, 0.1], [0, -0.3]]
+export const CAPACITY_ADJ = { sold_out: 0.6, constrained: 0.3, balanced: 0.0, oversupplied: -0.5 }
+export const POSITION_MULT = { sole: 1.0, dominant: 0.92, co_leader: 0.80, one_of_several: 0.62, marginal: 0.45 }
+export const CONSTRAINT_MULT = { physical: 1.0, commercial: 0.78 }
+
+export function scoreParts(suppliers, lead, capacity, position, constraint) {
+  const base = SUPPLIER_BASE.find(([cap]) => suppliers <= cap)[1]
+  const leadAdj = (LEAD_ADJ.find(([t]) => (lead ?? 0) >= t) ?? [0, -0.3])[1]
+  const capAdj = CAPACITY_ADJ[capacity] ?? 0
+  const raw = base + leadAdj + capAdj
+  const pMult = POSITION_MULT[position] ?? 0.62
+  const cMult = CONSTRAINT_MULT[constraint] ?? 1.0
+  return {
+    base, leadAdj, capAdj, subtotal: raw, pMult, cMult,
+    final: Math.round(Math.max(1, Math.min(5, raw * pMult * cMult)) * 10) / 10,
+  }
+}
+
+/** What the model permits at a coordinate, holding capacity/position neutral. */
+export const permittedAt = (suppliers, lead) =>
+  scoreParts(suppliers, lead, 'balanced', 'co_leader', 'physical').final

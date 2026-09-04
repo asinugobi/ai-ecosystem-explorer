@@ -1,6 +1,7 @@
 import { useMemo, useState, useRef, useEffect } from 'react'
 import * as d3 from 'd3'
-import { cells, quadrantStats, bn, SUPPLIER_TICKS, LEAD_TICKS, CAPACITY_LABEL, POSITION_LABEL } from '../lib/bottleneck.js'
+import { cells, quadrantStats, bn, SUPPLIER_TICKS, LEAD_TICKS, CAPACITY_LABEL, POSITION_LABEL,
+         permittedAt, scoreParts } from '../lib/bottleneck.js'
 import { PALETTE, fmtUSD, fmtPct, val } from '../lib/scales.js'
 
 /**
@@ -24,6 +25,9 @@ export default function SubstitutabilityMatrix({ nodes, taxonomy, selected, onSe
   const [dims, setDims] = useState({ w: 900, h: 620 })
   const [hover, setHover] = useState(null)
   const [openCell, setOpenCell] = useState(null)
+  const [ctFilter, setCtFilter] = useState('all')   // physical | commercial | all
+  const [lowOnly, setLowOnly] = useState(false)
+  const [ledger, setLedger] = useState(null)
 
   useEffect(() => {
     const el = wrapRef.current
@@ -94,6 +98,19 @@ export default function SubstitutabilityMatrix({ nodes, taxonomy, selected, onSe
               <text x={x(6)} y={y(24) - 8} className="mx-cornersub" fill={P.ink3} opacity={0.55}
                     transform={`rotate(21 ${x(6)} ${y(24) - 8})`}>the scarcity diagonal</text>
 
+              {/* The model's own shape, rendered behind the data. Seeing what the
+                  formula PERMITS at each coordinate — separately from where companies
+                  actually sit — is what makes the method inspectable rather than
+                  something to take on trust. */}
+              {SUPPLIER_TICKS.map((sv) => LEAD_TICKS.map((lv) => {
+                const permitted = permittedAt(sv, lv)
+                return (
+                  <rect key={`relief-${sv}-${lv}`} x={x(sv) - cw / 2} y={y(lv) - ch / 2}
+                        width={cw} height={ch} rx={3} fill={P.ink}
+                        opacity={0.015 + (permitted / 5) * 0.075} />
+                )
+              }))}
+
               {/* ordinal gridlines */}
               {SUPPLIER_TICKS.map((s) => (
                 <line key={`v${s}`} x1={x(s)} x2={x(s)} y1={-ch / 2} y2={ih + ch / 2}
@@ -140,12 +157,16 @@ export default function SubstitutabilityMatrix({ nodes, taxonomy, selected, onSe
                       const b = bn(n)
                       const isSel = selected === n.id
                       const low = b.confidence === 'low'
+                      const filteredOut =
+                        (ctFilter !== 'all' && b.constraint_type !== ctFilter) || (lowOnly && !low)
                       return (
                         <circle key={n.id} cx={dx} cy={dy} r={isSel ? r + 1.6 : r}
+                                opacity={filteredOut ? 0.12 : 1}
                                 fill={low ? 'none' : critColor(b.computed_criticality)}
                                 stroke={isSel ? P.ink : low ? critColor(b.computed_criticality) : 'none'}
                                 strokeWidth={isSel ? 1.8 : low ? 1.2 : 0}
-                                onClick={(e) => { e.stopPropagation(); onSelect(n.id) }}>
+                                style={{ transition: 'opacity .18s' }}
+                                onClick={(e) => { e.stopPropagation(); onSelect(n.id); setLedger(n) }}>
                           <title>{`${n.name} — criticality ${b.computed_criticality}/5${low ? ' (low confidence)' : ''}`}</title>
                         </circle>
                       )
@@ -173,11 +194,61 @@ export default function SubstitutabilityMatrix({ nodes, taxonomy, selected, onSe
         </div>
 
         <aside className="mx-side">
-          {activeCell ? <CellDetail cell={activeCell} P={P} critColor={critColor}
-                                     selected={selected} onSelect={onSelect} /> : <QuadSummary quads={quads} P={P} />}
+          <div className="mx-filters">
+            <div className="seg-ctl">
+              {[['all', 'All'], ['physical', 'Physical'], ['commercial', 'Commercial']].map(([k, l]) => (
+                <button key={k} className={ctFilter === k ? 'on' : ''} onClick={() => setCtFilter(k)}
+                        title="Is the long lead time a physics problem or a contract problem?">{l}</button>
+              ))}
+            </div>
+            <button className={`lowbtn${lowOnly ? ' on' : ''}`} onClick={() => setLowOnly(!lowOnly)}
+                    title="How much of the upper-left is actually load-bearing?">Low confidence only</button>
+          </div>
+          {ledger ? <Ledger node={ledger} P={P} critColor={critColor} onBack={() => setLedger(null)} />
+            : activeCell ? <CellDetail cell={activeCell} P={P} critColor={critColor}
+                                       selected={selected} onSelect={(id) => { onSelect(id); }} />
+            : <QuadSummary quads={quads} P={P} />}
         </aside>
       </div>
     </div>
+  )
+}
+
+/** The derivation, shown as arithmetic. A score you can audit beats one you must trust. */
+function Ledger({ node, P, critColor, onBack }) {
+  const b = bn(node)
+  const p = scoreParts(b.qualified_suppliers, b.substitution_lead_time_months,
+                       b.capacity_state, b.market_position, b.constraint_type)
+  const Row = ({ label, val, note }) => (
+    <div className="ldg-row"><span>{label}</span><b>{val}</b>{note && <em>{note}</em>}</div>
+  )
+  return (
+    <>
+      <button className="ldg-back" onClick={onBack}>← back</button>
+      <h3>{node.name} <i className="ldg-crit" style={{ color: critColor(p.final) }}>{p.final}/5</i></h3>
+      <p className="mx-note">How that number was derived — every term is a stated field, not a vibe.</p>
+      <div className="ledger">
+        <Row label={`${b.qualified_suppliers} qualified supplier${b.qualified_suppliers > 1 ? 's' : ''}`}
+             val={p.base.toFixed(1)} note="base" />
+        <Row label={`${b.substitution_lead_time_months} months to substitute`}
+             val={`${p.leadAdj >= 0 ? '+' : ''}${p.leadAdj.toFixed(1)}`} />
+        <Row label={CAPACITY_LABEL[b.capacity_state] ?? 'capacity unknown'}
+             val={`${p.capAdj >= 0 ? '+' : ''}${p.capAdj.toFixed(1)}`} />
+        <div className="ldg-sub"><span>subtotal</span><b>{p.subtotal.toFixed(1)}</b></div>
+        <Row label={POSITION_LABEL[b.market_position] ?? 'position unknown'}
+             val={`× ${p.pMult.toFixed(2)}`} note="share of the constraint" />
+        <Row label={b.constraint_type === 'commercial' ? 'Commercial constraint' : 'Physical constraint'}
+             val={`× ${p.cMult.toFixed(2)}`} note={b.constraint_type === 'commercial' ? 'can be paid around' : 'cannot be paid around'} />
+        <div className="ldg-total"><span>criticality</span><b style={{ color: critColor(p.final) }}>{p.final}</b></div>
+      </div>
+      <p className="mx-note">{b.rationale}</p>
+      {b.evidence_source === 'segment' && (
+        <p className="mx-caveat prov">Inherited from the {node.segment} segment default — not rated individually.</p>
+      )}
+      {b.confidence === 'low' && (
+        <p className="mx-caveat prov">Low confidence: a plausible reading, not a researched one.</p>
+      )}
+    </>
   )
 }
 

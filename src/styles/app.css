@@ -350,3 +350,22 @@ main { display: flex; flex: 1; min-height: 0; }
 .mx-legend i.dash { background: none; border: 1.2px dashed; border-radius: 2px; width: 11px; height: 9px; }
 .mx-caveat.prov { border-left: 2px solid var(--ink-3); padding-left: 8px; font-style: normal;
   margin: 10px 0 4px; color: var(--ink-2); }
+.mx-filters { display: flex; flex-direction: column; gap: 7px; margin-bottom: 14px;
+  padding-bottom: 12px; border-bottom: 1px solid var(--grid); }
+.lowbtn { background: var(--surface); border: 1px solid var(--grid); border-radius: 5px;
+  color: var(--ink-3); padding: 4px 9px; font-size: 10.5px; cursor: pointer; font-family: inherit; }
+.lowbtn.on { background: var(--ink); color: var(--surface); border-color: var(--ink); font-weight: 550; }
+.ldg-back { background: none; border: none; color: var(--capital); font-size: 10.5px;
+  cursor: pointer; padding: 0 0 6px; font-family: inherit; }
+.ldg-crit { font-style: normal; font-family: var(--mono); font-size: 13px; }
+.ledger { border: 1px solid var(--grid); border-radius: 6px; overflow: hidden; margin: 10px 0 12px; }
+.ldg-row, .ldg-sub, .ldg-total { display: grid; grid-template-columns: 1fr auto; gap: 8px;
+  align-items: baseline; padding: 7px 10px; font-size: 11px; }
+.ldg-row { border-bottom: 1px solid var(--grid); color: var(--ink-2); }
+.ldg-row b, .ldg-sub b, .ldg-total b { font-family: var(--mono); font-weight: 600; }
+.ldg-row em { grid-column: 1 / -1; font-style: normal; font-size: 9.5px; color: var(--ink-3); margin-top: 1px; }
+.ldg-sub { background: var(--surface-3); border-bottom: 1px solid var(--grid); color: var(--ink-3);
+  font-size: 10px; text-transform: uppercase; letter-spacing: .06em; }
+.ldg-total { background: var(--surface-3); font-size: 10px; text-transform: uppercase;
+  letter-spacing: .06em; color: var(--ink-3); }
+.ldg-total b { font-size: 16px; }
