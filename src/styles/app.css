@@ -84,7 +84,7 @@ main { display: flex; flex: 1; min-height: 0; }
 .tt-hint { font-size: 10px; color: var(--ink-3); margin-top: 6px; }
 
 /* ---- intelligence panel ---- */
-.panel { width: 372px; flex-shrink: 0; border-left: 1px solid var(--grid);
+.panel { width: 340px; flex-shrink: 0; border-left: 1px solid var(--grid);
          background: var(--surface-2); overflow-y: auto; padding: 16px 18px 40px; }
 .panel-empty { color: var(--ink-3); }
 .panel h2 { margin: 0; font-size: 17px; font-weight: 620; letter-spacing: -0.02em; }
@@ -190,3 +190,110 @@ main { display: flex; flex: 1; min-height: 0; }
 .m-derived { font-family: var(--mono); font-size: 10px; color: var(--ink-2); margin-top: 2px;
              padding: 2px 6px; background: var(--surface-3); border-radius: 3px; display: inline-block; }
 .tt-derived { font-family: var(--mono); font-size: 9.5px; color: var(--ink-3); margin: -4px 0 7px; }
+
+/* view tabs — the primary navigation. One question per view. */
+.views { display: flex; gap: 0; padding: 0 20px; border-bottom: 1px solid var(--grid);
+         background: var(--surface); }
+.views button { background: none; border: none; border-bottom: 2px solid transparent;
+                color: var(--ink-3); padding: 9px 16px 8px; cursor: pointer; font-family: inherit;
+                display: flex; flex-direction: column; gap: 1px; text-align: left; font-size: 12.5px;
+                transition: color .12s, border-color .12s; }
+.views button em { font-style: normal; font-size: 10px; color: var(--ink-3); opacity: .75; }
+.views button:hover { color: var(--ink-2); }
+.views button.on { color: var(--ink); border-bottom-color: var(--capital); font-weight: 560; }
+.views button.on em { color: var(--ink-3); opacity: 1; }
+
+/* ─────────── SEGMENT RAIL — the stack read as strata ─────────── */
+.rail { flex: 1; overflow-y: auto; padding: 0 0 60px; background: var(--surface); }
+.rail-head { padding: 22px 28px 16px; border-bottom: 1px solid var(--grid); }
+.rail-head h2 { margin: 0 0 6px; font-size: 20px; font-weight: 620; letter-spacing: -0.02em; }
+.rail-head p { margin: 0; max-width: 74ch; font-size: 12.5px; line-height: 1.55; color: var(--ink-3); }
+.rail-head strong { color: var(--ink-2); font-weight: 550; }
+
+.strata { padding: 14px 28px 0; }
+.stratum { border-bottom: 1px solid var(--grid); }
+.stratum:first-child { border-top: 1px solid var(--grid); }
+.stratum-head { width: 100%; display: grid; align-items: center; gap: 14px; cursor: pointer;
+  grid-template-columns: 3px 26px minmax(240px, 1fr) 74px 84px 110px 18px;
+  background: none; border: none; color: inherit; font-family: inherit;
+  padding: 13px 4px; text-align: left; transition: background .12s; }
+.stratum-head:hover { background: var(--surface-2); }
+.stratum.open .stratum-head { background: var(--surface-2); }
+.spine { height: 34px; border-radius: 2px; display: block; }
+.lnum { font-family: var(--mono); font-size: 15px; color: var(--ink-3); font-weight: 600;
+        letter-spacing: -0.03em; }
+.stratum.open .lnum { color: var(--ink); }
+.lbody { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.lname { font-size: 13.5px; font-weight: 570; display: flex; align-items: center; gap: 8px; }
+.chokebadge { font-style: normal; font-family: var(--mono); font-size: 9px; text-transform: uppercase;
+  letter-spacing: .06em; color: var(--neg); border: 1px solid var(--neg); border-radius: 3px;
+  padding: 1px 5px; white-space: nowrap; }
+.lconstraint { font-size: 11px; color: var(--ink-3); line-height: 1.4;
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.stratum.open .lconstraint { white-space: normal; }
+.lmeta { display: flex; flex-direction: column; align-items: flex-end; }
+.lmeta b { font-family: var(--mono); font-size: 13px; font-weight: 600; letter-spacing: -0.02em; }
+.lmeta em { font-style: normal; font-size: 9px; text-transform: uppercase; letter-spacing: .06em;
+            color: var(--ink-3); }
+.lbar { height: 6px; background: var(--surface-3); border-radius: 3px; overflow: hidden;
+        box-shadow: inset 0 0 0 1px var(--grid); }
+.lbar i { display: block; height: 100%; border-radius: 3px; opacity: 1;
+          transition: width .35s cubic-bezier(.4,0,.2,1); }
+.chev { font-family: var(--mono); font-size: 15px; color: var(--ink-3); text-align: center; }
+
+.segs { padding: 4px 0 16px 43px; display: flex; flex-direction: column; gap: 6px; }
+.segcard { border: 1px solid var(--grid); border-radius: 7px; background: var(--surface);
+           overflow: hidden; transition: border-color .12s; }
+.segcard.open { border-color: var(--ink-3); background: var(--surface-2); }
+.seg-head { width: 100%; display: grid; align-items: center; gap: 12px; cursor: pointer;
+  grid-template-columns: 7px minmax(200px,1fr) 62px 78px 84px auto 16px;
+  background: none; border: none; color: inherit; font-family: inherit; padding: 10px 12px;
+  text-align: left; }
+.seg-head:hover { background: var(--surface-3); }
+.seg-dot { width: 7px; height: 7px; border-radius: 50%; }
+.seg-name { font-size: 12.5px; font-weight: 540; }
+.seg-stat { font-size: 10.5px; color: var(--ink-3); text-align: right; }
+.seg-stat b { font-family: var(--mono); font-size: 12px; color: var(--ink-2); font-weight: 550; }
+.seg-choke { font-family: var(--mono); font-size: 10px; color: var(--neg);
+  border: 1px solid var(--neg); border-radius: 3px; padding: 1px 5px; }
+
+.seg-body { padding: 4px 14px 14px; border-top: 1px solid var(--grid); }
+.answers { margin: 12px 0 16px; display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px 26px; }
+.answers > div { display: flex; flex-direction: column; gap: 3px; }
+.answers dt { font-size: 9.5px; text-transform: uppercase; letter-spacing: .08em; color: var(--ink-3);
+              font-weight: 600; }
+.answers dd { margin: 0; font-size: 12px; line-height: 1.5; color: var(--ink-2); }
+.ans-constraint { grid-column: 1 / -1; padding: 9px 11px; border-radius: 5px;
+  border: 1px solid var(--grid); background: var(--surface-3); }
+.ans-constraint dt { color: var(--neg); }
+
+.seg-members { border-top: 1px solid var(--grid); }
+.mem-head, .mem { display: grid; gap: 12px; align-items: center;
+  grid-template-columns: minmax(180px,1fr) 82px 62px 66px 92px; padding: 6px 4px; }
+.mem-head { font-size: 9px; text-transform: uppercase; letter-spacing: .07em; color: var(--ink-3);
+  border-bottom: 1px solid var(--grid); }
+.mem-head span:not(:first-child) { text-align: right; }
+.mem { background: none; border: none; border-bottom: 1px solid var(--grid); color: inherit;
+  font-family: inherit; cursor: pointer; text-align: left; font-size: 11.5px; }
+.mem:hover { background: var(--surface-3); }
+.mem.on { background: color-mix(in srgb, var(--capital) 14%, transparent); }
+.mem-name { display: flex; align-items: baseline; gap: 7px; }
+.mem-name .tk { font-style: normal; font-family: var(--mono); font-size: 9px; color: var(--ink-3);
+  border: 1px solid var(--grid); border-radius: 3px; padding: 0 4px; }
+.mem-name .tk.priv { color: var(--commercial); border-color: var(--commercial); }
+.mem .mono { font-family: var(--mono); text-align: right; color: var(--ink-2); }
+.mem-crit { display: flex; align-items: center; gap: 8px; }
+.crit-track { flex: 1; height: 5px; background: var(--surface-3); border-radius: 3px;
+  overflow: hidden; box-shadow: inset 0 0 0 1px var(--grid); }
+.crit-track i { display: block; height: 100%; border-radius: 3px;
+  transition: width .3s cubic-bezier(.4,0,.2,1); }
+.mem-crit em { font-style: normal; font-family: var(--mono); font-size: 10.5px; color: var(--ink-2);
+  width: 24px; text-align: right; flex-shrink: 0; }
+/* Low-confidence ratings must not look as authoritative as a filed figure. */
+.mem-crit em.low { opacity: .45; cursor: help; }
+.mem-crit em.low::after { content: "?"; font-size: 8px; vertical-align: super; opacity: .8; }
+.seg-caveat { margin: 10px 0 0; font-size: 10.5px; line-height: 1.45; color: var(--ink-3); font-style: italic; }
+.view-stub { flex: 1; display: grid; place-items: center; color: var(--ink-3); font-size: 13px; }
+
+/* `display:flex` on .controls beats the hidden attribute — make hidden win */
+[hidden] { display: none !important; }

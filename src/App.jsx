@@ -2,6 +2,8 @@ import { useState, useMemo, useEffect } from 'react'
 import NetworkGraph from './components/NetworkGraph.jsx'
 import IntelligencePanel from './components/IntelligencePanel.jsx'
 import { financingCycles } from './lib/flow.js'
+import SubstitutabilityMatrix from './components/SubstitutabilityMatrix.jsx'
+import SegmentRail from './components/SegmentRail.jsx'
 import { PALETTE, GROUP_LABEL, fmtUSD, val } from './lib/scales.js'
 import nodesData from '../data/seed/nodes.json'
 import linksData from '../data/seed/links.json'
@@ -21,6 +23,7 @@ export default function App() {
   const [vertical, setVertical] = useState(null)
   const [selected, setSelected] = useState(null)
   const [cycleIdx, setCycleIdx] = useState(null)
+  const [view, setView] = useState('map')
 
   const nodes = useMemo(() => applyOverrides(nodesData), [])
   const cycles = useMemo(() => financingCycles(linksData), [])
@@ -63,7 +66,18 @@ export default function App() {
         </button>
       </header>
 
-      <div className="controls">
+      <nav className="views" role="tablist" aria-label="Views">
+        {[['map', 'Stack map', 'Where each company sits, and what connects to what'],
+          ['matrix', 'Substitutability', 'Why the chokepoints are chokepoints'],
+          ['segments', 'Layers & segments', 'What each of the 24 comp sets actually is']].map(([k, label, hint]) => (
+          <button key={k} role="tab" aria-selected={view === k}
+                  className={view === k ? 'on' : ''} onClick={() => setView(k)}>
+            {label}<em>{hint}</em>
+          </button>
+        ))}
+      </nav>
+
+      <div className="controls" hidden={view !== 'map'}>
         <div className="ctl">
           <label>Size by</label>
           <div className="seg-ctl">
@@ -101,10 +115,18 @@ export default function App() {
       </div>
 
       <main>
-        <NetworkGraph
+        {view === 'matrix' && (
+          <SubstitutabilityMatrix nodes={nodes} taxonomy={taxonomy}
+                                  selected={selected} onSelect={setSelected} theme={theme} />
+        )}
+        {view === 'segments' && (
+          <SegmentRail nodes={nodes} taxonomy={taxonomy}
+                       selected={selected} onSelect={setSelected} theme={theme} />
+        )}
+        {view === 'map' && <NetworkGraph
           nodes={nodes} links={linksData} taxonomy={taxonomy} theme={theme}
           sizeBy={sizeBy} colorBy={colorBy} verticalFilter={vertical}
-          selected={selected} onSelect={setSelected} highlightCycle={cycle} />
+          selected={selected} onSelect={setSelected} highlightCycle={cycle} />}
         <IntelligencePanel node={selNode} nodes={nodes} links={linksData}
                            taxonomy={taxonomy} onSelect={setSelected} />
       </main>
