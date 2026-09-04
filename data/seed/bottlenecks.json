@@ -1,0 +1,467 @@
+{
+  "$comment": "Chokepoint evidence. `qualified_suppliers` counts firms that could supply the FUNCTION at volume within the substitution window \u2014 not competitors, and not the company's own product (Reddit is the only supplier of Reddit data, which is true and useless). Segment defaults apply to every member; company entries override where a firm differs materially from its peers. Criticality is COMPUTED from these fields by scripts/score_bottlenecks.py so the rating can be argued with.",
+  "as_of": "2026-09-04",
+  "segment_defaults": {
+    "gas_turbines": {
+      "qualified_suppliers": 3,
+      "substitution_lead_time_months": 48,
+      "capacity_state": "sold_out",
+      "confidence": "medium",
+      "note": "GE Vernova, Siemens Energy and Mitsubishi Power are the only three that build utility-scale turbines. Slots are sold out into the 2030s, so new dispatchable generation is supply-bound years ahead of demand.",
+      "constraint_type": "physical",
+      "market_position": "one_of_several"
+    },
+    "nuclear": {
+      "qualified_suppliers": 4,
+      "substitution_lead_time_months": 120,
+      "capacity_state": "constrained",
+      "confidence": "medium",
+      "note": "Existing fleet only. New build runs a decade-plus, so the constraint is firm capacity rather than any single operator \u2014 and electrons are fungible once generated.",
+      "constraint_type": "physical",
+      "market_position": "one_of_several"
+    },
+    "renewables": {
+      "qualified_suppliers": 12,
+      "substitution_lead_time_months": 24,
+      "capacity_state": "balanced",
+      "confidence": "medium",
+      "note": "Many developers, and intermittency means renewables cannot satisfy the firm-power requirement on their own.",
+      "constraint_type": "physical",
+      "market_position": "one_of_several"
+    },
+    "utilities": {
+      "qualified_suppliers": 8,
+      "substitution_lead_time_months": 36,
+      "capacity_state": "constrained",
+      "confidence": "medium",
+      "note": "Regionally monopolistic but substitutable in aggregate. The real constraint is the interconnection queue, which is a process, not a supplier.",
+      "constraint_type": "physical",
+      "market_position": "one_of_several"
+    },
+    "cooling": {
+      "qualified_suppliers": 5,
+      "substitution_lead_time_months": 12,
+      "capacity_state": "constrained",
+      "confidence": "medium",
+      "note": "Vertiv, Modine, Trane, Boyd and LiquidStack all ship liquid cooling. Real capacity tightness, but no sole source.",
+      "constraint_type": "physical",
+      "market_position": "one_of_several"
+    },
+    "electrical": {
+      "qualified_suppliers": 5,
+      "substitution_lead_time_months": 30,
+      "capacity_state": "sold_out",
+      "confidence": "high",
+      "note": "Eaton, Schneider, ABB, Siemens and Hitachi. Large-transformer and switchgear lead times run 2-4 years and are a hard physical gate on energisation \u2014 one of the most underrated chokepoints in the stack.",
+      "constraint_type": "physical",
+      "market_position": "one_of_several"
+    },
+    "construction": {
+      "qualified_suppliers": 10,
+      "substitution_lead_time_months": 18,
+      "capacity_state": "constrained",
+      "confidence": "medium",
+      "note": "Many contractors, but skilled electrical labour is the binding input and cannot be hired quickly.",
+      "constraint_type": "physical",
+      "market_position": "one_of_several"
+    },
+    "accelerators": {
+      "qualified_suppliers": 3,
+      "substitution_lead_time_months": 24,
+      "capacity_state": "constrained",
+      "confidence": "high",
+      "note": "Nvidia, AMD, and the hyperscaler-custom-ASIC path. Software migration is the switching cost, not silicon availability.",
+      "constraint_type": "physical",
+      "market_position": "one_of_several"
+    },
+    "memory": {
+      "qualified_suppliers": 3,
+      "substitution_lead_time_months": 24,
+      "capacity_state": "sold_out",
+      "confidence": "high",
+      "note": "HBM is SK Hynix, Micron and Samsung. Fab capacity takes two years to add and 2026 output is committed.",
+      "constraint_type": "physical",
+      "market_position": "one_of_several"
+    },
+    "semicap": {
+      "qualified_suppliers": 4,
+      "substitution_lead_time_months": 24,
+      "capacity_state": "constrained",
+      "confidence": "medium",
+      "note": "Deposition, etch and metrology have several credible vendors \u2014 with one glaring exception below.",
+      "constraint_type": "physical",
+      "market_position": "one_of_several"
+    },
+    "foundry": {
+      "qualified_suppliers": 3,
+      "substitution_lead_time_months": 36,
+      "capacity_state": "balanced",
+      "confidence": "medium",
+      "note": "Mature and specialty nodes are well supplied. Leading edge is a different market entirely.",
+      "constraint_type": "physical",
+      "market_position": "one_of_several"
+    },
+    "materials": {
+      "qualified_suppliers": 5,
+      "substitution_lead_time_months": 18,
+      "capacity_state": "constrained",
+      "confidence": "medium",
+      "note": "Consumables and packaging with several qualified vendors, though qualification itself is slow.",
+      "constraint_type": "physical",
+      "market_position": "one_of_several"
+    },
+    "networking_optics": {
+      "qualified_suppliers": 6,
+      "substitution_lead_time_months": 12,
+      "capacity_state": "constrained",
+      "confidence": "medium",
+      "note": "Optics and switching have real competition; the constraint is component supply, not vendor choice.",
+      "constraint_type": "physical",
+      "market_position": "one_of_several"
+    },
+    "servers": {
+      "qualified_suppliers": 10,
+      "substitution_lead_time_months": 6,
+      "capacity_state": "balanced",
+      "confidence": "high",
+      "note": "Integration is the most substitutable step in the stack. ODMs are interchangeable, which is exactly why the margin is thin.",
+      "constraint_type": "physical",
+      "market_position": "one_of_several"
+    },
+    "gpu_cloud": {
+      "qualified_suppliers": 12,
+      "substitution_lead_time_months": 6,
+      "capacity_state": "balanced",
+      "confidence": "high",
+      "note": "Capacity resellers. The scarce asset is upstream \u2014 power and GPUs \u2014 not the reseller.",
+      "constraint_type": "commercial",
+      "market_position": "one_of_several"
+    },
+    "reits": {
+      "qualified_suppliers": 8,
+      "substitution_lead_time_months": 36,
+      "capacity_state": "constrained",
+      "confidence": "medium",
+      "note": "Many operators, but powered shells near load centres are genuinely scarce and take years to permit and energise.",
+      "constraint_type": "physical",
+      "market_position": "one_of_several"
+    },
+    "hyperscale": {
+      "qualified_suppliers": 5,
+      "substitution_lead_time_months": 18,
+      "capacity_state": "constrained",
+      "confidence": "medium",
+      "note": "Cloud capacity is substitutable between the majors; frontier model quality is differentiated but multi-sourcing is now standard practice.",
+      "constraint_type": "commercial",
+      "market_position": "one_of_several"
+    },
+    "mlops": {
+      "qualified_suppliers": 8,
+      "substitution_lead_time_months": 12,
+      "capacity_state": "balanced",
+      "confidence": "high",
+      "note": "Crowded. Data gravity creates switching cost, not supply scarcity \u2014 a different kind of moat entirely.",
+      "constraint_type": "commercial",
+      "market_position": "one_of_several"
+    },
+    "data_rights": {
+      "qualified_suppliers": 4,
+      "substitution_lead_time_months": 24,
+      "capacity_state": "constrained",
+      "confidence": "low",
+      "note": "Corpora are non-fungible in kind but often substitutable in function. Litigation is reshaping this faster than any supply dynamic.",
+      "constraint_type": "commercial",
+      "market_position": "one_of_several"
+    },
+    "consumer_ai": {
+      "qualified_suppliers": 12,
+      "substitution_lead_time_months": 12,
+      "capacity_state": "balanced",
+      "confidence": "medium",
+      "note": "Distribution is the moat; nothing here is a supply chokepoint.",
+      "constraint_type": "commercial",
+      "market_position": "one_of_several"
+    },
+    "cyber_ai": {
+      "qualified_suppliers": 10,
+      "substitution_lead_time_months": 12,
+      "capacity_state": "balanced",
+      "confidence": "medium",
+      "note": "Consolidating, but buyers have real choice.",
+      "constraint_type": "commercial",
+      "market_position": "one_of_several"
+    },
+    "enterprise_ai": {
+      "qualified_suppliers": 12,
+      "substitution_lead_time_months": 12,
+      "capacity_state": "balanced",
+      "confidence": "medium",
+      "note": "Switching costs come from workflow entrenchment, not scarcity.",
+      "constraint_type": "commercial",
+      "market_position": "one_of_several"
+    },
+    "healthcare_ai": {
+      "qualified_suppliers": 8,
+      "substitution_lead_time_months": 24,
+      "capacity_state": "balanced",
+      "confidence": "low",
+      "note": "Regulatory clearance and health-system integration are the barriers \u2014 slow to substitute, but not supply-constrained.",
+      "constraint_type": "commercial",
+      "market_position": "one_of_several"
+    },
+    "robotics": {
+      "qualified_suppliers": 6,
+      "substitution_lead_time_months": 36,
+      "capacity_state": "balanced",
+      "confidence": "low",
+      "note": "Too early for supply constraints to be meaningful; the constraint is capability, not capacity.",
+      "constraint_type": "commercial",
+      "market_position": "one_of_several"
+    }
+  },
+  "company_overrides": {
+    "asml": {
+      "qualified_suppliers": 1,
+      "substitution_lead_time_months": 60,
+      "capacity_state": "sold_out",
+      "confidence": "high",
+      "note": "Sole supplier of EUV lithography. No second source exists at any price, and none is in development on a relevant timescale. The single narrowest chokepoint in the stack, and a live instrument of export control.",
+      "market_position": "sole",
+      "constraint_type": "physical"
+    },
+    "tsmc": {
+      "qualified_suppliers": 1,
+      "substitution_lead_time_months": 60,
+      "capacity_state": "sold_out",
+      "confidence": "high",
+      "note": "Sole viable manufacturer at leading edge, where every AI accelerator is made. CoWoS advanced packaging is the acknowledged industry bottleneck and N3 runs above 100% utilisation. Geographic concentration is the largest single tail risk on this map.",
+      "market_position": "sole",
+      "constraint_type": "physical"
+    },
+    "kla": {
+      "qualified_suppliers": 2,
+      "substitution_lead_time_months": 36,
+      "capacity_state": "constrained",
+      "confidence": "medium",
+      "note": "Process control is close to a duopoly, and yield matters more with every node shrink. Under-appreciated relative to ASML.",
+      "market_position": "co_leader",
+      "constraint_type": "physical"
+    },
+    "seagate": {
+      "qualified_suppliers": 2,
+      "substitution_lead_time_months": 24,
+      "capacity_state": "constrained",
+      "confidence": "medium",
+      "note": "Nearline HDD is a genuine duopoly with Western Digital. The training data lakes have to live somewhere, and flash is not cost-competitive at that capacity.",
+      "market_position": "co_leader",
+      "constraint_type": "physical"
+    },
+    "micron": {
+      "qualified_suppliers": 3,
+      "substitution_lead_time_months": 24,
+      "capacity_state": "sold_out",
+      "confidence": "high",
+      "note": "HBM sold out through 2026 alongside SK hynix. Memory bandwidth, not compute, bounds inference economics \u2014 and the 85% gross margin is what a binding shortage looks like in the P&L.",
+      "market_position": "co_leader",
+      "constraint_type": "physical"
+    },
+    "nvidia": {
+      "qualified_suppliers": 3,
+      "substitution_lead_time_months": 24,
+      "capacity_state": "constrained",
+      "confidence": "high",
+      "note": "CUDA and the installed base make it the default. Less absolute than ASML or TSMC because AMD and custom silicon are credible second sources, but it still gates the pace of the build-out.",
+      "market_position": "dominant",
+      "constraint_type": "physical"
+    },
+    "amkor": {
+      "qualified_suppliers": 3,
+      "substitution_lead_time_months": 18,
+      "capacity_state": "sold_out",
+      "confidence": "medium",
+      "note": "OSAT packaging with ASE and JCET. Absorbs CoWoS overflow, which makes it a direct relief valve on the tightest constraint in the stack.",
+      "market_position": "one_of_several",
+      "constraint_type": "physical"
+    },
+    "arm": {
+      "qualified_suppliers": 2,
+      "substitution_lead_time_months": 36,
+      "capacity_state": "balanced",
+      "confidence": "medium",
+      "note": "CPU instruction-set IP. RISC-V is the only real alternative and is years from parity in the data centre, but architecture licences are not capacity-constrained.",
+      "market_position": "dominant",
+      "constraint_type": "commercial"
+    },
+    "intel": {
+      "qualified_suppliers": 3,
+      "substitution_lead_time_months": 48,
+      "capacity_state": "oversupplied",
+      "confidence": "medium",
+      "note": "The only Western leading-edge aspirant, which makes it strategically important and commercially unproven. Its own capacity is under-utilised.",
+      "market_position": "marginal",
+      "constraint_type": "physical"
+    },
+    "globalfoundries": {
+      "qualified_suppliers": 8,
+      "substitution_lead_time_months": 24,
+      "capacity_state": "balanced",
+      "confidence": "high",
+      "note": "Mature-node specialty. Not in the AI leading-edge path at all.",
+      "market_position": "marginal",
+      "constraint_type": "physical"
+    },
+    "ge_vernova": {
+      "qualified_suppliers": 3,
+      "substitution_lead_time_months": 48,
+      "capacity_state": "sold_out",
+      "confidence": "high",
+      "note": "Gas turbine slots sold out into the 2030s. New firm generation cannot be added on AI timelines regardless of capital available.",
+      "market_position": "co_leader",
+      "constraint_type": "physical"
+    },
+    "eaton": {
+      "qualified_suppliers": 5,
+      "substitution_lead_time_months": 30,
+      "capacity_state": "sold_out",
+      "confidence": "high",
+      "note": "Large transformers and switchgear on multi-year lead times. Capacity physically cannot energise ahead of this equipment.",
+      "market_position": "co_leader",
+      "constraint_type": "physical"
+    },
+    "constellation": {
+      "qualified_suppliers": 4,
+      "substitution_lead_time_months": 120,
+      "capacity_state": "constrained",
+      "confidence": "medium",
+      "note": "Largest US nuclear fleet. Existing nuclear is the only carbon-free firm power available this decade, and none of it can be replicated within one.",
+      "market_position": "co_leader",
+      "constraint_type": "physical"
+    },
+    "talen": {
+      "qualified_suppliers": 4,
+      "substitution_lead_time_months": 120,
+      "capacity_state": "constrained",
+      "confidence": "medium",
+      "note": "Behind-the-meter nuclear co-location sidesteps the interconnection queue, which is the scarcest process in the energy layer.",
+      "market_position": "one_of_several",
+      "constraint_type": "physical"
+    },
+    "thomson_reuters": {
+      "qualified_suppliers": 2,
+      "substitution_lead_time_months": 60,
+      "capacity_state": "balanced",
+      "confidence": "medium",
+      "note": "Westlaw and LexisNexis are a functional duopoly over primary legal corpora, reinforced by the Ross Intelligence ruling. Substituting the corpus is not a procurement decision.",
+      "market_position": "co_leader",
+      "constraint_type": "commercial"
+    },
+    "relx": {
+      "qualified_suppliers": 2,
+      "substitution_lead_time_months": 60,
+      "capacity_state": "balanced",
+      "confidence": "medium",
+      "note": "The other half of that duopoly, plus Elsevier over scientific literature.",
+      "market_position": "co_leader",
+      "constraint_type": "commercial"
+    },
+    "reddit": {
+      "qualified_suppliers": 3,
+      "substitution_lead_time_months": 24,
+      "capacity_state": "constrained",
+      "confidence": "low",
+      "note": "Large-scale human conversational data has few licensable sources \u2014 Reddit, X, Stack Overflow. Function-substitutable in principle, hard to replace in practice.",
+      "market_position": "one_of_several",
+      "constraint_type": "commercial"
+    },
+    "coreweave": {
+      "qualified_suppliers": 12,
+      "substitution_lead_time_months": 6,
+      "capacity_state": "balanced",
+      "confidence": "high",
+      "note": "Capacity reseller, not a chokepoint. Its risk runs the other way: customer concentration and capex around 3x revenue.",
+      "market_position": "one_of_several",
+      "constraint_type": "physical"
+    },
+    "equinix": {
+      "qualified_suppliers": 6,
+      "substitution_lead_time_months": 36,
+      "capacity_state": "constrained",
+      "confidence": "medium",
+      "note": "Interconnection density is genuinely hard to replicate, though AI training is less interconnection-intensive than enterprise colocation.",
+      "market_position": "co_leader",
+      "constraint_type": "physical"
+    },
+    "waymo": {
+      "qualified_suppliers": 3,
+      "substitution_lead_time_months": 36,
+      "capacity_state": "balanced",
+      "confidence": "low",
+      "note": "Only US operator driverless at commercial scale in multiple metros. A capability lead, not a supply constraint.",
+      "market_position": "dominant",
+      "constraint_type": "commercial"
+    },
+    "anduril": {
+      "qualified_suppliers": 4,
+      "substitution_lead_time_months": 36,
+      "capacity_state": "constrained",
+      "confidence": "low",
+      "note": "Defence procurement qualification is the barrier; cleared production capacity is genuinely scarce.",
+      "market_position": "one_of_several",
+      "constraint_type": "commercial"
+    },
+    "cummins": {
+      "qualified_suppliers": 10,
+      "substitution_lead_time_months": 9,
+      "capacity_state": "balanced",
+      "market_position": "one_of_several",
+      "constraint_type": "physical",
+      "confidence": "medium",
+      "note": "Standby gensets, not utility-scale turbines. Many suppliers and short lead times \u2014 it inherits the turbine segment's scarcity in name only."
+    },
+    "bloom_energy": {
+      "qualified_suppliers": 6,
+      "substitution_lead_time_months": 12,
+      "capacity_state": "constrained",
+      "market_position": "one_of_several",
+      "constraint_type": "physical",
+      "confidence": "medium",
+      "note": "Solid-oxide fuel cells sited behind the meter. Valuable because it bypasses the interconnection queue, but fuel cells are not the constrained turbine market."
+    },
+    "sandisk": {
+      "qualified_suppliers": 5,
+      "substitution_lead_time_months": 18,
+      "capacity_state": "constrained",
+      "market_position": "one_of_several",
+      "constraint_type": "physical",
+      "confidence": "medium",
+      "note": "NAND, not HBM. Benefits from the same memory upcycle without holding the constraint that causes it."
+    },
+    "amd": {
+      "qualified_suppliers": 3,
+      "substitution_lead_time_months": 24,
+      "capacity_state": "constrained",
+      "market_position": "one_of_several",
+      "constraint_type": "physical",
+      "confidence": "high",
+      "note": "The credible second source. Being a substitute is the opposite of being a chokepoint \u2014 its existence is what caps Nvidia's rating."
+    },
+    "broadcom": {
+      "qualified_suppliers": 3,
+      "substitution_lead_time_months": 24,
+      "capacity_state": "constrained",
+      "market_position": "co_leader",
+      "constraint_type": "physical",
+      "confidence": "high",
+      "note": "Custom-ASIC path with Marvell and Alchip. Co-leader in that niche, and a substitute for merchant GPU rather than a constraint on it."
+    },
+    "marvell": {
+      "qualified_suppliers": 3,
+      "substitution_lead_time_months": 24,
+      "capacity_state": "constrained",
+      "market_position": "one_of_several",
+      "constraint_type": "physical",
+      "confidence": "medium",
+      "note": "Smaller ASIC franchise than Broadcom; a substitute, not a constraint."
+    }
+  }
+}

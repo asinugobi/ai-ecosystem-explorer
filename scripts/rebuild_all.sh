@@ -4,10 +4,11 @@
 # of order silently drops capital_efficiency, venture and valuation blocks.
 set -e
 cd "$(dirname "$0")/.."
-echo "1/4 EDGAR seed";        .venv/bin/python scripts/build_seed.py            | tail -1
-echo "2/4 capital efficiency"; .venv/bin/python scripts/enrich_capital_efficiency.py | head -1
-echo "3/4 venture layer";      .venv/bin/python scripts/merge_venture.py         | head -1
-echo "4/4 valuations";         .venv/bin/python scripts/build_valuations.py      | tail -1
+echo "1/5 EDGAR seed";        .venv/bin/python scripts/build_seed.py            | tail -1
+echo "2/5 capital efficiency"; .venv/bin/python scripts/enrich_capital_efficiency.py | head -1
+echo "3/5 venture layer";      .venv/bin/python scripts/merge_venture.py         | head -1
+echo "4/5 valuations";         .venv/bin/python scripts/build_valuations.py      | tail -1
+echo "5/5 bottlenecks";        .venv/bin/python scripts/score_bottlenecks.py     | head -1
 echo "validating…"
 python3 scripts/check_schema.py > /dev/null && echo "  json ok"
 .venv/bin/python - <<'PY'

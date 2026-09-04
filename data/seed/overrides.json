@@ -1,5 +1,5 @@
 {
-  "$comment": "Press-sourced figures for filers EDGAR cannot serve: 20-F foreign private issuers without XBRL revenue tagging, and private companies with no filings at all. Every value here is is_estimate=true with confidence set by source quality. This file is the manual complement to the automated EDGAR pass \u2014 and shrinking it is one of the agent pipeline's jobs.",
+  "$comment": "Press-sourced figures for filers EDGAR cannot serve: 20-F foreign private issuers without XBRL revenue tagging, and private companies with no filings at all. Every value here is is_estimate=true with confidence set by source quality. This file is the manual complement to the automated EDGAR pass \u2014 and shrinking it is one of the agent pipeline's jobs. NOTE: bottleneck blocks were removed from this file \u2014 they now come from data/seed/bottlenecks.json via scripts/score_bottlenecks.py, and stale copies here silently shadowed the computed ones at load time.",
   "overrides": {
     "tsmc": {
       "period": "Q2 2026 annualized (run-rate)",
@@ -54,11 +54,6 @@
         "is_estimate": true,
         "confidence": "medium",
         "basis": "Midpoint of raised FY2026 capex guidance of $60-64B, driven by the 2nm ramp and CoWoS packaging demand."
-      },
-      "bottleneck": {
-        "is_bottleneck": true,
-        "criticality": 5,
-        "rationale": "Manufactures essentially every leading-edge AI accelerator. CoWoS advanced packaging is the acknowledged industry bottleneck and N3 is running above 100% utilization. No substitute exists at leading edge, and the geographic concentration is the largest single tail risk in the stack."
       }
     },
     "openai": {
@@ -119,33 +114,7 @@
       }
     },
     "asml": {
-      "period": "GAP \u2014 20-F filer without usable XBRL revenue tagging; needs a press-sourced pass",
-      "bottleneck": {
-        "is_bottleneck": true,
-        "criticality": 5,
-        "rationale": "Sole supplier of EUV lithography. There is no second source at any price, which makes this the single narrowest chokepoint in the entire stack and a live instrument of export control."
-      }
-    },
-    "micron": {
-      "bottleneck": {
-        "is_bottleneck": true,
-        "criticality": 4,
-        "rationale": "HBM output sold out through 2026 alongside SK hynix. Memory bandwidth, not compute, bounds inference economics, and the reported 84.6% gross margin is itself evidence of how binding the shortage is."
-      }
-    },
-    "nvidia": {
-      "bottleneck": {
-        "is_bottleneck": true,
-        "criticality": 4,
-        "rationale": "CUDA plus the installed base make it the default accelerator. Less absolute than ASML or TSMC because AMD and hyperscaler custom silicon are credible second sources, but it still gates the pace of the build-out."
-      }
-    },
-    "coreweave": {
-      "bottleneck": {
-        "is_bottleneck": false,
-        "criticality": 1,
-        "rationale": "Capacity reseller, not a chokepoint. Its own risk runs the other way: heavy customer concentration and capex that ran ~3x revenue in Q2 2026."
-      }
+      "period": "GAP \u2014 20-F filer without usable XBRL revenue tagging; needs a press-sourced pass"
     }
   }
 }

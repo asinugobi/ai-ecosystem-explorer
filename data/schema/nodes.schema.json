@@ -234,7 +234,7 @@
         },
         "bottleneck": {
           "type": "object",
-          "description": "Hudson Labs tracks 14 bottlenecks; this is the chokepoint thesis made explicit.",
+          "description": "Chokepoint assessment. Criticality is a judgment, but the three fields beneath it are the evidence, so a rating can be argued with instead of merely trusted. Substitutability is measured on the FUNCTION, not the company's own product \u2014 otherwise every firm is a monopoly of itself (Reddit is the only supplier of Reddit data, which is true and useless).",
           "additionalProperties": false,
           "properties": {
             "is_bottleneck": {
@@ -248,6 +248,81 @@
             },
             "rationale": {
               "type": "string"
+            },
+            "qualified_suppliers": {
+              "type": [
+                "integer",
+                "null"
+              ],
+              "description": "Firms that could supply this FUNCTION at volume today. 1 = sole source (ASML on EUV). Not a count of competitors \u2014 a count of viable substitutes."
+            },
+            "substitution_lead_time_months": {
+              "type": [
+                "integer",
+                "null"
+              ],
+              "description": "Time to stand up an alternative at volume, assuming money is not the constraint. This is what makes a chokepoint bite: 3 months is an inconvenience, 60 months is a thesis."
+            },
+            "capacity_state": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "enum": [
+                "sold_out",
+                "constrained",
+                "balanced",
+                "oversupplied",
+                null
+              ],
+              "description": "Current utilisation posture. Sold-out capacity converts a theoretical chokepoint into a binding one."
+            },
+            "confidence": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "enum": [
+                "high",
+                "medium",
+                "low",
+                null
+              ],
+              "description": "How much to trust this rating. Low means a plausible reading, not a researched one."
+            },
+            "computed_criticality": {
+              "type": [
+                "number",
+                "null"
+              ],
+              "description": "Criticality derived from the three evidence fields by scripts/score_bottlenecks.py. Where it disagrees with the judged criticality, one of the two is wrong and it is worth knowing which."
+            },
+            "market_position": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "enum": [
+                "sole",
+                "dominant",
+                "co_leader",
+                "one_of_several",
+                "marginal",
+                null
+              ],
+              "description": "Where the company sits INSIDE its supplier set. Without this, all three qualified accelerator suppliers score identically \u2014 but they substitute for each other, so the function has one collective chokepoint, not three. Damps company criticality below the function's."
+            },
+            "constraint_type": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "enum": [
+                "physical",
+                "commercial",
+                null
+              ],
+              "description": "Physical constraints (fab capacity, transformer lead times) cannot be paid around on any timescale. Commercial ones (switching costs, exclusive corpora) can be, expensively. Thomson Reuters scoring level with ASML was the tell that these were being conflated."
             }
           }
         },

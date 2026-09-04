@@ -9,7 +9,7 @@
     "segment": "gas_turbines",
     "also_operates": [],
     "verticals": [],
-    "updated_at": "2026-09-03",
+    "updated_at": "2026-09-04",
     "updated_by": "seed",
     "moat": {
       "summary": "Gas turbine slots sold out into the 2030s; >$2B data-center electrification orders in 2025, ~3x prior year.",
@@ -97,7 +97,7 @@
       }
     },
     "valuation": {
-      "as_of": "2026-09-03",
+      "as_of": "2026-09-04",
       "market_cap_usd_m": 254296.8,
       "enterprise_value_usd_m": 241239.8,
       "ev_revenue": 5.43,
@@ -121,6 +121,18 @@
       "fcf_conversion_pct": null,
       "roic_pct": null,
       "asset_intensity": "pass_through"
+    },
+    "bottleneck": {
+      "is_bottleneck": true,
+      "criticality": 4,
+      "computed_criticality": 3.9,
+      "rationale": "Gas turbine slots sold out into the 2030s. New firm generation cannot be added on AI timelines regardless of capital available.",
+      "qualified_suppliers": 3,
+      "substitution_lead_time_months": 48,
+      "capacity_state": "sold_out",
+      "confidence": "high",
+      "market_position": "co_leader",
+      "constraint_type": "physical"
     }
   },
   {
@@ -133,7 +145,7 @@
     "segment": "gas_turbines",
     "also_operates": [],
     "verticals": [],
-    "updated_at": "2026-09-03",
+    "updated_at": "2026-09-04",
     "updated_by": "seed",
     "moat": {
       "summary": "Standby gensets for data centers; diversified into trucking so AI is a minority exposure.",
@@ -221,7 +233,7 @@
       }
     },
     "valuation": {
-      "as_of": "2026-09-03",
+      "as_of": "2026-09-04",
       "market_cap_usd_m": 75551.8,
       "enterprise_value_usd_m": 71778.8,
       "ev_revenue": 1.9,
@@ -245,6 +257,18 @@
       "fcf_conversion_pct": null,
       "roic_pct": null,
       "asset_intensity": "pass_through"
+    },
+    "bottleneck": {
+      "is_bottleneck": false,
+      "criticality": 1,
+      "computed_criticality": 1.0,
+      "rationale": "Standby gensets, not utility-scale turbines. Many suppliers and short lead times \u2014 it inherits the turbine segment's scarcity in name only.",
+      "qualified_suppliers": 10,
+      "substitution_lead_time_months": 9,
+      "capacity_state": "balanced",
+      "confidence": "medium",
+      "market_position": "one_of_several",
+      "constraint_type": "physical"
     }
   },
   {
@@ -257,7 +281,7 @@
     "segment": "gas_turbines",
     "also_operates": [],
     "verticals": [],
-    "updated_at": "2026-09-03",
+    "updated_at": "2026-09-04",
     "updated_by": "seed",
     "moat": {
       "summary": "Solid-oxide fuel cells sited behind the meter \u2014 bypasses interconnect queues, which is the real constraint.",
@@ -345,7 +369,7 @@
       }
     },
     "valuation": {
-      "as_of": "2026-09-03",
+      "as_of": "2026-09-04",
       "market_cap_usd_m": 75307.2,
       "enterprise_value_usd_m": 75422.4,
       "ev_revenue": 25.26,
@@ -369,6 +393,18 @@
       "fcf_conversion_pct": null,
       "roic_pct": null,
       "asset_intensity": "pass_through"
+    },
+    "bottleneck": {
+      "is_bottleneck": false,
+      "criticality": 2,
+      "computed_criticality": 1.5,
+      "rationale": "Solid-oxide fuel cells sited behind the meter. Valuable because it bypasses the interconnection queue, but fuel cells are not the constrained turbine market.",
+      "qualified_suppliers": 6,
+      "substitution_lead_time_months": 12,
+      "capacity_state": "constrained",
+      "confidence": "medium",
+      "market_position": "one_of_several",
+      "constraint_type": "physical"
     }
   },
   {
@@ -381,7 +417,7 @@
     "segment": "nuclear",
     "also_operates": [],
     "verticals": [],
-    "updated_at": "2026-09-03",
+    "updated_at": "2026-09-04",
     "updated_by": "seed",
     "moat": {
       "summary": "Largest US nuclear fleet; Three Mile Island restart for Microsoft. Existing nuclear is the only carbon-free firm power available this decade.",
@@ -456,7 +492,7 @@
       }
     },
     "valuation": {
-      "as_of": "2026-09-03",
+      "as_of": "2026-09-04",
       "market_cap_usd_m": 102618.0,
       "enterprise_value_usd_m": 109687.0,
       "ev_revenue": 4.69,
@@ -480,6 +516,18 @@
       "fcf_conversion_pct": null,
       "roic_pct": null,
       "asset_intensity": "capital_heavy"
+    },
+    "bottleneck": {
+      "is_bottleneck": false,
+      "criticality": 3,
+      "computed_criticality": 3.1,
+      "rationale": "Largest US nuclear fleet. Existing nuclear is the only carbon-free firm power available this decade, and none of it can be replicated within one.",
+      "qualified_suppliers": 4,
+      "substitution_lead_time_months": 120,
+      "capacity_state": "constrained",
+      "confidence": "medium",
+      "market_position": "co_leader",
+      "constraint_type": "physical"
     }
   },
   {
@@ -492,7 +540,7 @@
     "segment": "nuclear",
     "also_operates": [],
     "verticals": [],
-    "updated_at": "2026-09-03",
+    "updated_at": "2026-09-04",
     "updated_by": "seed",
     "moat": {
       "summary": "Nuclear plus a large gas fleet \u2014 the flexible capacity that can actually be added on AI timelines.",
@@ -567,7 +615,7 @@
       }
     },
     "valuation": {
-      "as_of": "2026-09-03",
+      "as_of": "2026-09-04",
       "market_cap_usd_m": 48923.9,
       "enterprise_value_usd_m": 68083.9,
       "ev_revenue": 3.87,
@@ -591,6 +639,18 @@
       "fcf_conversion_pct": null,
       "roic_pct": null,
       "asset_intensity": "capital_heavy"
+    },
+    "bottleneck": {
+      "is_bottleneck": false,
+      "criticality": 2,
+      "computed_criticality": 2.4,
+      "rationale": "Existing fleet only. New build runs a decade-plus, so the constraint is firm capacity rather than any single operator \u2014 and electrons are fungible once generated.",
+      "qualified_suppliers": 4,
+      "substitution_lead_time_months": 120,
+      "capacity_state": "constrained",
+      "confidence": "medium",
+      "market_position": "one_of_several",
+      "constraint_type": "physical"
     }
   },
   {
@@ -603,7 +663,7 @@
     "segment": "nuclear",
     "also_operates": [],
     "verticals": [],
-    "updated_at": "2026-09-03",
+    "updated_at": "2026-09-04",
     "updated_by": "seed",
     "moat": {
       "summary": "Uranium upstream. Levered to the nuclear narrative more than to near-term AI megawatts.",
@@ -618,6 +678,18 @@
       "is_estimate": true,
       "basis": "Foreign private issuer or filer without XBRL revenue tagging. Needs a press-sourced pass.",
       "confidence": "low"
+    },
+    "bottleneck": {
+      "is_bottleneck": false,
+      "criticality": 2,
+      "computed_criticality": 2.4,
+      "rationale": "Existing fleet only. New build runs a decade-plus, so the constraint is firm capacity rather than any single operator \u2014 and electrons are fungible once generated.",
+      "qualified_suppliers": 4,
+      "substitution_lead_time_months": 120,
+      "capacity_state": "constrained",
+      "confidence": "medium",
+      "market_position": "one_of_several",
+      "constraint_type": "physical"
     }
   },
   {
@@ -630,7 +702,7 @@
     "segment": "renewables",
     "also_operates": [],
     "verticals": [],
-    "updated_at": "2026-09-03",
+    "updated_at": "2026-09-04",
     "updated_by": "seed",
     "moat": {
       "summary": "Largest US renewables developer; PPAs and co-located generation for hyperscalers.",
@@ -689,7 +761,7 @@
       }
     },
     "valuation": {
-      "as_of": "2026-09-03",
+      "as_of": "2026-09-04",
       "market_cap_usd_m": 175887.1,
       "enterprise_value_usd_m": 271674.1,
       "ev_revenue": 11.13,
@@ -706,6 +778,18 @@
         "url": "https://www.sec.gov/Archives/edgar/data/753308/000075330826000031/0000753308-26-000031-index.htm",
         "as_of": "2026-09-03"
       }
+    },
+    "bottleneck": {
+      "is_bottleneck": false,
+      "criticality": 1,
+      "computed_criticality": 1.1,
+      "rationale": "Many developers, and intermittency means renewables cannot satisfy the firm-power requirement on their own.",
+      "qualified_suppliers": 12,
+      "substitution_lead_time_months": 24,
+      "capacity_state": "balanced",
+      "confidence": "medium",
+      "market_position": "one_of_several",
+      "constraint_type": "physical"
     }
   },
   {
@@ -718,7 +802,7 @@
     "segment": "utilities",
     "also_operates": [],
     "verticals": [],
-    "updated_at": "2026-09-03",
+    "updated_at": "2026-09-04",
     "updated_by": "seed",
     "moat": {
       "summary": "Susquehanna nuclear co-location with AWS \u2014 the template deal for behind-the-meter data centers.",
@@ -793,7 +877,7 @@
       }
     },
     "valuation": {
-      "as_of": "2026-09-03",
+      "as_of": "2026-09-04",
       "market_cap_usd_m": 14024.6,
       "enterprise_value_usd_m": 23394.6,
       "ev_revenue": 6.54,
@@ -817,6 +901,18 @@
       "fcf_conversion_pct": null,
       "roic_pct": null,
       "asset_intensity": "balanced"
+    },
+    "bottleneck": {
+      "is_bottleneck": false,
+      "criticality": 2,
+      "computed_criticality": 2.4,
+      "rationale": "Behind-the-meter nuclear co-location sidesteps the interconnection queue, which is the scarcest process in the energy layer.",
+      "qualified_suppliers": 4,
+      "substitution_lead_time_months": 120,
+      "capacity_state": "constrained",
+      "confidence": "medium",
+      "market_position": "one_of_several",
+      "constraint_type": "physical"
     }
   },
   {
@@ -829,7 +925,7 @@
     "segment": "utilities",
     "also_operates": [],
     "verticals": [],
-    "updated_at": "2026-09-03",
+    "updated_at": "2026-09-04",
     "updated_by": "seed",
     "moat": {
       "summary": "Northern Virginia \u2014 the densest data-center corridor on earth. Interconnect queue is the bottleneck.",
@@ -888,7 +984,7 @@
       }
     },
     "valuation": {
-      "as_of": "2026-09-03",
+      "as_of": "2026-09-04",
       "market_cap_usd_m": 58781.9,
       "enterprise_value_usd_m": 107860.9,
       "ev_revenue": 5.3,
@@ -905,6 +1001,18 @@
         "url": "https://www.sec.gov/Archives/edgar/data/715957/000119312526200275/0001193125-26-200275-index.htm",
         "as_of": "2026-09-03"
       }
+    },
+    "bottleneck": {
+      "is_bottleneck": false,
+      "criticality": 2,
+      "computed_criticality": 1.7,
+      "rationale": "Regionally monopolistic but substitutable in aggregate. The real constraint is the interconnection queue, which is a process, not a supplier.",
+      "qualified_suppliers": 8,
+      "substitution_lead_time_months": 36,
+      "capacity_state": "constrained",
+      "confidence": "medium",
+      "market_position": "one_of_several",
+      "constraint_type": "physical"
     }
   },
   {
@@ -917,7 +1025,7 @@
     "segment": "cooling",
     "also_operates": [],
     "verticals": [],
-    "updated_at": "2026-09-03",
+    "updated_at": "2026-09-04",
     "updated_by": "seed",
     "moat": {
       "summary": "Liquid cooling and thermal management. Organic orders +81%; rack density is gated by heat rejection.",
@@ -1005,7 +1113,7 @@
       }
     },
     "valuation": {
-      "as_of": "2026-09-03",
+      "as_of": "2026-09-04",
       "market_cap_usd_m": 105582.2,
       "enterprise_value_usd_m": 105711.4,
       "ev_revenue": 8.07,
@@ -1029,6 +1137,18 @@
       "fcf_conversion_pct": null,
       "roic_pct": null,
       "asset_intensity": "pass_through"
+    },
+    "bottleneck": {
+      "is_bottleneck": false,
+      "criticality": 2,
+      "computed_criticality": 2.0,
+      "rationale": "Vertiv, Modine, Trane, Boyd and LiquidStack all ship liquid cooling. Real capacity tightness, but no sole source.",
+      "qualified_suppliers": 5,
+      "substitution_lead_time_months": 12,
+      "capacity_state": "constrained",
+      "confidence": "medium",
+      "market_position": "one_of_several",
+      "constraint_type": "physical"
     }
   },
   {
@@ -1041,7 +1161,7 @@
     "segment": "cooling",
     "also_operates": [],
     "verticals": [],
-    "updated_at": "2026-09-03",
+    "updated_at": "2026-09-04",
     "updated_by": "seed",
     "moat": {
       "summary": "Data-center cooling is the growth segment inside a legacy thermal business.",
@@ -1129,7 +1249,7 @@
       }
     },
     "valuation": {
-      "as_of": "2026-09-03",
+      "as_of": "2026-09-04",
       "market_cap_usd_m": 10078.0,
       "enterprise_value_usd_m": 9990.8,
       "ev_revenue": 2.86,
@@ -1153,6 +1273,18 @@
       "fcf_conversion_pct": null,
       "roic_pct": null,
       "asset_intensity": "pass_through"
+    },
+    "bottleneck": {
+      "is_bottleneck": false,
+      "criticality": 2,
+      "computed_criticality": 2.0,
+      "rationale": "Vertiv, Modine, Trane, Boyd and LiquidStack all ship liquid cooling. Real capacity tightness, but no sole source.",
+      "qualified_suppliers": 5,
+      "substitution_lead_time_months": 12,
+      "capacity_state": "constrained",
+      "confidence": "medium",
+      "market_position": "one_of_several",
+      "constraint_type": "physical"
     }
   },
   {
@@ -1165,7 +1297,7 @@
     "segment": "cooling",
     "also_operates": [],
     "verticals": [],
-    "updated_at": "2026-09-03",
+    "updated_at": "2026-09-04",
     "updated_by": "seed",
     "moat": {
       "summary": "Applied HVAC scaled to campus-level thermal loads.",
@@ -1253,7 +1385,7 @@
       }
     },
     "valuation": {
-      "as_of": "2026-09-03",
+      "as_of": "2026-09-04",
       "market_cap_usd_m": 99054.8,
       "enterprise_value_usd_m": 102599.7,
       "ev_revenue": 4.04,
@@ -1277,6 +1409,18 @@
       "fcf_conversion_pct": null,
       "roic_pct": null,
       "asset_intensity": "pass_through"
+    },
+    "bottleneck": {
+      "is_bottleneck": false,
+      "criticality": 2,
+      "computed_criticality": 2.0,
+      "rationale": "Vertiv, Modine, Trane, Boyd and LiquidStack all ship liquid cooling. Real capacity tightness, but no sole source.",
+      "qualified_suppliers": 5,
+      "substitution_lead_time_months": 12,
+      "capacity_state": "constrained",
+      "confidence": "medium",
+      "market_position": "one_of_several",
+      "constraint_type": "physical"
     }
   },
   {
@@ -1289,7 +1433,7 @@
     "segment": "electrical",
     "also_operates": [],
     "verticals": [],
-    "updated_at": "2026-09-03",
+    "updated_at": "2026-09-04",
     "updated_by": "seed",
     "moat": {
       "summary": "Switchgear, UPS, busway. Transformer and switchgear lead times are a hard physical gate on energization.",
@@ -1364,7 +1508,7 @@
       }
     },
     "valuation": {
-      "as_of": "2026-09-03",
+      "as_of": "2026-09-04",
       "market_cap_usd_m": 154678.2,
       "enterprise_value_usd_m": 174594.2,
       "ev_revenue": 5.12,
@@ -1388,6 +1532,18 @@
       "fcf_conversion_pct": null,
       "roic_pct": null,
       "asset_intensity": "pass_through"
+    },
+    "bottleneck": {
+      "is_bottleneck": false,
+      "criticality": 3,
+      "computed_criticality": 3.0,
+      "rationale": "Large transformers and switchgear on multi-year lead times. Capacity physically cannot energise ahead of this equipment.",
+      "qualified_suppliers": 5,
+      "substitution_lead_time_months": 30,
+      "capacity_state": "sold_out",
+      "confidence": "high",
+      "market_position": "co_leader",
+      "constraint_type": "physical"
     }
   },
   {
@@ -1400,7 +1556,7 @@
     "segment": "electrical",
     "also_operates": [],
     "verticals": [],
-    "updated_at": "2026-09-03",
+    "updated_at": "2026-09-04",
     "updated_by": "seed",
     "moat": {
       "summary": "Grid and utility electrical equipment; levered to substation build.",
@@ -1488,7 +1644,7 @@
       }
     },
     "valuation": {
-      "as_of": "2026-09-03",
+      "as_of": "2026-09-04",
       "market_cap_usd_m": 24526.0,
       "enterprise_value_usd_m": 25989.6,
       "ev_revenue": 4.28,
@@ -1512,6 +1668,18 @@
       "fcf_conversion_pct": null,
       "roic_pct": null,
       "asset_intensity": "pass_through"
+    },
+    "bottleneck": {
+      "is_bottleneck": false,
+      "criticality": 2,
+      "computed_criticality": 2.4,
+      "rationale": "Eaton, Schneider, ABB, Siemens and Hitachi. Large-transformer and switchgear lead times run 2-4 years and are a hard physical gate on energisation \u2014 one of the most underrated chokepoints in the stack.",
+      "qualified_suppliers": 5,
+      "substitution_lead_time_months": 30,
+      "capacity_state": "sold_out",
+      "confidence": "high",
+      "market_position": "one_of_several",
+      "constraint_type": "physical"
     }
   },
   {
@@ -1524,7 +1692,7 @@
     "segment": "construction",
     "also_operates": [],
     "verticals": [],
-    "updated_at": "2026-09-03",
+    "updated_at": "2026-09-04",
     "updated_by": "seed",
     "moat": {
       "summary": "Transmission and substation construction. Skilled-labor constrained, which caps how fast capex converts to megawatts.",
@@ -1612,7 +1780,7 @@
       }
     },
     "valuation": {
-      "as_of": "2026-09-03",
+      "as_of": "2026-09-04",
       "market_cap_usd_m": 94521.3,
       "enterprise_value_usd_m": 94689.2,
       "ev_revenue": 2.48,
@@ -1636,6 +1804,18 @@
       "fcf_conversion_pct": null,
       "roic_pct": null,
       "asset_intensity": "pass_through"
+    },
+    "bottleneck": {
+      "is_bottleneck": false,
+      "criticality": 1,
+      "computed_criticality": 1.1,
+      "rationale": "Many contractors, but skilled electrical labour is the binding input and cannot be hired quickly.",
+      "qualified_suppliers": 10,
+      "substitution_lead_time_months": 18,
+      "capacity_state": "constrained",
+      "confidence": "medium",
+      "market_position": "one_of_several",
+      "constraint_type": "physical"
     }
   },
   {
@@ -1648,7 +1828,7 @@
     "segment": "construction",
     "also_operates": [],
     "verticals": [],
-    "updated_at": "2026-09-03",
+    "updated_at": "2026-09-04",
     "updated_by": "seed",
     "moat": {
       "summary": "Mechanical/electrical contracting for data center fit-out.",
@@ -1736,7 +1916,7 @@
       }
     },
     "valuation": {
-      "as_of": "2026-09-03",
+      "as_of": "2026-09-04",
       "market_cap_usd_m": 33028.0,
       "enterprise_value_usd_m": 32103.5,
       "ev_revenue": 1.56,
@@ -1760,6 +1940,18 @@
       "fcf_conversion_pct": null,
       "roic_pct": null,
       "asset_intensity": "pass_through"
+    },
+    "bottleneck": {
+      "is_bottleneck": false,
+      "criticality": 1,
+      "computed_criticality": 1.1,
+      "rationale": "Many contractors, but skilled electrical labour is the binding input and cannot be hired quickly.",
+      "qualified_suppliers": 10,
+      "substitution_lead_time_months": 18,
+      "capacity_state": "constrained",
+      "confidence": "medium",
+      "market_position": "one_of_several",
+      "constraint_type": "physical"
     }
   },
   {
@@ -1775,7 +1967,7 @@
       "networking_optics"
     ],
     "verticals": [],
-    "updated_at": "2026-09-03",
+    "updated_at": "2026-09-04",
     "updated_by": "seed",
     "moat": {
       "summary": "~92% of revenue is Data Center. Sells full NVL racks, not just chips \u2014 the layer boundary is genuinely blurred. CUDA is the switching cost.",
@@ -1863,7 +2055,7 @@
       }
     },
     "valuation": {
-      "as_of": "2026-09-03",
+      "as_of": "2026-09-04",
       "market_cap_usd_m": 5547908.2,
       "enterprise_value_usd_m": 5510709.2,
       "ev_revenue": 14.32,
@@ -1887,6 +2079,18 @@
       "fcf_conversion_pct": null,
       "roic_pct": null,
       "asset_intensity": "ip_light"
+    },
+    "bottleneck": {
+      "is_bottleneck": true,
+      "criticality": 4,
+      "computed_criticality": 3.9,
+      "rationale": "CUDA and the installed base make it the default. Less absolute than ASML or TSMC because AMD and custom silicon are credible second sources, but it still gates the pace of the build-out.",
+      "qualified_suppliers": 3,
+      "substitution_lead_time_months": 24,
+      "capacity_state": "constrained",
+      "confidence": "high",
+      "market_position": "dominant",
+      "constraint_type": "physical"
     }
   },
   {
@@ -1899,7 +2103,7 @@
     "segment": "accelerators",
     "also_operates": [],
     "verticals": [],
-    "updated_at": "2026-09-03",
+    "updated_at": "2026-09-04",
     "updated_by": "seed",
     "moat": {
       "summary": "The only credible merchant GPU alternative; software ecosystem is the gap.",
@@ -1987,7 +2191,7 @@
       }
     },
     "valuation": {
-      "as_of": "2026-09-03",
+      "as_of": "2026-09-04",
       "market_cap_usd_m": 756769.4,
       "enterprise_value_usd_m": 746884.4,
       "ev_revenue": 16.19,
@@ -2011,6 +2215,18 @@
       "fcf_conversion_pct": null,
       "roic_pct": null,
       "asset_intensity": "pass_through"
+    },
+    "bottleneck": {
+      "is_bottleneck": false,
+      "criticality": 3,
+      "computed_criticality": 2.6,
+      "rationale": "The credible second source. Being a substitute is the opposite of being a chokepoint \u2014 its existence is what caps Nvidia's rating.",
+      "qualified_suppliers": 3,
+      "substitution_lead_time_months": 24,
+      "capacity_state": "constrained",
+      "confidence": "high",
+      "market_position": "one_of_several",
+      "constraint_type": "physical"
     }
   },
   {
@@ -2025,7 +2241,7 @@
       "networking_optics"
     ],
     "verticals": [],
-    "updated_at": "2026-09-03",
+    "updated_at": "2026-09-04",
     "updated_by": "seed",
     "moat": {
       "summary": "Custom ASICs for Google TPU and other hyperscaler silicon, plus Tomahawk switching. The pick-and-shovel play on hyperscalers escaping NVDA.",
@@ -2113,7 +2329,7 @@
       }
     },
     "valuation": {
-      "as_of": "2026-09-03",
+      "as_of": "2026-09-04",
       "market_cap_usd_m": 1741512.2,
       "enterprise_value_usd_m": 1789043.2,
       "ev_revenue": 20.16,
@@ -2137,6 +2353,18 @@
       "fcf_conversion_pct": null,
       "roic_pct": null,
       "asset_intensity": "ip_light"
+    },
+    "bottleneck": {
+      "is_bottleneck": false,
+      "criticality": 3,
+      "computed_criticality": 3.4,
+      "rationale": "Custom-ASIC path with Marvell and Alchip. Co-leader in that niche, and a substitute for merchant GPU rather than a constraint on it.",
+      "qualified_suppliers": 3,
+      "substitution_lead_time_months": 24,
+      "capacity_state": "constrained",
+      "confidence": "high",
+      "market_position": "co_leader",
+      "constraint_type": "physical"
     }
   },
   {
@@ -2151,7 +2379,7 @@
       "networking_optics"
     ],
     "verticals": [],
-    "updated_at": "2026-09-03",
+    "updated_at": "2026-09-04",
     "updated_by": "seed",
     "moat": {
       "summary": "Custom silicon and optical DSPs; smaller ASIC franchise than AVGO.",
@@ -2239,7 +2467,7 @@
       }
     },
     "valuation": {
-      "as_of": "2026-09-03",
+      "as_of": "2026-09-04",
       "market_cap_usd_m": 192374.2,
       "enterprise_value_usd_m": 193404.3,
       "ev_revenue": 17.65,
@@ -2263,6 +2491,18 @@
       "fcf_conversion_pct": null,
       "roic_pct": null,
       "asset_intensity": "pass_through"
+    },
+    "bottleneck": {
+      "is_bottleneck": false,
+      "criticality": 3,
+      "computed_criticality": 2.6,
+      "rationale": "Smaller ASIC franchise than Broadcom; a substitute, not a constraint.",
+      "qualified_suppliers": 3,
+      "substitution_lead_time_months": 24,
+      "capacity_state": "constrained",
+      "confidence": "medium",
+      "market_position": "one_of_several",
+      "constraint_type": "physical"
     }
   },
   {
@@ -2275,7 +2515,7 @@
     "segment": "accelerators",
     "also_operates": [],
     "verticals": [],
-    "updated_at": "2026-09-03",
+    "updated_at": "2026-09-04",
     "updated_by": "seed",
     "moat": {
       "summary": "CPU IP licensing; royalty model means it monetizes unit volume regardless of who wins.",
@@ -2350,7 +2590,7 @@
       }
     },
     "valuation": {
-      "as_of": "2026-09-03",
+      "as_of": "2026-09-04",
       "market_cap_usd_m": 261512.0,
       "enterprise_value_usd_m": 257624.0,
       "ev_revenue": 52.36,
@@ -2374,6 +2614,18 @@
       "fcf_conversion_pct": null,
       "roic_pct": null,
       "asset_intensity": "ip_light"
+    },
+    "bottleneck": {
+      "is_bottleneck": false,
+      "criticality": 3,
+      "computed_criticality": 3.3,
+      "rationale": "CPU instruction-set IP. RISC-V is the only real alternative and is years from parity in the data centre, but architecture licences are not capacity-constrained.",
+      "qualified_suppliers": 2,
+      "substitution_lead_time_months": 36,
+      "capacity_state": "balanced",
+      "confidence": "medium",
+      "market_position": "dominant",
+      "constraint_type": "commercial"
     }
   },
   {
@@ -2386,7 +2638,7 @@
     "segment": "memory",
     "also_operates": [],
     "verticals": [],
-    "updated_at": "2026-09-03",
+    "updated_at": "2026-09-04",
     "updated_by": "seed",
     "moat": {
       "summary": "HBM output sold out through 2026. Memory bandwidth, not FLOPs, bounds inference economics.",
@@ -2474,7 +2726,7 @@
       }
     },
     "valuation": {
-      "as_of": "2026-09-03",
+      "as_of": "2026-09-04",
       "market_cap_usd_m": 1097093.2,
       "enterprise_value_usd_m": 1080497.2,
       "ev_revenue": 6.52,
@@ -2498,6 +2750,18 @@
       "fcf_conversion_pct": null,
       "roic_pct": null,
       "asset_intensity": "ip_light"
+    },
+    "bottleneck": {
+      "is_bottleneck": true,
+      "criticality": 4,
+      "computed_criticality": 3.6,
+      "rationale": "HBM sold out through 2026 alongside SK hynix. Memory bandwidth, not compute, bounds inference economics \u2014 and the 85% gross margin is what a binding shortage looks like in the P&L.",
+      "qualified_suppliers": 3,
+      "substitution_lead_time_months": 24,
+      "capacity_state": "sold_out",
+      "confidence": "high",
+      "market_position": "co_leader",
+      "constraint_type": "physical"
     }
   },
   {
@@ -2510,7 +2774,7 @@
     "segment": "memory",
     "also_operates": [],
     "verticals": [],
-    "updated_at": "2026-09-03",
+    "updated_at": "2026-09-04",
     "updated_by": "seed",
     "moat": {
       "summary": "NAND supply into AI storage tiers amid severe pricing upcycle.",
@@ -2598,7 +2862,7 @@
       }
     },
     "valuation": {
-      "as_of": "2026-09-03",
+      "as_of": "2026-09-04",
       "market_cap_usd_m": 244133.4,
       "enterprise_value_usd_m": 239371.4,
       "ev_revenue": 10.06,
@@ -2622,6 +2886,18 @@
       "fcf_conversion_pct": null,
       "roic_pct": null,
       "asset_intensity": "ip_light"
+    },
+    "bottleneck": {
+      "is_bottleneck": false,
+      "criticality": 2,
+      "computed_criticality": 2.0,
+      "rationale": "NAND, not HBM. Benefits from the same memory upcycle without holding the constraint that causes it.",
+      "qualified_suppliers": 5,
+      "substitution_lead_time_months": 18,
+      "capacity_state": "constrained",
+      "confidence": "medium",
+      "market_position": "one_of_several",
+      "constraint_type": "physical"
     }
   },
   {
@@ -2634,7 +2910,7 @@
     "segment": "memory",
     "also_operates": [],
     "verticals": [],
-    "updated_at": "2026-09-03",
+    "updated_at": "2026-09-04",
     "updated_by": "seed",
     "moat": {
       "summary": "Nearline HDD for the data lakes feeding training. Quietly tight supply.",
@@ -2722,7 +2998,7 @@
       }
     },
     "valuation": {
-      "as_of": "2026-09-03",
+      "as_of": "2026-09-04",
       "market_cap_usd_m": 182881.7,
       "enterprise_value_usd_m": 184742.7,
       "ev_revenue": 14.84,
@@ -2746,6 +3022,18 @@
       "fcf_conversion_pct": null,
       "roic_pct": null,
       "asset_intensity": "pass_through"
+    },
+    "bottleneck": {
+      "is_bottleneck": true,
+      "criticality": 4,
+      "computed_criticality": 3.9,
+      "rationale": "Nearline HDD is a genuine duopoly with Western Digital. The training data lakes have to live somewhere, and flash is not cost-competitive at that capacity.",
+      "qualified_suppliers": 2,
+      "substitution_lead_time_months": 24,
+      "capacity_state": "constrained",
+      "confidence": "medium",
+      "market_position": "co_leader",
+      "constraint_type": "physical"
     }
   },
   {
@@ -2758,7 +3046,7 @@
     "segment": "semicap",
     "also_operates": [],
     "verticals": [],
-    "updated_at": "2026-09-03",
+    "updated_at": "2026-09-04",
     "updated_by": "seed",
     "moat": {
       "summary": "Monopoly on EUV. The single narrowest chokepoint in the entire stack \u2014 no substitute exists at any price.",
@@ -2773,6 +3061,18 @@
       "is_estimate": true,
       "basis": "Foreign private issuer or filer without XBRL revenue tagging. Needs a press-sourced pass.",
       "confidence": "low"
+    },
+    "bottleneck": {
+      "is_bottleneck": true,
+      "criticality": 5,
+      "computed_criticality": 5.0,
+      "rationale": "Sole supplier of EUV lithography. No second source exists at any price, and none is in development on a relevant timescale. The single narrowest chokepoint in the stack, and a live instrument of export control.",
+      "qualified_suppliers": 1,
+      "substitution_lead_time_months": 60,
+      "capacity_state": "sold_out",
+      "confidence": "high",
+      "market_position": "sole",
+      "constraint_type": "physical"
     }
   },
   {
@@ -2785,7 +3085,7 @@
     "segment": "semicap",
     "also_operates": [],
     "verticals": [],
-    "updated_at": "2026-09-03",
+    "updated_at": "2026-09-04",
     "updated_by": "seed",
     "moat": {
       "summary": "Deposition and etch breadth; levered to leading-edge and HBM capacity adds.",
@@ -2873,7 +3173,7 @@
       }
     },
     "valuation": {
-      "as_of": "2026-09-03",
+      "as_of": "2026-09-04",
       "market_cap_usd_m": 348728.0,
       "enterprise_value_usd_m": 345939.0,
       "ev_revenue": 9.49,
@@ -2897,6 +3197,18 @@
       "fcf_conversion_pct": null,
       "roic_pct": null,
       "asset_intensity": "pass_through"
+    },
+    "bottleneck": {
+      "is_bottleneck": false,
+      "criticality": 2,
+      "computed_criticality": 2.2,
+      "rationale": "Deposition, etch and metrology have several credible vendors \u2014 with one glaring exception below.",
+      "qualified_suppliers": 4,
+      "substitution_lead_time_months": 24,
+      "capacity_state": "constrained",
+      "confidence": "medium",
+      "market_position": "one_of_several",
+      "constraint_type": "physical"
     }
   },
   {
@@ -2909,7 +3221,7 @@
     "segment": "semicap",
     "also_operates": [],
     "verticals": [],
-    "updated_at": "2026-09-03",
+    "updated_at": "2026-09-04",
     "updated_by": "seed",
     "moat": {
       "summary": "Etch and deposition; high-aspect-ratio NAND and HBM TSV exposure.",
@@ -2997,7 +3309,7 @@
       }
     },
     "valuation": {
-      "as_of": "2026-09-03",
+      "as_of": "2026-09-04",
       "market_cap_usd_m": 367968.7,
       "enterprise_value_usd_m": 366111.8,
       "ev_revenue": 15.67,
@@ -3021,6 +3333,18 @@
       "fcf_conversion_pct": null,
       "roic_pct": null,
       "asset_intensity": "pass_through"
+    },
+    "bottleneck": {
+      "is_bottleneck": false,
+      "criticality": 2,
+      "computed_criticality": 2.2,
+      "rationale": "Deposition, etch and metrology have several credible vendors \u2014 with one glaring exception below.",
+      "qualified_suppliers": 4,
+      "substitution_lead_time_months": 24,
+      "capacity_state": "constrained",
+      "confidence": "medium",
+      "market_position": "one_of_several",
+      "constraint_type": "physical"
     }
   },
   {
@@ -3033,7 +3357,7 @@
     "segment": "semicap",
     "also_operates": [],
     "verticals": [],
-    "updated_at": "2026-09-03",
+    "updated_at": "2026-09-04",
     "updated_by": "seed",
     "moat": {
       "summary": "Process control near-monopoly; yield matters more as nodes shrink.",
@@ -3095,7 +3419,7 @@
       }
     },
     "valuation": {
-      "as_of": "2026-09-03",
+      "as_of": "2026-09-04",
       "market_cap_usd_m": 22784.8,
       "enterprise_value_usd_m": 27022.4,
       "ev_revenue": 1.98,
@@ -3119,6 +3443,18 @@
       "fcf_conversion_pct": null,
       "roic_pct": null,
       "asset_intensity": "balanced"
+    },
+    "bottleneck": {
+      "is_bottleneck": true,
+      "criticality": 4,
+      "computed_criticality": 3.9,
+      "rationale": "Process control is close to a duopoly, and yield matters more with every node shrink. Under-appreciated relative to ASML.",
+      "qualified_suppliers": 2,
+      "substitution_lead_time_months": 36,
+      "capacity_state": "constrained",
+      "confidence": "medium",
+      "market_position": "co_leader",
+      "constraint_type": "physical"
     }
   },
   {
@@ -3131,7 +3467,7 @@
     "segment": "foundry",
     "also_operates": [],
     "verticals": [],
-    "updated_at": "2026-09-03",
+    "updated_at": "2026-09-04",
     "updated_by": "seed",
     "moat": {
       "summary": "Manufactures essentially every leading-edge AI accelerator. CoWoS advanced packaging is the acknowledged industry bottleneck; N3 running above 100% utilization. Also the largest single geopolitical concentration risk in the stack.",
@@ -3146,6 +3482,18 @@
       "is_estimate": true,
       "basis": "Foreign private issuer or filer without XBRL revenue tagging. Needs a press-sourced pass.",
       "confidence": "low"
+    },
+    "bottleneck": {
+      "is_bottleneck": true,
+      "criticality": 5,
+      "computed_criticality": 5.0,
+      "rationale": "Sole viable manufacturer at leading edge, where every AI accelerator is made. CoWoS advanced packaging is the acknowledged industry bottleneck and N3 runs above 100% utilisation. Geographic concentration is the largest single tail risk on this map.",
+      "qualified_suppliers": 1,
+      "substitution_lead_time_months": 60,
+      "capacity_state": "sold_out",
+      "confidence": "high",
+      "market_position": "sole",
+      "constraint_type": "physical"
     }
   },
   {
@@ -3158,7 +3506,7 @@
     "segment": "foundry",
     "also_operates": [],
     "verticals": [],
-    "updated_at": "2026-09-03",
+    "updated_at": "2026-09-04",
     "updated_by": "seed",
     "moat": {
       "summary": "Foundry ambitions plus US government stake; the only Western leading-edge alternative if it executes.",
@@ -3246,7 +3594,7 @@
       }
     },
     "valuation": {
-      "as_of": "2026-09-03",
+      "as_of": "2026-09-04",
       "market_cap_usd_m": 467883.7,
       "enterprise_value_usd_m": 487240.7,
       "ev_revenue": 7.55,
@@ -3270,6 +3618,18 @@
       "fcf_conversion_pct": null,
       "roic_pct": null,
       "asset_intensity": "capital_heavy"
+    },
+    "bottleneck": {
+      "is_bottleneck": false,
+      "criticality": 2,
+      "computed_criticality": 1.7,
+      "rationale": "The only Western leading-edge aspirant, which makes it strategically important and commercially unproven. Its own capacity is under-utilised.",
+      "qualified_suppliers": 3,
+      "substitution_lead_time_months": 48,
+      "capacity_state": "oversupplied",
+      "confidence": "medium",
+      "market_position": "marginal",
+      "constraint_type": "physical"
     }
   },
   {
@@ -3282,7 +3642,7 @@
     "segment": "foundry",
     "also_operates": [],
     "verticals": [],
-    "updated_at": "2026-09-03",
+    "updated_at": "2026-09-04",
     "updated_by": "seed",
     "moat": {
       "summary": "Mature-node specialty; not leading-edge AI logic.",
@@ -3297,6 +3657,18 @@
       "is_estimate": true,
       "basis": "Foreign private issuer or filer without XBRL revenue tagging. Needs a press-sourced pass.",
       "confidence": "low"
+    },
+    "bottleneck": {
+      "is_bottleneck": false,
+      "criticality": 1,
+      "computed_criticality": 1.1,
+      "rationale": "Mature-node specialty. Not in the AI leading-edge path at all.",
+      "qualified_suppliers": 8,
+      "substitution_lead_time_months": 24,
+      "capacity_state": "balanced",
+      "confidence": "high",
+      "market_position": "marginal",
+      "constraint_type": "physical"
     }
   },
   {
@@ -3309,7 +3681,7 @@
     "segment": "materials",
     "also_operates": [],
     "verticals": [],
-    "updated_at": "2026-09-03",
+    "updated_at": "2026-09-04",
     "updated_by": "seed",
     "moat": {
       "summary": "Advanced materials and contamination control; consumable, so it tracks wafer starts not capex.",
@@ -3397,7 +3769,7 @@
       }
     },
     "valuation": {
-      "as_of": "2026-09-03",
+      "as_of": "2026-09-04",
       "market_cap_usd_m": 20075.5,
       "enterprise_value_usd_m": 23177.9,
       "ev_revenue": 6.56,
@@ -3421,6 +3793,18 @@
       "fcf_conversion_pct": null,
       "roic_pct": null,
       "asset_intensity": "pass_through"
+    },
+    "bottleneck": {
+      "is_bottleneck": false,
+      "criticality": 2,
+      "computed_criticality": 2.0,
+      "rationale": "Consumables and packaging with several qualified vendors, though qualification itself is slow.",
+      "qualified_suppliers": 5,
+      "substitution_lead_time_months": 18,
+      "capacity_state": "constrained",
+      "confidence": "medium",
+      "market_position": "one_of_several",
+      "constraint_type": "physical"
     }
   },
   {
@@ -3433,7 +3817,7 @@
     "segment": "materials",
     "also_operates": [],
     "verticals": [],
-    "updated_at": "2026-09-03",
+    "updated_at": "2026-09-04",
     "updated_by": "seed",
     "moat": {
       "summary": "OSAT packaging \u2014 the partner capacity TSMC leans on to relieve CoWoS.",
@@ -3521,7 +3905,7 @@
       }
     },
     "valuation": {
-      "as_of": "2026-09-03",
+      "as_of": "2026-09-04",
       "market_cap_usd_m": 11714.8,
       "enterprise_value_usd_m": 11280.5,
       "ev_revenue": 1.67,
@@ -3545,6 +3929,18 @@
       "fcf_conversion_pct": null,
       "roic_pct": null,
       "asset_intensity": "pass_through"
+    },
+    "bottleneck": {
+      "is_bottleneck": false,
+      "criticality": 3,
+      "computed_criticality": 2.6,
+      "rationale": "OSAT packaging with ASE and JCET. Absorbs CoWoS overflow, which makes it a direct relief valve on the tightest constraint in the stack.",
+      "qualified_suppliers": 3,
+      "substitution_lead_time_months": 18,
+      "capacity_state": "sold_out",
+      "confidence": "medium",
+      "market_position": "one_of_several",
+      "constraint_type": "physical"
     }
   },
   {
@@ -3557,7 +3953,7 @@
     "segment": "materials",
     "also_operates": [],
     "verticals": [],
-    "updated_at": "2026-09-03",
+    "updated_at": "2026-09-04",
     "updated_by": "seed",
     "moat": {
       "summary": "Subsystems and process chemistry into semicap tools.",
@@ -3645,7 +4041,7 @@
       }
     },
     "valuation": {
-      "as_of": "2026-09-03",
+      "as_of": "2026-09-04",
       "market_cap_usd_m": 18149.6,
       "enterprise_value_usd_m": 21638.6,
       "ev_revenue": 4.33,
@@ -3669,6 +4065,18 @@
       "fcf_conversion_pct": null,
       "roic_pct": null,
       "asset_intensity": "pass_through"
+    },
+    "bottleneck": {
+      "is_bottleneck": false,
+      "criticality": 2,
+      "computed_criticality": 2.0,
+      "rationale": "Consumables and packaging with several qualified vendors, though qualification itself is slow.",
+      "qualified_suppliers": 5,
+      "substitution_lead_time_months": 18,
+      "capacity_state": "constrained",
+      "confidence": "medium",
+      "market_position": "one_of_several",
+      "constraint_type": "physical"
     }
   },
   {
@@ -3681,7 +4089,7 @@
     "segment": "networking_optics",
     "also_operates": [],
     "verticals": [],
-    "updated_at": "2026-09-03",
+    "updated_at": "2026-09-04",
     "updated_by": "seed",
     "moat": {
       "summary": "Ethernet switching for AI back-end fabrics; the Ethernet-vs-InfiniBand share shift is the debate.",
@@ -3769,7 +4177,7 @@
       }
     },
     "valuation": {
-      "as_of": "2026-09-03",
+      "as_of": "2026-09-04",
       "market_cap_usd_m": 244277.4,
       "enterprise_value_usd_m": 230934.1,
       "ev_revenue": 19.02,
@@ -3793,6 +4201,18 @@
       "fcf_conversion_pct": null,
       "roic_pct": null,
       "asset_intensity": "ip_light"
+    },
+    "bottleneck": {
+      "is_bottleneck": false,
+      "criticality": 2,
+      "computed_criticality": 1.5,
+      "rationale": "Optics and switching have real competition; the constraint is component supply, not vendor choice.",
+      "qualified_suppliers": 6,
+      "substitution_lead_time_months": 12,
+      "capacity_state": "constrained",
+      "confidence": "medium",
+      "market_position": "one_of_several",
+      "constraint_type": "physical"
     }
   },
   {
@@ -3805,7 +4225,7 @@
     "segment": "networking_optics",
     "also_operates": [],
     "verticals": [],
-    "updated_at": "2026-09-03",
+    "updated_at": "2026-09-04",
     "updated_by": "seed",
     "moat": {
       "summary": "Optical transceivers; 800G/1.6T ramp is directly levered to cluster scale-out.",
@@ -3880,7 +4300,7 @@
       }
     },
     "valuation": {
-      "as_of": "2026-09-03",
+      "as_of": "2026-09-04",
       "market_cap_usd_m": 51921.4,
       "enterprise_value_usd_m": 53164.5,
       "ev_revenue": 7.36,
@@ -3904,6 +4324,18 @@
       "fcf_conversion_pct": null,
       "roic_pct": null,
       "asset_intensity": "pass_through"
+    },
+    "bottleneck": {
+      "is_bottleneck": false,
+      "criticality": 2,
+      "computed_criticality": 1.5,
+      "rationale": "Optics and switching have real competition; the constraint is component supply, not vendor choice.",
+      "qualified_suppliers": 6,
+      "substitution_lead_time_months": 12,
+      "capacity_state": "constrained",
+      "confidence": "medium",
+      "market_position": "one_of_several",
+      "constraint_type": "physical"
     }
   },
   {
@@ -3916,7 +4348,7 @@
     "segment": "networking_optics",
     "also_operates": [],
     "verticals": [],
-    "updated_at": "2026-09-03",
+    "updated_at": "2026-09-04",
     "updated_by": "seed",
     "moat": {
       "summary": "PCIe/CXL connectivity silicon \u2014 scale-up inside the rack rather than between racks.",
@@ -4004,7 +4436,7 @@
       }
     },
     "valuation": {
-      "as_of": "2026-09-03",
+      "as_of": "2026-09-04",
       "market_cap_usd_m": 51852.2,
       "enterprise_value_usd_m": 50599.3,
       "ev_revenue": 32.24,
@@ -4028,6 +4460,18 @@
       "fcf_conversion_pct": null,
       "roic_pct": null,
       "asset_intensity": "ip_light"
+    },
+    "bottleneck": {
+      "is_bottleneck": false,
+      "criticality": 2,
+      "computed_criticality": 1.5,
+      "rationale": "Optics and switching have real competition; the constraint is component supply, not vendor choice.",
+      "qualified_suppliers": 6,
+      "substitution_lead_time_months": 12,
+      "capacity_state": "constrained",
+      "confidence": "medium",
+      "market_position": "one_of_several",
+      "constraint_type": "physical"
     }
   },
   {
@@ -4040,7 +4484,7 @@
     "segment": "networking_optics",
     "also_operates": [],
     "verticals": [],
-    "updated_at": "2026-09-03",
+    "updated_at": "2026-09-04",
     "updated_by": "seed",
     "moat": {
       "summary": "Active electrical cables and SerDes; high customer concentration.",
@@ -4128,7 +4572,7 @@
       }
     },
     "valuation": {
-      "as_of": "2026-09-03",
+      "as_of": "2026-09-04",
       "market_cap_usd_m": 31911.0,
       "enterprise_value_usd_m": 31146.8,
       "ev_revenue": 16.26,
@@ -4152,6 +4596,18 @@
       "fcf_conversion_pct": null,
       "roic_pct": null,
       "asset_intensity": "ip_light"
+    },
+    "bottleneck": {
+      "is_bottleneck": false,
+      "criticality": 2,
+      "computed_criticality": 1.5,
+      "rationale": "Optics and switching have real competition; the constraint is component supply, not vendor choice.",
+      "qualified_suppliers": 6,
+      "substitution_lead_time_months": 12,
+      "capacity_state": "constrained",
+      "confidence": "medium",
+      "market_position": "one_of_several",
+      "constraint_type": "physical"
     }
   },
   {
@@ -4164,7 +4620,7 @@
     "segment": "networking_optics",
     "also_operates": [],
     "verticals": [],
-    "updated_at": "2026-09-03",
+    "updated_at": "2026-09-04",
     "updated_by": "seed",
     "moat": {
       "summary": "DCI optical transport as training spans multiple sites.",
@@ -4252,7 +4708,7 @@
       }
     },
     "valuation": {
-      "as_of": "2026-09-03",
+      "as_of": "2026-09-04",
       "market_cap_usd_m": 46448.8,
       "enterprise_value_usd_m": 46777.1,
       "ev_revenue": 7.45,
@@ -4276,6 +4732,18 @@
       "fcf_conversion_pct": null,
       "roic_pct": null,
       "asset_intensity": "pass_through"
+    },
+    "bottleneck": {
+      "is_bottleneck": false,
+      "criticality": 2,
+      "computed_criticality": 1.5,
+      "rationale": "Optics and switching have real competition; the constraint is component supply, not vendor choice.",
+      "qualified_suppliers": 6,
+      "substitution_lead_time_months": 12,
+      "capacity_state": "constrained",
+      "confidence": "medium",
+      "market_position": "one_of_several",
+      "constraint_type": "physical"
     }
   },
   {
@@ -4288,7 +4756,7 @@
     "segment": "servers",
     "also_operates": [],
     "verticals": [],
-    "updated_at": "2026-09-03",
+    "updated_at": "2026-09-04",
     "updated_by": "seed",
     "moat": {
       "summary": "AI server backlog is large but gross margin is thin \u2014 integration is a pass-through business.",
@@ -4376,7 +4844,7 @@
       }
     },
     "valuation": {
-      "as_of": "2026-09-03",
+      "as_of": "2026-09-04",
       "market_cap_usd_m": 338751.8,
       "enterprise_value_usd_m": 365884.8,
       "ev_revenue": 2.09,
@@ -4400,6 +4868,18 @@
       "fcf_conversion_pct": null,
       "roic_pct": null,
       "asset_intensity": "pass_through"
+    },
+    "bottleneck": {
+      "is_bottleneck": false,
+      "criticality": 1,
+      "computed_criticality": 1.0,
+      "rationale": "Integration is the most substitutable step in the stack. ODMs are interchangeable, which is exactly why the margin is thin.",
+      "qualified_suppliers": 10,
+      "substitution_lead_time_months": 6,
+      "capacity_state": "balanced",
+      "confidence": "high",
+      "market_position": "one_of_several",
+      "constraint_type": "physical"
     }
   },
   {
@@ -4412,7 +4892,7 @@
     "segment": "servers",
     "also_operates": [],
     "verticals": [],
-    "updated_at": "2026-09-03",
+    "updated_at": "2026-09-04",
     "updated_by": "seed",
     "moat": {
       "summary": "Fast to market on new GPU platforms; margin compression and governance history are the bear case.",
@@ -4500,7 +4980,7 @@
       }
     },
     "valuation": {
-      "as_of": "2026-09-03",
+      "as_of": "2026-09-04",
       "market_cap_usd_m": 26213.2,
       "enterprise_value_usd_m": 22724.8,
       "ev_revenue": 0.55,
@@ -4524,6 +5004,18 @@
       "fcf_conversion_pct": null,
       "roic_pct": null,
       "asset_intensity": "pass_through"
+    },
+    "bottleneck": {
+      "is_bottleneck": false,
+      "criticality": 1,
+      "computed_criticality": 1.0,
+      "rationale": "Integration is the most substitutable step in the stack. ODMs are interchangeable, which is exactly why the margin is thin.",
+      "qualified_suppliers": 10,
+      "substitution_lead_time_months": 6,
+      "capacity_state": "balanced",
+      "confidence": "high",
+      "market_position": "one_of_several",
+      "constraint_type": "physical"
     }
   },
   {
@@ -4536,7 +5028,7 @@
     "segment": "servers",
     "also_operates": [],
     "verticals": [],
-    "updated_at": "2026-09-03",
+    "updated_at": "2026-09-04",
     "updated_by": "seed",
     "moat": {
       "summary": "ODM for hyperscaler custom racks and switches; benefits from white-box share gain.",
@@ -4624,7 +5116,7 @@
       }
     },
     "valuation": {
-      "as_of": "2026-09-03",
+      "as_of": "2026-09-04",
       "market_cap_usd_m": 36003.4,
       "enterprise_value_usd_m": 35467.7,
       "ev_revenue": 1.89,
@@ -4648,6 +5140,18 @@
       "fcf_conversion_pct": null,
       "roic_pct": null,
       "asset_intensity": "pass_through"
+    },
+    "bottleneck": {
+      "is_bottleneck": false,
+      "criticality": 1,
+      "computed_criticality": 1.0,
+      "rationale": "Integration is the most substitutable step in the stack. ODMs are interchangeable, which is exactly why the margin is thin.",
+      "qualified_suppliers": 10,
+      "substitution_lead_time_months": 6,
+      "capacity_state": "balanced",
+      "confidence": "high",
+      "market_position": "one_of_several",
+      "constraint_type": "physical"
     }
   },
   {
@@ -4660,7 +5164,7 @@
     "segment": "servers",
     "also_operates": [],
     "verticals": [],
-    "updated_at": "2026-09-03",
+    "updated_at": "2026-09-04",
     "updated_by": "seed",
     "moat": {
       "summary": "AI systems plus Juniper networking; enterprise rather than hyperscale weighted.",
@@ -4735,7 +5239,7 @@
       }
     },
     "valuation": {
-      "as_of": "2026-09-03",
+      "as_of": "2026-09-04",
       "market_cap_usd_m": 78883.6,
       "enterprise_value_usd_m": 96552.6,
       "ev_revenue": 1.98,
@@ -4759,6 +5263,18 @@
       "fcf_conversion_pct": null,
       "roic_pct": null,
       "asset_intensity": "balanced"
+    },
+    "bottleneck": {
+      "is_bottleneck": false,
+      "criticality": 1,
+      "computed_criticality": 1.0,
+      "rationale": "Integration is the most substitutable step in the stack. ODMs are interchangeable, which is exactly why the margin is thin.",
+      "qualified_suppliers": 10,
+      "substitution_lead_time_months": 6,
+      "capacity_state": "balanced",
+      "confidence": "high",
+      "market_position": "one_of_several",
+      "constraint_type": "physical"
     }
   },
   {
@@ -4771,7 +5287,7 @@
     "segment": "gpu_cloud",
     "also_operates": [],
     "verticals": [],
-    "updated_at": "2026-09-03",
+    "updated_at": "2026-09-04",
     "updated_by": "seed",
     "moat": {
       "summary": "$104B backlog against heavy debt; capex ran ~3x revenue in Q2 2026. Microsoft concentration ~62% in 2024, de-risking via Meta, OpenAI and Anthropic.",
@@ -4859,7 +5375,7 @@
       }
     },
     "valuation": {
-      "as_of": "2026-09-03",
+      "as_of": "2026-09-04",
       "market_cap_usd_m": 46592.6,
       "enterprise_value_usd_m": 73459.6,
       "ev_revenue": 7.13,
@@ -4883,6 +5399,18 @@
       "fcf_conversion_pct": null,
       "roic_pct": null,
       "asset_intensity": "capital_heavy"
+    },
+    "bottleneck": {
+      "is_bottleneck": false,
+      "criticality": 1,
+      "computed_criticality": 1.0,
+      "rationale": "Capacity reseller, not a chokepoint. Its risk runs the other way: customer concentration and capex around 3x revenue.",
+      "qualified_suppliers": 12,
+      "substitution_lead_time_months": 6,
+      "capacity_state": "balanced",
+      "confidence": "high",
+      "market_position": "one_of_several",
+      "constraint_type": "physical"
     }
   },
   {
@@ -4895,7 +5423,7 @@
     "segment": "gpu_cloud",
     "also_operates": [],
     "verticals": [],
-    "updated_at": "2026-09-03",
+    "updated_at": "2026-09-04",
     "updated_by": "seed",
     "moat": {
       "summary": "European neocloud; post-Yandex restructuring.",
@@ -4975,6 +5503,18 @@
       "fcf_conversion_pct": null,
       "roic_pct": null,
       "asset_intensity": "capital_heavy"
+    },
+    "bottleneck": {
+      "is_bottleneck": false,
+      "criticality": 1,
+      "computed_criticality": 1.0,
+      "rationale": "Capacity resellers. The scarce asset is upstream \u2014 power and GPUs \u2014 not the reseller.",
+      "qualified_suppliers": 12,
+      "substitution_lead_time_months": 6,
+      "capacity_state": "balanced",
+      "confidence": "high",
+      "market_position": "one_of_several",
+      "constraint_type": "commercial"
     }
   },
   {
@@ -4987,7 +5527,7 @@
     "segment": "gpu_cloud",
     "also_operates": [],
     "verticals": [],
-    "updated_at": "2026-09-03",
+    "updated_at": "2026-09-04",
     "updated_by": "seed",
     "moat": {
       "summary": "Bitcoin miner converting powered shells to GPU cloud \u2014 the energy asset is the moat, not the compute.",
@@ -5075,7 +5615,7 @@
       }
     },
     "valuation": {
-      "as_of": "2026-09-03",
+      "as_of": "2026-09-04",
       "market_cap_usd_m": 13900.0,
       "enterprise_value_usd_m": 15766.8,
       "ev_revenue": 27.22,
@@ -5099,6 +5639,18 @@
       "fcf_conversion_pct": null,
       "roic_pct": null,
       "asset_intensity": "capital_heavy"
+    },
+    "bottleneck": {
+      "is_bottleneck": false,
+      "criticality": 1,
+      "computed_criticality": 1.0,
+      "rationale": "Capacity resellers. The scarce asset is upstream \u2014 power and GPUs \u2014 not the reseller.",
+      "qualified_suppliers": 12,
+      "substitution_lead_time_months": 6,
+      "capacity_state": "balanced",
+      "confidence": "high",
+      "market_position": "one_of_several",
+      "constraint_type": "commercial"
     }
   },
   {
@@ -5111,7 +5663,7 @@
     "segment": "reits",
     "also_operates": [],
     "verticals": [],
-    "updated_at": "2026-09-03",
+    "updated_at": "2026-09-04",
     "updated_by": "seed",
     "moat": {
       "summary": "Interconnection density is the moat; AI training is less interconnection-intensive than enterprise colo.",
@@ -5186,7 +5738,7 @@
       }
     },
     "valuation": {
-      "as_of": "2026-09-03",
+      "as_of": "2026-09-04",
       "market_cap_usd_m": 103183.7,
       "enterprise_value_usd_m": 122131.7,
       "ev_revenue": 11.63,
@@ -5210,6 +5762,18 @@
       "fcf_conversion_pct": null,
       "roic_pct": null,
       "asset_intensity": "capital_heavy"
+    },
+    "bottleneck": {
+      "is_bottleneck": false,
+      "criticality": 2,
+      "computed_criticality": 2.2,
+      "rationale": "Interconnection density is genuinely hard to replicate, though AI training is less interconnection-intensive than enterprise colocation.",
+      "qualified_suppliers": 6,
+      "substitution_lead_time_months": 36,
+      "capacity_state": "constrained",
+      "confidence": "medium",
+      "market_position": "co_leader",
+      "constraint_type": "physical"
     }
   },
   {
@@ -5222,7 +5786,7 @@
     "segment": "reits",
     "also_operates": [],
     "verticals": [],
-    "updated_at": "2026-09-03",
+    "updated_at": "2026-09-04",
     "updated_by": "seed",
     "moat": {
       "summary": "Hyperscale wholesale capacity; pre-leasing rates and power banked are the metrics.",
@@ -5281,7 +5845,7 @@
       }
     },
     "valuation": {
-      "as_of": "2026-09-03",
+      "as_of": "2026-09-04",
       "market_cap_usd_m": 66337.6,
       "enterprise_value_usd_m": 63910.9,
       "ev_revenue": 9.77,
@@ -5298,6 +5862,18 @@
         "url": "https://www.sec.gov/Archives/edgar/data/1297996/000110465926054255/0001104659-26-054255-index.htm",
         "as_of": "2026-09-03"
       }
+    },
+    "bottleneck": {
+      "is_bottleneck": false,
+      "criticality": 2,
+      "computed_criticality": 1.7,
+      "rationale": "Many operators, but powered shells near load centres are genuinely scarce and take years to permit and energise.",
+      "qualified_suppliers": 8,
+      "substitution_lead_time_months": 36,
+      "capacity_state": "constrained",
+      "confidence": "medium",
+      "market_position": "one_of_several",
+      "constraint_type": "physical"
     }
   },
   {
@@ -5313,7 +5889,7 @@
       "gpu_cloud"
     ],
     "verticals": [],
-    "updated_at": "2026-09-03",
+    "updated_at": "2026-09-04",
     "updated_by": "seed",
     "moat": {
       "summary": "Azure plus the OpenAI relationship plus Copilot. Spans three layers; primary placement is hyperscale.",
@@ -5401,7 +5977,7 @@
       }
     },
     "valuation": {
-      "as_of": "2026-09-03",
+      "as_of": "2026-09-04",
       "market_cap_usd_m": 3797843.4,
       "enterprise_value_usd_m": 3770521.4,
       "ev_revenue": 11.37,
@@ -5425,6 +6001,18 @@
       "fcf_conversion_pct": null,
       "roic_pct": null,
       "asset_intensity": "capital_heavy"
+    },
+    "bottleneck": {
+      "is_bottleneck": false,
+      "criticality": 2,
+      "computed_criticality": 1.5,
+      "rationale": "Cloud capacity is substitutable between the majors; frontier model quality is differentiated but multi-sourcing is now standard practice.",
+      "qualified_suppliers": 5,
+      "substitution_lead_time_months": 18,
+      "capacity_state": "constrained",
+      "confidence": "medium",
+      "market_position": "one_of_several",
+      "constraint_type": "commercial"
     }
   },
   {
@@ -5440,7 +6028,7 @@
       "robotics"
     ],
     "verticals": [],
-    "updated_at": "2026-09-03",
+    "updated_at": "2026-09-04",
     "updated_by": "seed",
     "moat": {
       "summary": "Only player owning the full stack \u2014 TPU silicon, DCs, frontier models, distribution. Printed first negative FCF since 2004 IPO on capex.",
@@ -5528,7 +6116,7 @@
       }
     },
     "valuation": {
-      "as_of": "2026-09-03",
+      "as_of": "2026-09-04",
       "market_cap_usd_m": 4215586.3,
       "enterprise_value_usd_m": 4024196.3,
       "ev_revenue": 8.4,
@@ -5552,6 +6140,18 @@
       "fcf_conversion_pct": null,
       "roic_pct": null,
       "asset_intensity": "capital_heavy"
+    },
+    "bottleneck": {
+      "is_bottleneck": false,
+      "criticality": 2,
+      "computed_criticality": 1.5,
+      "rationale": "Cloud capacity is substitutable between the majors; frontier model quality is differentiated but multi-sourcing is now standard practice.",
+      "qualified_suppliers": 5,
+      "substitution_lead_time_months": 18,
+      "capacity_state": "constrained",
+      "confidence": "medium",
+      "market_position": "one_of_several",
+      "constraint_type": "commercial"
     }
   },
   {
@@ -5567,7 +6167,7 @@
       "consumer_ai"
     ],
     "verticals": [],
-    "updated_at": "2026-09-03",
+    "updated_at": "2026-09-04",
     "updated_by": "seed",
     "moat": {
       "summary": "AWS plus Trainium/Inferentia silicon plus the Anthropic stake.",
@@ -5642,7 +6242,7 @@
       }
     },
     "valuation": {
-      "as_of": "2026-09-03",
+      "as_of": "2026-09-04",
       "market_cap_usd_m": 2822786.7,
       "enterprise_value_usd_m": 2836123.7,
       "ev_revenue": 3.53,
@@ -5666,6 +6266,18 @@
       "fcf_conversion_pct": null,
       "roic_pct": null,
       "asset_intensity": "capital_heavy"
+    },
+    "bottleneck": {
+      "is_bottleneck": false,
+      "criticality": 2,
+      "computed_criticality": 1.5,
+      "rationale": "Cloud capacity is substitutable between the majors; frontier model quality is differentiated but multi-sourcing is now standard practice.",
+      "qualified_suppliers": 5,
+      "substitution_lead_time_months": 18,
+      "capacity_state": "constrained",
+      "confidence": "medium",
+      "market_position": "one_of_several",
+      "constraint_type": "commercial"
     }
   },
   {
@@ -5680,7 +6292,7 @@
       "consumer_ai"
     ],
     "verticals": [],
-    "updated_at": "2026-09-03",
+    "updated_at": "2026-09-04",
     "updated_by": "seed",
     "moat": {
       "summary": "Capex without a cloud rental business to monetize it \u2014 the purest capex-vs-return test case.",
@@ -5768,7 +6380,7 @@
       }
     },
     "valuation": {
-      "as_of": "2026-09-03",
+      "as_of": "2026-09-04",
       "market_cap_usd_m": 1567004.9,
       "enterprise_value_usd_m": 1560408.9,
       "ev_revenue": 6.42,
@@ -5792,6 +6404,18 @@
       "fcf_conversion_pct": null,
       "roic_pct": null,
       "asset_intensity": "capital_heavy"
+    },
+    "bottleneck": {
+      "is_bottleneck": false,
+      "criticality": 2,
+      "computed_criticality": 1.5,
+      "rationale": "Cloud capacity is substitutable between the majors; frontier model quality is differentiated but multi-sourcing is now standard practice.",
+      "qualified_suppliers": 5,
+      "substitution_lead_time_months": 18,
+      "capacity_state": "constrained",
+      "confidence": "medium",
+      "market_position": "one_of_several",
+      "constraint_type": "commercial"
     }
   },
   {
@@ -5806,7 +6430,7 @@
       "gpu_cloud"
     ],
     "verticals": [],
-    "updated_at": "2026-09-03",
+    "updated_at": "2026-09-04",
     "updated_by": "seed",
     "moat": {
       "summary": "RPO exploded on OpenAI commitments; the debate is customer concentration and financing of the build.",
@@ -5881,7 +6505,7 @@
       }
     },
     "valuation": {
-      "as_of": "2026-09-03",
+      "as_of": "2026-09-04",
       "market_cap_usd_m": 448564.5,
       "enterprise_value_usd_m": 553410.5,
       "ev_revenue": 8.05,
@@ -5905,6 +6529,18 @@
       "fcf_conversion_pct": null,
       "roic_pct": null,
       "asset_intensity": "capital_heavy"
+    },
+    "bottleneck": {
+      "is_bottleneck": false,
+      "criticality": 2,
+      "computed_criticality": 1.5,
+      "rationale": "Cloud capacity is substitutable between the majors; frontier model quality is differentiated but multi-sourcing is now standard practice.",
+      "qualified_suppliers": 5,
+      "substitution_lead_time_months": 18,
+      "capacity_state": "constrained",
+      "confidence": "medium",
+      "market_position": "one_of_several",
+      "constraint_type": "commercial"
     }
   },
   {
@@ -5917,7 +6553,7 @@
     "segment": "hyperscale",
     "also_operates": [],
     "verticals": [],
-    "updated_at": "2026-09-03",
+    "updated_at": "2026-09-04",
     "updated_by": "seed",
     "moat": {
       "summary": "~$40B annualized as of Aug 2026, up from ~$20B at end-2025. Private: all figures are press-reported estimates.",
@@ -5967,6 +6603,18 @@
         "as_of": "2026-09-03"
       },
       "capital_consumed_per_arr_dollar": 1.6
+    },
+    "bottleneck": {
+      "is_bottleneck": false,
+      "criticality": 2,
+      "computed_criticality": 1.5,
+      "rationale": "Cloud capacity is substitutable between the majors; frontier model quality is differentiated but multi-sourcing is now standard practice.",
+      "qualified_suppliers": 5,
+      "substitution_lead_time_months": 18,
+      "capacity_state": "constrained",
+      "confidence": "medium",
+      "market_position": "one_of_several",
+      "constraint_type": "commercial"
     }
   },
   {
@@ -5979,7 +6627,7 @@
     "segment": "hyperscale",
     "also_operates": [],
     "verticals": [],
-    "updated_at": "2026-09-03",
+    "updated_at": "2026-09-04",
     "updated_by": "seed",
     "moat": {
       "summary": "~$65B run-rate end-July 2026, having passed OpenAI. Went ~$9B (end-2025) to $47B (May) to $65B (Jul). Enterprise/API weighted.",
@@ -6029,6 +6677,18 @@
         "as_of": "2026-09-03"
       },
       "capital_consumed_per_arr_dollar": 0.51
+    },
+    "bottleneck": {
+      "is_bottleneck": false,
+      "criticality": 2,
+      "computed_criticality": 1.5,
+      "rationale": "Cloud capacity is substitutable between the majors; frontier model quality is differentiated but multi-sourcing is now standard practice.",
+      "qualified_suppliers": 5,
+      "substitution_lead_time_months": 18,
+      "capacity_state": "constrained",
+      "confidence": "medium",
+      "market_position": "one_of_several",
+      "constraint_type": "commercial"
     }
   },
   {
@@ -6041,7 +6701,7 @@
     "segment": "hyperscale",
     "also_operates": [],
     "verticals": [],
-    "updated_at": "2026-09-03",
+    "updated_at": "2026-09-04",
     "updated_by": "seed",
     "moat": {
       "summary": "Colossus cluster; vertically integrated with its own power generation.",
@@ -6090,6 +6750,18 @@
         "as_of": "2026-09-03"
       },
       "capital_consumed_per_arr_dollar": 16.67
+    },
+    "bottleneck": {
+      "is_bottleneck": false,
+      "criticality": 2,
+      "computed_criticality": 1.5,
+      "rationale": "Cloud capacity is substitutable between the majors; frontier model quality is differentiated but multi-sourcing is now standard practice.",
+      "qualified_suppliers": 5,
+      "substitution_lead_time_months": 18,
+      "capacity_state": "constrained",
+      "confidence": "medium",
+      "market_position": "one_of_several",
+      "constraint_type": "commercial"
     }
   },
   {
@@ -6102,7 +6774,7 @@
     "segment": "mlops",
     "also_operates": [],
     "verticals": [],
-    "updated_at": "2026-09-03",
+    "updated_at": "2026-09-04",
     "updated_by": "seed",
     "moat": {
       "summary": "Enterprise data gravity is the moat; consumption model means AI workloads show up in revenue directly.",
@@ -6190,7 +6862,7 @@
       }
     },
     "valuation": {
-      "as_of": "2026-09-03",
+      "as_of": "2026-09-04",
       "market_cap_usd_m": 123121.5,
       "enterprise_value_usd_m": 120166.5,
       "ev_revenue": 21.6,
@@ -6214,6 +6886,18 @@
       "fcf_conversion_pct": null,
       "roic_pct": null,
       "asset_intensity": "ip_light"
+    },
+    "bottleneck": {
+      "is_bottleneck": false,
+      "criticality": 1,
+      "computed_criticality": 1.0,
+      "rationale": "Crowded. Data gravity creates switching cost, not supply scarcity \u2014 a different kind of moat entirely.",
+      "qualified_suppliers": 8,
+      "substitution_lead_time_months": 12,
+      "capacity_state": "balanced",
+      "confidence": "high",
+      "market_position": "one_of_several",
+      "constraint_type": "commercial"
     }
   },
   {
@@ -6226,7 +6910,7 @@
     "segment": "mlops",
     "also_operates": [],
     "verticals": [],
-    "updated_at": "2026-09-03",
+    "updated_at": "2026-09-04",
     "updated_by": "seed",
     "moat": {
       "summary": "Vector search inside the operational database \u2014 bundling against standalone vector DBs.",
@@ -6314,7 +6998,7 @@
       }
     },
     "valuation": {
-      "as_of": "2026-09-03",
+      "as_of": "2026-09-04",
       "market_cap_usd_m": 31523.2,
       "enterprise_value_usd_m": 29111.9,
       "ev_revenue": 9.43,
@@ -6338,6 +7022,18 @@
       "fcf_conversion_pct": null,
       "roic_pct": null,
       "asset_intensity": "ip_light"
+    },
+    "bottleneck": {
+      "is_bottleneck": false,
+      "criticality": 1,
+      "computed_criticality": 1.0,
+      "rationale": "Crowded. Data gravity creates switching cost, not supply scarcity \u2014 a different kind of moat entirely.",
+      "qualified_suppliers": 8,
+      "substitution_lead_time_months": 12,
+      "capacity_state": "balanced",
+      "confidence": "high",
+      "market_position": "one_of_several",
+      "constraint_type": "commercial"
     }
   },
   {
@@ -6350,7 +7046,7 @@
     "segment": "mlops",
     "also_operates": [],
     "verticals": [],
-    "updated_at": "2026-09-03",
+    "updated_at": "2026-09-04",
     "updated_by": "seed",
     "moat": {
       "summary": "LLM observability attach; AI-native customers are a visible cohort in its own disclosures.",
@@ -6438,7 +7134,7 @@
       }
     },
     "valuation": {
-      "as_of": "2026-09-03",
+      "as_of": "2026-09-04",
       "market_cap_usd_m": 79680.9,
       "enterprise_value_usd_m": 74695.5,
       "ev_revenue": 16.65,
@@ -6462,6 +7158,18 @@
       "fcf_conversion_pct": null,
       "roic_pct": null,
       "asset_intensity": "ip_light"
+    },
+    "bottleneck": {
+      "is_bottleneck": false,
+      "criticality": 1,
+      "computed_criticality": 1.0,
+      "rationale": "Crowded. Data gravity creates switching cost, not supply scarcity \u2014 a different kind of moat entirely.",
+      "qualified_suppliers": 8,
+      "substitution_lead_time_months": 12,
+      "capacity_state": "balanced",
+      "confidence": "high",
+      "market_position": "one_of_several",
+      "constraint_type": "commercial"
     }
   },
   {
@@ -6474,7 +7182,7 @@
     "segment": "mlops",
     "also_operates": [],
     "verticals": [],
-    "updated_at": "2026-09-03",
+    "updated_at": "2026-09-04",
     "updated_by": "seed",
     "moat": {
       "summary": "Private. Lakehouse plus MosaicML; the main Snowflake counterweight.",
@@ -6524,6 +7232,18 @@
         "as_of": "2026-09-03"
       },
       "capital_consumed_per_arr_dollar": 3.96
+    },
+    "bottleneck": {
+      "is_bottleneck": false,
+      "criticality": 1,
+      "computed_criticality": 1.0,
+      "rationale": "Crowded. Data gravity creates switching cost, not supply scarcity \u2014 a different kind of moat entirely.",
+      "qualified_suppliers": 8,
+      "substitution_lead_time_months": 12,
+      "capacity_state": "balanced",
+      "confidence": "high",
+      "market_position": "one_of_several",
+      "constraint_type": "commercial"
     }
   },
   {
@@ -6536,7 +7256,7 @@
     "segment": "data_rights",
     "also_operates": [],
     "verticals": [],
-    "updated_at": "2026-09-03",
+    "updated_at": "2026-09-04",
     "updated_by": "seed",
     "moat": {
       "summary": "Human-generated corpus under license to Google and OpenAI. Data licensing is high-margin and contractual.",
@@ -6624,7 +7344,7 @@
       }
     },
     "valuation": {
-      "as_of": "2026-09-03",
+      "as_of": "2026-09-04",
       "market_cap_usd_m": 31514.6,
       "enterprise_value_usd_m": 28728.3,
       "ev_revenue": 8.92,
@@ -6648,6 +7368,18 @@
       "fcf_conversion_pct": null,
       "roic_pct": null,
       "asset_intensity": "ip_light"
+    },
+    "bottleneck": {
+      "is_bottleneck": false,
+      "criticality": 2,
+      "computed_criticality": 2.0,
+      "rationale": "Large-scale human conversational data has few licensable sources \u2014 Reddit, X, Stack Overflow. Function-substitutable in principle, hard to replace in practice.",
+      "qualified_suppliers": 3,
+      "substitution_lead_time_months": 24,
+      "capacity_state": "constrained",
+      "confidence": "low",
+      "market_position": "one_of_several",
+      "constraint_type": "commercial"
     }
   },
   {
@@ -6660,7 +7392,7 @@
     "segment": "data_rights",
     "also_operates": [],
     "verticals": [],
-    "updated_at": "2026-09-03",
+    "updated_at": "2026-09-04",
     "updated_by": "seed",
     "moat": {
       "summary": "Proprietary legal corpus; won the Ross Intelligence copyright case, which set the tone for training-data litigation.",
@@ -6675,6 +7407,18 @@
       "is_estimate": true,
       "basis": "Foreign private issuer or filer without XBRL revenue tagging. Needs a press-sourced pass.",
       "confidence": "low"
+    },
+    "bottleneck": {
+      "is_bottleneck": false,
+      "criticality": 3,
+      "computed_criticality": 3.1,
+      "rationale": "Westlaw and LexisNexis are a functional duopoly over primary legal corpora, reinforced by the Ross Intelligence ruling. Substituting the corpus is not a procurement decision.",
+      "qualified_suppliers": 2,
+      "substitution_lead_time_months": 60,
+      "capacity_state": "balanced",
+      "confidence": "medium",
+      "market_position": "co_leader",
+      "constraint_type": "commercial"
     }
   },
   {
@@ -6687,7 +7431,7 @@
     "segment": "data_rights",
     "also_operates": [],
     "verticals": [],
-    "updated_at": "2026-09-03",
+    "updated_at": "2026-09-04",
     "updated_by": "seed",
     "moat": {
       "summary": "Scientific and legal corpora; LexisNexis and Elsevier are rivalrous training data.",
@@ -6702,6 +7446,18 @@
       "is_estimate": true,
       "basis": "Foreign private issuer or filer without XBRL revenue tagging. Needs a press-sourced pass.",
       "confidence": "low"
+    },
+    "bottleneck": {
+      "is_bottleneck": false,
+      "criticality": 3,
+      "computed_criticality": 3.1,
+      "rationale": "The other half of that duopoly, plus Elsevier over scientific literature.",
+      "qualified_suppliers": 2,
+      "substitution_lead_time_months": 60,
+      "capacity_state": "balanced",
+      "confidence": "medium",
+      "market_position": "co_leader",
+      "constraint_type": "commercial"
     }
   },
   {
@@ -6716,7 +7472,7 @@
     "verticals": [
       "consumer"
     ],
-    "updated_at": "2026-09-03",
+    "updated_at": "2026-09-04",
     "updated_by": "seed",
     "moat": {
       "summary": "ML-driven ad targeting \u2014 AI as the product engine rather than a feature.",
@@ -6788,7 +7544,7 @@
       }
     },
     "valuation": {
-      "as_of": "2026-09-03",
+      "as_of": "2026-09-04",
       "market_cap_usd_m": 105686.2,
       "enterprise_value_usd_m": 106145.9,
       "ev_revenue": 13.79,
@@ -6805,6 +7561,18 @@
         "url": "https://www.sec.gov/Archives/edgar/data/1751008/000175100826000059/0001751008-26-000059-index.htm",
         "as_of": "2026-09-03"
       }
+    },
+    "bottleneck": {
+      "is_bottleneck": false,
+      "criticality": 1,
+      "computed_criticality": 1.0,
+      "rationale": "Distribution is the moat; nothing here is a supply chokepoint.",
+      "qualified_suppliers": 12,
+      "substitution_lead_time_months": 12,
+      "capacity_state": "balanced",
+      "confidence": "medium",
+      "market_position": "one_of_several",
+      "constraint_type": "commercial"
     }
   },
   {
@@ -6819,7 +7587,7 @@
     "verticals": [
       "consumer"
     ],
-    "updated_at": "2026-09-03",
+    "updated_at": "2026-09-04",
     "updated_by": "seed",
     "moat": {
       "summary": "Recommendation and production tooling; AI is margin support, not a revenue line.",
@@ -6894,7 +7662,7 @@
       }
     },
     "valuation": {
-      "as_of": "2026-09-03",
+      "as_of": "2026-09-04",
       "market_cap_usd_m": 352281.7,
       "enterprise_value_usd_m": 357463.1,
       "ev_revenue": 7.12,
@@ -6918,6 +7686,18 @@
       "fcf_conversion_pct": null,
       "roic_pct": null,
       "asset_intensity": "balanced"
+    },
+    "bottleneck": {
+      "is_bottleneck": false,
+      "criticality": 1,
+      "computed_criticality": 1.0,
+      "rationale": "Distribution is the moat; nothing here is a supply chokepoint.",
+      "qualified_suppliers": 12,
+      "substitution_lead_time_months": 12,
+      "capacity_state": "balanced",
+      "confidence": "medium",
+      "market_position": "one_of_several",
+      "constraint_type": "commercial"
     }
   },
   {
@@ -6932,7 +7712,7 @@
     "verticals": [
       "security"
     ],
-    "updated_at": "2026-09-03",
+    "updated_at": "2026-09-04",
     "updated_by": "seed",
     "moat": {
       "summary": "Telemetry scale is the data moat; agentic SOC is the expansion vector.",
@@ -7020,7 +7800,7 @@
       }
     },
     "valuation": {
-      "as_of": "2026-09-03",
+      "as_of": "2026-09-04",
       "market_cap_usd_m": 224529.5,
       "enterprise_value_usd_m": 220261.9,
       "ev_revenue": 37.44,
@@ -7044,6 +7824,18 @@
       "fcf_conversion_pct": null,
       "roic_pct": null,
       "asset_intensity": "ip_light"
+    },
+    "bottleneck": {
+      "is_bottleneck": false,
+      "criticality": 1,
+      "computed_criticality": 1.0,
+      "rationale": "Consolidating, but buyers have real choice.",
+      "qualified_suppliers": 10,
+      "substitution_lead_time_months": 12,
+      "capacity_state": "balanced",
+      "confidence": "medium",
+      "market_position": "one_of_several",
+      "constraint_type": "commercial"
     }
   },
   {
@@ -7058,7 +7850,7 @@
     "verticals": [
       "security"
     ],
-    "updated_at": "2026-09-03",
+    "updated_at": "2026-09-04",
     "updated_by": "seed",
     "moat": {
       "summary": "Platformization plus AI security posture management.",
@@ -7146,7 +7938,7 @@
       }
     },
     "valuation": {
-      "as_of": "2026-09-03",
+      "as_of": "2026-09-04",
       "market_cap_usd_m": 265883.9,
       "enterprise_value_usd_m": 262772.9,
       "ev_revenue": 21.88,
@@ -7170,6 +7962,18 @@
       "fcf_conversion_pct": null,
       "roic_pct": null,
       "asset_intensity": "ip_light"
+    },
+    "bottleneck": {
+      "is_bottleneck": false,
+      "criticality": 1,
+      "computed_criticality": 1.0,
+      "rationale": "Consolidating, but buyers have real choice.",
+      "qualified_suppliers": 10,
+      "substitution_lead_time_months": 12,
+      "capacity_state": "balanced",
+      "confidence": "medium",
+      "market_position": "one_of_several",
+      "constraint_type": "commercial"
     }
   },
   {
@@ -7185,7 +7989,7 @@
       "security",
       "developer"
     ],
-    "updated_at": "2026-09-03",
+    "updated_at": "2026-09-04",
     "updated_by": "seed",
     "moat": {
       "summary": "Edge inference plus the pay-per-crawl stance on AI scrapers \u2014 a rare toll on training data.",
@@ -7273,7 +8077,7 @@
       }
     },
     "valuation": {
-      "as_of": "2026-09-03",
+      "as_of": "2026-09-04",
       "market_cap_usd_m": 100811.6,
       "enterprise_value_usd_m": 96648.8,
       "ev_revenue": 34.71,
@@ -7297,6 +8101,18 @@
       "fcf_conversion_pct": null,
       "roic_pct": null,
       "asset_intensity": "ip_light"
+    },
+    "bottleneck": {
+      "is_bottleneck": false,
+      "criticality": 1,
+      "computed_criticality": 1.0,
+      "rationale": "Consolidating, but buyers have real choice.",
+      "qualified_suppliers": 10,
+      "substitution_lead_time_months": 12,
+      "capacity_state": "balanced",
+      "confidence": "medium",
+      "market_position": "one_of_several",
+      "constraint_type": "commercial"
     }
   },
   {
@@ -7311,7 +8127,7 @@
     "verticals": [
       "horizontal"
     ],
-    "updated_at": "2026-09-03",
+    "updated_at": "2026-09-04",
     "updated_by": "seed",
     "moat": {
       "summary": "Workflow system of record; agentic AI upsell into an installed base with real switching costs.",
@@ -7399,7 +8215,7 @@
       }
     },
     "valuation": {
-      "as_of": "2026-09-03",
+      "as_of": "2026-09-04",
       "market_cap_usd_m": 150588.7,
       "enterprise_value_usd_m": 153441.7,
       "ev_revenue": 9.62,
@@ -7423,6 +8239,18 @@
       "fcf_conversion_pct": null,
       "roic_pct": null,
       "asset_intensity": "ip_light"
+    },
+    "bottleneck": {
+      "is_bottleneck": false,
+      "criticality": 1,
+      "computed_criticality": 1.0,
+      "rationale": "Switching costs come from workflow entrenchment, not scarcity.",
+      "qualified_suppliers": 12,
+      "substitution_lead_time_months": 12,
+      "capacity_state": "balanced",
+      "confidence": "medium",
+      "market_position": "one_of_several",
+      "constraint_type": "commercial"
     }
   },
   {
@@ -7437,7 +8265,7 @@
     "verticals": [
       "horizontal"
     ],
-    "updated_at": "2026-09-03",
+    "updated_at": "2026-09-04",
     "updated_by": "seed",
     "moat": {
       "summary": "Agentforce monetization is the key debate \u2014 seat model versus consumption as agents replace seats.",
@@ -7525,7 +8353,7 @@
       }
     },
     "valuation": {
-      "as_of": "2026-09-03",
+      "as_of": "2026-09-04",
       "market_cap_usd_m": 217097.0,
       "enterprise_value_usd_m": 244982.0,
       "ev_revenue": 5.4,
@@ -7549,6 +8377,18 @@
       "fcf_conversion_pct": null,
       "roic_pct": null,
       "asset_intensity": "ip_light"
+    },
+    "bottleneck": {
+      "is_bottleneck": false,
+      "criticality": 1,
+      "computed_criticality": 1.0,
+      "rationale": "Switching costs come from workflow entrenchment, not scarcity.",
+      "qualified_suppliers": 12,
+      "substitution_lead_time_months": 12,
+      "capacity_state": "balanced",
+      "confidence": "medium",
+      "market_position": "one_of_several",
+      "constraint_type": "commercial"
     }
   },
   {
@@ -7564,7 +8404,7 @@
       "defense",
       "horizontal"
     ],
-    "updated_at": "2026-09-03",
+    "updated_at": "2026-09-04",
     "updated_by": "seed",
     "moat": {
       "summary": "Ontology plus government entrenchment; valuation is the entire bear case.",
@@ -7652,7 +8492,7 @@
       }
     },
     "valuation": {
-      "as_of": "2026-09-03",
+      "as_of": "2026-09-04",
       "market_cap_usd_m": 468863.7,
       "enterprise_value_usd_m": 459454.6,
       "ev_revenue": 59.35,
@@ -7676,6 +8516,18 @@
       "fcf_conversion_pct": null,
       "roic_pct": null,
       "asset_intensity": "ip_light"
+    },
+    "bottleneck": {
+      "is_bottleneck": false,
+      "criticality": 1,
+      "computed_criticality": 1.0,
+      "rationale": "Switching costs come from workflow entrenchment, not scarcity.",
+      "qualified_suppliers": 12,
+      "substitution_lead_time_months": 12,
+      "capacity_state": "balanced",
+      "confidence": "medium",
+      "market_position": "one_of_several",
+      "constraint_type": "commercial"
     }
   },
   {
@@ -7690,7 +8542,7 @@
     "verticals": [
       "developer"
     ],
-    "updated_at": "2026-09-03",
+    "updated_at": "2026-09-04",
     "updated_by": "seed",
     "moat": {
       "summary": "Private. Fastest-scaling AI-native developer tool; gross margin depends entirely on model input costs it does not control.",
@@ -7740,6 +8592,18 @@
         "as_of": "2026-09-03"
       },
       "capital_consumed_per_arr_dollar": 3.0
+    },
+    "bottleneck": {
+      "is_bottleneck": false,
+      "criticality": 1,
+      "computed_criticality": 1.0,
+      "rationale": "Switching costs come from workflow entrenchment, not scarcity.",
+      "qualified_suppliers": 12,
+      "substitution_lead_time_months": 12,
+      "capacity_state": "balanced",
+      "confidence": "medium",
+      "market_position": "one_of_several",
+      "constraint_type": "commercial"
     }
   },
   {
@@ -7754,7 +8618,7 @@
     "verticals": [
       "healthcare"
     ],
-    "updated_at": "2026-09-03",
+    "updated_at": "2026-09-04",
     "updated_by": "seed",
     "moat": {
       "summary": "Multimodal clinical-genomic data; the data asset is the moat, diagnostics is the wedge.",
@@ -7834,6 +8698,18 @@
       "fcf_conversion_pct": null,
       "roic_pct": null,
       "asset_intensity": "balanced"
+    },
+    "bottleneck": {
+      "is_bottleneck": false,
+      "criticality": 1,
+      "computed_criticality": 1.2,
+      "rationale": "Regulatory clearance and health-system integration are the barriers \u2014 slow to substitute, but not supply-constrained.",
+      "qualified_suppliers": 8,
+      "substitution_lead_time_months": 24,
+      "capacity_state": "balanced",
+      "confidence": "low",
+      "market_position": "one_of_several",
+      "constraint_type": "commercial"
     }
   },
   {
@@ -7848,7 +8724,7 @@
     "verticals": [
       "healthcare"
     ],
-    "updated_at": "2026-09-03",
+    "updated_at": "2026-09-04",
     "updated_by": "seed",
     "moat": {
       "summary": "Life-sciences system of record; regulated workflows are extremely sticky.",
@@ -7920,7 +8796,7 @@
       }
     },
     "valuation": {
-      "as_of": "2026-09-03",
+      "as_of": "2026-09-04",
       "market_cap_usd_m": 46938.9,
       "enterprise_value_usd_m": 39696.0,
       "ev_revenue": 10.69,
@@ -7937,6 +8813,18 @@
         "url": "https://www.sec.gov/Archives/edgar/data/1393052/000139305226000036/0001393052-26-000036-index.htm",
         "as_of": "2026-09-03"
       }
+    },
+    "bottleneck": {
+      "is_bottleneck": false,
+      "criticality": 1,
+      "computed_criticality": 1.2,
+      "rationale": "Regulatory clearance and health-system integration are the barriers \u2014 slow to substitute, but not supply-constrained.",
+      "qualified_suppliers": 8,
+      "substitution_lead_time_months": 24,
+      "capacity_state": "balanced",
+      "confidence": "low",
+      "market_position": "one_of_several",
+      "constraint_type": "commercial"
     }
   },
   {
@@ -7951,7 +8839,7 @@
     "verticals": [
       "healthcare"
     ],
-    "updated_at": "2026-09-03",
+    "updated_at": "2026-09-04",
     "updated_by": "seed",
     "moat": {
       "summary": "AI-first drug discovery; the thesis rests on clinical readouts, not software metrics.",
@@ -8039,7 +8927,7 @@
       }
     },
     "valuation": {
-      "as_of": "2026-09-03",
+      "as_of": "2026-09-04",
       "market_cap_usd_m": 1831.7,
       "enterprise_value_usd_m": 1286.0,
       "ev_revenue": 41.89,
@@ -8063,6 +8951,18 @@
       "fcf_conversion_pct": null,
       "roic_pct": null,
       "asset_intensity": "pass_through"
+    },
+    "bottleneck": {
+      "is_bottleneck": false,
+      "criticality": 1,
+      "computed_criticality": 1.2,
+      "rationale": "Regulatory clearance and health-system integration are the barriers \u2014 slow to substitute, but not supply-constrained.",
+      "qualified_suppliers": 8,
+      "substitution_lead_time_months": 24,
+      "capacity_state": "balanced",
+      "confidence": "low",
+      "market_position": "one_of_several",
+      "constraint_type": "commercial"
     }
   },
   {
@@ -8078,7 +8978,7 @@
       "consumer",
       "industrial"
     ],
-    "updated_at": "2026-09-03",
+    "updated_at": "2026-09-04",
     "updated_by": "seed",
     "moat": {
       "summary": "Real-world video data flywheel plus Dojo/AI5 silicon; autonomy and Optimus are the AI-levered pieces.",
@@ -8166,7 +9066,7 @@
       }
     },
     "valuation": {
-      "as_of": "2026-09-03",
+      "as_of": "2026-09-04",
       "market_cap_usd_m": 1332332.1,
       "enterprise_value_usd_m": 1297869.1,
       "ev_revenue": 11.49,
@@ -8190,6 +9090,18 @@
       "fcf_conversion_pct": null,
       "roic_pct": null,
       "asset_intensity": "pass_through"
+    },
+    "bottleneck": {
+      "is_bottleneck": false,
+      "criticality": 1,
+      "computed_criticality": 1.2,
+      "rationale": "Too early for supply constraints to be meaningful; the constraint is capability, not capacity.",
+      "qualified_suppliers": 6,
+      "substitution_lead_time_months": 36,
+      "capacity_state": "balanced",
+      "confidence": "low",
+      "market_position": "one_of_several",
+      "constraint_type": "commercial"
     }
   },
   {
@@ -8204,7 +9116,7 @@
     "verticals": [
       "industrial"
     ],
-    "updated_at": "2026-09-03",
+    "updated_at": "2026-09-04",
     "updated_by": "seed",
     "moat": {
       "summary": "ADAS silicon and stack; design-win cycles are long and OEM-dependent.",
@@ -8292,7 +9204,7 @@
       }
     },
     "valuation": {
-      "as_of": "2026-09-03",
+      "as_of": "2026-09-04",
       "market_cap_usd_m": 6805.8,
       "enterprise_value_usd_m": 4423.8,
       "ev_revenue": 2.18,
@@ -8318,6 +9230,18 @@
       "fcf_conversion_pct": null,
       "roic_pct": null,
       "asset_intensity": "pass_through"
+    },
+    "bottleneck": {
+      "is_bottleneck": false,
+      "criticality": 1,
+      "computed_criticality": 1.2,
+      "rationale": "Too early for supply constraints to be meaningful; the constraint is capability, not capacity.",
+      "qualified_suppliers": 6,
+      "substitution_lead_time_months": 36,
+      "capacity_state": "balanced",
+      "confidence": "low",
+      "market_position": "one_of_several",
+      "constraint_type": "commercial"
     }
   },
   {
@@ -8332,7 +9256,7 @@
     "verticals": [
       "industrial"
     ],
-    "updated_at": "2026-09-03",
+    "updated_at": "2026-09-04",
     "updated_by": "seed",
     "moat": {
       "summary": "Warehouse automation with heavy Walmart concentration \u2014 a textbook customer-concentration case.",
@@ -8404,7 +9328,7 @@
       }
     },
     "valuation": {
-      "as_of": "2026-09-03",
+      "as_of": "2026-09-04",
       "market_cap_usd_m": 5543.3,
       "enterprise_value_usd_m": 3796.9,
       "ev_revenue": 1.32,
@@ -8421,6 +9345,18 @@
         "url": "https://www.sec.gov/Archives/edgar/data/1837240/000183724026000043/0001837240-26-000043-index.htm",
         "as_of": "2026-09-03"
       }
+    },
+    "bottleneck": {
+      "is_bottleneck": false,
+      "criticality": 1,
+      "computed_criticality": 1.2,
+      "rationale": "Too early for supply constraints to be meaningful; the constraint is capability, not capacity.",
+      "qualified_suppliers": 6,
+      "substitution_lead_time_months": 36,
+      "capacity_state": "balanced",
+      "confidence": "low",
+      "market_position": "one_of_several",
+      "constraint_type": "commercial"
     }
   },
   {
@@ -8485,7 +9421,19 @@
       "capital_consumed_per_arr_dollar": 7.0
     },
     "updated_at": "2026-09-03",
-    "updated_by": "seed"
+    "updated_by": "seed",
+    "bottleneck": {
+      "is_bottleneck": false,
+      "criticality": 1,
+      "computed_criticality": 1.0,
+      "rationale": "Distribution is the moat; nothing here is a supply chokepoint.",
+      "qualified_suppliers": 12,
+      "substitution_lead_time_months": 12,
+      "capacity_state": "balanced",
+      "confidence": "medium",
+      "market_position": "one_of_several",
+      "constraint_type": "commercial"
+    }
   },
   {
     "id": "mistral",
@@ -8547,7 +9495,19 @@
       "capital_consumed_per_arr_dollar": 21.33
     },
     "updated_at": "2026-09-03",
-    "updated_by": "seed"
+    "updated_by": "seed",
+    "bottleneck": {
+      "is_bottleneck": false,
+      "criticality": 2,
+      "computed_criticality": 1.5,
+      "rationale": "Cloud capacity is substitutable between the majors; frontier model quality is differentiated but multi-sourcing is now standard practice.",
+      "qualified_suppliers": 5,
+      "substitution_lead_time_months": 18,
+      "capacity_state": "constrained",
+      "confidence": "medium",
+      "market_position": "one_of_several",
+      "constraint_type": "commercial"
+    }
   },
   {
     "id": "harvey",
@@ -8611,7 +9571,19 @@
       "capital_consumed_per_arr_dollar": 5.56
     },
     "updated_at": "2026-09-03",
-    "updated_by": "seed"
+    "updated_by": "seed",
+    "bottleneck": {
+      "is_bottleneck": false,
+      "criticality": 1,
+      "computed_criticality": 1.0,
+      "rationale": "Switching costs come from workflow entrenchment, not scarcity.",
+      "qualified_suppliers": 12,
+      "substitution_lead_time_months": 12,
+      "capacity_state": "balanced",
+      "confidence": "medium",
+      "market_position": "one_of_several",
+      "constraint_type": "commercial"
+    }
   },
   {
     "id": "abridge",
@@ -8675,7 +9647,19 @@
       "capital_consumed_per_arr_dollar": 6.67
     },
     "updated_at": "2026-09-03",
-    "updated_by": "seed"
+    "updated_by": "seed",
+    "bottleneck": {
+      "is_bottleneck": false,
+      "criticality": 1,
+      "computed_criticality": 1.2,
+      "rationale": "Regulatory clearance and health-system integration are the barriers \u2014 slow to substitute, but not supply-constrained.",
+      "qualified_suppliers": 8,
+      "substitution_lead_time_months": 24,
+      "capacity_state": "balanced",
+      "confidence": "low",
+      "market_position": "one_of_several",
+      "constraint_type": "commercial"
+    }
   },
   {
     "id": "glean",
@@ -8739,7 +9723,19 @@
       "capital_consumed_per_arr_dollar": 6.0
     },
     "updated_at": "2026-09-03",
-    "updated_by": "seed"
+    "updated_by": "seed",
+    "bottleneck": {
+      "is_bottleneck": false,
+      "criticality": 1,
+      "computed_criticality": 1.0,
+      "rationale": "Crowded. Data gravity creates switching cost, not supply scarcity \u2014 a different kind of moat entirely.",
+      "qualified_suppliers": 8,
+      "substitution_lead_time_months": 12,
+      "capacity_state": "balanced",
+      "confidence": "high",
+      "market_position": "one_of_several",
+      "constraint_type": "commercial"
+    }
   },
   {
     "id": "scale_ai",
@@ -8801,7 +9797,19 @@
       "capital_consumed_per_arr_dollar": 11.43
     },
     "updated_at": "2026-09-03",
-    "updated_by": "seed"
+    "updated_by": "seed",
+    "bottleneck": {
+      "is_bottleneck": false,
+      "criticality": 2,
+      "computed_criticality": 1.7,
+      "rationale": "Corpora are non-fungible in kind but often substitutable in function. Litigation is reshaping this faster than any supply dynamic.",
+      "qualified_suppliers": 4,
+      "substitution_lead_time_months": 24,
+      "capacity_state": "constrained",
+      "confidence": "low",
+      "market_position": "one_of_several",
+      "constraint_type": "commercial"
+    }
   },
   {
     "id": "together_ai",
@@ -8864,7 +9872,19 @@
       "capital_consumed_per_arr_dollar": 3.32
     },
     "updated_at": "2026-09-03",
-    "updated_by": "seed"
+    "updated_by": "seed",
+    "bottleneck": {
+      "is_bottleneck": false,
+      "criticality": 1,
+      "computed_criticality": 1.0,
+      "rationale": "Capacity resellers. The scarce asset is upstream \u2014 power and GPUs \u2014 not the reseller.",
+      "qualified_suppliers": 12,
+      "substitution_lead_time_months": 6,
+      "capacity_state": "balanced",
+      "confidence": "high",
+      "market_position": "one_of_several",
+      "constraint_type": "commercial"
+    }
   },
   {
     "id": "groq",
@@ -8926,7 +9946,19 @@
       "capital_consumed_per_arr_dollar": 20.0
     },
     "updated_at": "2026-09-03",
-    "updated_by": "seed"
+    "updated_by": "seed",
+    "bottleneck": {
+      "is_bottleneck": false,
+      "criticality": 3,
+      "computed_criticality": 2.6,
+      "rationale": "Nvidia, AMD, and the hyperscaler-custom-ASIC path. Software migration is the switching cost, not silicon availability.",
+      "qualified_suppliers": 3,
+      "substitution_lead_time_months": 24,
+      "capacity_state": "constrained",
+      "confidence": "high",
+      "market_position": "one_of_several",
+      "constraint_type": "physical"
+    }
   },
   {
     "id": "cerebras",
@@ -8988,7 +10020,19 @@
       "capital_consumed_per_arr_dollar": 3.8
     },
     "updated_at": "2026-09-03",
-    "updated_by": "seed"
+    "updated_by": "seed",
+    "bottleneck": {
+      "is_bottleneck": false,
+      "criticality": 3,
+      "computed_criticality": 2.6,
+      "rationale": "Nvidia, AMD, and the hyperscaler-custom-ASIC path. Software migration is the switching cost, not silicon availability.",
+      "qualified_suppliers": 3,
+      "substitution_lead_time_months": 24,
+      "capacity_state": "constrained",
+      "confidence": "high",
+      "market_position": "one_of_several",
+      "constraint_type": "physical"
+    }
   },
   {
     "id": "figure_ai",
@@ -9053,7 +10097,19 @@
       "capital_consumed_per_arr_dollar": 200.0
     },
     "updated_at": "2026-09-03",
-    "updated_by": "seed"
+    "updated_by": "seed",
+    "bottleneck": {
+      "is_bottleneck": false,
+      "criticality": 1,
+      "computed_criticality": 1.2,
+      "rationale": "Too early for supply constraints to be meaningful; the constraint is capability, not capacity.",
+      "qualified_suppliers": 6,
+      "substitution_lead_time_months": 36,
+      "capacity_state": "balanced",
+      "confidence": "low",
+      "market_position": "one_of_several",
+      "constraint_type": "commercial"
+    }
   },
   {
     "id": "physical_intelligence",
@@ -9118,7 +10174,19 @@
       "capital_consumed_per_arr_dollar": 180.0
     },
     "updated_at": "2026-09-03",
-    "updated_by": "seed"
+    "updated_by": "seed",
+    "bottleneck": {
+      "is_bottleneck": false,
+      "criticality": 1,
+      "computed_criticality": 1.2,
+      "rationale": "Too early for supply constraints to be meaningful; the constraint is capability, not capacity.",
+      "qualified_suppliers": 6,
+      "substitution_lead_time_months": 36,
+      "capacity_state": "balanced",
+      "confidence": "low",
+      "market_position": "one_of_several",
+      "constraint_type": "commercial"
+    }
   },
   {
     "id": "applied_intuition",
@@ -9183,7 +10251,19 @@
       "capital_consumed_per_arr_dollar": 4.5
     },
     "updated_at": "2026-09-03",
-    "updated_by": "seed"
+    "updated_by": "seed",
+    "bottleneck": {
+      "is_bottleneck": false,
+      "criticality": 1,
+      "computed_criticality": 1.2,
+      "rationale": "Too early for supply constraints to be meaningful; the constraint is capability, not capacity.",
+      "qualified_suppliers": 6,
+      "substitution_lead_time_months": 36,
+      "capacity_state": "balanced",
+      "confidence": "low",
+      "market_position": "one_of_several",
+      "constraint_type": "commercial"
+    }
   },
   {
     "id": "anduril",
@@ -9247,7 +10327,19 @@
       "capital_consumed_per_arr_dollar": 6.0
     },
     "updated_at": "2026-09-03",
-    "updated_by": "seed"
+    "updated_by": "seed",
+    "bottleneck": {
+      "is_bottleneck": false,
+      "criticality": 2,
+      "computed_criticality": 1.7,
+      "rationale": "Defence procurement qualification is the barrier; cleared production capacity is genuinely scarce.",
+      "qualified_suppliers": 4,
+      "substitution_lead_time_months": 36,
+      "capacity_state": "constrained",
+      "confidence": "low",
+      "market_position": "one_of_several",
+      "constraint_type": "commercial"
+    }
   },
   {
     "id": "waymo",
@@ -9311,7 +10403,19 @@
       "capital_consumed_per_arr_dollar": 36.67
     },
     "updated_at": "2026-09-03",
-    "updated_by": "seed"
+    "updated_by": "seed",
+    "bottleneck": {
+      "is_bottleneck": false,
+      "criticality": 3,
+      "computed_criticality": 2.8,
+      "rationale": "Only US operator driverless at commercial scale in multiple metros. A capability lead, not a supply constraint.",
+      "qualified_suppliers": 3,
+      "substitution_lead_time_months": 36,
+      "capacity_state": "balanced",
+      "confidence": "low",
+      "market_position": "dominant",
+      "constraint_type": "commercial"
+    }
   },
   {
     "id": "crusoe",
@@ -9373,6 +10477,18 @@
       "capital_consumed_per_arr_dollar": 4.38
     },
     "updated_at": "2026-09-03",
-    "updated_by": "seed"
+    "updated_by": "seed",
+    "bottleneck": {
+      "is_bottleneck": false,
+      "criticality": 1,
+      "computed_criticality": 1.0,
+      "rationale": "Capacity resellers. The scarce asset is upstream \u2014 power and GPUs \u2014 not the reseller.",
+      "qualified_suppliers": 12,
+      "substitution_lead_time_months": 6,
+      "capacity_state": "balanced",
+      "confidence": "high",
+      "market_position": "one_of_several",
+      "constraint_type": "commercial"
+    }
   }
 ]
