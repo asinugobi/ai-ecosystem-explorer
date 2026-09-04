@@ -131,6 +131,7 @@
       "substitution_lead_time_months": 48,
       "capacity_state": "sold_out",
       "confidence": "high",
+      "evidence_source": "company",
       "market_position": "co_leader",
       "constraint_type": "physical"
     }
@@ -267,6 +268,7 @@
       "substitution_lead_time_months": 9,
       "capacity_state": "balanced",
       "confidence": "medium",
+      "evidence_source": "company",
       "market_position": "one_of_several",
       "constraint_type": "physical"
     }
@@ -403,6 +405,7 @@
       "substitution_lead_time_months": 12,
       "capacity_state": "constrained",
       "confidence": "medium",
+      "evidence_source": "company",
       "market_position": "one_of_several",
       "constraint_type": "physical"
     }
@@ -526,6 +529,7 @@
       "substitution_lead_time_months": 120,
       "capacity_state": "constrained",
       "confidence": "medium",
+      "evidence_source": "company",
       "market_position": "co_leader",
       "constraint_type": "physical"
     }
@@ -649,6 +653,7 @@
       "substitution_lead_time_months": 120,
       "capacity_state": "constrained",
       "confidence": "medium",
+      "evidence_source": "segment",
       "market_position": "one_of_several",
       "constraint_type": "physical"
     }
@@ -688,6 +693,7 @@
       "substitution_lead_time_months": 120,
       "capacity_state": "constrained",
       "confidence": "medium",
+      "evidence_source": "segment",
       "market_position": "one_of_several",
       "constraint_type": "physical"
     }
@@ -788,6 +794,7 @@
       "substitution_lead_time_months": 24,
       "capacity_state": "balanced",
       "confidence": "medium",
+      "evidence_source": "segment",
       "market_position": "one_of_several",
       "constraint_type": "physical"
     }
@@ -911,6 +918,7 @@
       "substitution_lead_time_months": 120,
       "capacity_state": "constrained",
       "confidence": "medium",
+      "evidence_source": "company",
       "market_position": "one_of_several",
       "constraint_type": "physical"
     }
@@ -1011,6 +1019,7 @@
       "substitution_lead_time_months": 36,
       "capacity_state": "constrained",
       "confidence": "medium",
+      "evidence_source": "segment",
       "market_position": "one_of_several",
       "constraint_type": "physical"
     }
@@ -1147,6 +1156,7 @@
       "substitution_lead_time_months": 12,
       "capacity_state": "constrained",
       "confidence": "medium",
+      "evidence_source": "segment",
       "market_position": "one_of_several",
       "constraint_type": "physical"
     }
@@ -1283,6 +1293,7 @@
       "substitution_lead_time_months": 12,
       "capacity_state": "constrained",
       "confidence": "medium",
+      "evidence_source": "segment",
       "market_position": "one_of_several",
       "constraint_type": "physical"
     }
@@ -1419,6 +1430,7 @@
       "substitution_lead_time_months": 12,
       "capacity_state": "constrained",
       "confidence": "medium",
+      "evidence_source": "segment",
       "market_position": "one_of_several",
       "constraint_type": "physical"
     }
@@ -1542,6 +1554,7 @@
       "substitution_lead_time_months": 30,
       "capacity_state": "sold_out",
       "confidence": "high",
+      "evidence_source": "company",
       "market_position": "co_leader",
       "constraint_type": "physical"
     }
@@ -1678,6 +1691,7 @@
       "substitution_lead_time_months": 30,
       "capacity_state": "sold_out",
       "confidence": "high",
+      "evidence_source": "segment",
       "market_position": "one_of_several",
       "constraint_type": "physical"
     }
@@ -1814,6 +1828,7 @@
       "substitution_lead_time_months": 18,
       "capacity_state": "constrained",
       "confidence": "medium",
+      "evidence_source": "segment",
       "market_position": "one_of_several",
       "constraint_type": "physical"
     }
@@ -1950,6 +1965,7 @@
       "substitution_lead_time_months": 18,
       "capacity_state": "constrained",
       "confidence": "medium",
+      "evidence_source": "segment",
       "market_position": "one_of_several",
       "constraint_type": "physical"
     }
@@ -2089,6 +2105,7 @@
       "substitution_lead_time_months": 24,
       "capacity_state": "constrained",
       "confidence": "high",
+      "evidence_source": "company",
       "market_position": "dominant",
       "constraint_type": "physical"
     }
@@ -2225,6 +2242,7 @@
       "substitution_lead_time_months": 24,
       "capacity_state": "constrained",
       "confidence": "high",
+      "evidence_source": "company",
       "market_position": "one_of_several",
       "constraint_type": "physical"
     }
@@ -2363,6 +2381,7 @@
       "substitution_lead_time_months": 24,
       "capacity_state": "constrained",
       "confidence": "high",
+      "evidence_source": "company",
       "market_position": "co_leader",
       "constraint_type": "physical"
     }
@@ -2501,6 +2520,7 @@
       "substitution_lead_time_months": 24,
       "capacity_state": "constrained",
       "confidence": "medium",
+      "evidence_source": "company",
       "market_position": "one_of_several",
       "constraint_type": "physical"
     }
@@ -2624,6 +2644,7 @@
       "substitution_lead_time_months": 36,
       "capacity_state": "balanced",
       "confidence": "medium",
+      "evidence_source": "company",
       "market_position": "dominant",
       "constraint_type": "commercial"
     }
@@ -2760,6 +2781,7 @@
       "substitution_lead_time_months": 24,
       "capacity_state": "sold_out",
       "confidence": "high",
+      "evidence_source": "company",
       "market_position": "co_leader",
       "constraint_type": "physical"
     }
@@ -2896,6 +2918,7 @@
       "substitution_lead_time_months": 18,
       "capacity_state": "constrained",
       "confidence": "medium",
+      "evidence_source": "company",
       "market_position": "one_of_several",
       "constraint_type": "physical"
     }
@@ -3032,6 +3055,7 @@
       "substitution_lead_time_months": 24,
       "capacity_state": "constrained",
       "confidence": "medium",
+      "evidence_source": "company",
       "market_position": "co_leader",
       "constraint_type": "physical"
     }
@@ -3071,6 +3095,7 @@
       "substitution_lead_time_months": 60,
       "capacity_state": "sold_out",
       "confidence": "high",
+      "evidence_source": "company",
       "market_position": "sole",
       "constraint_type": "physical"
     }
@@ -3207,6 +3232,7 @@
       "substitution_lead_time_months": 24,
       "capacity_state": "constrained",
       "confidence": "medium",
+      "evidence_source": "segment",
       "market_position": "one_of_several",
       "constraint_type": "physical"
     }
@@ -3343,6 +3369,7 @@
       "substitution_lead_time_months": 24,
       "capacity_state": "constrained",
       "confidence": "medium",
+      "evidence_source": "segment",
       "market_position": "one_of_several",
       "constraint_type": "physical"
     }
@@ -3453,6 +3480,7 @@
       "substitution_lead_time_months": 36,
       "capacity_state": "constrained",
       "confidence": "medium",
+      "evidence_source": "company",
       "market_position": "co_leader",
       "constraint_type": "physical"
     }
@@ -3492,6 +3520,7 @@
       "substitution_lead_time_months": 60,
       "capacity_state": "sold_out",
       "confidence": "high",
+      "evidence_source": "company",
       "market_position": "sole",
       "constraint_type": "physical"
     }
@@ -3628,6 +3657,7 @@
       "substitution_lead_time_months": 48,
       "capacity_state": "oversupplied",
       "confidence": "medium",
+      "evidence_source": "company",
       "market_position": "marginal",
       "constraint_type": "physical"
     }
@@ -3667,6 +3697,7 @@
       "substitution_lead_time_months": 24,
       "capacity_state": "balanced",
       "confidence": "high",
+      "evidence_source": "company",
       "market_position": "marginal",
       "constraint_type": "physical"
     }
@@ -3803,6 +3834,7 @@
       "substitution_lead_time_months": 18,
       "capacity_state": "constrained",
       "confidence": "medium",
+      "evidence_source": "segment",
       "market_position": "one_of_several",
       "constraint_type": "physical"
     }
@@ -3939,6 +3971,7 @@
       "substitution_lead_time_months": 18,
       "capacity_state": "sold_out",
       "confidence": "medium",
+      "evidence_source": "company",
       "market_position": "one_of_several",
       "constraint_type": "physical"
     }
@@ -4075,6 +4108,7 @@
       "substitution_lead_time_months": 18,
       "capacity_state": "constrained",
       "confidence": "medium",
+      "evidence_source": "segment",
       "market_position": "one_of_several",
       "constraint_type": "physical"
     }
@@ -4211,6 +4245,7 @@
       "substitution_lead_time_months": 12,
       "capacity_state": "constrained",
       "confidence": "medium",
+      "evidence_source": "segment",
       "market_position": "one_of_several",
       "constraint_type": "physical"
     }
@@ -4334,6 +4369,7 @@
       "substitution_lead_time_months": 12,
       "capacity_state": "constrained",
       "confidence": "medium",
+      "evidence_source": "segment",
       "market_position": "one_of_several",
       "constraint_type": "physical"
     }
@@ -4470,6 +4506,7 @@
       "substitution_lead_time_months": 12,
       "capacity_state": "constrained",
       "confidence": "medium",
+      "evidence_source": "segment",
       "market_position": "one_of_several",
       "constraint_type": "physical"
     }
@@ -4606,6 +4643,7 @@
       "substitution_lead_time_months": 12,
       "capacity_state": "constrained",
       "confidence": "medium",
+      "evidence_source": "segment",
       "market_position": "one_of_several",
       "constraint_type": "physical"
     }
@@ -4742,6 +4780,7 @@
       "substitution_lead_time_months": 12,
       "capacity_state": "constrained",
       "confidence": "medium",
+      "evidence_source": "segment",
       "market_position": "one_of_several",
       "constraint_type": "physical"
     }
@@ -4878,6 +4917,7 @@
       "substitution_lead_time_months": 6,
       "capacity_state": "balanced",
       "confidence": "high",
+      "evidence_source": "segment",
       "market_position": "one_of_several",
       "constraint_type": "physical"
     }
@@ -5014,6 +5054,7 @@
       "substitution_lead_time_months": 6,
       "capacity_state": "balanced",
       "confidence": "high",
+      "evidence_source": "segment",
       "market_position": "one_of_several",
       "constraint_type": "physical"
     }
@@ -5150,6 +5191,7 @@
       "substitution_lead_time_months": 6,
       "capacity_state": "balanced",
       "confidence": "high",
+      "evidence_source": "segment",
       "market_position": "one_of_several",
       "constraint_type": "physical"
     }
@@ -5273,6 +5315,7 @@
       "substitution_lead_time_months": 6,
       "capacity_state": "balanced",
       "confidence": "high",
+      "evidence_source": "segment",
       "market_position": "one_of_several",
       "constraint_type": "physical"
     }
@@ -5409,6 +5452,7 @@
       "substitution_lead_time_months": 6,
       "capacity_state": "balanced",
       "confidence": "high",
+      "evidence_source": "company",
       "market_position": "one_of_several",
       "constraint_type": "physical"
     }
@@ -5513,6 +5557,7 @@
       "substitution_lead_time_months": 6,
       "capacity_state": "balanced",
       "confidence": "high",
+      "evidence_source": "segment",
       "market_position": "one_of_several",
       "constraint_type": "commercial"
     }
@@ -5649,6 +5694,7 @@
       "substitution_lead_time_months": 6,
       "capacity_state": "balanced",
       "confidence": "high",
+      "evidence_source": "segment",
       "market_position": "one_of_several",
       "constraint_type": "commercial"
     }
@@ -5772,6 +5818,7 @@
       "substitution_lead_time_months": 36,
       "capacity_state": "constrained",
       "confidence": "medium",
+      "evidence_source": "company",
       "market_position": "co_leader",
       "constraint_type": "physical"
     }
@@ -5872,6 +5919,7 @@
       "substitution_lead_time_months": 36,
       "capacity_state": "constrained",
       "confidence": "medium",
+      "evidence_source": "segment",
       "market_position": "one_of_several",
       "constraint_type": "physical"
     }
@@ -6011,6 +6059,7 @@
       "substitution_lead_time_months": 18,
       "capacity_state": "constrained",
       "confidence": "medium",
+      "evidence_source": "segment",
       "market_position": "one_of_several",
       "constraint_type": "commercial"
     }
@@ -6150,6 +6199,7 @@
       "substitution_lead_time_months": 18,
       "capacity_state": "constrained",
       "confidence": "medium",
+      "evidence_source": "segment",
       "market_position": "one_of_several",
       "constraint_type": "commercial"
     }
@@ -6276,6 +6326,7 @@
       "substitution_lead_time_months": 18,
       "capacity_state": "constrained",
       "confidence": "medium",
+      "evidence_source": "segment",
       "market_position": "one_of_several",
       "constraint_type": "commercial"
     }
@@ -6414,6 +6465,7 @@
       "substitution_lead_time_months": 18,
       "capacity_state": "constrained",
       "confidence": "medium",
+      "evidence_source": "segment",
       "market_position": "one_of_several",
       "constraint_type": "commercial"
     }
@@ -6539,6 +6591,7 @@
       "substitution_lead_time_months": 18,
       "capacity_state": "constrained",
       "confidence": "medium",
+      "evidence_source": "segment",
       "market_position": "one_of_several",
       "constraint_type": "commercial"
     }
@@ -6613,6 +6666,7 @@
       "substitution_lead_time_months": 18,
       "capacity_state": "constrained",
       "confidence": "medium",
+      "evidence_source": "segment",
       "market_position": "one_of_several",
       "constraint_type": "commercial"
     }
@@ -6687,6 +6741,7 @@
       "substitution_lead_time_months": 18,
       "capacity_state": "constrained",
       "confidence": "medium",
+      "evidence_source": "segment",
       "market_position": "one_of_several",
       "constraint_type": "commercial"
     }
@@ -6760,6 +6815,7 @@
       "substitution_lead_time_months": 18,
       "capacity_state": "constrained",
       "confidence": "medium",
+      "evidence_source": "segment",
       "market_position": "one_of_several",
       "constraint_type": "commercial"
     }
@@ -6896,6 +6952,7 @@
       "substitution_lead_time_months": 12,
       "capacity_state": "balanced",
       "confidence": "high",
+      "evidence_source": "segment",
       "market_position": "one_of_several",
       "constraint_type": "commercial"
     }
@@ -7032,6 +7089,7 @@
       "substitution_lead_time_months": 12,
       "capacity_state": "balanced",
       "confidence": "high",
+      "evidence_source": "segment",
       "market_position": "one_of_several",
       "constraint_type": "commercial"
     }
@@ -7168,6 +7226,7 @@
       "substitution_lead_time_months": 12,
       "capacity_state": "balanced",
       "confidence": "high",
+      "evidence_source": "segment",
       "market_position": "one_of_several",
       "constraint_type": "commercial"
     }
@@ -7242,6 +7301,7 @@
       "substitution_lead_time_months": 12,
       "capacity_state": "balanced",
       "confidence": "high",
+      "evidence_source": "segment",
       "market_position": "one_of_several",
       "constraint_type": "commercial"
     }
@@ -7378,6 +7438,7 @@
       "substitution_lead_time_months": 24,
       "capacity_state": "constrained",
       "confidence": "low",
+      "evidence_source": "company",
       "market_position": "one_of_several",
       "constraint_type": "commercial"
     }
@@ -7417,6 +7478,7 @@
       "substitution_lead_time_months": 60,
       "capacity_state": "balanced",
       "confidence": "medium",
+      "evidence_source": "company",
       "market_position": "co_leader",
       "constraint_type": "commercial"
     }
@@ -7456,6 +7518,7 @@
       "substitution_lead_time_months": 60,
       "capacity_state": "balanced",
       "confidence": "medium",
+      "evidence_source": "company",
       "market_position": "co_leader",
       "constraint_type": "commercial"
     }
@@ -7571,6 +7634,7 @@
       "substitution_lead_time_months": 12,
       "capacity_state": "balanced",
       "confidence": "medium",
+      "evidence_source": "segment",
       "market_position": "one_of_several",
       "constraint_type": "commercial"
     }
@@ -7696,6 +7760,7 @@
       "substitution_lead_time_months": 12,
       "capacity_state": "balanced",
       "confidence": "medium",
+      "evidence_source": "segment",
       "market_position": "one_of_several",
       "constraint_type": "commercial"
     }
@@ -7834,6 +7899,7 @@
       "substitution_lead_time_months": 12,
       "capacity_state": "balanced",
       "confidence": "medium",
+      "evidence_source": "segment",
       "market_position": "one_of_several",
       "constraint_type": "commercial"
     }
@@ -7972,6 +8038,7 @@
       "substitution_lead_time_months": 12,
       "capacity_state": "balanced",
       "confidence": "medium",
+      "evidence_source": "segment",
       "market_position": "one_of_several",
       "constraint_type": "commercial"
     }
@@ -8111,6 +8178,7 @@
       "substitution_lead_time_months": 12,
       "capacity_state": "balanced",
       "confidence": "medium",
+      "evidence_source": "segment",
       "market_position": "one_of_several",
       "constraint_type": "commercial"
     }
@@ -8249,6 +8317,7 @@
       "substitution_lead_time_months": 12,
       "capacity_state": "balanced",
       "confidence": "medium",
+      "evidence_source": "segment",
       "market_position": "one_of_several",
       "constraint_type": "commercial"
     }
@@ -8387,6 +8456,7 @@
       "substitution_lead_time_months": 12,
       "capacity_state": "balanced",
       "confidence": "medium",
+      "evidence_source": "segment",
       "market_position": "one_of_several",
       "constraint_type": "commercial"
     }
@@ -8526,6 +8596,7 @@
       "substitution_lead_time_months": 12,
       "capacity_state": "balanced",
       "confidence": "medium",
+      "evidence_source": "segment",
       "market_position": "one_of_several",
       "constraint_type": "commercial"
     }
@@ -8602,6 +8673,7 @@
       "substitution_lead_time_months": 12,
       "capacity_state": "balanced",
       "confidence": "medium",
+      "evidence_source": "segment",
       "market_position": "one_of_several",
       "constraint_type": "commercial"
     }
@@ -8708,6 +8780,7 @@
       "substitution_lead_time_months": 24,
       "capacity_state": "balanced",
       "confidence": "low",
+      "evidence_source": "segment",
       "market_position": "one_of_several",
       "constraint_type": "commercial"
     }
@@ -8823,6 +8896,7 @@
       "substitution_lead_time_months": 24,
       "capacity_state": "balanced",
       "confidence": "low",
+      "evidence_source": "segment",
       "market_position": "one_of_several",
       "constraint_type": "commercial"
     }
@@ -8961,6 +9035,7 @@
       "substitution_lead_time_months": 24,
       "capacity_state": "balanced",
       "confidence": "low",
+      "evidence_source": "segment",
       "market_position": "one_of_several",
       "constraint_type": "commercial"
     }
@@ -9100,6 +9175,7 @@
       "substitution_lead_time_months": 36,
       "capacity_state": "balanced",
       "confidence": "low",
+      "evidence_source": "segment",
       "market_position": "one_of_several",
       "constraint_type": "commercial"
     }
@@ -9240,6 +9316,7 @@
       "substitution_lead_time_months": 36,
       "capacity_state": "balanced",
       "confidence": "low",
+      "evidence_source": "segment",
       "market_position": "one_of_several",
       "constraint_type": "commercial"
     }
@@ -9355,6 +9432,7 @@
       "substitution_lead_time_months": 36,
       "capacity_state": "balanced",
       "confidence": "low",
+      "evidence_source": "segment",
       "market_position": "one_of_several",
       "constraint_type": "commercial"
     }
@@ -9431,6 +9509,7 @@
       "substitution_lead_time_months": 12,
       "capacity_state": "balanced",
       "confidence": "medium",
+      "evidence_source": "segment",
       "market_position": "one_of_several",
       "constraint_type": "commercial"
     }
@@ -9505,6 +9584,7 @@
       "substitution_lead_time_months": 18,
       "capacity_state": "constrained",
       "confidence": "medium",
+      "evidence_source": "segment",
       "market_position": "one_of_several",
       "constraint_type": "commercial"
     }
@@ -9581,6 +9661,7 @@
       "substitution_lead_time_months": 12,
       "capacity_state": "balanced",
       "confidence": "medium",
+      "evidence_source": "segment",
       "market_position": "one_of_several",
       "constraint_type": "commercial"
     }
@@ -9657,6 +9738,7 @@
       "substitution_lead_time_months": 24,
       "capacity_state": "balanced",
       "confidence": "low",
+      "evidence_source": "segment",
       "market_position": "one_of_several",
       "constraint_type": "commercial"
     }
@@ -9733,6 +9815,7 @@
       "substitution_lead_time_months": 12,
       "capacity_state": "balanced",
       "confidence": "high",
+      "evidence_source": "segment",
       "market_position": "one_of_several",
       "constraint_type": "commercial"
     }
@@ -9807,6 +9890,7 @@
       "substitution_lead_time_months": 24,
       "capacity_state": "constrained",
       "confidence": "low",
+      "evidence_source": "segment",
       "market_position": "one_of_several",
       "constraint_type": "commercial"
     }
@@ -9882,6 +9966,7 @@
       "substitution_lead_time_months": 6,
       "capacity_state": "balanced",
       "confidence": "high",
+      "evidence_source": "segment",
       "market_position": "one_of_several",
       "constraint_type": "commercial"
     }
@@ -9956,6 +10041,7 @@
       "substitution_lead_time_months": 24,
       "capacity_state": "constrained",
       "confidence": "high",
+      "evidence_source": "segment",
       "market_position": "one_of_several",
       "constraint_type": "physical"
     }
@@ -10030,6 +10116,7 @@
       "substitution_lead_time_months": 24,
       "capacity_state": "constrained",
       "confidence": "high",
+      "evidence_source": "segment",
       "market_position": "one_of_several",
       "constraint_type": "physical"
     }
@@ -10107,6 +10194,7 @@
       "substitution_lead_time_months": 36,
       "capacity_state": "balanced",
       "confidence": "low",
+      "evidence_source": "segment",
       "market_position": "one_of_several",
       "constraint_type": "commercial"
     }
@@ -10184,6 +10272,7 @@
       "substitution_lead_time_months": 36,
       "capacity_state": "balanced",
       "confidence": "low",
+      "evidence_source": "segment",
       "market_position": "one_of_several",
       "constraint_type": "commercial"
     }
@@ -10261,6 +10350,7 @@
       "substitution_lead_time_months": 36,
       "capacity_state": "balanced",
       "confidence": "low",
+      "evidence_source": "segment",
       "market_position": "one_of_several",
       "constraint_type": "commercial"
     }
@@ -10337,6 +10427,7 @@
       "substitution_lead_time_months": 36,
       "capacity_state": "constrained",
       "confidence": "low",
+      "evidence_source": "company",
       "market_position": "one_of_several",
       "constraint_type": "commercial"
     }
@@ -10413,6 +10504,7 @@
       "substitution_lead_time_months": 36,
       "capacity_state": "balanced",
       "confidence": "low",
+      "evidence_source": "company",
       "market_position": "dominant",
       "constraint_type": "commercial"
     }
@@ -10487,6 +10579,7 @@
       "substitution_lead_time_months": 6,
       "capacity_state": "balanced",
       "confidence": "high",
+      "evidence_source": "segment",
       "market_position": "one_of_several",
       "constraint_type": "commercial"
     }

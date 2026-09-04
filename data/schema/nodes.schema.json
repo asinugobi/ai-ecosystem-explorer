@@ -323,6 +323,18 @@
                 null
               ],
               "description": "Physical constraints (fab capacity, transformer lead times) cannot be paid around on any timescale. Commercial ones (switching costs, exclusive corpora) can be, expensively. Thomson Reuters scoring level with ASML was the tell that these were being conflated."
+            },
+            "evidence_source": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "enum": [
+                "company",
+                "segment",
+                null
+              ],
+              "description": "Whether the evidence fields were authored for THIS company or inherited from its segment default. 66 of 93 inherit, so a chart that draws 93 independent marks overstates the evidence \u2014 inherited marks are replications of one judgment, not separate observations."
             }
           }
         },

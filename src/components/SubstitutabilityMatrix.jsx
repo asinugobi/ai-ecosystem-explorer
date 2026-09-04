@@ -67,6 +67,7 @@ export default function SubstitutabilityMatrix({ nodes, taxonomy, selected, onSe
           <span><i style={{ background: P.ink2 }} />moderate</span>
           <span><i style={{ background: P.ink3 }} />no constraint</span>
           <span className="lg-sep"><i className="ring" style={{ borderColor: P.ink3 }} />low confidence</span>
+          <span><i className="dash" style={{ borderColor: P.ink3 }} />cell inherits a segment default</span>
         </div>
       </header>
 
@@ -116,7 +117,7 @@ export default function SubstitutabilityMatrix({ nodes, taxonomy, selected, onSe
                 const cx = x(c.suppliers), cy = y(c.lead)
                 const cols = Math.ceil(Math.sqrt(c.count))
                 const rows = Math.ceil(c.count / cols)
-                const r = Math.max(2.6, Math.min(5.2, (Math.min(cw, ch) * 0.72) / (cols * 2.1)))
+                const r = Math.max(3.5, Math.min(5.4, (Math.min(cw, ch) * 0.72) / (cols * 2.1)))
                 const gap = r * 2.5
                 const isActive = active === c.key
                 const dimmed = active && !isActive
@@ -127,7 +128,11 @@ export default function SubstitutabilityMatrix({ nodes, taxonomy, selected, onSe
                      style={{ cursor: 'pointer' }}>
                     <rect x={cx - cw / 2} y={cy - ch / 2} width={cw} height={ch} rx={5}
                           fill={isActive ? P.surface3 ?? P.grid : 'transparent'}
-                          stroke={isActive ? critColor(c.maxCriticality) : 'transparent'} strokeWidth={1.4} />
+                          stroke={isActive ? critColor(c.maxCriticality)
+                                  : c.allInherited && c.count > 2 ? P.ink3 : 'transparent'}
+                          strokeWidth={isActive ? 1.4 : 1}
+                          strokeDasharray={!isActive && c.allInherited ? '2 3' : undefined}
+                          strokeOpacity={isActive ? 1 : 0.3} />
                     {c.members.map((n, i) => {
                       const col = i % cols, row = Math.floor(i / cols)
                       const dx = cx + (col - (cols - 1) / 2) * gap
@@ -187,7 +192,9 @@ function QuadSummary({ quads, P }) {
         replace.
       </p>
       <p className="mx-note">
-        Hover a cell for its members. Every company has a dot, so the density you see is real.
+        Hover a cell for its members. Every company has a dot, so the density you see is real —
+        but <strong>only 27 of 93 were rated individually</strong>. The other 66 inherit their
+        segment's evidence, so dashed cells are one judgment repeated, not independent readings.
       </p>
       {quads.map((q) => (
         <div key={q.id} className="quad">
@@ -217,6 +224,17 @@ function CellDetail({ cell, P, critColor, selected, onSelect }) {
           ? ` — ${cell.physical} facing a physical constraint, ${cell.count - cell.physical} a commercial one.`
           : cell.physical === cell.count ? ' — all physical constraints.' : ' — all commercial constraints.'}
       </p>
+      {cell.allInherited && cell.count > 1 && (
+        <p className="mx-caveat prov">
+          All {cell.count} inherit the {cell.segments.join(' / ')} segment default — this is one
+          judgment applied {cell.count} times, not {cell.count} separate measurements.
+        </p>
+      )}
+      {!cell.allInherited && cell.ownEvidence < cell.count && (
+        <p className="mx-caveat prov">
+          {cell.ownEvidence} of {cell.count} were rated individually; the rest inherit a segment default.
+        </p>
+      )}
       <div className="cell-list">
         {cell.members.map((n) => {
           const b = bn(n)

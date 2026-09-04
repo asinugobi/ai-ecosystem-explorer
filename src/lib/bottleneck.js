@@ -62,6 +62,12 @@ export function cells(nodes) {
       // A cell is only as trustworthy as its weakest evidence.
       anyLowConfidence: members.some((n) => bn(n).confidence === 'low'),
       physical: members.filter((n) => bn(n).constraint_type === 'physical').length,
+      // 66 of 93 companies inherit their segment's evidence. A cell whose members
+      // all inherit is ONE judgment drawn N times, not N measurements — the marks
+      // are replications, and a chart that hides that overstates its own evidence.
+      ownEvidence: members.filter((n) => bn(n).evidence_source === 'company').length,
+      allInherited: members.every((n) => bn(n).evidence_source === 'segment'),
+      segments: [...new Set(members.map((n) => n.segment))],
       worstCapacity: CAPACITY_ORDER.find((c) => members.some((n) => bn(n).capacity_state === c)) ?? null,
     }
   })

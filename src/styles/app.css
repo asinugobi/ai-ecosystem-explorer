@@ -347,3 +347,6 @@ main { display: flex; flex: 1; min-height: 0; }
 .cr-name i { font-style: normal; font-family: var(--mono); font-size: 8.5px; color: var(--ink-3); }
 .cr-pos, .cr-cap { font-size: 9.5px; color: var(--ink-3); }
 .cr-crit { font-family: var(--mono); font-size: 12px; font-weight: 600; text-align: right; }
+.mx-legend i.dash { background: none; border: 1.2px dashed; border-radius: 2px; width: 11px; height: 9px; }
+.mx-caveat.prov { border-left: 2px solid var(--ink-3); padding-left: 8px; font-style: normal;
+  margin: 10px 0 4px; color: var(--ink-2); }

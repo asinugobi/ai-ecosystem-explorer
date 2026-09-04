@@ -77,7 +77,9 @@ function answersFor(seg, members, st, worst, capState, growth) {
 
   return {
     what: seg.supplies,
-    who: `${members.length} ${members.length === 1 ? 'company' : 'companies'} · ${fmtB(st.revenue)} combined${top.length ? ` · ${top.join(', ')}${members.length > 3 ? '…' : ''}` : ''}`,
+    who: `${members.length} ${members.length === 1 ? 'company' : 'companies'} · ${fmtB(st.revenue)} across the ${st.revenueCovered} with a reported figure` +
+         (st.revenueMissing ? ` (${st.revenueMissing} unpriced)` : '') +
+         (top.length ? ` · ${top.join(', ')}${members.length > 3 ? '…' : ''}` : ''),
     earns,
     changing,
     constraint,

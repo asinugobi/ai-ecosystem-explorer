@@ -69,6 +69,7 @@ def main():
             "substitution_lead_time_months": ev["substitution_lead_time_months"],
             "capacity_state": ev["capacity_state"],
             "confidence": ev.get("confidence"),
+            "evidence_source": "company" if overrides.get(n["id"]) else "segment",
             "market_position": ev.get("market_position"),
             "constraint_type": ev.get("constraint_type"),
         }

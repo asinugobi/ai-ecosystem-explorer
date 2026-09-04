@@ -138,6 +138,13 @@ export function segmentStats(nodes) {
   }
   return {
     count: nodes.length, revenue: total,
+    // A total summed over present-only members, labelled with the full member
+    // count, understates silently. data_rights read "4 companies · $4.6B"
+    // while summing 2 — Thomson Reuters and RELX have no figure at all.
+    revenueCovered: rev.length,
+    revenueMissing: nodes.length - rev.length,
+    // 16 distinct quarter windows are being summed. Not wrong, but not one period.
+    periodCount: new Set(nodes.map((n) => n.revenue_total?.reported_period).filter(Boolean)).size,
     medianGross: gm.length ? d3.median(gm) : null,
     medianOperating: om.length ? d3.median(om) : null,
     weightedOperating: wsum('operating_margin_pct'),
