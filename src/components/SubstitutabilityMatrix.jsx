@@ -1,7 +1,7 @@
 import { useMemo, useState, useRef, useEffect } from 'react'
 import * as d3 from 'd3'
 import { cells, quadrantStats, bn, SUPPLIER_TICKS, LEAD_TICKS, CAPACITY_LABEL, POSITION_LABEL,
-         permittedAt, scoreParts } from '../lib/bottleneck.js'
+         permittedAt, scoreParts, ceilingAt, CEILING_THRESHOLD } from '../lib/bottleneck.js'
 import { PALETTE, fmtUSD, fmtPct, val } from '../lib/scales.js'
 
 /**
@@ -111,7 +111,27 @@ export default function SubstitutabilityMatrix({ nodes, taxonomy, selected, onSe
                 )
               }))}
 
+              {/* THE CEILING. Right of this line the model cannot produce a
+                  bottleneck at any capacity, position or constraint type — 49 of
+                  93 companies sit there. Verified: columns 1-3 qualify at every
+                  lead time, 4-5 only at >=12 months, 6+ never. */}
+              {(() => {
+                const xb = (a, b) => (x(a) + x(b)) / 2
+                const yb = (a, b) => (y(a) + y(b)) / 2
+                const d = `M ${xb(5, 6)},${y(120) - ch / 2} V ${yb(12, 9)} H ${xb(3, 4)} V ${ih + ch / 2}`
+                return (
+                  <g>
+                    <path d={d} fill="none" stroke={P.compute} strokeWidth={1.6} strokeOpacity={0.75} />
+                    <text x={xb(5, 6) + 7} y={y(120) - ch / 2 + 12} className="mx-cornersub"
+                          fill={P.compute} opacity={0.85}>the model&rsquo;s ceiling →</text>
+                    <text x={xb(5, 6) + 7} y={y(120) - ch / 2 + 24} className="mx-cornersub"
+                          fill={P.ink3} opacity={0.7}>49 companies here cannot score 3.5</text>
+                  </g>
+                )
+              })()}
+
               {/* ordinal gridlines */}
+
               {SUPPLIER_TICKS.map((s) => (
                 <line key={`v${s}`} x1={x(s)} x2={x(s)} y1={-ch / 2} y2={ih + ch / 2}
                       stroke={P.grid} strokeWidth={1} strokeOpacity={0.5} />
@@ -239,6 +259,16 @@ function Ledger({ node, P, critColor, onBack }) {
              val={`× ${p.pMult.toFixed(2)}`} note="share of the constraint" />
         <Row label={b.constraint_type === 'commercial' ? 'Commercial constraint' : 'Physical constraint'}
              val={`× ${p.cMult.toFixed(2)}`} note={b.constraint_type === 'commercial' ? 'can be paid around' : 'cannot be paid around'} />
+        {!p.clamped && <div className="ldg-sub"><span>product</span><b>{p.product}</b></div>}
+        {p.clamped && (
+          <div className="ldg-row ldg-clamp">
+            <span>{p.product} {p.clamped === 'ceiling' ? 'exceeds the 5.0 ceiling' : 'falls below the 1.0 floor'}</span>
+            <b>clamped</b>
+            <em>{p.clamped === 'ceiling'
+              ? 'The scale tops out, so this reads 5.0 — the model rates it further above the bar than the number can show.'
+              : 'The scale bottoms out. This is censored at the floor, not measured at it — 21 of the 26 companies showing 1.0 are in this position.'}</em>
+          </div>
+        )}
         <div className="ldg-total"><span>criticality</span><b style={{ color: critColor(p.final) }}>{p.final}</b></div>
       </div>
       <p className="mx-note">{b.rationale}</p>

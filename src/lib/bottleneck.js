@@ -112,11 +112,26 @@ export function scoreParts(suppliers, lead, capacity, position, constraint) {
   const raw = base + leadAdj + capAdj
   const pMult = POSITION_MULT[position] ?? 0.62
   const cMult = CONSTRAINT_MULT[constraint] ?? 1.0
+  const product = raw * pMult * cMult
+  const final = Math.round(Math.max(1, Math.min(5, product)) * 10) / 10
   return {
     base, leadAdj, capAdj, subtotal: raw, pMult, cMult,
-    final: Math.round(Math.max(1, Math.min(5, raw * pMult * cMult)) * 10) / 10,
+    product: Math.round(product * 100) / 100,
+    // The clamp fires 23 times and was previously invisible, so the audit
+    // ledger failed to add up on ASML — the first company anyone clicks.
+    // 21 of the 26 companies displaying 1.0 are censored by the floor, not
+    // measured at it.
+    clamped: product > 5.0001 ? 'ceiling' : product < 0.9999 ? 'floor' : null,
+    final,
   }
 }
+
+/** The best score the model can produce at a coordinate, whatever the company.
+ *  Columns 6+ can never reach 3.5, so 49 of 93 companies sit where a bottleneck
+ *  is mathematically impossible — a checkable structural fact, not a judgment. */
+export const ceilingAt = (suppliers, lead) =>
+  scoreParts(suppliers, lead, 'sold_out', 'sole', 'physical').final
+export const CEILING_THRESHOLD = 3.5
 
 /** What the model permits at a coordinate, holding capacity/position neutral. */
 export const permittedAt = (suppliers, lead) =>
