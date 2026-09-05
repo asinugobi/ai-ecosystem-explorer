@@ -4,6 +4,7 @@ import IntelligencePanel from './components/IntelligencePanel.jsx'
 import { financingCycles } from './lib/flow.js'
 import SubstitutabilityMatrix from './components/SubstitutabilityMatrix.jsx'
 import SegmentRail from './components/SegmentRail.jsx'
+import CompanySearch from './components/CompanySearch.jsx'
 import { PALETTE, GROUP_LABEL, fmtUSD, val } from './lib/scales.js'
 import nodesData from '../data/seed/nodes.json'
 import linksData from '../data/seed/links.json'
@@ -66,16 +67,19 @@ export default function App() {
         </button>
       </header>
 
-      <nav className="views" role="tablist" aria-label="Views">
-        {[['map', 'Stack map', 'Where each company sits, and what connects to what'],
-          ['matrix', 'Substitutability', 'Why the chokepoints are chokepoints'],
-          ['segments', 'Layers & segments', 'What each of the 24 comp sets actually is']].map(([k, label, hint]) => (
-          <button key={k} role="tab" aria-selected={view === k}
-                  className={view === k ? 'on' : ''} onClick={() => setView(k)}>
-            {label}<em>{hint}</em>
-          </button>
-        ))}
-      </nav>
+      <div className="viewbar">
+        <nav className="views" role="tablist" aria-label="Views">
+          {[['map', 'Stack map', 'Where each company sits, and what connects to what'],
+            ['segments', 'Layers & segments', 'What each of the 24 comp sets actually is'],
+            ['matrix', 'Substitutability', 'Why the chokepoints are chokepoints']].map(([k, label, hint]) => (
+            <button key={k} role="tab" aria-selected={view === k}
+                    className={view === k ? 'on' : ''} onClick={() => setView(k)}>
+              {label}<em>{hint}</em>
+            </button>
+          ))}
+        </nav>
+        <CompanySearch nodes={nodes} taxonomy={taxonomy} onSelect={setSelected} />
+      </div>
 
       <div className="controls" hidden={view !== 'map'}>
         <div className="ctl">

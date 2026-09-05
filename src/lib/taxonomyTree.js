@@ -47,7 +47,7 @@ export function buildTree(nodes, taxonomy) {
       maxCriticality: d3.max(segs, (s) => s.maxCriticality ?? 0) || null,
       bottleneckCount: members.filter((n) => bn(n).is_bottleneck).length,
     }
-  }).sort((a, b) => b.layer - a.layer)   // 11 at top, 1 at bottom — same as the map
+  }).sort((a, b) => a.layer - b.layer)   // 01 at top, 11 at bottom — read down the dependency chain
 
   return { layers, segments }
 }

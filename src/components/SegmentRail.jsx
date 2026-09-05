@@ -6,9 +6,11 @@ import { bn, CAPACITY_LABEL, POSITION_LABEL } from '../lib/bottleneck.js'
 /**
  * The stack, read as strata.
  *
- * 11 layers ordered exactly as the map orders them — 11 at the top, 1 at the
- * bottom — so the two views share one spatial model and a reader never has to
- * re-learn where anything is.
+ * 11 layers in ascending order — 01 at the top, 11 at the bottom — so the list
+ * reads down the dependency chain in the same direction as its numbering. The
+ * map stacks the same layers bottom-up against a physical vertical axis; here
+ * the ordinal is the axis, and a numbered list that counts downward is the
+ * thing readers actually stumble over.
  *
  * Progressive disclosure is enforced structurally: one layer open, and within
  * it one segment. There is no state in which four levels are visible at once,
@@ -20,6 +22,16 @@ export default function SegmentRail({ nodes, taxonomy, selected, onSelect, theme
   const P = PALETTE[theme]
   const tree = useMemo(() => buildTree(nodes, taxonomy), [nodes, taxonomy])
   const maxRev = useMemo(() => Math.max(...tree.layers.map((l) => l.revenue)), [tree])
+
+  /* A search hit is useless if it lands behind a collapsed layer, so a
+     selection made elsewhere opens its way down to the row it names. */
+  useEffect(() => {
+    if (!selected) return
+    const n = nodes.find((x) => x.id === selected)
+    if (!n) return
+    setOpenLayer(n.layer)
+    setOpenSeg(n.segment)
+  }, [selected, nodes])
 
   // Low values previously used P.grid, which is the track colour — the fill
   // vanished and every low-criticality company looked like it had no rating.
@@ -36,8 +48,8 @@ export default function SegmentRail({ nodes, taxonomy, selected, onSelect, theme
       <header className="rail-head">
         <h2>The stack, layer by layer</h2>
         <p>
-          Eleven layers, twenty-four segments. Ordered by physical dependency — megawatts at the
-          bottom, applications at the top — so a constraint anywhere caps everything above it.
+          Eleven layers, twenty-four segments. Ordered by physical dependency — megawatts first,
+          applications last — so a constraint anywhere caps everything further down the list.
           <strong> Open a layer, then a segment.</strong>
         </p>
       </header>

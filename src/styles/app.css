@@ -192,8 +192,14 @@ main { display: flex; flex: 1; min-height: 0; }
 .tt-derived { font-family: var(--mono); font-size: 9.5px; color: var(--ink-3); margin: -4px 0 7px; }
 
 /* view tabs — the primary navigation. One question per view. */
-.views { display: flex; gap: 0; padding: 0 20px; border-bottom: 1px solid var(--grid);
-         background: var(--surface); }
+.viewbar { display: flex; align-items: stretch; gap: 20px; padding-right: 20px;
+           border-bottom: 1px solid var(--grid); background: var(--surface); }
+/* The tabs give way before the search does — a squeezed search box is useless,
+   whereas the tabs stay reachable by scrolling. */
+.views { display: flex; gap: 0; padding: 0 20px; background: var(--surface);
+         min-width: 0; overflow-x: auto; scrollbar-width: none; }
+.views::-webkit-scrollbar { display: none; }
+.views button { flex-shrink: 0; }
 .views button { background: none; border: none; border-bottom: 2px solid transparent;
                 color: var(--ink-3); padding: 9px 16px 8px; cursor: pointer; font-family: inherit;
                 display: flex; flex-direction: column; gap: 1px; text-align: left; font-size: 12.5px;
@@ -202,6 +208,41 @@ main { display: flex; flex: 1; min-height: 0; }
 .views button:hover { color: var(--ink-2); }
 .views button.on { color: var(--ink); border-bottom-color: var(--capital); font-weight: 560; }
 .views button.on em { color: var(--ink-3); opacity: 1; }
+
+/* ---- company search ---- */
+.search { position: relative; margin-left: auto; align-self: center;
+          flex: 0 0 268px; max-width: 268px; }
+.search input { width: 100%; background: var(--surface-2); border: 1px solid var(--grid);
+  border-radius: 5px; color: var(--ink); font-family: inherit; font-size: 11.5px;
+  padding: 6px 26px 6px 26px; transition: border-color .12s, background .12s; }
+.search input::placeholder { color: var(--ink-3); }
+.search input:focus { outline: none; border-color: var(--capital); background: var(--surface); }
+.search input::-webkit-search-cancel-button { -webkit-appearance: none; appearance: none; }
+.search-icon { position: absolute; left: 8px; top: 50%; transform: translateY(-52%);
+  color: var(--ink-3); font-size: 14px; pointer-events: none; }
+.search-kbd { position: absolute; right: 7px; top: 50%; transform: translateY(-50%);
+  font-family: var(--mono); font-size: 9.5px; color: var(--ink-3); border: 1px solid var(--grid);
+  border-radius: 3px; padding: 0 4px; pointer-events: none; }
+
+.search-results { position: absolute; z-index: 40; top: calc(100% + 5px); left: 0; right: 0;
+  margin: 0; padding: 4px; list-style: none; max-height: 340px; overflow-y: auto;
+  background: var(--surface-2); border: 1px solid var(--grid); border-radius: 7px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.32); }
+.search-results button { width: 100%; display: grid; align-items: center; gap: 4px 10px;
+  grid-template-columns: 1fr auto; background: none; border: none; border-radius: 5px;
+  color: inherit; font-family: inherit; cursor: pointer; padding: 6px 8px; text-align: left; }
+.search-results button.on { background: var(--surface-3); }
+.sr-name { display: flex; align-items: baseline; gap: 7px; font-size: 12px; font-weight: 540;
+  min-width: 0; }
+.sr-name .tk { font-style: normal; font-family: var(--mono); font-size: 9px; color: var(--ink-3);
+  border: 1px solid var(--grid); border-radius: 3px; padding: 0 4px; flex-shrink: 0; }
+.sr-name .tk.priv { color: var(--commercial); border-color: var(--commercial); }
+/* Placement is by DOM order alone. A definite `grid-row` here would be resolved
+   before the auto-placed name and would seize column 1, swapping the two. */
+.sr-rev { font-family: var(--mono); font-size: 11px; color: var(--ink-2); text-align: right; }
+.sr-where { grid-column: 1 / -1; font-size: 10px; color: var(--ink-3);
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.search-none { padding: 8px; font-size: 11px; color: var(--ink-3); }
 
 /* ─────────── SEGMENT RAIL — the stack read as strata ─────────── */
 .rail { flex: 1; overflow-y: auto; padding: 0 0 60px; background: var(--surface); }
@@ -273,7 +314,10 @@ main { display: flex; flex: 1; min-height: 0; }
 .mem-head { font-size: 9px; text-transform: uppercase; letter-spacing: .07em; color: var(--ink-3);
   border-bottom: 1px solid var(--grid); }
 .mem-head span:not(:first-child) { text-align: right; }
-.mem { background: none; border: none; border-bottom: 1px solid var(--grid); color: inherit;
+/* width:100% is load-bearing: a <button> shrink-wraps, so without it the rows
+   sized to content while the <div> header stretched, and every column heading
+   floated off to the right of the values it labelled. */
+.mem { width: 100%; background: none; border: none; border-bottom: 1px solid var(--grid); color: inherit;
   font-family: inherit; cursor: pointer; text-align: left; font-size: 11.5px; }
 .mem:hover { background: var(--surface-3); }
 .mem.on { background: color-mix(in srgb, var(--capital) 14%, transparent); }
