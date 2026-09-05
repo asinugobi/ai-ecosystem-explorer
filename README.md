@@ -160,3 +160,11 @@ The analytical framing throughout — bull and bear cases, moat strength scores,
 Figures marked `is_estimate: false` come from SEC EDGAR XBRL and carry an accession number you can open and check. Margins are computed only across matching reporting periods, and the pipeline rejects any value lacking a resolving citation. That is the part worth reusing; treat the rest as a hypothesis-generation tool.
 
 Company names, tickers and trademarks belong to their respective owners. This project is not affiliated with, endorsed by, or connected to Hudson Labs, any company mapped here, or any data provider.
+
+## License
+
+[MIT](LICENSE) © 2026 Obi Asinugo.
+
+The licence covers the code in this repository. The figures under `data/` come from SEC EDGAR
+filings and press coverage — see [Data provenance](#data-provenance) for what each one is and
+where it came from, and the disclaimer above for what not to rely on.
